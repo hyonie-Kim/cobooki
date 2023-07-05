@@ -1,0 +1,126 @@
+header {
+  background-color: aqua;
+  width: 1730px;
+  height: 190px;
+}
+
+footer {
+  background-color: blueviolet;
+  width: 1730px;
+  height: 140px;
+}
+
+main {
+  background-color: blanchedalmond;
+  width: 1730px;
+  height: 2310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.notice-banner {
+  background-color: whitesmoke;
+  width: 1730px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.notice-banner__content {
+  display: flex;
+}
+
+.notice-banner__arrow__left {
+  position: absolute;
+  left: 30px;
+}
+.notice-banner__arrow__right {
+  position: absolute;
+  right: 30px;
+}
+
+.latest-books {
+  background-color: yellow;
+  width: 1730px;
+  height: 1910px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.latest-books__content {
+  background-color: brown;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 1480px;
+  height: 1800px;
+}
+
+.books {
+  display: flex;
+  width: 100%;
+  height: 90%;
+  background-color: green;
+  display: grid;
+  grid-template-rows: repeat(2, 800px);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 20px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.books .book {
+  background-color: azure;
+  width: 400px;
+  height: 700px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 20px;
+  border: 1px solid black;
+  position: relative;
+}
+
+.book .book__category {
+  position: absolute;
+  left: 0px;
+  top: -30px;
+}
+
+.book .book__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+}
+
+.book .book__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  height: 40%;
+}
+
+.navi-dot {
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navi-dot img {
+  margin: 0 10px;
+}
