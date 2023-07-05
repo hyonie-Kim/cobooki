@@ -11,21 +11,23 @@
     <!-- 헤더 -->
 
     <!-- 로그인 폼(Form) -->
-    <form class="login" action="/login" method="post">
+    <form class="loginForm" action="/login" method="post">
         <h2>로그인</h2>
-        <div class="login_id">
-            <h4><span class="material-symbols-outlined">face</span>아이디</h4>
-            <input type="text" name="id" id="id" placeholder="이메일 주소를 입력하세요.">
+        <h6></h6>
+        <h5>로그인을 하시면 더욱 편리하게 이용하실 수 있습니다.</h5>
+        <div class="login-id">
+            <span class="material-symbols-outlined">face</span>
+            <input type="text" class="id" name="user_id" id="id" placeholder="이메일 주소를 입력하세요.">
         </div>
-        <div class="login_pw">
-            <h4><span class="material-symbols-outlined">lock</span>비밀번호</h4>
-            <input type="password" name="pw" id="pw" placeholder="비밀번호를 입력하세요.">
+        <div class="login-pw">
+            <span class="material-symbols-outlined">lock</span>
+            <input type="password" class="pw" name="user_pw" id="pw" placeholder="비밀번호를 입력하세요.">
         </div>
-        <br /><br />
-        <button class="login" id="submitButton">
+
+        <button class="login-btn" id="submitButton">
           로그인
         </button>
-        <button class="signup" id="signupButton">
+        <button class="signup-btn" id="signupButton">
           회원가입
         </button>
     </form>
