@@ -26,6 +26,9 @@ app.post("/test2", (req, res) => {
   console.log(req.body);
   res.send("결과는?");
 });
+app.get("/signIn", (req, res) => {
+  res.render("signIn");
+});
 
 app.all("*", (req, res) => {
   res.status(404).send("찾을 수 없는 페이지 입니다.");
