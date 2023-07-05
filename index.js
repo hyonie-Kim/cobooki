@@ -1,13 +1,15 @@
+const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 const port = 3000;
 const path = require("path");
 
+app.use(express.static("../front-end/public"));
+app.use(express.urlencoded({ extended: false }));
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../front-end/views"));
 
-// app.use(express.static("../front-end/views"));
-app.use(express.urlencoded({ extended: false }));
 // app.use(express.json());
 
 // app.get("/", (req, res) => {
