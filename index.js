@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 const express = require("express");
+const config = require("./config/key");
 const app = express();
 const port = 3000;
 const path = require("path");
+const MongoURL = config.mongoURL;
 
 app.use(express.static("../front-end/public"));
 app.use(express.urlencoded({ extended: false }));
@@ -28,6 +30,9 @@ app.post("/test2", (req, res) => {
 });
 app.get("/signIn", (req, res) => {
   res.render("signIn");
+});
+app.get("/order", (req, res) => {
+  res.render("order");
 });
 
 app.all("*", (req, res) => {
