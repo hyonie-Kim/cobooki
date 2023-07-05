@@ -1,22 +1,15 @@
 var router = require("express").Router();
+var controller = require("../controller/userController");
 const { User } = require("../Model/user");
 
-router.get("/", (req, res) => {
-  res.render("index");
-});
+router.get("/", controller.index);
 
-router.get("/signIn", (req, res) => {
-  res.render("signIn");
-});
-router.get("/signUp", (req, res) => {
-  res.render("signUp");
-});
-router.get("/order", (req, res) => {
-  res.render("order");
-});
+router.get("/signIn", controller.signIn);
 
-router.get("/cart", (req, res) => {
-  res.render("cart");
-});
+router.get("/signUp", controller.signUp);
+
+router.get("/order", controller.order);
+
+router.get("/cart", controller.cart);
 
 module.exports = router;
