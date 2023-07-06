@@ -3,9 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>로그인 페이지</title>
+    <link rel="stylesheet" href="./css/signIn.css"></link>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   </head>
+  <%- include ('./header.ejs') %>
   <body>
-    <h1>로그인 페이지입니다.</h1>
+    <!-- 로그인 폼(Form) -->
+    <form class="loginForm" action="/login" method="post">
+        <h2>로그인</h2>
+        <h6></h6>
+        <h5>로그인을 하시면 더욱 편리하게 이용하실 수 있습니다.</h5>
+        <div class="login-id">
+            <span class="material-symbols-outlined">face</span>
+            <input type="text" class="id" name="user_id" id="id" placeholder="이메일 주소를 입력하세요.">
+        </div>
+        <div class="login-pw">
+            <span class="material-symbols-outlined">lock</span>
+            <input type="password" class="pw" name="user_pw" id="pw" placeholder="비밀번호를 입력하세요.">
+        </div>
+        <div class="saved-login">
+            <input type="checkbox" class="check" id="remember" name="remember">
+            <h7>자동 로그인</h7>
+        </div>
+        <button class="login-btn" id="submitButton">
+          로그인
+        </button>
+        <button class="signup-btn" id="signupButton">
+          회원가입
+        </button>
+    </form>
   </body>
 </html>
