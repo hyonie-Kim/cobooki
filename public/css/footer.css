@@ -16,8 +16,6 @@ body {
 
 /*----------------------*/
 .footer {
-    bottom: 0px;
-    position: absolute;
 
     background-color: #ececec;
     height: 120px;
