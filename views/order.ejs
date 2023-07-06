@@ -2,26 +2,32 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- type="text/css"  -->
+    <link rel="stylesheet" href="/css/orderPage.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <ul>
-                <li><a href="#">메뉴1</a></li>
-                <li><a href="#">메뉴2</a></li>
-                <li><a href="#">메뉴3</a></li>
-                <li><a href="#">메뉴4</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="content">
-        <!-- 웹페이지의 내용 -->
-    </div>
-
-    <script src="script.js"></script>
+    <%-include('header.ejs') %>
+        <div class="orderContainer">
+            <div class="order">
+                <div class="orderText">
+                    <h3>주문서</h3>
+                </div>
+                <div class="orderInfo">
+                    <h4>주문 상품 정보</h4>
+                </div>
+                <div class="userInfo">
+                    <h4>배송지 / 수령인 정보</h4>
+                </div>
+                <div class="payment">
+                    <h4>결제방법</h4>
+                    <h4>총 주문금액</h4>
+                </div>
+            </div>
+        </div>
+        <%-include('footer.ejs') %>
 </body>
 
 </html>

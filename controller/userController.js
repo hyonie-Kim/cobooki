@@ -20,6 +20,10 @@ exports.cart = (req, res) => {
 };
 
 exports.header = (req, res) => { //test(지우)
-  console.log("data: " + req.params.str);
   res.render("header");
+};
+
+
+exports.detailPage = (req, res) => { //test(지우)
+  res.render("detailPage");
 };

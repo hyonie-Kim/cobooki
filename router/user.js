@@ -14,4 +14,8 @@ router.get("/cart", controller.cart);
 
 router.get("/header", controller.header); //test(지우)
 
+router.get("/detailPage", controller.detailPage); //test(지우)
+
+
+
 module.exports = router;
