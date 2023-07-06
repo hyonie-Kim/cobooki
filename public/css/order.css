@@ -11,11 +11,22 @@
     box-sizing: border-box;
 }
 
-
-
-
+/* ------------------------------------------- */
 .orderContainer {
+    width: 70%;
+    font-family: 'NanumSquareNeo-Variable';
     min-height: 100%;
-    padding-top: 140px;
+    margin: auto;
+    padding-top: 260px;
     background-color: rgb(162, 129, 129);
+}
+
+.orderContainer .orderText h3 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.orderContainer .orderInfo {
+    text-align: left;
+    font-size: 20px;
 }
