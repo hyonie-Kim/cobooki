@@ -15,6 +15,7 @@
 
 
 .orderContainer {
-    padding-top: 6000px;
-    border: solid 3px red;
+    min-height: 100%;
+    padding-top: 140px;
+    background-color: rgb(162, 129, 129);
 }

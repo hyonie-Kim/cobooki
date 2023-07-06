@@ -9,6 +9,12 @@ body {
     position: relative;
 }
 
+html,
+body {
+    height: 100%;
+}
+
+/*----------------------*/
 .footer {
     bottom: 0px;
     position: absolute;
