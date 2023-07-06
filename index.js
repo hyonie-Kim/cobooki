@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 const { User } = require("./Model/user");
 
-app.use(express.static("public"));
+app.use(express.static("public")); //public 폴더 안에 있는 CSS,IMG 적용시키는 함수
 app.use(express.urlencoded({ extended: false }));
 
 app.set("view engine", "ejs");
