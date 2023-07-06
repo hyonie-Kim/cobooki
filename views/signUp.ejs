@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+    function click() {
+      axios.post("/user/signUp", {
+        id: "nnananana",
+        password: "nanan12",
+      });
+    }
+  </script>
+  <body>
+    <form id="form">
+      <input name="id" />
+      <input name="pw" />
+      <button onclick="click()">클릭</button>
+    </form>
+  </body>
+</html>
