@@ -11,22 +11,96 @@
     box-sizing: border-box;
 }
 
-/* ------------------------------------------- */
 .orderContainer {
-    width: 70%;
     font-family: 'NanumSquareNeo-Variable';
-    min-height: 100%;
     margin: auto;
-    padding-top: 260px;
-    background-color: rgb(162, 129, 129);
+    width: 65%;
+    min-height: 100%;
+    padding-top: 220px;
+    background-color: rgb(215, 215, 215);
 }
 
+.orderContainer div {
+    margin: auto;
+    width: 90%;
+}
+
+
+/* 주문서 */
 .orderContainer .orderText h3 {
     text-align: center;
-    font-size: 30px;
+    font-size: 27px;
+    font-weight: 900;
+    margin-bottom: 120px;
 }
 
+/* 주문상품정보 */
 .orderContainer .orderInfo {
+    background-color: aquamarine;
     text-align: left;
-    font-size: 20px;
+    padding-bottom: 60px;
+
+}
+
+.orderContainer .orderInfo h4 {
+    padding-left: 5px;
+    padding-bottom: 10px;
+    font-size: 22px;
+    border-bottom: 1px solid #8d8d8d99;
+}
+
+.orderContainer .orderInfo .orderBookInfoBox {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: flex-start; */
+    background-color: brown;
+    margin-top: 20px;
+    width: 100%;
+    height: 600px;
+}
+
+.orderContainer .orderInfo .orderBookInfoBox .orderBookCover {
+    display: inline-block;
+    padding-left: 60px;
+    border-radius: 20px;
+    height: 451px;
+    width: 310px;
+    background-color: #9999;
+}
+
+.orderContainer .orderInfo .orderBookInfoBox .orderBookInfo {
+    width: 160px;
+    background-color: #9999;
+    display: inline-block;
+}
+
+/* 배송지/수령인 정보 */
+.orderContainer .userInfo {
+    text-align: left;
+    padding-bottom: 60px;
+    background-color: rgb(236, 114, 171);
+}
+
+.orderContainer .userInfo h4 {
+    padding-left: 5px;
+    padding-bottom: 10px;
+    font-size: 22px;
+    border-bottom: 1px solid #8d8d8d99;
+}
+
+/* 결제방법 */
+.orderContainer .payBox {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    padding-bottom: 60px;
+    border-bottom: 1px solid #8d8d8d99;
+    background-color: rgb(129, 127, 255);
+}
+
+.orderContainer .payBox {
+    padding-left: 5px;
+    padding-bottom: 10px;
+    font-size: 22px;
+
 }
