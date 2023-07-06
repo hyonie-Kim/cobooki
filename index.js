@@ -29,9 +29,7 @@ app.use(
 );
 
 // router 설정
-app.get("/", (req, res) => {
-  res.render("index");
-});
+app.use("/", require("./router/main"));
 app.use("/user", require("./router/user"));
 
 app.all("*", (req, res) => {
