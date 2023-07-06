@@ -5,42 +5,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="../public/cart.css">
+  <link rel="stylesheet" href="./css/cart.css">
 </head>
 
 <body>
-  <!-- 주문 진행 순서 -->
-  <div class="order-progress">
-    <p>장바구니</p>
-    <p>></p>
-    <p>장바구니</p>
-    <p>></p>
-    <p>주문결제</p>
-    <p>></p>
-    <p>주문완료</p>
-  </div>
-  <!-- 상품내역 -->
-  <div class="product-table">
-    <p>상품내역</p>
-    <!-- 상품내역 상세 표 -->
-    <div>
-      <p>상품명</p>
-    </div>
-    <div>
-      <p>판매가</p>
-    </div>
-    <div>
-      <p>수량</p>
-    </div>
-    <div>
-      <p>배송비</p>
-    </div>
-    <div>
-      <p>결제금액</p>
-    </div>
 
-    <div class=""></div>
+  <!-- header, footer 빼고 wrap -->
+  <div class="cart-wrap">
+    <!-- 주문 진행 순서 -->
+    <div class="order-progress">
+      <p>장바구니</p>
+    </div>
+    <!-- 상품내역 wrap-->
+    <div class="product-table">
+      <!-- 상품내역 상세 표 -->
+      <!-- 누르면 전체 체크 -->
+      <div class="check-box all-check">
+        <input type="checkbox">
+      </div>
+      <div>
+        <p>상품명</p>
+      </div>
+      <div>
+        <p>판매가</p>
+      </div>
+      <div>
+        <p>수량</p>
+      </div>
+      <div>
+        <p>결제금액</p>
+      </div>
+      <!-- 사용자가 담은 목록 -->
+      <div class="check-box">
+        <input type="checkbox" id="book-name">
+      </div>
+      <div class="product-name">
+        <!-- 이미지도 변수 -->
+        <img src="" alt="">
+        <!-- 책이름 변수 -->
+        <label for="book-name">책이름</label>
+      </div>
+      <div class="price">
+        <!-- 가격 변수 -->
+        <p>원</p>
+      </div>
+      <form class="purchase-count" action="" name="purchase-amount" method="post">
+        <input type="number" min="0" required>
+        <!-- 서버로 전송하는 버튼 -->
+        <!-- 확인 눌러도 숫자 안사라지게 할 수 있나? -->
+        <input type="submit" value="확인">
+      </form>
+      <div class="book-price">
+        <!-- 책 가격 변수 -->
+        <p>원</p>
+      </div>
+      <p>총 주문금액 + 총 배송비 3,000원 =</p>
+      <p>총 결제금액 : </p>
+    </div>
+    <!-- 선택 상품 삭제하기 누르면 제품 삭제 -->
+    <button>선택 상품 삭제하기</button>
+    <!-- 선택 상품 주문하기 누르면 주문 페이지로 이동 -->
+    <button onclick="">선택 상품 주문하기</button>
   </div>
+  <script>
+    app.use(express.static("views"));
+  </script>
 </body>
 
 </html>
