@@ -5,13 +5,13 @@
 }
 
 .myProfileForm {
-  position: absolute;
-  width: 500px;
-  height: 550px;
-  padding: 50px 30px;
+  position: fixed;
+  width: 800px;
+  height: 650px;
   background-color: #ffffff;
   text-align: center;
   top: 50%;
+  bottom: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -20,8 +20,7 @@
 
 .account-header {
   display: block;
-  /* border-bottom: #ddd 1px solid; */
-  padding-bottom: 0.7rem;
+  border-bottom: #ddd 2px solid;
 }
 
 .account-header h1 {
@@ -30,13 +29,22 @@
 }
 
 .menu-container {
-  height: 500px;
+  width: 800px;
+  height: 800px;
   padding: 50px 30px;
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
   background-color: #ffffff;
   text-align: center;
 }
 
 .form-container {
+  width: 800px;
+  height: 800px;
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
   margin: 0 30px;
 }
 
@@ -56,6 +64,7 @@
 .input {
   width: 500px;
   height: 30px;
+  padding: 10px;
 }
 
 .informationForm {
@@ -76,9 +85,40 @@
 }
 
 .delete-btn {
-  margin-top: 2rem;
+  position: relative;
+  left: 15%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+  width: 30%;
+  height: 40px;
+  background: white;
+  background-position: left;
+  background-size: 200%;
+  color: #547f5b;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline;
 }
 
 .save-btn {
-  margin-top: 2rem;
+  position: relative;
+  left: 20%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+  margin-top: 30px;
+  width: 30%;
+  height: 40px;
+  background: #547f5b;
+  background-position: left;
+  background-size: 200%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline;
 }
