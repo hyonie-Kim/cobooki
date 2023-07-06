@@ -1,20 +1,25 @@
 var router = require("express").Router();
 var controller = require("../controller/userController");
-const { User } = require("../Model/user");
+const { body } = require("express-validator");
+const { validationChecker } = require("../middleware/validator");
 
-router.get("/", controller.index);
-
-router.get("/signIn", controller.signIn);
-
-router.get("/signUp", controller.signUp);
-
-router.get("/order", controller.order);
-
-router.get("/cart", controller.cart);
-
-router.get("/header", controller.header); //test(지우)
-
-router.get("/myProfile", controller.myProfile);
+router.get("/login", controller.signInRender);
+router.post("/login", controller.signIn);
+router.get("/signup", controller.signupRender);
+router.post(
+  "/signup",
+  [
+    body("email")
+      .trim()
+      .isLength({ min: 5 })
+      .isEmail()
+      .withMessage("id 다시 입력"),
+    body("password").trim().isLength({ min: 10 }),
+    body("name").trim().isLength({ min: 2 }).withMessage("이름 다시 입력"),
+    validationChecker,
+  ],
+  controller.signUp
+);
 
 router.get("/detailPage", controller.detailPage); //test(지우)
 
