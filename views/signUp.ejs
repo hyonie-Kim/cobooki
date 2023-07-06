@@ -1,25 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./css/signUp.css"></link>
   </head>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-  <script>
-    function click() {
-      axios.post("/user/signUp", {
-        id: "nnananana",
-        password: "nanan12",
-      });
-    }
-  </script>
   <body>
-    <form id="form">
-      <input name="id" />
-      <input name="pw" />
-      <button onclick="click()">클릭</button>
-    </form>
+    <header></header>
+    <main>
+      <section class="signUp">
+        <div class="signUp__title">
+          <div>CREATE ACCOUNT</div>
+          <div>회원가입을 하시면 더 많은 혜택을 제공 받으실 수 있습니다.</div>
+          <div>line</div>
+        </div>
+        <form>
+          <div class="content-user">
+            <div>
+              <label for="email">이메일 주소(ID)</label>
+              <input id="email" type="text" value="xx@gmail.com"/>
+            </div>
+            <div>
+              <label for="psword">비밀번호 </label>
+              <input id="psword" type="password" value="123456"/>
+            </div>
+            <div>
+              <label for="psword-confirm">비밀번호 확인</label>
+              <input id="psword-confirm" type="password" value="123456"/>
+            </div>
+            <div>
+              <label for="name">이름</label>
+              <input id="name" type="text" value="엘리스"/>
+            </div>
+            <div>
+              <label for="contact">연락처</label>
+              <input id="contact" type="number" value="01012345678"/>
+            </div>
+          </div>
+          <div class="content-address">
+            <div>주소지정보</div>
+            <div>line</div>
+            <div>
+              <label for="address-main">기본 주소</label>
+              <input id="address-main" type="text" value="서울시 영등포구"/>
+            </div>
+            <div>
+              <label for="address-rest">상세 주소</label>
+              <input id="address-rest" type="text" value="국회대로"/>
+            </div>
+          </div>
+          <submit><button>입력 완료</button></submit>
+        </form>
+
+      </section>
+    </main>
+    <footer></footer>
   </body>
 </html>

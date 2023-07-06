@@ -1,0 +1,134 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+body {
+  background-image: #547f5b;
+}
+
+.loginForm {
+  position: absolute;
+  width: 500px;
+  height: 550px;
+  padding: 50px, 30px;
+  background-color: #ffffff;
+  text-align: center;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  border: 1px solid #000;
+}
+
+.loginForm h2 {
+  text-align: center;
+  margin: 30px;
+}
+
+.loginForm h6 {
+  border-bottom: 1px solid #adadad;
+  margin: 0 30px;
+}
+
+.loginForm h5 {
+  text-align: center;
+  margin: 30px;
+  font-weight: normal;
+}
+
+.login-id {
+  margin: 30px;
+  padding: 10px 10px;
+  display: flex;
+}
+
+.login-pw {
+  margin: 30px;
+  padding: 10px 10px;
+  display: flex;
+}
+
+.saved-login {
+  font-size: 12px;
+  color: #636e72;
+  margin: 30px 35px;
+  display: flex;
+}
+
+.check {
+  margin: 0 10px;
+  display: flex;
+}
+
+.id {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #636e72;
+  font-size: 12px;
+  height: 25px;
+  background: none;
+  border-bottom: 2px solid;
+  margin: 0 10px;
+}
+
+.pw {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #636e72;
+  font-size: 12px;
+  height: 25px;
+  background: none;
+  border-bottom: 2px solid;
+  margin: 0 10px;
+}
+
+.login-btn {
+  position: relative;
+  left: 35%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+  width: 70%;
+  height: 40px;
+  background: #547f5b;
+  background-position: left;
+  background-size: 200%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline;
+}
+
+.signup-btn {
+  position: relative;
+  left: 35%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+  width: 70%;
+  height: 40px;
+  background: #547f5b;
+  background-position: left;
+  background-size: 200%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline;
+}
+
+.btn:hover {
+  background-position: right;
+}
+
+.bottomText {
+  margin: 20px 30px 30px 30px;
+  text-align: left;
+}
