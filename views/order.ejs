@@ -2,8 +2,8 @@
 <html>
 
 <head>
+    <!-- type="text/css"  -->
     <link rel="stylesheet" href="/css/order.css">
-    <!-- 헤더 푸터 CSS 파일 -->
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
 </head>
@@ -11,19 +11,32 @@
 <body>
     <%-include('header.ejs') %>
         <div class="orderContainer">
+            <!-- // -->
             <div class="orderText">
                 <h3>주문서</h3>
             </div>
-            <div class="orderInfoBox">
+            <!-- // -->
+            <div class="orderInfo">
                 <h4>주문 상품 정보</h4>
+                <div class="orderBookInfoBox">
+                    <div class="orderBookCover">ada</div>
+                    <div class="orderBookInfo">ada</div>
+                </div>
             </div>
+            <!-- // -->
             <div class="userInfo">
                 <h4>배송지 / 수령인 정보</h4>
             </div>
-            <div class="payment">
-                <h4>결제방법</h4>
-                <h4>총 주문금액</h4>
+            <!-- // -->
+            <div class="payBox">
+                <div class="payment">
+                    <h4>결제방법</h4>
+                </div>
+                <div class="orderTotalPrice">
+                    <h4>총 주문금액</h4>
+                </div>
             </div>
+            <!-- // -->
         </div>
         <%-include('footer.ejs') %>
 </body>
