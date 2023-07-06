@@ -7,26 +7,48 @@
     <link rel="stylesheet" href="./css/index.css"></link>
   </head>
   <body>
-    <!-- <header></header> -->
+    <header></header>
     <main>
       <section class="notice-banner">
-        <div>화살표</div>
-        <div>
-          광고 배너
+        <div class="notice-banner__arrow__left">
+          <img src="./imgs/back.png"/>
+        </div>
+        <div class="notice-banner__content">
           <div>배너1</div>
           <div>배너2</div>
           <div>배너3</div>
         </div>
-        <div>화살표</div>
-      </section>
-      <section class="latest-books">
-        <div class="latest-books__title"></div>
-        <div class="latest-books__underline"></div>
-        <div class="latest-books__content">
-          <div class="latest-books__navigation-dot"></div>
+        <div class="notice-banner__arrow__right">
+          <img src="./imgs/next.png"/>
         </div>
       </section>
-      <!-- <footer></footer> -->
+      <section class="latest-books">
+        <div class="latest-books__title">제목</div>
+        <div class="latest-books__underline">밑줄</div>
+        <div class="latest-books__content">
+          <div class="books">
+          <% for (let i = 0; i < 6; i++) { %>
+            <div class="book">
+              <div class="book__category">카테고리</div>
+              <div class="book__content">
+                <div class="book__img"><img src="" alt="이미지"/></div>
+                <div class="book__info">
+                  <div class="book__info__name">도서 명</div>
+                  <div class="book__info__author">저자</div>
+                  <div class="book__info__price">가격</div> 
+                </div>
+              </div>
+            </div>
+          <% } %>
+          </div>    
+          <div class="navi-dot">
+            <% for (let i = 0; i < 3; i++) { %>
+              <img src="./imgs/black dot.png"/>
+            <% } %>  
+          </div>
+        </div>
+      </section>
     </main>
+    <footer></footer>
   </body>
 </html>
