@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>마이페이지 개인정보수정</title>
+    <link rel="stylesheet" href="../css/myProfile.css"></link>
+    <link rel="stylesheet" href="../css/header.css"></link>
+    <link rel="stylesheet" href="../css/footer.css"></link>
   </head>
+
   <body>
+    <%- include ('./header.ejs') %>
     <form class="myProfileForm" action="/myProfile" method="put">
       <div class="container">
         <div class="block account-header">
@@ -96,5 +101,6 @@
         </div>
       </div>
     </form>
-  </body>
+    <%- include ('./footer.ejs') %>
+</body>
 </html>
