@@ -7,7 +7,7 @@ router.get("/login", controller.signInRender);
 router.post("/login", controller.signIn);
 router.get("/signup", controller.signupRender);
 router.post(
-  "/",
+  "/signup",
   [
     body("email")
       .trim()
@@ -20,13 +20,5 @@ router.post(
   ],
   controller.signUp
 );
-
-router.get("/order", controller.order);
-
-router.get("/cart", controller.cart);
-
-router.get("/header", controller.header); //test(지우)
-
-router.get("/myProfile", controller.myProfile);
 
 module.exports = router;
