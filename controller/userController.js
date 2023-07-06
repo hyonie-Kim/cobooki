@@ -28,3 +28,13 @@ exports.header = (req, res) => {
 exports.myProfile = (req, res) => {
   res.render("myProfile");
 };
+
+exports.header = (req, res) => {
+  //test(지우)
+  res.render("header");
+};
+
+exports.detailPage = (req, res) => {
+  //test(지우)
+  res.render("detailPage");
+};

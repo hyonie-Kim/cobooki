@@ -16,4 +16,6 @@ router.get("/header", controller.header); //test(지우)
 
 router.get("/myProfile", controller.myProfile);
 
+router.get("/detailPage", controller.detailPage); //test(지우)
+
 module.exports = router;
