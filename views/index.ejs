@@ -4,51 +4,143 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./css/index.css"></link>
+    <link rel="stylesheet" type="text/css" href="./css/index.css"></link>
+    <link rel="stylesheet" href="../css/header.css"></link>
+    <link rel="stylesheet" href="../css/footer.css"></link>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/> 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   </head>
+
   <body>
-    <header></header>
+    <%- include ('./header.ejs') %>
     <main>
-      <section class="notice-banner">
-        <div class="notice-banner__arrow__left">
-          <img src="./imgs/back.png"/>
-        </div>
-        <div class="notice-banner__content">
-          <div>배너1</div>
-          <div>배너2</div>
-          <div>배너3</div>
-        </div>
-        <div class="notice-banner__arrow__right">
-          <img src="./imgs/next.png"/>
+      <!-- 배너 -->
+      <section class="banner">
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">11232</div>
+            <div class="swiper-slide">2123</div>
+            <div class="swiper-slide">312321</div>
+            ...
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
         </div>
       </section>
+
+      <!-- 최신 서적 -->
       <section class="latest-books">
-        <div class="latest-books__title">제목</div>
-        <div class="latest-books__underline">밑줄</div>
-        <div class="latest-books__content">
-          <div class="books">
-          <% for (let i = 0; i < 6; i++) { %>
-            <div class="book">
-              <div class="book__category">카테고리</div>
-              <div class="book__content">
-                <div class="book__img"><img src="" alt="이미지"/></div>
-                <div class="book__info">
-                  <div class="book__info__name">도서 명</div>
-                  <div class="book__info__author">저자</div>
-                  <div class="book__info__price">가격</div> 
-                </div>
-              </div>
+        <h2>제목</h2>
+        <div class="latest-books__container">
+
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">11232</div>
+              <div class="swiper-slide">2123</div>
+              <div class="swiper-slide">312321</div>
+              ...
             </div>
-          <% } %>
-          </div>    
-          <div class="navi-dot">
-            <% for (let i = 0; i < 3; i++) { %>
-              <img src="./imgs/black dot.png"/>
-            <% } %>  
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+  
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+  
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
+
+
+
+            <!-- 책 2x3 리스트  -->
+            <div class="books">
+              <% for (let i = 0; i < 6; i++) { %>
+                <div class="book">
+                  <div class="book__category">카테고리</div>
+                  <div class="book__content">
+                    <div class="book__img"><img src="" alt="이미지"/></div>
+                    <div class="book__info">
+                      <div class="book__name">도서 명</div>
+                      <div class="book__author">저자</div>
+                      <div class="book__price">가격</div> 
+                    </div>
+                  </div>
+                </div>
+              <% } %>
+            </div> 
+
           </div>
         </div>
       </section>
     </main>
-    <footer></footer>
+
+    <script>
+      const bannerContainer = document.querySelector('.banner-container__list');
+      let bannerIndex=1;
+      let isLeft =true;
+      
+      const movingLeft = () =>{
+        if(isLeft){
+          bannerContainer.style.transform=`translateX(${bannerIndex*-33}%)`
+          bannerIndex+=1 
+        }
+        else{
+          bannerIndex=1
+          bannerContainer.style.transform=`translateX(${bannerIndex*-33}%)`
+          isLeft=true;
+        }
+      };
+
+      const movingRight = () =>{
+        if(!isLeft){
+          bannerContainer.style.transform=`translateX(${bannerIndex*+33}%)`
+          bannerIndex+=1;
+        }
+        else{
+          bannerIndex=1
+          bannerContainer.style.transform=`translateX(${bannerIndex*+33}%)`
+          bannerIndex+=1 
+          isLeft=false;
+        }
+      };
+
+      const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // And if we need scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    });
+
+    </script>
   </body>
+
 </html>
