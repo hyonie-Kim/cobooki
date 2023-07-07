@@ -4,24 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./css/index.css"></link>
+    <link rel="stylesheet" type="text/css" href="./css/index.css"></link>
   </head>
   <body>
-    <header></header>
+    <header><%- include ('./header.ejs') %></header>
     <main>
-      <section class="notice-banner">
-        <div class="notice-banner__arrow__left">
-          <img src="./imgs/back.png"/>
+      <!-- 배너 -->
+      <section class="banner">
+        <!-- 배너 화살표       -->
+        <div class="banner__arrow__left">
+          <img onClick="movingLeft()" src="./imgs/back.png"/>
         </div>
-        <div class="notice-banner__content">
-          <div>배너1</div>
-          <div>배너2</div>
-          <div>배너3</div>
+        <!-- 배너 화살표       -->
+        <div class="banner__arrow__right">
+          <img onClick="movingRight()" src="./imgs/next.png"/>
         </div>
-        <div class="notice-banner__arrow__right">
-          <img src="./imgs/next.png"/>
+        <!-- 배너 내용 -->
+        <div class="banner-container">
+          <ul class="banner-container__list">
+            <li ></li>
+            <li ></li>
+            <li ></li>
+          </ul>  
         </div>
       </section>
+      <!-- 최신 서적 -->
       <section class="latest-books">
         <div class="latest-books__title">제목</div>
         <div class="latest-books__underline">밑줄</div>
@@ -33,9 +40,9 @@
               <div class="book__content">
                 <div class="book__img"><img src="" alt="이미지"/></div>
                 <div class="book__info">
-                  <div class="book__info__name">도서 명</div>
-                  <div class="book__info__author">저자</div>
-                  <div class="book__info__price">가격</div> 
+                  <div class="book__name">도서 명</div>
+                  <div class="book__author">저자</div>
+                  <div class="book__price">가격</div> 
                 </div>
               </div>
             </div>
@@ -49,6 +56,40 @@
         </div>
       </section>
     </main>
-    <footer></footer>
+    <footer><%- include ('./footer.ejs') %></footer>
+    <script>
+      const bannerContainer = document.querySelector('.banner-container__list');
+      let bannerIndex=1;
+      let isLeft =true;
+      
+      const movingLeft = () =>{
+        if(isLeft){
+          bannerContainer.style.transform=`translateX(${bannerIndex*-33}%)`
+          bannerIndex+=1 
+        }
+        else{
+          bannerIndex=1
+          bannerContainer.style.transform=`translateX(${bannerIndex*-33}%)`
+          isLeft=true;
+        }
+      };
+
+      const movingRight = () =>{
+        if(!isLeft){
+         
+          bannerContainer.style.transform=`translateX(${bannerIndex*+33}%)`
+          bannerIndex+=1;
+     
+        }
+        else{
+          bannerIndex=1
+          bannerContainer.style.transform=`translateX(${bannerIndex*+33}%)`
+          bannerIndex+=1 
+          isLeft=false;
+        }
+      };
+
+    </script>
   </body>
+
 </html>
