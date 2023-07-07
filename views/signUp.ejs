@@ -3,56 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/signUp.css"></link>
+    <title>회원가입 페이지</title>
+    <link rel="stylesheet" href="/css/signUp.css"></link>
+    <link rel="stylesheet" href="../css/header.css"></link>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   </head>
+  <%- include ('./header.ejs') %>
   <body>
     <header></header>
     <main>
       <section class="signUp">
-        <div class="signUp__title">
-          <div>CREATE ACCOUNT</div>
-          <div>회원가입을 하시면 더 많은 혜택을 제공 받으실 수 있습니다.</div>
-          <div>line</div>
+        <div class="signUp-title">
+          <h3>회원가입</h3>
+          <div></div>
+          <h5>회원가입을 하시면 더 많은 혜택을 제공 받으실 수 있습니다.</h5>
         </div>
-        <form>
+        <form action="/user/signUp" method="post">
           <div class="content-user">
             <div>
-              <label for="email">이메일 주소(ID)</label>
-              <input id="email" type="text" value="xx@gmail.com"/>
+              <label for="email">이메일 주소</label>
+              <input name="email" id="email" type="text" value="" placeholder=" 이메일 주소를 입력하세요."/>
+              <button >중복 확인</button>
             </div>
             <div>
-              <label for="psword">비밀번호 </label>
-              <input id="psword" type="password" value="123456"/>
+              <label for="ps">비밀번호 </label>
+              <input name="password" id="ps" type="password" value="" placeholder=" 비밀번호를 입력하세요."/>
             </div>
             <div>
-              <label for="psword-confirm">비밀번호 확인</label>
-              <input id="psword-confirm" type="password" value="123456"/>
+              <label for="ps-confirm">비밀번호 확인</label>
+              <input name="password-confirm" id="ps-confirm" type="password" value="" placeholder=" 비밀번호를 다시 입력하세요."/>
             </div>
             <div>
               <label for="name">이름</label>
-              <input id="name" type="text" value="엘리스"/>
+              <input name="name" id="name" type="text" value="" placeholder=" 이름를 입력하세요."/>
             </div>
             <div>
               <label for="contact">연락처</label>
-              <input id="contact" type="number" value="01012345678"/>
+              <input name="contact" id="contact" type="tel" value="" placeholder=" '-' 제외하고 핸드폰 번호만 입력하세요."/>
             </div>
           </div>
           <div class="content-address">
-            <div>주소지정보</div>
-            <div>line</div>
+            <h4>주소지정보</h4>
             <div>
               <label for="address-main">기본 주소</label>
-              <input id="address-main" type="text" value="서울시 영등포구"/>
+              <input name="address-main" id="address-main" type="text" value="" placeholder=" 주소를 입력하세요."/>
             </div>
             <div>
               <label for="address-rest">상세 주소</label>
-              <input id="address-rest" type="text" value="국회대로"/>
+              <input name="address-rest" id="address-rest" type="text" value="" placeholder=" 상세 주소를 입력하세요."/>
             </div>
           </div>
-          <submit><button>입력 완료</button></submit>
+          <submit>회원 가입</submit>
         </form>
-
       </section>
     </main>
     <footer></footer>
