@@ -12,16 +12,16 @@
 <body>
     <%-include('header02.ejs') %>
         <div class="orderPageContainer">
-            <h3>주문서</h3>
+            <h3>주 문 서</h3>
             <div class="orderBox">
                 <!-- 주문상품정보  -->
                 <div class="productInfo">
-                    <h4>주문 상품 정보</h4>
+                    <h4> 주문 상품 정보</h4>
                     <div class="orderBookInfoBox">
                         <img class="orderBookCover" src="https://image.yes24.com/goods/92742567/XL" alt="책 사진">
                         <div class="orderBookInfo">
                             <div class="orderBookInfo_Category">{category}</div>
-                            <div class="orderBookInfoTitle">모던 자바스크립트 Deep Dive</div>
+                            <div class="orderBookInfoTitle">{모던 자바스크립트 Deep Dive}</div>
                             <div class="orderBookInfoProductPrice">{개당 가격} 원</div>
                             <div class="orderBookInfoCount">총 {n} 권</div>
                             <div class="orderBookInfoDelivery">배송비 3,000원 </div>
@@ -30,11 +30,18 @@
                 </div>
                 <!-- 배송지/수령인 정보 -->
                 <div class="orderUserInfo">
-                    <h4>배송지 / 수령인 정보</h4>
+                    <h4> 배송지 / 수령인 정보</h4>
                     <div class="userInfoBox">
-                        <div>배송받을 주소 >> 가입 때 입력한 주소 띄워주기</div>
-                        <div>주문자 이름 >> 가입 때 입력한 이름 띄워주기</div>
-                        <div>주문자 전화번호 >> 가입 때 입력한 번호 띄워주기</div>
+                        <div class=" userInfoList">
+                            <div>배송받을 주소</div>
+                            <div>주문자 이름</div>
+                            <div>주문자 전화번호</div>
+                        </div>
+                        <div class=" userInfoPrint">
+                            <div>{서버에 있는 userAdress 정보}</div>
+                            <div>{서버에 있는 userName 정보}</div>
+                            <div>{서버에 있는 userNumber 정보}</div>
+                        </div>
                     </div>
                 </div>
                 <!-- /결제방법 & 총 결제 금액/ -->

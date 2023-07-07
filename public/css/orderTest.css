@@ -17,13 +17,13 @@
     margin: auto;
     width: 65%;
     min-height: 100%;
-    background-color: rgb(149, 210, 212);
     padding-top: 220px;
 }
 
 .orderPageContainer h3 {
+    margin-bottom: 30px;
     text-align: center;
-    font-size: 27px;
+    font-size: 35px;
     font-weight: 900;
 
 }
@@ -31,9 +31,8 @@
 .orderPageContainer .orderBox {
     padding-top: 60px;
     margin: auto;
-    width: 90%;
+    width: 95%;
     height: 100%;
-    background-color: rgb(215, 215, 215);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -45,7 +44,7 @@
     width: auto;
 
     border-bottom: 0.7px solid #5c5c5c99;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 900;
 }
 
@@ -54,8 +53,7 @@
     justify-content: flex-start;
     flex-direction: row;
     padding-top: 30px;
-    background-color: burlywood;
-    margin-bottom: 30px;
+    margin: 20px 0px 20px 0px;
 }
 
 /* 주문상품정보 - 책표지 */
@@ -63,8 +61,7 @@
     width: 310px;
     height: 450px;
     border-radius: 20px;
-    border: solid 0.5px #9999;
-    background-color: rgb(168, 122, 157);
+    border: solid 1px #cecece99;
     margin: 0px 30px 20px 10px;
 }
 
@@ -84,9 +81,9 @@
 
 /* 주문상품정보 - 책제목 */
 .orderPageContainer .orderBox .productInfo .orderBookInfoTitle {
+    width: 1035px;
     font-size: 30px;
-    background-color: rgb(222, 135, 147);
-    margin: 5px 0px 5px 0px;
+    margin: 25px 0px 30px 0px;
 }
 
 /* 주문상품정보 - 책 금액 */
@@ -94,18 +91,65 @@
     font-size: 35px;
     font-weight: 900;
     margin: 5px 0px 10px 0px;
-    background-color: rgb(135, 157, 222);
 }
 
 /* 주문상품정보 - 원래책가격 X 주문수량 */
 .orderPageContainer .orderBox .productInfo .orderBookInfoCount {
-    margin: 5px 0px 15px 0px;
-    background-color: rgb(27, 59, 157);
+    font-size: 25px;
+    color: #547F5B;
+    margin: 5px 0px 30px 0px;
+    font-weight: 900;
 }
 
 /* 주문상품정보 - 배송비 */
 .orderPageContainer .orderBox .productInfo .orderBookInfoDelivery {
     font-size: 25px;
     margin: 5px 0px 10px 0px;
-    background-color: rgb(94, 157, 27);
+}
+
+
+
+/* ------------------------------------------------- */
+
+/* 배송지 & 수령인 정보 */
+
+/* 배송지 & 수령인 정보 타이틀 */
+.orderPageContainer .orderBox .orderUserInfo h4 {
+    width: auto;
+    border-bottom: 0.7px solid #5c5c5c99;
+    padding-top: 70px;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.orderPageContainer .orderBox .orderUserInfo .userInfoBox {
+    /* background-color: rgb(113, 82, 125); */
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    text-align: left;
+    margin: 20px 0px 20px 10px;
+    height: 300px;
+}
+
+/* 배송주소,주문자이름,전화번호 고정 항목란 */
+.orderPageContainer .orderBox .orderUserInfo .userInfoBox .userInfoList {
+    /* background-color: chocolate; */
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 700;
+    width: 340px;
+
+}
+
+/* 배송주소,주문자이름,전화번호 서버값 출력란 */
+.orderPageContainer .orderBox .orderUserInfo .userInfoBox .userInfoPrint {
+    /* background-color: rgb(195, 166, 145); */
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    font-size: 20px;
+    width: 1035px;
 }
