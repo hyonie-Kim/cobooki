@@ -4,20 +4,28 @@
     box-sizing: border-box;
 }
 
+/* footer 최하단 고정 */
+body {
+    position: relative;
+}
 
+html,
+body {
+    height: 100%;
+}
+
+/*----------------------*/
 .footer {
-    bottom: 0px;
-    position: absolute;
 
     background-color: #ececec;
-    height: 150px;
+    height: 120px;
     width: 100%;
     border-top: 1px solid #e4e4e4;
     background-color: #f8f9fa;
 }
 
 .footer>div {
-    padding-top: 40px;
+    padding-top: 25px;
     padding-left: 200px;
 }
 
@@ -30,7 +38,7 @@
 
 .footer-message {
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     color: #545e6f;
     margin-bottom: 0.3rem;
     margin: 0 0 0 0.6rem;

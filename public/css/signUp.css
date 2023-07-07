@@ -1,49 +1,52 @@
-header {
-  background-color: aqua;
-  width: 1730px;
-  height: 190px;
-}
-
-footer {
-  background-color: blueviolet;
-  width: 1730px;
-  height: 140px;
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
 }
 
 main {
-  background-color: blanchedalmond;
-  width: 1730px;
-  height: 2310px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 section {
-  width: 900px;
-  height: 1490px;
-  background-color: green;
+  font-family: "NanumSquareNeo-Variable";
+  border-radius: 20px;
+  border: 1px solid #000;
+  position: absolute;
+  top: 200px;
+  width: 800px;
+  height: 700px;
+  /* background-color: green; */
 }
 
 .signUp {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
   align-items: center;
 }
 
-.signUp__title {
+.signUp-title {
+  margin: 20px 0;
+  height: 70px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
+}
+
+.signUp-title div {
+  width: 80%;
+  margin: 20px 0;
+  border-bottom: 1px solid #adadad;
 }
 
 .signUp form {
-  height: 1200px;
+  height: 80%;
   width: 90%;
-  background-color: antiquewhite;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -51,45 +54,104 @@ section {
 }
 
 form .content-user {
-  background-color: aqua;
-  width: 100%;
+  width: 80%;
   height: 500px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
 }
 
 form .content-user > div {
-  width: 80%;
-  background-color: blueviolet;
-  margin: auto 0;
+  width: 90%;
+  margin: auto auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  position: relative;
+}
+
+form .content-user > div > label {
+  width: 150px;
+}
+
+input {
+  width: 300px;
+  padding-bottom: 5px;
+  border: none;
+  border-bottom: 1px solid #636e72;
+  box-sizing: border-box;
+}
+
+input:focus {
+  font-size: 20px;
+  transition: 0.2s;
+  padding: 5px;
+  position: relative;
+  bottom: 8px;
+  outline: 1.5px solid #547f5b;
+  border-radius: 2px;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+form .content-user > div > button {
+  right: -50px;
+  top: -5px;
+  position: absolute;
+  padding: 5px 20px;
+  color: white;
+  background: #547f5b;
+  font-size: 15px;
+  font-weight: lighter;
+  font-family: "NanumSquareNeo-Variable";
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 form .content-address {
-  background-color: aliceblue;
-  width: 100%;
-  height: 300px;
+  width: 80%;
+  height: 40%;
+  padding: 50px 0 20px 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 form .content-address > div {
-  width: 80%;
-  background-color: blueviolet;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+}
+
+form .content-address > h4:nth-child(1) {
+  position: absolute;
+  width: 80%;
+  top: 15px;
+  left: 25px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #000000;
+}
+
+form .content-address > div > label {
+  width: 150px;
 }
 
 form submit {
-  background-color: yellow;
-  width: 100%;
-  height: 150px;
+  background-color: #547f5b;
+  font-weight: bold;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 50%;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  margin-bottom: 20px;
 }
