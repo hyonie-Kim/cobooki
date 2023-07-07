@@ -45,6 +45,7 @@
   line-height: 35px;
   color: rgb(51, 51, 51);
   letter-spacing: -1px;
+  margin: 20px;
 }
 
 .order,
@@ -55,7 +56,7 @@
 
 .myProfileForm {
   position: fixed;
-  width: 500px;
+  width: 800px;
   height: 650px;
   background-color: #ffffff;
   text-align: center;
