@@ -6,12 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="./css/index.css"></link>
     <link rel="stylesheet" href="../css/header.css"></link>
+    <link rel="stylesheet" href="../css/footer.css"></link>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/> 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   </head>
-  <%- include ('./header.ejs') %>
+
   <body>
+    <%- include ('./header.ejs') %>
     <main>
       <!-- 배너 -->
       <section class="banner">
@@ -20,9 +22,9 @@
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">1</div>
+            <div class="swiper-slide">2</div>
+            <div class="swiper-slide">3</div>
             ...
           </div>
           <!-- If we need pagination -->
@@ -40,7 +42,6 @@
       <!-- 최신 서적 -->
       <section class="latest-books">
         <div class="latest-books__title">제목</div>
-        <div class="latest-books__underline">밑줄</div>
         <div class="latest-books__content">
           <div class="books">
           <% for (let i = 0; i < 6; i++) { %>
@@ -65,7 +66,7 @@
         </div>
       </section>
     </main>
-    <footer><%- include ('./footer.ejs') %></footer>
+
     <script>
       const bannerContainer = document.querySelector('.banner-container__list');
       let bannerIndex=1;
@@ -98,7 +99,7 @@
 
       const swiper = new Swiper('.swiper', {
       // Optional parameters
-      direction: 'vertical',
+      direction: 'horizontal',
       loop: true,
 
       // If we need pagination
