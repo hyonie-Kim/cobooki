@@ -9,8 +9,9 @@ body {
 }
 
 .loginForm {
+  font-family: "NanumSquareNeo-Variable";
   position: absolute;
-  width: 500px;
+  width: 600px;
   height: 550px;
   padding: 50px, 30px;
   background-color: #ffffff;
@@ -23,19 +24,22 @@ body {
 }
 
 .loginForm h2 {
+  font-family: "NanumSquareNeo-Variable";
   text-align: center;
   margin: 30px;
 }
 
 .loginForm h6 {
+  font-family: "NanumSquareNeo-Variable";
   border-bottom: 1px solid #adadad;
   margin: 0 30px;
 }
 
 .loginForm h5 {
+  font-family: "NanumSquareNeo-Variable";
   text-align: center;
   margin: 30px;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 .login-id {
@@ -63,6 +67,7 @@ body {
 }
 
 .id {
+  font-family: "NanumSquareNeo-Variable";
   width: 100%;
   border: none;
   outline: none;
@@ -75,6 +80,7 @@ body {
 }
 
 .pw {
+  font-family: "NanumSquareNeo-Variable";
   width: 100%;
   border: none;
   outline: none;
@@ -87,6 +93,7 @@ body {
 }
 
 .login-btn {
+  font-family: "NanumSquareNeo-Variable";
   position: relative;
   left: 35%;
   transform: translateX(-50%);
@@ -106,6 +113,7 @@ body {
 }
 
 .signup-btn {
+  font-family: "NanumSquareNeo-Variable";
   position: relative;
   left: 35%;
   transform: translateX(-50%);
