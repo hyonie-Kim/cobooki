@@ -22,4 +22,6 @@ router.post(
 );
 router.get("/logout", userController.logOut);
 
+router.get("/detailPage", controller.detailPage); //test(지우)
+
 module.exports = router;

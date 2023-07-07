@@ -1,0 +1,126 @@
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.orderContainer {
+    font-family: 'NanumSquareNeo-Variable';
+    margin: auto;
+    width: 65%;
+    min-height: 100%;
+    padding-top: 220px;
+    background-color: rgb(215, 215, 215);
+}
+
+/* .orderContainer div {
+    margin: auto;
+    width: 90%;
+} */
+
+
+/* ----------주문서---------- */
+.orderText h3 {
+    text-align: center;
+    font-size: 27px;
+    font-weight: 900;
+    margin-bottom: 120px;
+}
+
+/* ----------주문상품정보 ----------*/
+/* .orderContainer .orderInfo {
+    background-color: aquamarine;
+    text-align: left;
+    padding-bottom: 60px;
+
+}
+
+.orderContainer .orderInfo h4 {
+    padding-left: 5px;
+    padding-bottom: 10px;
+    font-size: 22px;
+    border-bottom: 1px solid #8d8d8d99;
+}
+
+.orderContainer .orderInfo .orderBookInfoBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: brown;
+    margin-top: 20px;
+    width: 100%;
+    height: 600px;
+}
+
+
+
+.orderContainer .orderInfo .orderBookInfoBox .orderBookCover {
+    display: inline-block;
+    margin: 10px 0px 0px 5px;
+    border-radius: 20px;
+    height: 451px;
+    width: 310px;
+    background-color: #9999;
+}
+
+
+.orderContainer .orderInfo .orderBookInfoBox .orderBookInfo {
+    width: 260px;
+    height: 350px;
+    background-color: #e1b3b399;
+    display: inline-block;
+    margin: 20px 0px 10px 30px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.orderContainer .orderInfo .orderBookInfoBox .orderBookInfo .orderPageCategory {
+    width: 180px;
+    height: 65px;
+    border-radius: 50px;
+    background-color: #56eb9299;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 900;
+} */
+
+/* ----------배송지/수령인 정보 ----------*/
+/* .orderContainer .userInfo {
+    text-align: left;
+    padding-bottom: 60px;
+    background-color: rgb(236, 114, 171);
+}
+
+.orderContainer .userInfo h4 {
+    padding-left: 5px;
+    padding-bottom: 10px;
+    font-size: 22px;
+    border-bottom: 1px solid #8d8d8d99;
+} */
+
+/* ----------결제방법---------- */
+/* .orderContainer .payBox {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    padding-bottom: 60px;
+    border-bottom: 1px solid #8d8d8d99;
+    background-color: rgb(129, 127, 255);
+}
+
+.orderContainer .payBox {
+    padding-left: 5px;
+    padding-bottom: 10px;
+    font-size: 22px;
+} */
