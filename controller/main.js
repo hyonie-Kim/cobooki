@@ -19,3 +19,7 @@ exports.header = (req, res) => {
 exports.myProfile = (req, res) => {
   res.render("myProfile");
 };
+
+exports.deleteUser = (req, res) => {
+  res.render("deleteUser");
+};
