@@ -11,116 +11,251 @@
     box-sizing: border-box;
 }
 
-.orderContainer {
+
+.orderPageContainer {
     font-family: 'NanumSquareNeo-Variable';
     margin: auto;
     width: 65%;
     min-height: 100%;
     padding-top: 220px;
-    background-color: rgb(215, 215, 215);
 }
 
-/* .orderContainer div {
-    margin: auto;
-    width: 90%;
-} */
+.orderPageContainer h3 {
 
-
-/* ----------주문서---------- */
-.orderText h3 {
+    padding-bottom: 100px;
     text-align: center;
-    font-size: 27px;
+    font-size: 35px;
     font-weight: 900;
-    margin-bottom: 120px;
 }
 
-/* ----------주문상품정보 ----------*/
-/* .orderContainer .orderInfo {
-    background-color: aquamarine;
-    text-align: left;
-    padding-bottom: 60px;
-
-}
-
-.orderContainer .orderInfo h4 {
-    padding-left: 5px;
-    padding-bottom: 10px;
-    font-size: 22px;
-    border-bottom: 1px solid #8d8d8d99;
-}
-
-.orderContainer .orderInfo .orderBookInfoBox {
+.orderPageContainer .orderBox {
+    margin: auto;
+    width: 95%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    background-color: brown;
-    margin-top: 20px;
-    width: 100%;
-    height: 600px;
-}
-
-
-
-.orderContainer .orderInfo .orderBookInfoBox .orderBookCover {
-    display: inline-block;
-    margin: 10px 0px 0px 5px;
-    border-radius: 20px;
-    height: 451px;
-    width: 310px;
-    background-color: #9999;
-}
-
-
-.orderContainer .orderInfo .orderBookInfoBox .orderBookInfo {
-    width: 260px;
-    height: 350px;
-    background-color: #e1b3b399;
-    display: inline-block;
-    margin: 20px 0px 10px 30px;
-    display: flex;
-    justify-content: flex-start;
     flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
 }
 
-.orderContainer .orderInfo .orderBookInfoBox .orderBookInfo .orderPageCategory {
-    width: 180px;
-    height: 65px;
-    border-radius: 50px;
-    background-color: #56eb9299;
-    text-align: center;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+/* ------------주문상품정보------------ */
+.orderPageContainer .orderBox .productInfo h4 {
+    width: auto;
+    padding-left: 10px;
+
+    /* border-bottom: 0.7px solid #5c5c5c99; */
     font-size: 25px;
     font-weight: 900;
-} */
-
-/* ----------배송지/수령인 정보 ----------*/
-/* .orderContainer .userInfo {
-    text-align: left;
-    padding-bottom: 60px;
-    background-color: rgb(236, 114, 171);
 }
 
-.orderContainer .userInfo h4 {
-    padding-left: 5px;
-    padding-bottom: 10px;
-    font-size: 22px;
-    border-bottom: 1px solid #8d8d8d99;
-} */
-
-/* ----------결제방법---------- */
-/* .orderContainer .payBox {
+.orderPageContainer .orderBox .productInfo .orderBookInfoBox {
     display: flex;
     justify-content: flex-start;
-    text-align: left;
-    padding-bottom: 60px;
-    border-bottom: 1px solid #8d8d8d99;
-    background-color: rgb(129, 127, 255);
+    flex-direction: row;
+    padding-top: 30px;
+    margin: 20px 0px 20px 0px;
+    border-top: 0.7px solid #5c5c5c99;
 }
 
-.orderContainer .payBox {
-    padding-left: 5px;
-    padding-bottom: 10px;
-    font-size: 22px;
-} */
+/* 주문상품정보 - 책표지 */
+.orderPageContainer .orderBox .productInfo .orderBookInfoBox .orderBookCover {
+    width: 310px;
+    height: 450px;
+    border-radius: 20px;
+    border: solid 1px #cecece99;
+    margin: 20px 30px 20px 10px;
+}
+
+/* 주문상품정보 - 카테고리 */
+.orderPageContainer .orderBox .productInfo .orderBookInfo_Category {
+    margin: 55px 0px 15px 0px;
+    border-radius: 60px;
+    width: 160px;
+    line-height: 55px;
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+    background-color: rgb(135, 222, 173);
+
+}
+
+
+/* 주문상품정보 - 책제목 */
+.orderPageContainer .orderBox .productInfo .orderBookInfoTitle {
+    width: 1035px;
+    font-size: 30px;
+    margin: 25px 0px 30px 0px;
+}
+
+/* 주문상품정보 - 책 금액 */
+.orderPageContainer .orderBox .productInfo .orderBookInfoProductPrice {
+    font-size: 35px;
+    font-weight: 900;
+    margin: 5px 0px 20px 0px;
+}
+
+/* 주문상품정보 - 원래책가격 X 주문수량 */
+.orderPageContainer .orderBox .productInfo .orderBookInfoCount {
+    font-size: 25px;
+    color: #547F5B;
+    margin: 5px 0px 30px 0px;
+    font-weight: 900;
+}
+
+/* 주문상품정보 - 배송비 */
+.orderPageContainer .orderBox .productInfo .orderBookInfoDelivery {
+    font-size: 25px;
+    margin: 5px 0px 10px 0px;
+}
+
+
+
+/* ------------------------------------------------- */
+
+/* 배송지 & 수령인 정보 */
+
+/* 배송지 & 수령인 정보 타이틀 */
+.orderPageContainer .orderBox .orderUserInfo h4 {
+    width: auto;
+    padding-left: 10px;
+    padding-top: 100px;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.orderPageContainer .orderBox .orderUserInfo .userInfoBox {
+    /* background-color: rgb(113, 82, 125); */
+    border-top: 0.7px solid #5c5c5c99;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    text-align: left;
+    margin: 20px 0px 50px 0px;
+    height: 300px;
+}
+
+/* 배송주소,주문자이름,전화번호 고정 항목란 */
+.orderPageContainer .orderBox .orderUserInfo .userInfoBox .userInfoList div {
+    /* background-color: chocolate; */
+    margin: 60px 0px 40px 0px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 700;
+    width: 340px;
+
+}
+
+/* 배송주소,주문자이름,전화번호 서버값 출력란 */
+.orderPageContainer .orderBox .orderUserInfo .userInfoBox .userInfoPrint div {
+    /* background-color: rgb(195, 166, 145); */
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    font-size: 20px;
+    width: 1035px;
+    margin: 60px 0px 40px 0px;
+}
+
+
+
+
+
+/* 결제방법 & 총 결제 금액 */
+.orderPageContainer .orderBox .makePaymentAndTotalPrice {
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    /* background-color: darkorange; */
+}
+
+.orderPageContainer .orderBox .makePaymentAndTotalPrice h4 {
+    width: auto;
+    padding-left: 10px;
+    padding-top: 100px;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+/* 결제방법 */
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .makePaymentBox {
+    display: flex;
+    width: 700px;
+    justify-content: flex-start;
+    flex-direction: column;
+    /* background-color: rgb(255, 236, 215); */
+}
+
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .makePaymentBox .makePayments {
+    display: flex;
+    width: 700px;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 520px;
+    border-top: 0.7px solid #5c5c5c99;
+    margin: 20px 0px 50px 0px;
+    /* background-color: rgb(212, 255, 249); */
+
+}
+
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .makePaymentBox .makePayments div {
+    margin: 60px 20px 0px 10px;
+    line-height: 115px;
+    text-align: center;
+    background-color: #EFEFEF;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+/* 총 결제금액 */
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox {
+    display: flex;
+    width: 700px;
+    font-size: 20px;
+    justify-content: flex-start;
+    flex-direction: column;
+    /* background-color: rgb(245, 197, 197); */
+}
+
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo {
+    display: flex;
+    width: 700px;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-top: 0.7px solid #5c5c5c99;
+    margin: 20px 0px 50px 0px;
+    /* background-color: rgb(252, 154, 154); */
+
+}
+
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox01 {
+    margin: 60px 20px 0px 10px;
+    height: 470px;
+    text-align: center;
+    background-color: #EFEFEF;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+
+
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox02 {
+    margin: 10px 20px 0px 10px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox03 {
+    margin: 10px 20px 0px 10px;
+    line-height: 115px;
+    text-align: center;
+    background-color: #547F5B;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: 900;
+    color: #EFEFEF;
+}

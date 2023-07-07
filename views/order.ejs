@@ -10,39 +10,72 @@
 </head>
 
 <body>
-    <%-include('header.ejs') %>
-        <div class="orderContainer">
-            <!-- // -->
-            <div class="orderText">
-                <h3>주문서</h3>
-            </div>
-            <!-- 주문상품정보  -->
-            <div class="orderInfo">
-                <h4>주문 상품 정보</h4>
-                <div class="orderBookInfoBox">
-                    <div class="orderBookCover"></div>
-                    <div class="orderBookInfo">
-                        <div class="orderPageCategory">카테고리</div>
-                        <div class="orderPageTitle">책제목</div>
-                        <div class="orderPageProductPrice">책 금액</div>
+    <%-include('header02.ejs') %>
+        <div class="orderPageContainer">
+            <h3>주 문 서</h3>
+            <div class="orderBox">
+                <!-- 주문상품정보  -->
+                <div class="productInfo">
+                    <h4> 주문 상품 정보</h4>
+                    <div class="orderBookInfoBox">
+                        <img class="orderBookCover" src="https://image.yes24.com/goods/92742567/XL" alt="책 사진">
+                        <div class="orderBookInfo">
+                            <div class="orderBookInfo_Category">{category}</div>
+                            <div class="orderBookInfoTitle">{모던 자바스크립트 Deep Dive}</div>
+                            <div class="orderBookInfoProductPrice">{개당 가격} 원</div>
+                            <div class="orderBookInfoCount">총 {n} 권</div>
+                            <div class="orderBookInfoDelivery">배송비 3,000원 </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- 배송지/수령인 정보 -->
+                <div class="orderUserInfo">
+                    <h4> 배송지 / 수령인 정보</h4>
+                    <div class="userInfoBox">
+                        <div class=" userInfoList">
+                            <div>배송받을 주소</div>
+                            <div>주문자 이름</div>
+                            <div>주문자 전화번호</div>
+                        </div>
+                        <div class=" userInfoPrint">
+                            <div>{서버에 있는 userAdress 정보}</div>
+                            <div>{서버에 있는 userName 정보}</div>
+                            <div>{서버에 있는 userNumber 정보}</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- 결제방법 & 총 결제 금액 BOX -->
+                <!-- 결제방법 -->
+                <div class="makePaymentAndTotalPrice">
+                    <div class="makePaymentBox">
+                        <h4>결제방법</h4>
+                        <div class="makePayments">
+                            <div class="makePaymentBtn01">휴대폰 결제</div>
+                            <div class="makePaymentBtn02">카카오 페이</div>
+                            <div class="makePaymentBtn03">무통장 입금</div>
+                        </div>
+                    </div>
+                    <div class="totalPriceBox">
+                        <h4>총 결제금액</h4>
+                        <div class="totalPaymentInfo">
+                            <div class="totalPriceBox01">
+                                <div>어어어어어어</div>
+                                <div>어어어어어어</div>
+                                <div>어어어어어어</div>
+                            </div>
+                            <div class="totalPriceBox02">동의 머시기</div>
+                            <div class="totalPriceBox03">총 {n}원 결제하기</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- 배송지/수령인 정보 -->
-            <div class="userInfo">
-                <h4>배송지 / 수령인 정보</h4>
-            </div>
-            <!-- /결제방법/ -->
-            <div class="payBox">
-                <div class="payment">
-                    <h4>결제방법</h4>
-                </div>
-                <!-- /총 주문 금액/ -->
-                <div class="orderTotalPrice">
-                    <h4>총 주문금액</h4>
-                </div>
-            </div>
-            <!-- // -->
+
         </div>
         <%-include('footer.ejs') %>
 </body>
