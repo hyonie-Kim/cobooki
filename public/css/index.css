@@ -1,29 +1,21 @@
-header {
-  background-color: aqua;
-  width: 1730px;
-  height: 140px;
-}
-
-footer {
-  background-color: blueviolet;
-  width: 1730px;
-  height: 140px;
+.swiper {
+  /* width: 600px;
+  height: 300px; */
 }
 
 main {
-  background-color: blanchedalmond;
+  background-color: blue;
   width: 1730px;
   height: 2310px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
 .banner {
   background-color: whitesmoke;
-  width: 1730px;
-  height: 400px;
+  width: 530px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;

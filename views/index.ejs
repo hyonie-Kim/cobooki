@@ -5,29 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="./css/index.css"></link>
+    <link rel="stylesheet" href="../css/header.css"></link>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/> 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   </head>
+  <%- include ('./header.ejs') %>
   <body>
-    <header><%- include ('./header.ejs') %></header>
     <main>
       <!-- 배너 -->
       <section class="banner">
-        <!-- 배너 화살표       -->
-        <div class="banner__arrow__left">
-          <img onClick="movingLeft()" src="./imgs/back.png"/>
-        </div>
-        <!-- 배너 화살표       -->
-        <div class="banner__arrow__right">
-          <img onClick="movingRight()" src="./imgs/next.png"/>
-        </div>
-        <!-- 배너 내용 -->
-        <div class="banner-container">
-          <ul class="banner-container__list">
-            <li ></li>
-            <li ></li>
-            <li ></li>
-          </ul>  
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            ...
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
         </div>
       </section>
+
       <!-- 최신 서적 -->
       <section class="latest-books">
         <div class="latest-books__title">제목</div>
@@ -76,10 +85,8 @@
 
       const movingRight = () =>{
         if(!isLeft){
-         
           bannerContainer.style.transform=`translateX(${bannerIndex*+33}%)`
           bannerIndex+=1;
-     
         }
         else{
           bannerIndex=1
@@ -88,6 +95,28 @@
           isLeft=false;
         }
       };
+
+      const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      direction: 'vertical',
+      loop: true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // And if we need scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    });
 
     </script>
   </body>
