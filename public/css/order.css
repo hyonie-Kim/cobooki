@@ -61,7 +61,7 @@
 
 .orderContainer .orderInfo .orderBookInfoBox .orderBookCover {
     display: inline-block;
-    padding-left: 60px;
+    margin: 10px 0px 0px 5px;
     border-radius: 20px;
     height: 451px;
     width: 310px;
@@ -69,9 +69,11 @@
 }
 
 .orderContainer .orderInfo .orderBookInfoBox .orderBookInfo {
-    width: 160px;
+    width: 260px;
+    height: 350px;
     background-color: #9999;
     display: inline-block;
+    margin: 10px 0px 0px 30px;
 }
 
 /* 배송지/수령인 정보 */
