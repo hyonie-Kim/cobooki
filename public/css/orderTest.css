@@ -20,14 +20,14 @@
     background-color: rgb(215, 215, 215);
 }
 
-.orderContainer div {
+/* .orderContainer div {
     margin: auto;
     width: 90%;
-}
+} */
 
 
 /* ----------주문서---------- */
-.orderContainer .orderText h3 {
+.orderText h3 {
     text-align: center;
     font-size: 27px;
     font-weight: 900;
@@ -35,7 +35,7 @@
 }
 
 /* ----------주문상품정보 ----------*/
-.orderContainer .orderInfo {
+/* .orderContainer .orderInfo {
     background-color: aquamarine;
     text-align: left;
     padding-bottom: 60px;
@@ -93,10 +93,10 @@
     justify-content: center;
     font-size: 25px;
     font-weight: 900;
-}
+} */
 
 /* ----------배송지/수령인 정보 ----------*/
-.orderContainer .userInfo {
+/* .orderContainer .userInfo {
     text-align: left;
     padding-bottom: 60px;
     background-color: rgb(236, 114, 171);
@@ -107,10 +107,10 @@
     padding-bottom: 10px;
     font-size: 22px;
     border-bottom: 1px solid #8d8d8d99;
-}
+} */
 
 /* ----------결제방법---------- */
-.orderContainer .payBox {
+/* .orderContainer .payBox {
     display: flex;
     justify-content: flex-start;
     text-align: left;
@@ -123,4 +123,4 @@
     padding-left: 5px;
     padding-bottom: 10px;
     font-size: 22px;
-}
+} */
