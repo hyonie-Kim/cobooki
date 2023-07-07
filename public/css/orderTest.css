@@ -1,0 +1,111 @@
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.orderPageContainer {
+    font-family: 'NanumSquareNeo-Variable';
+    margin: auto;
+    width: 65%;
+    min-height: 100%;
+    background-color: rgb(149, 210, 212);
+    padding-top: 220px;
+}
+
+.orderPageContainer h3 {
+    text-align: center;
+    font-size: 27px;
+    font-weight: 900;
+
+}
+
+.orderPageContainer .orderBox {
+    padding-top: 60px;
+    margin: auto;
+    width: 90%;
+    height: 100%;
+    background-color: rgb(215, 215, 215);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
+/* ------------주문상품정보------------ */
+.orderPageContainer .orderBox .productInfo h4 {
+    width: auto;
+
+    border-bottom: 0.7px solid #5c5c5c99;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.orderPageContainer .orderBox .productInfo .orderBookInfoBox {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding-top: 30px;
+    background-color: burlywood;
+    margin-bottom: 30px;
+}
+
+/* 주문상품정보 - 책표지 */
+.orderPageContainer .orderBox .productInfo .orderBookInfoBox .orderBookCover {
+    width: 310px;
+    height: 450px;
+    border-radius: 20px;
+    border: solid 0.5px #9999;
+    background-color: rgb(168, 122, 157);
+    margin: 0px 30px 20px 10px;
+}
+
+/* 주문상품정보 - 카테고리 */
+.orderPageContainer .orderBox .productInfo .orderBookInfo_Category {
+    margin: 35px 0px 15px 0px;
+    border-radius: 60px;
+    width: 160px;
+    line-height: 55px;
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+    background-color: rgb(135, 222, 173);
+
+}
+
+
+/* 주문상품정보 - 책제목 */
+.orderPageContainer .orderBox .productInfo .orderBookInfoTitle {
+    font-size: 30px;
+    background-color: rgb(222, 135, 147);
+    margin: 5px 0px 5px 0px;
+}
+
+/* 주문상품정보 - 책 금액 */
+.orderPageContainer .orderBox .productInfo .orderBookInfoProductPrice {
+    font-size: 35px;
+    font-weight: 900;
+    margin: 5px 0px 10px 0px;
+    background-color: rgb(135, 157, 222);
+}
+
+/* 주문상품정보 - 원래책가격 X 주문수량 */
+.orderPageContainer .orderBox .productInfo .orderBookInfoCount {
+    margin: 5px 0px 15px 0px;
+    background-color: rgb(27, 59, 157);
+}
+
+/* 주문상품정보 - 배송비 */
+.orderPageContainer .orderBox .productInfo .orderBookInfoDelivery {
+    font-size: 25px;
+    margin: 5px 0px 10px 0px;
+    background-color: rgb(94, 157, 27);
+}

@@ -21,4 +21,8 @@ router.post(
   controller.signUp
 );
 
+router.get("/detailPage", controller.detailPage); //test(지우)
+
+
+
 module.exports = router;

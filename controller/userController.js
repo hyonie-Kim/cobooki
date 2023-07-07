@@ -53,3 +53,12 @@ exports.signUp = async (req, res) => {
     res.status(400).send({ msg: "회원 중복 :: ID 수정" });
   }
 };
+
+exports.header = (req, res) => { //test(지우)
+  res.render("header");
+};
+
+
+exports.detailPage = (req, res) => { //test(지우)
+  res.render("detailPage");
+};
