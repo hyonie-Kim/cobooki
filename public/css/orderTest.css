@@ -158,3 +158,104 @@
     width: 1035px;
     margin: 60px 0px 40px 0px;
 }
+
+
+
+
+
+/* 결제방법 & 총 결제 금액 */
+.orderPageContainer .orderBox .makePaymentAndTotalPrice {
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    /* background-color: darkorange; */
+}
+
+.orderPageContainer .orderBox .makePaymentAndTotalPrice h4 {
+    width: auto;
+    padding-left: 10px;
+    padding-top: 100px;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+/* 결제방법 */
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .makePaymentBox {
+    display: flex;
+    width: 700px;
+    justify-content: flex-start;
+    flex-direction: column;
+    /* background-color: rgb(255, 236, 215); */
+}
+
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .makePaymentBox .makePayments {
+    display: flex;
+    width: 700px;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 520px;
+    border-top: 0.7px solid #5c5c5c99;
+    margin: 20px 0px 50px 0px;
+    /* background-color: rgb(212, 255, 249); */
+
+}
+
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .makePaymentBox .makePayments div {
+    margin: 60px 20px 0px 10px;
+    line-height: 115px;
+    text-align: center;
+    background-color: #EFEFEF;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+/* 총 결제금액 */
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox {
+    display: flex;
+    width: 700px;
+    font-size: 20px;
+    justify-content: flex-start;
+    flex-direction: column;
+    /* background-color: rgb(245, 197, 197); */
+}
+
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo {
+    display: flex;
+    width: 700px;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-top: 0.7px solid #5c5c5c99;
+    margin: 20px 0px 50px 0px;
+    /* background-color: rgb(252, 154, 154); */
+
+}
+
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox01 {
+    margin: 60px 20px 0px 10px;
+    height: 470px;
+    text-align: center;
+    background-color: #EFEFEF;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+
+
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox02 {
+    margin: 10px 20px 0px 10px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox03 {
+    margin: 10px 20px 0px 10px;
+    line-height: 115px;
+    text-align: center;
+    background-color: #547F5B;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: 900;
+    color: #EFEFEF;
+}
