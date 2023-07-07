@@ -11,6 +11,26 @@
 
   <body>
     <%- include ('./header02.ejs') %>
+    <!-- 네비바 -->
+    <nav>
+        <div class="myProfileNav">
+          <div class="myPage">마이페이지</div>
+          <h1></h1>
+          <ul class="list">
+            <li>
+              <a class="order">주문 조회</a>
+            </li>
+            <li>
+              <a class="myInfo">개인 정보 수정</a>
+            </li>
+            <li>
+              <a class="cart">장바구니</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <!--개인정보수정 폼-->
     <form class="myProfileForm" action="/myProfile" method="put">
       <div class="container">
         <div class="block account-header">
