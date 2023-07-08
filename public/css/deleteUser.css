@@ -62,3 +62,80 @@
   display: inline-block;
   color: black;
 }
+
+.deleteUserForm {
+  position: fixed;
+  width: 800px;
+  height: 650px;
+  background-color: #ffffff;
+  text-align: center;
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  font-family: "NanumSquareNeo-Variable";
+  border-bottom: 1px solid #d1d1d1;
+  padding-top: 40px;
+  width: 140%;
+  height: 140px;
+}
+
+.account-header {
+  display: block;
+  border-bottom: #ddd 2px solid;
+}
+
+.account-header h1 {
+  font-size: x-large;
+  text-align: left;
+  margin: 30px;
+}
+
+/* 버튼 */
+.cancel-btn {
+  position: relative;
+  left: 15%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+  width: 30%;
+  height: 40px;
+  background: white;
+  background-position: left;
+  background-size: 200%;
+  color: #547f5b;
+  font-weight: bold;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline;
+}
+
+.delete-btn {
+  position: relative;
+  left: 20%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+  margin-top: 30px;
+  width: 30%;
+  height: 40px;
+  background: #547f5b;
+  background-position: left;
+  background-size: 200%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline;
+}
