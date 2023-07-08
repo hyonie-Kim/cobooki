@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/header.css"></link>
     <link rel="stylesheet" href="../css/footer.css"></link>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   </head>
 
@@ -22,78 +22,17 @@
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="swiper-slide"></div>
-            <div class="swiper-slide"></div>
-            <div class="swiper-slide"></div>
-            ...
+            <div class="swiper-slide first">1</div>
+            <div class="swiper-slide second">2</div>
+            <div class="swiper-slide third">3</div>
           </div>
           <!-- If we need pagination -->
           <div class="swiper-pagination"></div>
-
           <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
         </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </section>
-
-      <script>
-
-        const books=[{
-            img:"/imgs/banner01.png",
-            title:'파이썬',
-            author:'인간1',
-            price:10000
-          },{
-            img:"/imgs/banner01.png",
-            title:'파이썬',
-            author:'인간1',
-            price:10000
-          },{
-            img:"/imgs/banner01.png",
-            title:'파이썬',
-            author:'인간1',
-            price:10000
-          },{
-            img:"/imgs/banner01.png",
-            title:'파이썬',
-            author:'인간1',
-            price:10000
-          },{
-            img:"/imgs/banner01.png",
-            title:'파이썬',
-            author:'인간1',
-            price:10000
-          },{
-            img:"/imgs/banner01.png",
-            title:'파이썬',
-            author:'인간1',
-            price:10000
-          }
-        ];
-  
-        const swiper = new Swiper('.swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
-  
-        // If we need pagination
-        pagination: {
-          el: '.swiper-pagination',
-        },
-  
-        // Navigation arrows
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-  
-        // And if we need scrollbar
-        scrollbar: {
-          el: '.swiper-scrollbar',
-        },
-      });
-  
-      </script>
 
       <!-- 최신 서적 -->
       <section class="latest-books">
@@ -116,6 +55,65 @@
             </div> 
       </section>
     </main>
+    <%-include('footer.ejs') %>
+    <script>
+      const books=[{
+          img:"/imgs/banner01.png",
+          title:'파이썬',
+          author:'인간1',
+          price:10000
+        },{
+          img:"/imgs/banner01.png",
+          title:'파이썬',
+          author:'인간1',
+          price:10000
+        },{
+          img:"/imgs/banner01.png",
+          title:'파이썬',
+          author:'인간1',
+          price:10000
+        },{
+          img:"/imgs/banner01.png",
+          title:'파이썬',
+          author:'인간1',
+          price:10000
+        },{
+          img:"/imgs/banner01.png",
+          title:'파이썬',
+          author:'인간1',
+          price:10000
+        },{
+          img:"/imgs/banner01.png",
+          title:'파이썬',
+          author:'인간1',
+          price:10000
+        }
+      ];
+
+      const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+      centeredSlides:true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+        clickable:true,
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      // And if we need scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    });
+
+    </script>
   </body>
 
 </html>

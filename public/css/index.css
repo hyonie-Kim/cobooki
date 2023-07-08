@@ -1,6 +1,40 @@
-.banner .swiper {
+main {
+  font-family: "NanumSquareNeo-Variable";
+  margin: 0 140px;
+  padding-top: 140px;
+  width: 80%;
+  height: 2000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+  box-sizing: border-box;
+}
+
+.banner {
+  width: 90%;
+  height: 20%;
+  position: relative;
+}
+
+.swiper {
   width: 100%;
   height: 100%;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.swiper-button-prev::after {
+  position: absolute;
+  left: -60px;
+  color: #adadad;
+}
+
+.swiper-button-next::after {
+  color: #adadad;
+  position: absolute;
+  right: -60px;
 }
 
 .swiper-slide {
@@ -8,39 +42,21 @@
   background-size: cover;
 }
 
-.swiper-slide:nth-child(1) {
+.swiper-slide.first {
   background-image: url("/imgs/banner01.png");
 }
 
-.swiper-slide:nth-child(2) {
+.swiper-slide.second {
   background-image: url("/imgs/banner02.png");
 }
 
-.swiper-slide:nth-child(3) {
+.swiper-slide.third {
   background-image: url("/imgs/banner03.png");
-}
-
-main {
-  font-family: "NanumSquareNeo-Variable";
-  margin: 0 140px;
-  width: 1450 px;
-  height: 1450px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  top: 140px;
-  z-index: 0;
-}
-
-.banner {
-  width: 100%;
-  height: 800px;
 }
 
 .latest-books {
   width: 100%;
-  height: 3000px;
+  height: 75%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -51,7 +67,7 @@ main {
 .latest-books > h1 {
   position: absolute;
   left: 0px;
-  top: 40px;
+  top: 60px;
   width: 100%;
   padding-bottom: 10px;
   border-bottom: 2px solid #adadad;
