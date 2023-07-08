@@ -6,54 +6,48 @@
 
 .myProfileNav {
   font-family: "NanumSquareNeo-Variable";
-  align-items: center;
   position: fixed;
-  width: 300px;
-  height: 100vh;
+  width: 200px;
+  height: 800px;
   background-color: #ffffff;
-  border-right: 1px solid #d1d1d1;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 20px;
-  top: 140px;
-  left: 0;
+  border-right: 0.5px solid #d1d1d1;
+  top: 80px;
 }
 
 .list {
-  padding: 0;
-  margin: 30px;
-  border-width: 1px;
-  border-color: black;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 25px;
+  border-width: 0.5px;
+  border-color: #d1d1d1;
   list-style: none;
+  justify-content: center;
+  border-left: 0.5px solid #d1d1d1;
+  border-right: 0.5px solid #d1d1d1;
+  border-bottom: 0.5px solid #d1d1d1;
+  border-radius: 2px;
 }
 
 .list li {
   text-align: center;
-  margin-left: 10px;
-  margin-right: 10px;
-  color: black;
-  border: 1px solid #d1d1d1;
-  padding: 20px;
+  background-color: white;
+  padding: 15px;
+  font-size: 12px;
+  border-top: 0.5px solid #d1d1d1;
 }
 
-.myProfileNav ul li a:hover {
+.myProfileNav ul li:hover {
   background-color: #bdd5c7;
-  border-radius: 50px;
   color: #ffff;
-  transform: scale(1.2);
 }
 
 .myPage {
-  height: 75px;
-  padding: 5px 0px 35px 1px;
+  height: 45px;
   text-align: center;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 35px;
+  font-weight: bold;
+  font-size: 18px;
   color: black;
-  letter-spacing: -1px;
-  margin: 20px;
+  margin: 30px;
 }
 
 .order,
@@ -63,10 +57,11 @@
   color: black;
 }
 
+/* 개인정보수정 폼 */
 .myProfileForm {
   position: fixed;
   width: 800px;
-  height: 650px;
+  height: 580px;
   background-color: #ffffff;
   text-align: center;
   top: 50%;
@@ -90,11 +85,10 @@
 
 .account-header {
   display: block;
-  border-bottom: #ddd 2px solid;
 }
 
 .account-header h1 {
-  font-size: x-large;
+  font-size: 18px;
   text-align: left;
   margin: 30px;
 }
