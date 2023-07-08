@@ -6,54 +6,48 @@
 
 .myProfileNav {
   font-family: "NanumSquareNeo-Variable";
-  align-items: center;
   position: fixed;
-  width: 300px;
-  height: 100vh;
+  width: 200px;
+  height: 800px;
   background-color: #ffffff;
-  border-right: 1px solid #d1d1d1;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 20px;
-  top: 140px;
-  left: 0;
+  border-right: 0.5px solid #d1d1d1;
+  top: 80px;
 }
 
 .list {
-  padding: 0;
-  margin: 30px;
-  border-width: 1px;
-  border-color: black;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 25px;
+  border-width: 0.5px;
+  border-color: #d1d1d1;
   list-style: none;
+  justify-content: center;
+  border-left: 0.5px solid #d1d1d1;
+  border-right: 0.5px solid #d1d1d1;
+  border-bottom: 0.5px solid #d1d1d1;
+  border-radius: 2px;
 }
 
 .list li {
   text-align: center;
-  margin-left: 10px;
-  margin-right: 10px;
-  color: black;
-  border: 1px solid #d1d1d1;
-  padding: 20px;
+  background-color: white;
+  padding: 15px;
+  font-size: 12px;
+  border-top: 0.5px solid #d1d1d1;
 }
 
-.myProfileNav ul li a:hover {
+.myProfileNav ul li:hover {
   background-color: #bdd5c7;
-  border-radius: 50px;
   color: #ffff;
-  transform: scale(1.2);
 }
 
 .myPage {
-  height: 75px;
-  padding: 5px 0px 35px 1px;
+  height: 45px;
   text-align: center;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 35px;
+  font-weight: bold;
+  font-size: 18px;
   color: black;
-  letter-spacing: -1px;
-  margin: 20px;
+  margin: 30px;
 }
 
 .order,
@@ -63,15 +57,16 @@
   color: black;
 }
 
+/* 개인정보수정 폼 */
 .myProfileForm {
   position: fixed;
   width: 800px;
-  height: 650px;
+  height: 580px;
   background-color: #ffffff;
   text-align: center;
   top: 50%;
   bottom: 50%;
-  left: 50%;
+  left: 45%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
@@ -90,51 +85,50 @@
 
 .account-header {
   display: block;
-  border-bottom: #ddd 2px solid;
 }
 
 .account-header h1 {
-  font-size: x-large;
+  font-size: 18px;
   text-align: left;
   margin: 30px;
 }
 
 .menu-container {
-  width: 800px;
+  width: 1000px;
   height: 800px;
-  padding: 50px 30px;
-  top: 50%;
-  bottom: 50%;
-  left: 50%;
   background-color: #ffffff;
   text-align: center;
 }
 
 .form-container {
-  width: 900px;
-  height: 800px;
+  width: 700px;
+  height: 700px;
   top: 50%;
   bottom: 50%;
   left: 50%;
 }
 
 .field {
+  height: 50px;
   display: flex;
+  margin: 10px 0;
 }
 
 .label {
   margin: auto;
-  padding: 5px 40px;
+  font-size: 11px;
 }
 
 .control {
-  padding: 20px 40px;
+  padding: 10px 0px;
+  font-size: 8px;
 }
 
 .input {
   width: 500px;
   height: 30px;
   padding: 10px;
+  font-size: 10px;
 }
 
 .informationForm {
@@ -145,20 +139,12 @@
   display: flex;
 }
 
-.label-address {
-  text-align: left;
-  margin-bottom: 0.5rem;
-}
-
-.switch-address {
-  width: 66px;
-}
-
 .delete-btn {
+  font-family: "NanumSquareNeo-Variable";
   position: relative;
-  left: 15%;
+  left: 40%;
   transform: translateX(-50%);
-  margin-bottom: 20px;
+  margin-top: 80px;
   width: 30%;
   height: 40px;
   background: white;
@@ -167,19 +153,20 @@
   color: #547f5b;
   font-weight: bold;
   border-width: 1px;
-  border-color: black;
+  border-color: #547f5b;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.4s;
   display: inline;
+  font-size: 12px;
 }
 
 .save-btn {
+  font-family: "NanumSquareNeo-Variable";
   position: relative;
-  left: 20%;
+  left: 45%;
   transform: translateX(-50%);
-  margin-bottom: 20px;
-  margin-top: 30px;
+  margin-top: 80px;
   width: 30%;
   height: 40px;
   background: #547f5b;
@@ -192,4 +179,5 @@
   cursor: pointer;
   transition: 0.4s;
   display: inline;
+  font-size: 12px;
 }
