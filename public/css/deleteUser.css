@@ -1,0 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+.myProfileNav {
+  font-family: "NanumSquareNeo-Variable";
+  align-items: center;
+  position: fixed;
+  width: 300px;
+  height: 100vh;
+  background-color: #ffffff;
+  border-right: 1px solid #d1d1d1;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 20px;
+  top: 140px;
+  left: 0;
+}
+
+.list {
+  padding: 0;
+  margin: 30px;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10px;
+  list-style: none;
+}
+
+.list li {
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: black;
+  border: 1px solid #d1d1d1;
+  padding: 20px;
+}
+
+.myProfileNav ul li a:hover {
+  background-color: #bdd5c7;
+  border-radius: 50px;
+  color: #ffff;
+  transform: scale(1.2);
+}
+
+.myPage {
+  height: 75px;
+  padding: 5px 0px 35px 1px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 35px;
+  color: black;
+  letter-spacing: -1px;
+  margin: 20px;
+}
+
+.order,
+.myInfo,
+.cart {
+  display: inline-block;
+  color: black;
+}
