@@ -11,7 +11,6 @@
   font-family: 'NanumSquareNeo-Variable';
   position: absolute;
   top: 150px;
-  width: 1728px;
   height: 935px;
 
 }
@@ -22,7 +21,8 @@
 }
 
 .bgc-gray {
-  padding: 100px;
+  width: 1300px;
+  padding: 50px;
   background-color: #F1F1F1;
 }
 
@@ -56,29 +56,33 @@ img {
 .one {
   display: inline-block;
   text-align: center;
-  width: 150px;
+  width: 15%;
   height: 50px;
+  font-size: 14px;
 }
 
 .two {
   display: inline-block;
   text-align: center;
-  width: 500px;
+  width: 35%;
   height: 50px;
+  font-size: 14px;
 }
 
 .three {
   display: inline-block;
   text-align: center;
-  width: 190px;
+  width: 13%;
   height: 50px;
+  font-size: 14px;
 }
 
 .four {
   display: inline-block;
   text-align: center;
-  width: 350px;
+  width: 35%;
   height: 50px;
+  font-size: 14px;
 }
 
 hr {
@@ -90,65 +94,70 @@ hr {
 }
 
 .price-wrap {
-  margin: 20px 10px 10px;
+  position: relative;
+  left: 510px;
+  display: inline-block;
+  margin: 70px 10px 10px;
 }
 
 p.right {
+  display: inline-block;
   margin-right: 20px;
   text-align: right;
+  color: #547F5B;
+  font-weight: 400;
+}
+
+p.order-price {
+  font-size: 14px;
+  color: black;
 }
 
 
 .myProfileNav {
   font-family: "NanumSquareNeo-Variable";
-  align-items: center;
   position: fixed;
-  width: 300px;
-  height: 100vh;
+  width: 200px;
+  height: 800px;
   background-color: #ffffff;
-  border-right: 1px solid #d1d1d1;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 20px;
-  top: 140px;
-  left: 0;
+  border-right: 0.5px solid #d1d1d1;
+  top: 80px;
 }
 
 .list {
-  padding: 0;
-  margin: 30px;
-  border-width: 1px;
-  border-color: black;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 25px;
+  border-width: 0.5px;
+  border-color: #d1d1d1;
   list-style: none;
+  justify-content: center;
+  border-left: 0.5px solid #d1d1d1;
+  border-right: 0.5px solid #d1d1d1;
+  border-bottom: 0.5px solid #d1d1d1;
+  border-radius: 2px;
 }
 
 .list li {
   text-align: center;
-  margin-left: 10px;
-  margin-right: 10px;
-  color: black;
-  border: 1px solid #d1d1d1;
-  padding: 20px;
+  background-color: white;
+  padding: 15px;
+  font-size: 12px;
+  border-top: 0.5px solid #d1d1d1;
 }
 
-.myProfileNav ul li a:hover {
+.myProfileNav ul li:hover {
   background-color: #bdd5c7;
-  border-radius: 50px;
   color: #ffff;
-  transform: scale(1.2);
 }
 
 .myPage {
-  height: 75px;
-  padding: 5px 0px 35px 1px;
+  height: 45px;
   text-align: center;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 35px;
+  font-weight: bold;
+  font-size: 18px;
   color: black;
-  letter-spacing: -1px;
-  margin: 20px;
+  margin: 30px;
 }
 
 .order,
