@@ -65,7 +65,7 @@
 
 .deleteUserForm {
   position: fixed;
-  width: 800px;
+  width: 1000px;
   height: 650px;
   background-color: #ffffff;
   text-align: center;
@@ -91,6 +91,7 @@
 .account-header {
   display: block;
   border-bottom: #ddd 2px solid;
+  width: 1200px;
 }
 
 .account-header h1 {
@@ -99,10 +100,64 @@
   margin: 30px;
 }
 
+.menu-container {
+  width: 1200px;
+  height: 800px;
+  padding: 50px 30px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.form-container {
+  width: 900px;
+  height: 800px;
+}
+
+.field {
+  top: 25%;
+  position: fixed;
+  display: flex;
+}
+
+.subtitle {
+  text-align: left;
+}
+
+.box-container {
+  position: fixed;
+  width: 1200px;
+  height: 150px;
+  background-color: #ffffff;
+  text-align: left;
+  top: 40%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  border: 1px solid #767676;
+  margin: 30px 0 30px 0;
+  padding: 10px;
+}
+
+.box-container li {
+  margin: 5px 10px;
+  color: #767676;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.confirm {
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  text-align: center;
+  font-size: 15px;
+}
+
 /* 버튼 */
 .cancel-btn {
   position: relative;
-  left: 15%;
+  top: 50%;
+  left: 35%;
   transform: translateX(-50%);
   margin-bottom: 20px;
   width: 30%;
@@ -122,7 +177,8 @@
 
 .delete-btn {
   position: relative;
-  left: 20%;
+  top: 50%;
+  left: 40%;
   transform: translateX(-50%);
   margin-bottom: 20px;
   margin-top: 30px;
