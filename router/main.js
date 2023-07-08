@@ -7,7 +7,7 @@ router.get("/order", main.order);
 
 router.get("/cart", main.cart);
 
-router.get("/header", main.header); //test(지우)
+// router.get("/header", main.header); //test(지우)
 
 router.get("/myProfile", main.myProfile);
 
