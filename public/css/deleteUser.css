@@ -157,7 +157,7 @@
 .cancel-btn {
   position: relative;
   top: 50%;
-  left: 35%;
+  left: 30%;
   transform: translateX(-50%);
   margin-bottom: 20px;
   width: 30%;
@@ -178,7 +178,7 @@
 .delete-btn {
   position: relative;
   top: 50%;
-  left: 40%;
+  left: 35%;
   transform: translateX(-50%);
   margin-bottom: 20px;
   margin-top: 30px;
