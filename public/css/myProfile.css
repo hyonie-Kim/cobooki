@@ -1,0 +1,195 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+.myProfileNav {
+  font-family: "NanumSquareNeo-Variable";
+  align-items: center;
+  position: fixed;
+  width: 300px;
+  height: 100vh;
+  background-color: #ffffff;
+  border-right: 1px solid #d1d1d1;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 20px;
+  top: 140px;
+  left: 0;
+}
+
+.list {
+  padding: 0;
+  margin: 30px;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10px;
+  list-style: none;
+}
+
+.list li {
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: black;
+  border: 1px solid #d1d1d1;
+  padding: 20px;
+}
+
+.myProfileNav ul li a:hover {
+  background-color: #bdd5c7;
+  border-radius: 50px;
+  color: #ffff;
+  transform: scale(1.2);
+}
+
+.myPage {
+  height: 75px;
+  padding: 5px 0px 35px 1px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 35px;
+  color: black;
+  letter-spacing: -1px;
+  margin: 20px;
+}
+
+.order,
+.myInfo,
+.cart {
+  display: inline-block;
+  color: black;
+}
+
+.myProfileForm {
+  position: fixed;
+  width: 800px;
+  height: 650px;
+  background-color: #ffffff;
+  text-align: center;
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  font-family: "NanumSquareNeo-Variable";
+  border-bottom: 1px solid #d1d1d1;
+  padding-top: 40px;
+  width: 140%;
+  height: 140px;
+}
+
+.account-header {
+  display: block;
+  border-bottom: #ddd 2px solid;
+}
+
+.account-header h1 {
+  font-size: x-large;
+  text-align: left;
+  margin: 30px;
+}
+
+.menu-container {
+  width: 800px;
+  height: 800px;
+  padding: 50px 30px;
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.form-container {
+  width: 900px;
+  height: 800px;
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+}
+
+.field {
+  display: flex;
+}
+
+.label {
+  margin: auto;
+  padding: 5px 40px;
+}
+
+.control {
+  padding: 20px 40px;
+}
+
+.input {
+  width: 500px;
+  height: 30px;
+  padding: 10px;
+}
+
+.informationForm {
+  width: 40rem;
+}
+
+.informationForm .control {
+  display: flex;
+}
+
+.label-address {
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.switch-address {
+  width: 66px;
+}
+
+.delete-btn {
+  position: relative;
+  left: 15%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+  width: 30%;
+  height: 40px;
+  background: white;
+  background-position: left;
+  background-size: 200%;
+  color: #547f5b;
+  font-weight: bold;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline;
+}
+
+.save-btn {
+  position: relative;
+  left: 20%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+  margin-top: 30px;
+  width: 30%;
+  height: 40px;
+  background: #547f5b;
+  background-position: left;
+  background-size: 200%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline;
+}
