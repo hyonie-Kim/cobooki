@@ -41,7 +41,7 @@
             <div class="books">
               <% for(let i=0; i< 6; i++) { %>
                 <div class="book">
-                  <h4>카테고리</h4>
+                  <h4 class="category">카테고리</h4>
                   <div class="book-container">
                     <div class="book-img"></div>
                     <div class="book-info">
@@ -102,7 +102,7 @@
       const bookAuthor = document.querySelectorAll('.book__author')
       const bookPrice = document.querySelectorAll('.book__price')
       let i =0;
-      console.log(bookImage[0])
+
       bookData.forEach(({id,img,title,author,price})=>{
 
         const selectCategory = (id)=>{
@@ -129,6 +129,25 @@
         bookPrice[i].textContent=`${price}`;
         i+=1;
       })
+
+      const categoryNavigation = document.querySelectorAll('.nav>ul>li')
+      console.log(categoryNavigation)
+      console.log(category[0].className.includes('front'))
+      categoryNavigation.forEach((element)=>{
+        const changeTitle = () =>{
+          const listTitle =document.querySelector('.latest-books>h1')
+          listTitle.textContent=`카테고리  >  ${element.firstElementChild.innerText}`
+          categoryNavigation.forEach((element)=>{
+            if(element.firstElementChild.className.includes('clicked')){
+              element.firstElementChild.classList.remove('clicked')
+            }
+          })
+
+          element.firstElementChild.classList.add('clicked')
+        }
+        element.addEventListener('click',changeTitle)
+      })
+
 
       const swiper = new Swiper('.swiper', {
       // Optional parameters
