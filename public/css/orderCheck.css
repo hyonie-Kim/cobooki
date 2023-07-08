@@ -7,7 +7,7 @@
   font-style: normal;
 }
 
-.cart-wrap {
+.orderlookup-wrap {
   font-family: 'NanumSquareNeo-Variable';
   position: absolute;
   top: 150px;
@@ -27,45 +27,43 @@
 }
 
 .product-table {
-  margin: 0px 0 0 280px;
+  margin-left: 280px;
 }
 
 .row-all {
   line-height: 55px;
 }
 
-.check-box {
-  margin-left: 49px;
-  display: inline-block;
-  width: 30px;
-  height: 50px;
+.product-name {
+  position: relative;
 }
 
 .img {
+  position: absolute;
+  left: 20px;
   height: 50px;
   position: absolute;
   left: 0px;
 }
 
 img {
-  display: block;
+  display: inline-block;
   width: auto;
   height: 100%;
 }
 
 
 .one {
-  position: relative;
   display: inline-block;
   text-align: center;
-  width: 500px;
+  width: 150px;
   height: 50px;
 }
 
 .two {
   display: inline-block;
   text-align: center;
-  width: 190px;
+  width: 500px;
   height: 50px;
 }
 
@@ -76,35 +74,10 @@ img {
   height: 50px;
 }
 
-input[type="number"] {
-  width: 70px;
-  height: 25px;
-
-}
-
-input[type="button"] {
-  margin: 2px;
-  padding: 2px;
-  background-color: #547F5B;
-  border: none;
-  border-radius: 7px;
-  width: 40px;
-  height: 25px;
-  font-size: 12px;
-  font-weight: 400;
-  color: white;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-input,
-button {
-  cursor: pointer;
-}
-
 .four {
   display: inline-block;
   text-align: center;
-  width: 190px;
+  width: 350px;
   height: 50px;
 }
 
@@ -125,29 +98,6 @@ p.right {
   text-align: right;
 }
 
-.button-wrap {
-  position: relative;
-  left: 1200px;
-  top: 20px;
-  margin-top: 20px;
-}
-
-button.right {
-  margin-right: 15px;
-  padding: 10px;
-  width: 150px;
-  border: none;
-  border-radius: 15px;
-  font-weight: 700;
-  background-color: #547F5B;
-  color: white;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-button.delete-button {
-  background-color: #E4E4E4;
-  color: black;
-}
 
 .myProfileNav {
   font-family: "NanumSquareNeo-Variable";
