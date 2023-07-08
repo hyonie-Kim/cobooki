@@ -22,9 +22,9 @@
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="swiper-slide">11232</div>
-            <div class="swiper-slide">2123</div>
-            <div class="swiper-slide">312321</div>
+            <div class="swiper-slide"></div>
+            <div class="swiper-slide"></div>
+            <div class="swiper-slide"></div>
             ...
           </div>
           <!-- If we need pagination -->
@@ -33,48 +33,80 @@
           <!-- If we need navigation buttons -->
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
-
-          <!-- If we need scrollbar -->
-          <div class="swiper-scrollbar"></div>
         </div>
       </section>
 
+      <script>
+
+        const books=[{
+            img:"/imgs/banner01.png",
+            title:'파이썬',
+            author:'인간1',
+            price:10000
+          },{
+            img:"/imgs/banner01.png",
+            title:'파이썬',
+            author:'인간1',
+            price:10000
+          },{
+            img:"/imgs/banner01.png",
+            title:'파이썬',
+            author:'인간1',
+            price:10000
+          },{
+            img:"/imgs/banner01.png",
+            title:'파이썬',
+            author:'인간1',
+            price:10000
+          },{
+            img:"/imgs/banner01.png",
+            title:'파이썬',
+            author:'인간1',
+            price:10000
+          },{
+            img:"/imgs/banner01.png",
+            title:'파이썬',
+            author:'인간1',
+            price:10000
+          }
+        ];
+  
+        const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+  
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+  
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+  
+        // And if we need scrollbar
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      });
+  
+      </script>
+
       <!-- 최신 서적 -->
       <section class="latest-books">
-        <h2>제목</h2>
-        <div class="latest-books__container">
-
-          <div class="swiper">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-              <!-- Slides -->
-              <div class="swiper-slide">11232</div>
-              <div class="swiper-slide">2123</div>
-              <div class="swiper-slide">312321</div>
-              ...
-            </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-  
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-  
-            <!-- If we need scrollbar -->
-            <div class="swiper-scrollbar"></div>
-          </div>
-
-
-
+        <h1>최신 서적</h1>
             <!-- 책 2x3 리스트  -->
             <div class="books">
-              <% for (let i = 0; i < 6; i++) { %>
+              <% for(let i=0; i< 6; i++) { %>
                 <div class="book">
-                  <div class="book__category">카테고리</div>
-                  <div class="book__content">
-                    <div class="book__img"><img src="" alt="이미지"/></div>
-                    <div class="book__info">
-                      <div class="book__name">도서 명</div>
+                  <h4>카테고리</h4>
+                  <div class="book-container">
+                    <div class="book-img"></div>
+                    <div class="book-info">
+                      <div class="book__name">이름</div>
                       <div class="book__author">저자</div>
                       <div class="book__price">가격</div> 
                     </div>
@@ -82,65 +114,8 @@
                 </div>
               <% } %>
             </div> 
-
-          </div>
-        </div>
       </section>
     </main>
-
-    <script>
-      const bannerContainer = document.querySelector('.banner-container__list');
-      let bannerIndex=1;
-      let isLeft =true;
-      
-      const movingLeft = () =>{
-        if(isLeft){
-          bannerContainer.style.transform=`translateX(${bannerIndex*-33}%)`
-          bannerIndex+=1 
-        }
-        else{
-          bannerIndex=1
-          bannerContainer.style.transform=`translateX(${bannerIndex*-33}%)`
-          isLeft=true;
-        }
-      };
-
-      const movingRight = () =>{
-        if(!isLeft){
-          bannerContainer.style.transform=`translateX(${bannerIndex*+33}%)`
-          bannerIndex+=1;
-        }
-        else{
-          bannerIndex=1
-          bannerContainer.style.transform=`translateX(${bannerIndex*+33}%)`
-          bannerIndex+=1 
-          isLeft=false;
-        }
-      };
-
-      const swiper = new Swiper('.swiper', {
-      // Optional parameters
-      direction: 'horizontal',
-      loop: true,
-
-      // If we need pagination
-      pagination: {
-        el: '.swiper-pagination',
-      },
-
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-
-      // And if we need scrollbar
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
-    });
-
-    </script>
   </body>
 
 </html>
