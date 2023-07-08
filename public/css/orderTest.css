@@ -48,7 +48,7 @@
     font-weight: 900;
 }
 
-.orderPageContainer .orderBox .productInfo .orderBookInfoBox {
+.productInfo .orderBookInfoBox {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
@@ -58,7 +58,7 @@
 }
 
 /* 주문상품정보 - 책표지 */
-.orderPageContainer .orderBox .productInfo .orderBookInfoBox .orderBookCover {
+.productInfo .orderBookInfoBox .orderBookCover {
     width: 310px;
     height: 450px;
     border-radius: 20px;
@@ -67,7 +67,7 @@
 }
 
 /* 주문상품정보 - 카테고리 */
-.orderPageContainer .orderBox .productInfo .orderBookInfo_Category {
+.productInfo .orderBookInfo_Category {
     margin: 55px 0px 15px 0px;
     border-radius: 60px;
     width: 160px;
@@ -81,21 +81,21 @@
 
 
 /* 주문상품정보 - 책제목 */
-.orderPageContainer .orderBox .productInfo .orderBookInfoTitle {
+.productInfo .orderBookInfoTitle {
     width: 1035px;
     font-size: 30px;
     margin: 25px 0px 30px 0px;
 }
 
 /* 주문상품정보 - 책 금액 */
-.orderPageContainer .orderBox .productInfo .orderBookInfoProductPrice {
+.productInfo .orderBookInfoProductPrice {
     font-size: 35px;
     font-weight: 900;
     margin: 5px 0px 20px 0px;
 }
 
 /* 주문상품정보 - 원래책가격 X 주문수량 */
-.orderPageContainer .orderBox .productInfo .orderBookInfoCount {
+.productInfo .orderBookInfoCount {
     font-size: 25px;
     color: #547F5B;
     margin: 5px 0px 30px 0px;
@@ -103,7 +103,7 @@
 }
 
 /* 주문상품정보 - 배송비 */
-.orderPageContainer .orderBox .productInfo .orderBookInfoDelivery {
+.productInfo .orderBookInfoDelivery {
     font-size: 25px;
     margin: 5px 0px 10px 0px;
 }
@@ -115,7 +115,7 @@
 /* 배송지 & 수령인 정보 */
 
 /* 배송지 & 수령인 정보 타이틀 */
-.orderPageContainer .orderBox .orderUserInfo h4 {
+.orderUserInfo>h4 {
     width: auto;
     padding-left: 10px;
     padding-top: 100px;
@@ -135,7 +135,7 @@
 }
 
 /* 배송주소,주문자이름,전화번호 고정 항목란 */
-.orderPageContainer .orderBox .orderUserInfo .userInfoBox .userInfoList div {
+.userInfoList>div {
     /* background-color: chocolate; */
     margin: 60px 0px 40px 0px;
     padding-left: 10px;
@@ -149,7 +149,7 @@
 }
 
 /* 배송주소,주문자이름,전화번호 서버값 출력란 */
-.orderPageContainer .orderBox .orderUserInfo .userInfoBox .userInfoPrint div {
+.userInfoPrint>div {
     /* background-color: rgb(195, 166, 145); */
     display: flex;
     justify-content: space-around;
@@ -167,7 +167,7 @@
 .orderPageContainer .orderBox .makePaymentAndTotalPrice {
     height: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: row;
     flex-direction: row;
     /* background-color: darkorange; */
 }
@@ -181,7 +181,7 @@
 }
 
 /* 결제방법 */
-.orderPageContainer .orderBox .makePaymentAndTotalPrice .makePaymentBox {
+.makePaymentAndTotalPrice .makePaymentBox {
     display: flex;
     width: 700px;
     justify-content: flex-start;
@@ -189,7 +189,7 @@
     /* background-color: rgb(255, 236, 215); */
 }
 
-.orderPageContainer .orderBox .makePaymentAndTotalPrice .makePaymentBox .makePayments {
+.makePaymentAndTotalPrice .makePaymentBox .makePayments {
     display: flex;
     width: 700px;
     justify-content: flex-start;
@@ -201,8 +201,13 @@
 
 }
 
-.orderPageContainer .orderBox .makePaymentAndTotalPrice .makePaymentBox .makePayments div {
-    margin: 60px 20px 0px 10px;
+.makePaymentAndTotalPrice .makePaymentBox .makePayments a {
+    margin: 40px 0px;
+    text-decoration: none;
+}
+
+.makePaymentAndTotalPrice .makePaymentBox .makePayments div {
+    /* margin: 60px 20px 0px 10px; */
     line-height: 115px;
     text-align: center;
     background-color: #EFEFEF;
@@ -211,7 +216,7 @@
 }
 
 /* 총 결제금액 */
-.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox {
+.makePaymentAndTotalPrice .totalPriceBox {
     display: flex;
     width: 700px;
     font-size: 20px;
@@ -220,7 +225,7 @@
     /* background-color: rgb(245, 197, 197); */
 }
 
-.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo {
+.makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo {
     display: flex;
     width: 700px;
     justify-content: flex-start;
@@ -231,9 +236,9 @@
 
 }
 
-.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox01 {
-    margin: 60px 20px 0px 10px;
-    height: 470px;
+.makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox01 {
+    margin: 40px 20px 0px 10px;
+    height: 510px;
     text-align: center;
     background-color: #EFEFEF;
     border-radius: 10px;
@@ -242,14 +247,16 @@
 
 
 
-.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox02 {
-    margin: 10px 20px 0px 10px;
-    line-height: 20px;
+.makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox02 {
+    margin: 15px 20px 0px 10px;
+    line-height: 30px;
     text-align: center;
-    font-size: 15px;
+    font-size: 19px;
 }
 
-.orderPageContainer .orderBox .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox03 {
+
+
+.makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox03 {
     margin: 10px 20px 0px 10px;
     line-height: 115px;
     text-align: center;
@@ -258,4 +265,10 @@
     font-size: 30px;
     font-weight: 900;
     color: #EFEFEF;
+
+}
+
+.makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox03 a {
+    text-decoration: none;
+
 }
