@@ -24,8 +24,13 @@
     "mongodb": "^5.6.0",
     "mongoose": "^7.3.1"
   },
+<<<<<<< HEAD
   "description": "",
   "devDependencies": {
     "nodemon": "^2.0.22"
   }
 }
+=======
+  "description": ""
+}
+>>>>>>> a264ed0c5f309b807f03ea11d9ff2554971c6bcc
