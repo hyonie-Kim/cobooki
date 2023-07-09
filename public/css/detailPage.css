@@ -11,6 +11,107 @@
     box-sizing: border-box;
 }
 
-div {
-    background-color: black;
+/* -----------------------------*/
+
+.detail-container {
+    font-family: 'NanumSquareNeo-Variable';
+    /* height: 5000px; */
+    padding-top: 150px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 75%;
+    margin: auto;
+    background-color: rgb(181, 204, 196);
+}
+
+.detail-bookcover {
+    /* 
+    margin-left: 30px;
+    border-radius: 20px;
+    border: 1px solid #dedede99;
+    width: 310px;
+    height: 420px;
+    background-color: bisque; */
+
+    position: sticky;
+    width: 310px;
+    height: 420px;
+    top: 150px;
+    right: 500px;
+    margin-left: 30px;
+    z-index: 1000;
+    border-radius: 20px;
+    border: 1px solid #dedede99;
+    background-color: bisque;
+}
+
+.detail-info {
+    margin-right: 30px;
+    width: 600px;
+    background-color: rgb(255, 208, 208);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.detail-info-box02 {
+    position: fixed;
+    width: 600px;
+    height: 70px;
+    z-index: 1000;
+    border-bottom: 1px solid #dedede99;
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+.detail-info-category {
+    width: 110px;
+    line-height: 40px;
+    text-align: center;
+    background-color: rgb(191, 191, 226);
+    border-radius: 50px;
+    margin-bottom: 15px;
+}
+
+.detail-info-name {
+    font-size: 18px;
+}
+
+.detail-info-price {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+
+
+.detail-explain-box {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+
+.detail-exam1 {
+    overflow: hidden;
+    height: 300px;
+}
+
+.detail-exam2 {
+    overflow: hidden;
+}
+
+
+.detail-cart-payment {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.detail-payment-btn {
+    width: 120px;
+    -ms-hyphenate-limit-zone: 80px;
+    background-color: brown;
+    border-radius: 90px;
 }

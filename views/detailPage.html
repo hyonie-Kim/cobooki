@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세페이지</title>
+    <link rel="stylesheet" href="/public/css/detailPage.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <!-- <%- include ('./header02.ejs') %> -->
+
+    <div class="detail-container">
+
+        <div class="detail-bookcover">sp</div>
+
+        <div class="detail-info">
+            <div class="detail-info-box02">
+                <div class="detail-info-category">카테고리</div>
+                <div class="detail-info-name">책 이름</div>
+                <div class="detail-info-price">책 가격</div>
+            </div>
+
+            <hr>
+
+            <div class="detail-explain-box">
+                <div class="detail-explain-title">상품설명</div>
+                <div class="detail-explain-btn01" onclick='longExplain();'>자세히</div>
+                <div class="detail-explain-btn02" onclick='shortExplain();'>닫기</div>
+            </div>
+            <div class="detail-exam1">
+                3장 카하마르카에서의 충돌
+                주절주절주절주절학문의 경계를 넘나드는 세계적 석학 재레드 다이아몬드. 인류 문명에 대한 예리한 통찰을 전해온 그의 대표작이자 1998년 퓰리처상 수상작 《총, 균, 쇠》를 새 번역, 새
+                편집으로 만난다. 왜 어떤 국가는 부유하고 어떤 국가는 가난한가? 왜 어떤 민족은 다른 민족의 정복과 지배의 대상이 되었는가? 생물학, 지리학, 인류학, 역사학 등 다양한 학문의 융합을
+                통해 장대한 인류사를 풀어내
+                주절주절주절주절학문의 경계를 넘나드는 세계적 석학 재레드 다이아몬드. 인류 문명에 대한 예리한 통찰을 전해온 그의 대표작이자 1998년 퓰리처상 수상작 《총, 균, 쇠》를 새 번역, 새
+                편집으로 만난다. 왜 어떤 국가는 부유하고 어떤 국가는 가난한가? 왜 어떤 민족은 다른 민족의 정복과 지배의 대상이 되었는가? 생물학, 지리학, 인류학, 역사학 등 다양한 학문의 융합을
+                통해 장대한 인류사를 풀어내며 오늘날 현대 세계가 불평등한 원인을 종합 규명한 혁신적 저작. 출간 25년 기념 뉴에디션에는 2023년 저자 특별서문과 서울대 인류학과 박한선 교수의 해제,
+                새 서문과 후기를 수록해 풍성한 읽을거리를 더했다.
+
+            </div>
+            <hr>
+
+            <div class="detail-cart-payment">
+                <div class="detail-add-cart">
+                    <span class="material-symbols-rounded">shopping_cart</span>
+                    장바구니 담기
+                </div>
+                <div><input type="number" step="1">권</div>
+                <div class="detail-payment-btn">구매하기</div>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <!-- <%-include('footer.ejs') %> -->
+</body>
+
+
+<script>
+
+    //상품설명 펼쳐보기 이벤트
+    document.querySelector(".deatil-explain-btn01").addEventListener("click", longExplain)
+
+    function longExplain() {
+        document.querySelector(".detail-exam1 ").className = 'detail-exam2';
+    }
+
+    //상품설명 접어보기 이벤트
+    document.querySelector(".detail-explain-btn02").addEventListener("click", shortExplain)
+    function shortExplain() {
+        document.querySelector(".detail-exam2").className = 'detail-exam1';
+    }
+
+
+</script>
+
+</html>
