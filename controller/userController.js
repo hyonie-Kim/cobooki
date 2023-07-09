@@ -2,6 +2,7 @@ const User = require("../Model/user"); // User 스키마 연결
 const bcrypt = require("bcryptjs"); // 비밀번호 암호화 라이브러리
 const { userService } = require("../service");
 
+// let isLogin = {"isLogin":""}
 // 테스트
 const userController = {
   signInRender(req, res) {
@@ -10,13 +11,14 @@ const userController = {
   },
 
   // 함수명은 동사, 변수명은 명사로!
-  async signIn(req, res, next) {
+  async signIn(req, res) {
     const date = new Date();
     const user = await userService.findUser({ email: req.body.email });
 
     if (!user) {
       // 아이디 없음
-      res.status(400).send({ msg: "아이디를 확인해주세요" });
+      res.send({ msg: "아이디를 확인해주세요" });
+      // res.status(400).send({ msg: "아이디를 확인해주세요" });
     } else {
       // 아이디 존재
       if (user && bcrypt.compareSync(req.body.password, user.password)) {
