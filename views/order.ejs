@@ -23,7 +23,7 @@
                             <div class="orderBookInfo">
                                 <div class="orderBookInfo_Category">{category}</div>
                                 <div class="orderBookInfoTitle">{모던 자바스크립트 Deep Dive}</div>
-                                <div class="orderBookInfoProductPrice">{개당 가격} 원</div>
+                                <div class="orderBookInfoProductPrice">권당 {개당 가격} 원</div>
                                 <div class="orderBookInfoCount">총 {n} 권</div>
                                 <div class="orderBookInfoDelivery">배송비 3,000원 </div>
                             </div>
@@ -36,24 +36,34 @@
                     <div class="orderUserInfo">
                         <h4> 배송지 / 수령인 정보</h4>
                         <div class="userInfoBox">
-                            <div class=" userInfoList">
-                                <div>배송받을 주소</div>
-                                <div>주문자 이름</div>
-                                <div>주문자 전화번호</div>
-                            </div>
-                            <div class=" userInfoPrint">
-                                <!-- {서버에 있는 userAdress 정보} -->
-                                <div>
-                                    <input type="text" name="userAddress" value="{서버에 있는 userAdress 정보}">
-                                </div>
 
-                                <div>
-                                    <input type="text" name="userName" value="{서버에 있는 userName  정보}">
-                                </div>
-                                <div>
-                                    <input type="text" name="userNumber" value="{서버에 있는 userNumber  정보}">
-                                </div>
-                            </div>
+                            <table width="1500" height="300">
+                                <tr height="90">
+                                    <td width="300">
+                                        배송받을 주소
+                                    </td>
+                                    <td width="600">
+                                        <input type="text" name="userAddress" value="{서버에 있는 userAdress 정보}">
+                                    </td>
+                                </tr>
+                                <tr height="70">
+                                    <td>
+                                        주문자 이름
+                                    </td>
+                                    <td>
+                                        <input type="text" name="userName" value="{서버에 있는 userName  정보}">
+                                    </td>
+                                </tr>
+                                <tr height="70">
+                                    <td>
+                                        주문자 전화번호
+                                    </td>
+                                    <td>
+                                        <input type="text" name="userName" value="{서버에 있는 userPhone  정보}">
+                                    </td>
+                                </tr>
+                            </table>
+
                         </div>
                     </div>
 
@@ -67,7 +77,7 @@
                             <div class="makePayments">
 
                                 <a href="#">
-                                    <div class="makePaymentBtn01">결제</div>
+                                    <div class="makePaymentBtn01">휴대폰결제</div>
                                 </a>
                                 <a href="#">
                                     <div class="makePaymentBtn02">카카오 페이</div>
@@ -79,14 +89,27 @@
                         </div>
                         <div class="totalPriceBox">
                             <h4>총 결제금액</h4>
+
                             <div class="totalPaymentInfo">
+
                                 <div class="totalPriceBox01">
-                                    <div>어어어어어어</div>
-                                    <div>어어어어어어</div>
-                                    <div>어어어어어어</div>
+                                    <div>
+                                        <span class="totalPrice-info">상품 금액</span>
+                                        <span>{단가*권수}원</span>
+                                    </div>
+                                    <div>
+                                        <span class="totalPrice-info">총 배송비용</span>
+                                        <span>3,000 원</span>
+                                    </div>
+                                    <div>
+                                        <span class="totalPrice-info-02">총 결제 금액</span>
+                                        <span>{총 상품금액 + 베송비용}원</span>
+                                    </div>
                                 </div>
-                                <div class="totalPriceBox02"><input type="checkbox" style='zoom:1.5;' />
+
+                                <div class="totalPriceBox02"><input type="checkbox" style='zoom:1.2;' />
                                     주문 상품의 상품명, 가격, 배송 정보를 확인하였으며, 구매에 동의합니다.</div>
+
                                 <a href="#">
                                     <div class="totalPriceBox03">총 {n}원 결제하기</div>
                                 </a>
