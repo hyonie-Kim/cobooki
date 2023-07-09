@@ -1,0 +1,115 @@
+.adminProfileNav {
+  font-family: "NanumSquareNeo-Variable";
+  position: fixed;
+  width: 200px;
+  height: 800px;
+  background-color: #ffffff;
+  border-right: 0.5px solid #d1d1d1;
+  top: 80px;
+}
+
+.list {
+  padding-inline-start: 0px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 25px;
+  border-width: 0.5px;
+  border-color: #d1d1d1;
+  list-style: none;
+  justify-content: center;
+  border-left: 0.5px solid #d1d1d1;
+  border-right: 0.5px solid #d1d1d1;
+  border-bottom: 0.5px solid #d1d1d1;
+  border-radius: 2px;
+}
+
+.list li {
+  text-align: center;
+  background-color: white;
+  padding: 15px;
+  font-size: 12px;
+  border-top: 0.5px solid #d1d1d1;
+}
+
+.adminProfileNav ul li:hover {
+  background-color: #bdd5c7;
+  color: #ffff;
+}
+
+.adminPage {
+  height: 45px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  margin: 30px;
+}
+
+.orderManagement,
+.menberManagement,
+.addCategory,
+.addProduct {
+  display: inline-block;
+  color: black;
+}
+
+/* 상품 등록 폼 */
+.section {
+  position: fixed;
+  width: 800px;
+  height: 580px;
+  background-color: #ffffff;
+  text-align: center;
+  top: 50%;
+  bottom: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  font-family: "NanumSquareNeo-Variable";
+  border-bottom: 1px solid #d1d1d1;
+  padding-top: 40px;
+  width: 140%;
+  height: 140px;
+}
+
+.account-header {
+  display: block;
+  width: 1200px;
+}
+
+.account-header h1 {
+  font-size: 18px;
+  text-align: left;
+  margin: 30px;
+}
+
+.register-product-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.register-product-form-box {
+  width: 40rem;
+}
+
+.register-product-form-box .title {
+  text-align: center;
+}
+
+.register-product-form-box .button {
+  font-weight: bold;
+}
+
+.register-product-form-box .input:focus,
+.register-product-form-box .textarea:focus,
+.register-product-form-box select:focus {
+  border-color: #00d1b2;
+  box-shadow: 0 0 0 0.125em rgba(0, 209, 178, 0.25);
+}
