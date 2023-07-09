@@ -19,11 +19,12 @@
                     <div class="productInfo">
                         <h4> 주문 상품 정보</h4>
                         <div class="orderBookInfoBox">
-                            <img class="orderBookCover" src="https://image.yes24.com/goods/92742567/XL" alt="책 사진">
+                            <img class="orderBookCover" src="https://image.yes24.com/goods/92742567/XL" alt="상품사진">
                             <div class="orderBookInfo">
                                 <div class="orderBookInfo_Category">{category}</div>
                                 <div class="orderBookInfoTitle">{모던 자바스크립트 Deep Dive}</div>
                                 <div class="orderBookInfoProductPrice">권당 {개당 가격} 원</div>
+
                                 <div class="orderBookInfoCount">총 {n} 권</div>
                                 <div class="orderBookInfoDelivery">배송비 3,000원 </div>
                             </div>
@@ -93,7 +94,35 @@
                             <div class="totalPaymentInfo">
 
                                 <div class="totalPriceBox01">
-                                    <div>
+                                    <table width="400" height="250" class='total-price-table'>
+                                        <tr height="50">
+                                            <td width="80" class="total-price-title">
+                                                상품 금액
+                                            </td>
+                                            <td width=80 class="total-price-input">
+                                                <input type="text" name="bookPrice" value="{서버에 있는 bookPrice 정보}">
+                                            </td>
+                                        </tr>
+                                        <tr height="50" class="total-price-title">
+                                            <td>
+                                                배송비
+                                            </td>
+                                            <td width="80" class="total-price-input">
+                                                <input type="text" name="deliveryPee" value="{서버에 있는 deliveryPee 정보}">
+                                            </td>
+                                        </tr>
+                                        <tr height="50" class="total-price-title">
+                                            <td>
+                                                총 결제금액
+                                            </td>
+                                            <td width=80 class="total-price-input">
+                                                <input type="text" name="totalPrice" value="{서버에 있는 totalPrice 정보}">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <!-- <div>
                                         <span class="totalPrice-info">상품 금액</span>
                                         <span>{단가*권수}원</span>
                                     </div>
@@ -101,14 +130,14 @@
                                         <span class="totalPrice-info">총 배송비용</span>
                                         <span>3,000 원</span>
                                     </div>
-                                    <div>
-                                        <span class="totalPrice-info-02">총 결제 금액</span>
-                                        <span>{총 상품금액 + 베송비용}원</span>
+                                    <div class="total-price-text">
+                                        <span class="totalPrice-info">총 결제 금액</span>
+                                        <span>{총 상품금액 + 배송비용}원</span>
                                     </div>
-                                </div>
+                                </div>-->
 
                                 <div class="totalPriceBox02"><input type="checkbox" style='zoom:1.2;' />
-                                    주문 상품의 상품명, 가격, 배송 정보를 확인하였으며, 구매에 동의합니다.</div>
+                                    주문 상품의 상품명 / 가격 / 배송비용 정보를 확인하였으며, 구매에 동의합니다.</div>
 
                                 <a href="#">
                                     <div class="totalPriceBox03">총 {n}원 결제하기</div>

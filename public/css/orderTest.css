@@ -233,7 +233,7 @@ td {
 
 .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo {
     display: flex;
-    width: 625px;
+    width: 425px;
     justify-content: flex-start;
     flex-direction: column;
     height: auto;
@@ -243,20 +243,55 @@ td {
 
 }
 
-.makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox01 {
-    margin: 10px 0px 5px 0px;
+.totalPriceBox01 {
+    margin: 10px 0px 0px 0px;
+    text-align: center;
     height: 270px;
-    background-color: rgb(49, 87, 82);
+    background-color: rgb(232, 245, 219);
+    /* border: 1px solid #e9e9e9; */
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
 }
 
+.totalPaymentInfo .totalPriceBox01 .totalPrice-info {
+    text-align: justify;
+    text-align-last: justify;
+    width: 120px;
+    display: inline-block;
+    margin: 20px 0px 0px 20px;
+}
+
+.total-price-table .total-price-title {
+    text-align: left;
+}
+
+.total-price-table .total-price-input {
+    text-align: end;
+}
+
+.total-price-table .total-price-input input {
+    font-size: 13px;
+    text-align: right;
+    width: 200px;
+    /* height: 50px; */
+    background-color: transparent;
+    border-color: transparent;
+    font-family: 'NanumSquareNeo-Variable';
+}
+
+/* 약관동의 */
 .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox02 {
     line-height: 15px;
-    font-size: 13px;
+    font-size: 11px;
     margin: 20px 0px;
     text-align: center;
     /* background-color: rgb(87, 255, 233); */
 }
 
+/* 최종결제 버튼 */
 .makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox03 {
     font-size: 16px;
     font-weight: bolder;
