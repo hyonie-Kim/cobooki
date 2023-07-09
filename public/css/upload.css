@@ -1,0 +1,232 @@
+.adminProfileNav {
+  font-family: "NanumSquareNeo-Variable";
+  position: fixed;
+  width: 200px;
+  height: 800px;
+  background-color: #ffffff;
+  border-right: 0.5px solid #d1d1d1;
+  top: 80px;
+}
+
+.list {
+  padding-inline-start: 0px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 25px;
+  border-width: 0.5px;
+  border-color: #d1d1d1;
+  list-style: none;
+  justify-content: center;
+  border-left: 0.5px solid #d1d1d1;
+  border-right: 0.5px solid #d1d1d1;
+  border-bottom: 0.5px solid #d1d1d1;
+  border-radius: 2px;
+}
+
+.list li {
+  text-align: center;
+  background-color: white;
+  padding: 15px;
+  font-size: 12px;
+  border-top: 0.5px solid #d1d1d1;
+}
+
+.adminProfileNav ul li:hover {
+  background-color: #bdd5c7;
+  color: #ffff;
+}
+
+.adminPage {
+  height: 45px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  margin: 30px;
+}
+
+.orderManagement,
+.menberManagement,
+.addProduct {
+  display: inline-block;
+  color: black;
+}
+
+/* 상품 등록 폼 */
+.section {
+  position: fixed;
+  width: 800px;
+  height: 580px;
+  background-color: #ffffff;
+  text-align: center;
+  top: 50%;
+  bottom: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  font-family: "NanumSquareNeo-Variable";
+  border-bottom: 1px solid #d1d1d1;
+  padding-top: 40px;
+  width: 140%;
+  height: 140px;
+}
+
+.account-header {
+  display: block;
+  width: 1200px;
+}
+
+.account-header h1 {
+  font-size: 18px;
+  text-align: left;
+  margin: 30px;
+}
+
+.box {
+  display: block;
+  padding: 30px;
+  color: black;
+}
+
+.register-product-form-container {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background-color: #ffffff;
+  text-align: center;
+  top: 60%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  border: 1px solid #adadad;
+  display: flex;
+  justify-content: center;
+}
+
+.label,
+.control,
+#categorySelectBox,
+.input {
+  position: relative;
+  width: 400px;
+  height: 25px;
+  padding: 5px;
+}
+
+.textarea {
+  position: relative;
+  width: 400px;
+  height: 55px;
+  padding: 5px;
+}
+
+.register-product-form-box {
+  width: 40rem;
+}
+
+.register-product-form-box .title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.register-product-form-box .button {
+  font-weight: bold;
+}
+
+.register-product-form-box .input:focus,
+.register-product-form-box .textarea:focus,
+.register-product-form-box select:focus {
+  border-color: #bdd5c7;
+  box-shadow: 0 0 0 0.125em #bdd5c7;
+}
+
+.field {
+  text-align: left;
+  padding: 8px;
+  font-size: 13px;
+}
+
+.has-is-fullwidth {
+  margin-top: 30px;
+}
+
+.file {
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  display: flex;
+}
+
+.file-fullwidth {
+  margin-top: 10px;
+}
+
+.file-label {
+  position: relative;
+  align-items: stretch;
+  display: flex;
+  cursor: pointer;
+  justify-content: flex-start;
+  overflow: hidden;
+  border: 1px #d1d1d1;
+  text-align: center;
+  padding: 5px;
+}
+
+.file-cta {
+  border-color: #dbdbdb;
+  border-radius: 10px;
+  background-color: #dbdbdb;
+  padding-left: 1em;
+  padding-right: 1em;
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: bold;
+  height: 20px;
+  color: #505050;
+}
+
+.file-name {
+  padding-left: 3em;
+  white-space: nowrap;
+  font-size: 9px;
+  padding-top: 5px;
+}
+
+.file-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  outline: 0;
+}
+
+.upload-btn {
+  position: relative;
+  top: 40%;
+  left: 15%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 30%;
+  height: 35px;
+  background: #547f5b;
+  background-position: left;
+  background-size: 200%;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline;
+}
