@@ -6,54 +6,48 @@
 
 .myProfileNav {
   font-family: "NanumSquareNeo-Variable";
-  align-items: center;
   position: fixed;
-  width: 300px;
-  height: 100vh;
+  width: 200px;
+  height: 800px;
   background-color: #ffffff;
-  border-right: 1px solid #d1d1d1;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 20px;
-  top: 140px;
-  left: 0;
+  border-right: 0.5px solid #d1d1d1;
+  top: 80px;
 }
 
 .list {
-  padding: 0;
-  margin: 30px;
-  border-width: 1px;
-  border-color: black;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 25px;
+  border-width: 0.5px;
+  border-color: #d1d1d1;
   list-style: none;
+  justify-content: center;
+  border-left: 0.5px solid #d1d1d1;
+  border-right: 0.5px solid #d1d1d1;
+  border-bottom: 0.5px solid #d1d1d1;
+  border-radius: 2px;
 }
 
 .list li {
   text-align: center;
-  margin-left: 10px;
-  margin-right: 10px;
-  color: black;
-  border: 1px solid #d1d1d1;
-  padding: 20px;
+  background-color: white;
+  padding: 15px;
+  font-size: 12px;
+  border-top: 0.5px solid #d1d1d1;
 }
 
-.myProfileNav ul li a:hover {
+.myProfileNav ul li:hover {
   background-color: #bdd5c7;
-  border-radius: 50px;
   color: #ffff;
-  transform: scale(1.2);
 }
 
 .myPage {
-  height: 75px;
-  padding: 5px 0px 35px 1px;
+  height: 45px;
   text-align: center;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 35px;
+  font-weight: bold;
+  font-size: 18px;
   color: black;
-  letter-spacing: -1px;
-  margin: 20px;
+  margin: 30px;
 }
 
 .order,
@@ -65,13 +59,13 @@
 
 .deleteUserForm {
   position: fixed;
-  width: 1000px;
-  height: 650px;
+  width: 800px;
+  height: 580px;
   background-color: #ffffff;
   text-align: center;
   top: 50%;
   bottom: 50%;
-  left: 50%;
+  left: 45%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
@@ -90,58 +84,57 @@
 
 .account-header {
   display: block;
-  border-bottom: #ddd 2px solid;
   width: 1200px;
 }
 
 .account-header h1 {
-  font-size: x-large;
+  font-size: 18px;
   text-align: left;
   margin: 30px;
 }
 
 .menu-container {
-  width: 1200px;
+  width: 1000px;
   height: 800px;
-  padding: 50px 30px;
   background-color: #ffffff;
   text-align: center;
 }
 
 .form-container {
-  width: 900px;
-  height: 800px;
+  width: 700px;
+  height: 700px;
 }
 
 .field {
-  top: 25%;
-  position: fixed;
+  height: 50px;
   display: flex;
+  margin: 10px 0;
 }
 
 .subtitle {
   text-align: left;
+  font-size: 11px;
+  margin-top: 15px;
 }
 
 .box-container {
   position: fixed;
-  width: 1200px;
+  width: 1000px;
   height: 150px;
   background-color: #ffffff;
   text-align: left;
   top: 40%;
-  left: 60%;
+  left: 70%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-  border: 1px solid #767676;
-  margin: 30px 0 30px 0;
+  border: 0.5px solid #767676;
   padding: 10px;
 }
 
 .box-container li {
   margin: 5px 10px;
   color: #767676;
-  font-size: 12px;
+  font-size: 10px;
   padding: 5px;
 }
 
@@ -150,14 +143,14 @@
   top: 70%;
   left: 50%;
   text-align: center;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 /* 버튼 */
 .cancel-btn {
   position: relative;
-  top: 50%;
-  left: 30%;
+  top: 40%;
+  left: 40%;
   transform: translateX(-50%);
   margin-bottom: 20px;
   width: 30%;
@@ -168,7 +161,7 @@
   color: #547f5b;
   font-weight: bold;
   border-width: 1px;
-  border-color: black;
+  border-color: #547f5b;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.4s;
@@ -177,8 +170,8 @@
 
 .delete-btn {
   position: relative;
-  top: 50%;
-  left: 35%;
+  top: 40%;
+  left: 45%;
   transform: translateX(-50%);
   margin-bottom: 20px;
   margin-top: 30px;
