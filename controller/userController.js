@@ -10,7 +10,7 @@ const userController = {
   },
 
   // 함수명은 동사, 변수명은 명사로!
-  async signIn(req, res) {
+  async signIn(req, res, next) {
     const date = new Date();
     const user = await userService.findUser({ email: req.body.email });
 
