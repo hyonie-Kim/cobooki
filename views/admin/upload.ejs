@@ -53,18 +53,19 @@
                   />
                 </div>
               </div>
-
               <div class="field">
                 <label class="label" for="categorySelectBox">카테고리</label>
                 <div class="control">
                   <div class="select is-fullwidth">
                     <select id="categorySelectBox">
                       <option value="">카테고리를 선택해 주세요.</option>
+                      <option value="0" class="front-end">프론트엔드</option>
+                      <option value="1" class="back-end">백엔드</option>
+                      <option value="2" class="cs">CS지식</option>
                     </select>
                   </div>
                 </div>
               </div>
-
               <div class="field">
                 <label class="label" for="detailDescriptionInput"
                   >상품 설명</label
@@ -79,7 +80,6 @@
                   ></textarea>
                 </div>
               </div>
-
               <div class="field is-fullwidth">
                 <label class="label" for="imageInput">상품 사진</label>
                 <div class="file has-name is-fullwidth">
@@ -103,7 +103,6 @@
                   </label>
                 </div>
               </div>
-
               <div class="field">
                 <label class="label" for="inventoryInput">재고 수</label>
                 <div class="control">
@@ -116,7 +115,6 @@
                   />
                 </div>
               </div>
-
               <div class="field">
                 <label class="label" for="priceInput">가격</label>
                 <div class="subfield">
@@ -130,13 +128,11 @@
                     />
                   </div>
                 </div>
-
               </div>
               <div
                 class="grouped-field"
                 id="keywordContainer"
               ></div>
-
               <div class="button">
                 <button class="upload-btn" id="submitButton">
                   제품 판매하기
