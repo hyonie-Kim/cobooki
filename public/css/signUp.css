@@ -9,17 +9,17 @@ main {
   justify-content: center;
   align-items: center;
   position: relative;
+  font-size: 14px;
 }
 
 section {
   font-family: "NanumSquareNeo-Variable";
   border-radius: 20px;
-  border: 1px solid #000;
+  border: 1px solid #adadad;
   position: absolute;
-  top: 200px;
-  width: 800px;
+  top: 150px;
+  width: 600px;
   height: 700px;
-  /* background-color: green; */
 }
 
 .signUp {
@@ -42,6 +42,10 @@ section {
   width: 80%;
   margin: 20px 0;
   border-bottom: 1px solid #adadad;
+}
+
+.signUp-title h5 {
+  font-size: 10px;
 }
 
 .signUp form {
@@ -69,11 +73,11 @@ form .content-user > div {
 }
 
 form .content-user > div > label {
-  width: 150px;
+  width: 120px;
 }
 
 input {
-  width: 300px;
+  width: 220px;
   padding-bottom: 5px;
   border: none;
   border-bottom: 1px solid #636e72;
@@ -81,13 +85,15 @@ input {
 }
 
 input:focus {
-  font-size: 20px;
+  font-size: 15px;
   transition: 0.2s;
   padding: 5px;
   position: relative;
   bottom: 8px;
-  outline: 1.5px solid #547f5b;
+  outline: 1px solid #547f5b;
   border-radius: 2px;
+
+  outline: none;
 }
 
 input:focus::placeholder {
@@ -101,12 +107,12 @@ form .content-user > div > button {
   padding: 5px 20px;
   color: white;
   background: #547f5b;
-  font-size: 15px;
   font-weight: lighter;
   font-family: "NanumSquareNeo-Variable";
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  font-size: 10px;
 }
 
 form .content-address {
@@ -127,31 +133,31 @@ form .content-address > div {
   justify-content: flex-start;
 }
 
-form .content-address > h4:nth-child(1) {
+form .content-address > h4 {
   position: absolute;
-  width: 80%;
+  width: 90%;
   top: 15px;
-  left: 25px;
+  left: 20px;
   padding-bottom: 5px;
   border-bottom: 1px solid #000000;
 }
 
 form .content-address > div > label {
-  width: 150px;
+  width: 120px;
 }
 
 form submit {
   background-color: #547f5b;
   font-weight: bold;
-  font-weight: bold;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   width: 50%;
-  height: 90px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   margin-bottom: 20px;
+  font-size: 12px;
 }
