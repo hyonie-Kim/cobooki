@@ -1,0 +1,194 @@
+@import url(reset.css);
+
+@font-face {
+  font-family: 'NanumSquareNeo-Variable';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.orderlookup-wrap {
+  font-family: 'NanumSquareNeo-Variable';
+  position: absolute;
+  top: 150px;
+  height: 935px;
+
+}
+
+.order-progress {
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.order-progress p {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.bgc-gray {
+  width: 1300px;
+  padding: 50px;
+  background-color: #F1F1F1;
+}
+
+.product-table {
+  margin-left: 280px;
+}
+
+.order-status {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 40px;
+  text-align: center;
+}
+
+.order-status .str {
+  font-size: 15px;
+}
+
+.order-status .num {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.X-delete {
+  margin-top: 60px;
+  border-bottom: 1px solid #d1d1d1;
+  line-height: 55px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "one two three four five";
+}
+
+.row {
+  border-bottom: 1px solid #d1d1d1;
+  line-height: 55px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "one two three four five";
+}
+
+.product-name {
+  position: relative;
+}
+
+.img {
+  position: absolute;
+  left: 20px;
+  height: 50px;
+  position: absolute;
+  left: 0px;
+}
+
+img {
+  display: inline-block;
+  width: auto;
+  height: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+.one {
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+}
+
+.two {
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+}
+
+.three {
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+}
+
+.four {
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+}
+
+.five {
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+}
+
+.five button {
+  cursor: pointer;
+  font-size: 13px;
+  width: 120px;
+  height: 38px;
+  background-color: #E4E4E4;
+  color: black;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  font-weight: 700;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* 네비바 */
+.adminProfileNav {
+  font-family: "NanumSquareNeo-Variable";
+  position: fixed;
+  width: 200px;
+  height: 800px;
+  background-color: #ffffff;
+  border-right: 0.5px solid #d1d1d1;
+  top: 80px;
+}
+
+.list {
+  padding-inline-start: 0px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 25px;
+  border-width: 0.5px;
+  border-color: #d1d1d1;
+  list-style: none;
+  justify-content: center;
+  border-left: 0.5px solid #d1d1d1;
+  border-right: 0.5px solid #d1d1d1;
+  border-bottom: 0.5px solid #d1d1d1;
+  ;
+  border-radius: 2px;
+}
+
+.list li {
+  text-align: center;
+  background-color: white;
+  padding: 15px;
+  font-size: 12px;
+  border-top: 0.5px solid #d1d1d1;
+}
+
+.adminProfileNav ul li:hover {
+  background-color: #bdd5c7;
+  color: #ffff;
+}
+
+.adminPage {
+  height: 45px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  margin: 30px;
+}
+
+.orderManagement,
+.menberManagement,
+.addProduct {
+  display: inline-block;
+  color: black;
+}
