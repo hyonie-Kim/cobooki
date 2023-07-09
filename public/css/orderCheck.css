@@ -7,7 +7,7 @@
   font-style: normal;
 }
 
-.cart-wrap {
+.orderlookup-wrap {
   font-family: 'NanumSquareNeo-Variable';
   position: absolute;
   top: 150px;
@@ -34,31 +34,29 @@
   line-height: 55px;
 }
 
-.check-box {
-  margin-left: 20px;
-  display: inline-block;
-  width: 30px;
-  height: 50px;
+.product-name {
+  position: relative;
 }
 
 .img {
+  position: absolute;
+  left: 20px;
   height: 50px;
   position: absolute;
   left: 0px;
 }
 
 img {
-  display: block;
+  display: inline-block;
   width: auto;
   height: 100%;
 }
 
 
 .one {
-  position: relative;
   display: inline-block;
   text-align: center;
-  width: 280px;
+  width: 15%;
   height: 50px;
   font-size: 14px;
 }
@@ -66,7 +64,7 @@ img {
 .two {
   display: inline-block;
   text-align: center;
-  width: 190px;
+  width: 35%;
   height: 50px;
   font-size: 14px;
 }
@@ -74,40 +72,15 @@ img {
 .three {
   display: inline-block;
   text-align: center;
-  width: 150px;
+  width: 13%;
   height: 50px;
   font-size: 14px;
-}
-
-input[type="number"] {
-  width: 70px;
-  height: 25px;
-
-}
-
-input[type="button"] {
-  margin: 2px;
-  padding: 2px;
-  background-color: #547F5B;
-  border: none;
-  border-radius: 7px;
-  width: 40px;
-  height: 25px;
-  font-size: 12px;
-  font-weight: 400;
-  color: white;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-input,
-button {
-  cursor: pointer;
 }
 
 .four {
   display: inline-block;
   text-align: center;
-  width: 190px;
+  width: 35%;
   height: 50px;
   font-size: 14px;
 }
@@ -140,29 +113,6 @@ p.order-price {
   color: black;
 }
 
-.button-wrap {
-  position: relative;
-  left: 850px;
-  top: 20px;
-  margin-top: 30px;
-}
-
-button.right {
-  margin-right: 15px;
-  padding: 10px;
-  width: 150px;
-  border: none;
-  border-radius: 15px;
-  font-weight: 700;
-  background-color: #547F5B;
-  color: white;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-button.delete-button {
-  background-color: #E4E4E4;
-  color: black;
-}
 
 .myProfileNav {
   font-family: "NanumSquareNeo-Variable";

@@ -57,8 +57,7 @@
   color: black;
 }
 
-/* 개인정보수정 폼 */
-.myProfileForm {
+.deleteUserForm {
   position: fixed;
   width: 800px;
   height: 580px;
@@ -85,6 +84,7 @@
 
 .account-header {
   display: block;
+  width: 1200px;
 }
 
 .account-header h1 {
@@ -103,9 +103,6 @@
 .form-container {
   width: 700px;
   height: 700px;
-  top: 50%;
-  bottom: 50%;
-  left: 50%;
 }
 
 .field {
@@ -114,37 +111,48 @@
   margin: 10px 0;
 }
 
-.label {
-  margin: auto;
+.subtitle {
+  text-align: left;
   font-size: 11px;
+  margin-top: 15px;
 }
 
-.control {
-  padding: 10px 0px;
-  font-size: 8px;
-}
-
-.input {
-  width: 500px;
-  height: 30px;
+.box-container {
+  position: fixed;
+  width: 1000px;
+  height: 150px;
+  background-color: #ffffff;
+  text-align: left;
+  top: 40%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  border: 0.5px solid #767676;
   padding: 10px;
+}
+
+.box-container li {
+  margin: 5px 10px;
+  color: #767676;
   font-size: 10px;
+  padding: 5px;
 }
 
-.informationForm {
-  width: 40rem;
+.confirm {
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  text-align: center;
+  font-size: 13px;
 }
 
-.informationForm .control {
-  display: flex;
-}
-
-.delete-btn {
-  font-family: "NanumSquareNeo-Variable";
+/* 버튼 */
+.cancel-btn {
   position: relative;
+  top: 40%;
   left: 40%;
   transform: translateX(-50%);
-  margin-top: 80px;
+  margin-bottom: 20px;
   width: 30%;
   height: 40px;
   background: white;
@@ -158,15 +166,15 @@
   cursor: pointer;
   transition: 0.4s;
   display: inline;
-  font-size: 12px;
 }
 
-.save-btn {
-  font-family: "NanumSquareNeo-Variable";
+.delete-btn {
   position: relative;
+  top: 40%;
   left: 45%;
   transform: translateX(-50%);
-  margin-top: 80px;
+  margin-bottom: 20px;
+  margin-top: 30px;
   width: 30%;
   height: 40px;
   background: #547f5b;
@@ -179,5 +187,4 @@
   cursor: pointer;
   transition: 0.4s;
   display: inline;
-  font-size: 12px;
 }
