@@ -1,11 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  font-family: "NanumSquareNeo-Variable";
-  box-sizing: inherit;
-}
-
 .adminProfileNav {
   font-family: "NanumSquareNeo-Variable";
   position: fixed;
@@ -55,7 +47,6 @@
 
 .orderManagement,
 .menberManagement,
-.addCategory,
 .addProduct {
   display: inline-block;
   color: black;
