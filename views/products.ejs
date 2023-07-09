@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./css/index.css"></link>
+    <link rel="stylesheet" type="text/css" href="./css/products.css"></link>
     <link rel="stylesheet" href="../css/header.css"></link>
     <link rel="stylesheet" href="../css/footer.css"></link>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -15,14 +15,65 @@
   <body>
     <%- include ('./header.ejs') %>
     <main>
-      <!-- 공지 배너 -->
+      <h1>카테고리 > 프론트엔드</h1>
       <section class="banner">
+        <!-- Slider main container -->
         <div class="swiper">
           <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="swiper-slide first"></div>
-            <div class="swiper-slide second"></div>
-            <div class="swiper-slide third"></div>
+            <div class="swiper-slide">
+              <div class="books">
+                <% for(let i=0; i< 9; i++) { %>
+                  <div class="book">
+                    <h4 class="category">카테고리</h4>
+                    <div class="book-container">
+                      <div class="book-img"></div>
+                      <div class="book-info">
+                        <div class="book__name"></div>
+                        <div class="book__author"></div>
+                        <div class="book__price"></div> 
+                      </div>
+                    </div>
+                  </div>
+                <% } %>
+              </div> 
+            </div>
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="books">
+                <% for(let i=0; i< 9; i++) { %>
+                  <div class="book">
+                    <h4 class="category">카테고리</h4>
+                    <div class="book-container">
+                      <div class="book-img"></div>
+                      <div class="book-info">
+                        <div class="book__name"></div>
+                        <div class="book__author"></div>
+                        <div class="book__price"></div> 
+                      </div>
+                    </div>
+                  </div>
+                <% } %>
+              </div> 
+            </div>
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="books">
+                <% for(let i=0; i< 9; i++) { %>
+                  <div class="book">
+                    <h4 class="category">카테고리</h4>
+                    <div class="book-container">
+                      <div class="book-img"></div>
+                      <div class="book-info">
+                        <div class="book__name"></div>
+                        <div class="book__author"></div>
+                        <div class="book__price"></div> 
+                      </div>
+                    </div>
+                  </div>
+                <% } %>
+              </div> 
+            </div>
           </div>
         </div>
         <!-- 이동 버튼 -->
@@ -30,31 +81,10 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-pagination"></div>
       </section>
-
-      <!-- 최신 서적 -->
-      <section class="latest-books">
-        <h1>최신 서적</h1>
-            <!-- 책 2x3 리스트  -->
-            <div class="books">
-              <% for(let i=0; i< 6; i++) { %>
-                <div class="book">
-                  <h4 class="category">카테고리</h4>
-                  <div class="book-container">
-                    <div class="book-img"></div>
-                    <div class="book-info">
-                      <div class="book__name"></div>
-                      <div class="book__author"></div>
-                      <div class="book__price"></div> 
-                    </div>
-                  </div>
-                </div>
-              <% } %>
-            </div> 
-      </section>
     </main>
     <%-include('footer.ejs') %>
     <script>
-    // 임시 데이터
+      // 임시 데이터
       const bookData=[{
           id:20,
           img:"/imgs/banner01.png",
@@ -120,7 +150,6 @@
           category[i].textContent='cs지식'
         }
         }
-
         selectCategory(id);
         //기타 나머지 책 정보 표시
         bookImage[i].style.backgroundImage=`url(${img})`  
@@ -130,6 +159,24 @@
         i+=1;
       })
 
+      //Focus된 책을 돋보이게 하기 위해 나머지 책을 blur 처리하였습니다.
+      const books=document.querySelectorAll('.book')
+
+      books.forEach((element)=>{
+        element.addEventListener('mouseover',(e)=>{
+        for(let book of books){
+          book.classList.add('blurred')
+        }
+        e.currentTarget.classList.remove('blurred')
+        })
+        
+        element.addEventListener('mouseleave',(e)=>{
+          for(let book of books){
+          book.classList.remove('blurred')
+        }
+        })
+      })
+      
       //swiper 옵션들입니다.
       const swiper = new Swiper('.swiper', {
       // Optional parameters
@@ -158,6 +205,7 @@
       },
     });
 
+    
     </script>
   </body>
 
