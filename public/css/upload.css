@@ -3,6 +3,7 @@
   margin: 0;
   text-decoration: none;
   font-family: "NanumSquareNeo-Variable";
+  box-sizing: inherit;
 }
 
 .adminProfileNav {
@@ -97,9 +98,36 @@
   margin: 30px;
 }
 
+.box {
+  display: block;
+  padding: 30px;
+  color: black;
+}
+
 .register-product-form-container {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background-color: #ffffff;
+  text-align: center;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  border: 1px solid #adadad;
   display: flex;
   justify-content: center;
+}
+
+.label,
+.control,
+.select is-fullwidth,
+.textarea,
+.input {
+  position: relative;
+  width: 400px;
+  height: 25px;
+  padding: 5px;
 }
 
 .register-product-form-box {
@@ -108,6 +136,8 @@
 
 .register-product-form-box .title {
   text-align: center;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .register-product-form-box .button {
@@ -117,6 +147,76 @@
 .register-product-form-box .input:focus,
 .register-product-form-box .textarea:focus,
 .register-product-form-box select:focus {
-  border-color: #00d1b2;
-  box-shadow: 0 0 0 0.125em rgba(0, 209, 178, 0.25);
+  border-color: #bdd5c7;
+  box-shadow: 0 0 0 0.125em #bdd5c7;
+}
+
+.field {
+  text-align: left;
+  padding: 8px;
+  font-size: 13px;
+}
+
+.file {
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  display: flex;
+}
+
+.file has-name is-fullwidth {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.file-label {
+  position: relative;
+  align-items: stretch;
+  display: flex;
+  cursor: pointer;
+  justify-content: flex-start;
+  overflow: hidden;
+  border: 1px #d1d1d1;
+}
+
+.file-cta {
+  border-color: #dbdbdb;
+  background-color: #dbdbdb;
+  padding-left: 1em;
+  padding-right: 1em;
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.file-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  outline: 0;
+}
+
+.upload-btn {
+  position: relative;
+  top: 50%;
+  left: 30%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+  margin-top: 30px;
+  width: 30%;
+  height: 40px;
+  background: #547f5b;
+  background-position: left;
+  background-size: 200%;
+  color: white;
+  font-weight: medium;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline;
 }
