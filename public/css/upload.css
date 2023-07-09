@@ -163,11 +163,19 @@
   font-size: 13px;
 }
 
+.has-is-fullwidth {
+  margin-top: 30px;
+}
+
 .file {
   position: relative;
   align-items: stretch;
   justify-content: flex-start;
   display: flex;
+}
+
+.file-fullwidth {
+  margin-top: 10px;
 }
 
 .file-label {
@@ -178,16 +186,28 @@
   justify-content: flex-start;
   overflow: hidden;
   border: 1px #d1d1d1;
+  text-align: center;
+  padding: 5px;
 }
 
 .file-cta {
   border-color: #dbdbdb;
+  border-radius: 10px;
   background-color: #dbdbdb;
   padding-left: 1em;
   padding-right: 1em;
   white-space: nowrap;
   font-size: 10px;
   font-weight: bold;
+  height: 20px;
+  color: #505050;
+}
+
+.file-name {
+  padding-left: 3em;
+  white-space: nowrap;
+  font-size: 9px;
+  padding-top: 5px;
 }
 
 .file-input {
@@ -202,18 +222,17 @@
 
 .upload-btn {
   position: relative;
-  top: 50%;
-  left: 20%;
+  top: 40%;
+  left: 15%;
   transform: translateX(-50%);
   margin-bottom: 20px;
-  margin-top: 30px;
+  margin-top: 20px;
   width: 30%;
-  height: 40px;
+  height: 35px;
   background: #547f5b;
   background-position: left;
   background-size: 200%;
   color: white;
-  font-weight: medium;
   border: none;
   border-radius: 10px;
   cursor: pointer;
