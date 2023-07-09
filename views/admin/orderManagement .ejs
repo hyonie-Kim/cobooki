@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="../css/adminPage.css">
+  <link rel="stylesheet" href="../css/orderManagement.css">
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../css/footer.css">
 </head>
@@ -19,36 +19,48 @@
         <!-- 상품내역 wrap-->
         <div class="product-table">
           <div class="order-progress">
-            <p>회원관리</p>
+            <p>주문내역</p>
           </div>
           <!--주문 상태 수치 -->
           <div class="order-status">
             <div>
-              <p class="str">총회원수</p>
-              <p class="num">137</p>
+              <p class="str">총주문수</p>
+              <p class="num">139</p>
             </div>
             <div>
-              <p class="str">관리자수</p>
-              <p class="num">1</p>
+              <p class="str">주문접수</p>
+              <p class="num">132</p>
+            </div>
+            <div>
+              <p class="str">상품배송중</p>
+              <p class="num">3</p>
+            </div>
+            <div>
+              <p class="str">상품배송중</p>
+              <p class="num">2</p>
+            </div>
+            <div>
+              <p class="str">배송완료</p>
+              <p class="num">2</p>
             </div>
           </div>
           <!-- 상품내역 상세 표 -->
           <div class="X-delete row-all">
 
             <div class="one">
-              <p>가입날짜</p>
+              <p>주문일자</p>
             </div>
             <div class="two">
-              <p>이메일</p>
+              <p>주문정보</p>
             </div>
             <div class="three">
-              <p>이름</p>
+              <p>주문총액</p>
             </div>
             <div class="four">
-              <p>권한</p>
+              <p>상태관리</p>
             </div>
             <div class="five">
-              <p>관리</p>
+              <p>취소</p>
             </div>
           </div>
           <!-- 사용자가 주문한 목록 -->
@@ -60,21 +72,24 @@
             </div>
             <div class="product-name two">
               <!-- 책이름 변수 -->
-              <label for="book-name">i*****@gmail.com</label>
+              <label for="book-name">주문한 책이름</label>
             </div>
             <!-- 주문총액 -->
             <div class="three">
-              <p>김**</p>
+              <p>22,000</p>
             </div>
             <div class="four">
               <!-- 상태관리 -->
               <select name="state" id="">
-                <option value='일반사용자' selected>일반사용자</option>
-                <option value='관리자'>관리자</option>
+                <option value='' selected>-- 선택 --</option>
+                <option value='주문 접수'>주문 접수</option>
+                <option value='상품 준비중'>상품 준비중</option>
+                <option value='상품 배송중'>상품 배송중</option>
+                <option value='배송완료'>배송완료</option>
               </select>
             </div>
             <div class="five">
-              <button>회원정보 삭제</button>
+              <button>주문 취소</button>
             </div>
           </div>
         </div>
@@ -93,8 +108,7 @@
             <a href="#" class="menberManagement">회원 관리</a>
           </li>
           <li>
-            <a href="#" class="addProduct">상품 등록
-            </a>
+            <a href="#" class="addProduct">상품 등록</a>
           </li>
         </ul>
       </div>

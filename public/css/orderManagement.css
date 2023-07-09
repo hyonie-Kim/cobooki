@@ -7,12 +7,16 @@
   font-style: normal;
 }
 
-.cart-wrap {
+.orderlookup-wrap {
   font-family: 'NanumSquareNeo-Variable';
   position: absolute;
   top: 150px;
   height: 935px;
 
+}
+
+.order-progress {
+  border-bottom: 1px solid #d1d1d1;
 }
 
 .order-progress p {
@@ -30,143 +34,111 @@
   margin-left: 280px;
 }
 
-.row-all {
-  line-height: 55px;
+.order-status {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 40px;
+  text-align: center;
 }
 
-.check-box {
-  margin-left: 20px;
-  display: inline-block;
-  width: 30px;
-  height: 50px;
+.order-status .str {
+  font-size: 15px;
+}
+
+.order-status .num {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.X-delete {
+  margin-top: 60px;
+  border-bottom: 1px solid #d1d1d1;
+  line-height: 55px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "one two three four five";
+}
+
+.row {
+  border-bottom: 1px solid #d1d1d1;
+  line-height: 55px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "one two three four five";
+}
+
+.product-name {
+  position: relative;
 }
 
 .img {
+  position: absolute;
+  left: 20px;
   height: 50px;
   position: absolute;
   left: 0px;
 }
 
 img {
-  display: block;
+  display: inline-block;
   width: auto;
   height: 100%;
 }
 
+p {
+  margin: 0;
+}
 
 .one {
-  position: relative;
   display: inline-block;
   text-align: center;
-  width: 280px;
-  height: 50px;
   font-size: 14px;
 }
 
 .two {
   display: inline-block;
   text-align: center;
-  width: 190px;
-  height: 50px;
   font-size: 14px;
 }
 
 .three {
   display: inline-block;
   text-align: center;
-  width: 150px;
-  height: 50px;
   font-size: 14px;
-}
-
-input[type="number"] {
-  width: 70px;
-  height: 25px;
-
-}
-
-input[type="button"] {
-  margin: 2px;
-  padding: 2px;
-  background-color: #547F5B;
-  border: none;
-  border-radius: 7px;
-  width: 40px;
-  height: 25px;
-  font-size: 12px;
-  font-weight: 400;
-  color: white;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-input,
-button {
-  cursor: pointer;
 }
 
 .four {
   display: inline-block;
   text-align: center;
-  width: 190px;
-  height: 50px;
   font-size: 14px;
 }
 
-hr {
-  text-align: left;
-  border-top: 1px solid #bbb;
-  border-bottom: 1px solid #fff;
-  width: 100%;
-  height: 100%;
-}
-
-.price-wrap {
-  position: relative;
-  left: 510px;
+.five {
   display: inline-block;
-  margin: 70px 10px 10px;
-}
-
-p.right {
-  display: inline-block;
-  margin-right: 20px;
-  text-align: right;
-  color: #547F5B;
-  font-weight: 400;
-}
-
-p.order-price {
+  text-align: center;
   font-size: 14px;
+}
+
+.five button {
+  cursor: pointer;
+  font-size: 13px;
+  width: 80px;
+  height: 38px;
+  background-color: #E4E4E4;
   color: black;
-}
-
-.button-wrap {
-  position: relative;
-  left: 850px;
-  top: 20px;
-  margin-top: 30px;
-}
-
-button.right {
-  margin-right: 15px;
   padding: 10px;
-  width: 150px;
   border: none;
   border-radius: 15px;
   font-weight: 700;
-  background-color: #547F5B;
-  color: white;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-button.delete-button {
-  background-color: #E4E4E4;
-  color: black;
-}
-
-
 /* 네비바 */
-.myProfileNav {
+.adminProfileNav {
   font-family: "NanumSquareNeo-Variable";
   position: fixed;
   width: 200px;
@@ -177,6 +149,7 @@ button.delete-button {
 }
 
 .list {
+  padding-inline-start: 0px;
   display: flex;
   flex-direction: column;
   margin: 0 25px;
@@ -187,6 +160,7 @@ button.delete-button {
   border-left: 0.5px solid #d1d1d1;
   border-right: 0.5px solid #d1d1d1;
   border-bottom: 0.5px solid #d1d1d1;
+  ;
   border-radius: 2px;
 }
 
@@ -198,12 +172,12 @@ button.delete-button {
   border-top: 0.5px solid #d1d1d1;
 }
 
-.myProfileNav ul li:hover {
+.adminProfileNav ul li:hover {
   background-color: #bdd5c7;
   color: #ffff;
 }
 
-.myPage {
+.adminPage {
   height: 45px;
   text-align: center;
   font-weight: bold;
@@ -212,9 +186,9 @@ button.delete-button {
   margin: 30px;
 }
 
-.order,
-.myInfo,
-.cart {
+.orderManagement,
+.menberManagement,
+.addProduct {
   display: inline-block;
   color: black;
 }
