@@ -19,7 +19,7 @@
         <!-- 상품내역 wrap-->
         <div class="product-table">
           <div class="order-progress">
-            <p>주문내역</p>
+            <p>주문관리</p>
           </div>
           <!--주문 상태 수치 -->
           <div class="order-status">
@@ -89,7 +89,7 @@
               </select>
             </div>
             <div class="five">
-              <button>주문 취소</button>
+              <button onclick="orderDelete()">주문 취소</button>
             </div>
           </div>
         </div>
@@ -102,18 +102,24 @@
         <h1></h1>
         <ul class="list">
           <li>
-            <a href="#" class="orderManagement">주문 관리</a>
+            <a href="/admin/order" class="orderManagement">주문 관리</a>
           </li>
           <li>
-            <a href="#" class="menberManagement">회원 관리</a>
+            <a href="/admin" class="menberManagement">회원 관리</a>
           </li>
           <li>
-            <a href="#" class="addProduct">상품 등록</a>
+            <a href="/admin/upload" class="addProduct">상품 등록</a>
           </li>
         </ul>
       </div>
     </nav>
     <%- include('../footer.ejs') %>
+      <script>
+        function orderDelete() {
+          const rowRemove = document.querySelector(".row");
+          rowRemove.remove();
+        }
+      </script>
   </body>
 
 </html>
