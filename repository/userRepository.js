@@ -6,15 +6,24 @@ const userRepository = {
     return user;
   },
 
-  async create({ email, password, name }) {
+  async create({ email, password, name, phone, address, detail_address }) {
     const user = new User({
       email,
       password,
       name,
+      phone,
+      address,
+      detail_address,
     });
 
     await user.save();
     return user.toObject();
+  },
+
+  async deleteUser({ email }) {
+    const user = User.findByIdAndDelete({ email });
+    if (!user) return false;
+    else return true;
   },
 };
 
