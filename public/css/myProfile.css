@@ -136,7 +136,7 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: black solid 1px;
+  border-bottom: black solid 0.5px;
 }
 
 .informationForm {
