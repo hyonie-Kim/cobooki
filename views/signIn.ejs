@@ -31,9 +31,8 @@
         <button type="button" onclick="signIn()" class="login-btn" id="submitButton">
           로그인
         </button>
-        <button class="signup-btn" id="signupButton">
-          회원가입
-        </button>
+        <button onclick="location.href='/signUp'" class="signup-btn" id="signupButton">
+        회원가입</button>
     </form>
     <script>
       const form = document.querySelector(".loginForm");
@@ -46,13 +45,18 @@
         method: "post",
         url: "/user/login",
         data : data,
-        
+
       }).then((res)=>{
         console.log(res.data)
         alert(`${res.data.msg}`)
-        // try{  
+        // try{
         // }catch(error){
         //   console.log("error", error.message)
+        // }
+
+        // 로그인 성공 시 페이지 이동
+        // if (res.data.success){
+        //     window.location.href= "../";
         // }
       })
       }
