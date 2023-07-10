@@ -47,14 +47,23 @@
         url: "/user/login",
         data : data,
         
-      }).then((res)=>{
-        console.log(res.data)
-        alert(`${res.data.msg}`)
-        // try{  
-        // }catch(error){
-        //   console.log("error", error.message)
-        // }
-      })
+      }).then( (response) => {
+   if(response.status == 200){
+       console.log("success",response)
+       window.location.href = "/";
+   }
+ }).catch(function (error) {
+    if (error.response) {
+      console.log(error.response.data);
+      console.log(error.response.status);
+      alert(`${error.response.data.msg}`)
+    } else if (error.request) {
+      console.log(error.request);
+    } else {
+      console.log('Error', error.message);
+    }
+    console.log(error.config);
+  });
       }
     </script>
   </body>

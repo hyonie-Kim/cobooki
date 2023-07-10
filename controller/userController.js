@@ -17,8 +17,8 @@ const userController = {
 
     if (!user) {
       // 아이디 없음
-      res.send({ msg: "아이디를 확인해주세요" });
-      // res.status(400).send({ msg: "아이디를 확인해주세요" });
+      // res.send({ msg: "아이디를 확인해주세요" });
+      res.status(400).send({ msg: "아이디를 확인해주세요" });
     } else {
       // 아이디 존재
       if (user && bcrypt.compareSync(req.body.password, user.password)) {
