@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema(
       trim: true,
     },
     address: { type: String, require: true },
-    detail_address: { type: String },
+    detailAddress: { type: String },
   },
   { collection: "users" }
 );

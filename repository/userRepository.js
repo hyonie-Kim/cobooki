@@ -6,14 +6,14 @@ const userRepository = {
     return user;
   },
 
-  async create({ email, password, name, phone, address, detail_address }) {
+  async create({ email, password, name, phone, address, detailAddress }) {
     const user = new User({
       email,
       password,
       name,
       phone,
       address,
-      detail_address,
+      detailAddress,
     });
 
     await user.save();
