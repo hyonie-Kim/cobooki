@@ -26,6 +26,7 @@ const adminController = {
     res.render("admin/orderManagement");
   },
 
+  // ========== 회원 관리 ==========
   adminRender(req, res) {
     // Product.find()
     //   .exec()

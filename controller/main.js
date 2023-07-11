@@ -25,6 +25,15 @@ const mainController = {
       });
   },
 
+  // ========== 상품 수정 ==========
+  // edit(req,res){
+  //   Product.findOne({bookNum: req.params.bookNum})
+  //   .exec()
+  //   .then((docInfo)=>{
+  //     res.render("edit", {bookNum:docInfo})
+  //   })
+  // },
+
   order(req, res) {
     res.render("order");
   },
