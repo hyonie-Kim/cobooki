@@ -1,9 +1,9 @@
 const userController = require("./userController");
 const adminController = require("./adminController");
-const main = require("./main");
+const mainController = require("./main");
 
 module.exports = {
   userController,
   adminController,
-  main,
+  mainController,
 };

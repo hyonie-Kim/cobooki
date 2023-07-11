@@ -59,7 +59,7 @@ const userController = {
         name: req.body.name,
         phone: req.body.phone,
         address: req.body.address,
-        detail_address: req.body.detail_address,
+        detailAddress: req.body.detailAddress,
       });
 
       res.status(200).send({ msg: "회원가입 성공", user: createUser });
