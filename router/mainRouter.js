@@ -1,12 +1,12 @@
 var router = require("express").Router();
-const main = require("../controller/main");
+const { mainController } = require("../controller");
 
-router.get("/", main.mainRender);
+router.get("/", mainController.mainRender);
 
-router.get("/order", main.order);
+router.get("/order", mainController.order);
 
-router.get("/cart", main.cart);
+router.get("/cart", mainController.cart);
 
-router.get("/deleteUser", main.deleteUser);
+router.get("/deleteUser", mainController.deleteUser);
 
 module.exports = router;
