@@ -18,7 +18,7 @@ const productRepository = {
       { name: "counter" },
       { $inc: { bookNum: 1 } }
     );
-    return true;
+    return countUpdate;
   },
 };
 
