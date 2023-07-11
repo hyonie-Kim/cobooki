@@ -8,13 +8,13 @@ const adminController = {
       .find()
       .toArray()
       .then(() => {
-        // res.render("admin/adminPage", { postData: postData });
-        res.render("index", { postData: postData });
+        // res.render("admin/adminPage", { bookData: bookData });
+        res.render("index", { bookData: bookData });
       })
       .catch((err) => {
         console.log(err);
-        // res.render("admin/adminPage", { postData: [] });
-        res.render("index", { postData: [] });
+        // res.render("admin/adminPage", { bookData: [] });
+        res.render("index", { bookData: [] });
       });
     // res.render("admin/adminPage")
   },
@@ -29,19 +29,19 @@ const adminController = {
   adminRender(req, res) {
     // Product.find()
     //   .exec()
-    //   .then((postData) => {
-    //     res.render("admin/adminPage", { postData: postData });
+    //   .then((bookData) => {
+    //     res.render("admin/adminPage", { bookData: bookData });
     //   })
     //   .catch((err) => {
     //     console.log(err);
-    //     res.render("admin/adminPage", { postData: [] });
+    //     res.render("admin/adminPage", { bookData: [] });
     //   });
     res.render("admin/adminPage");
   },
 
   async upload(req, res) {
     let temp = {
-      // _id: counterInfo.postNum,
+      // _id: counterInfo.bookNum,
       productName: req.body.productName,
       category: req.body.category,
       desc: req.body.desc,
@@ -60,7 +60,7 @@ const adminController = {
 
   detail(req, res) {
     postMessage
-      .findOne({ postNum: req.params.postNum })
+      .findOne({ bookNum: req.params.bookNum })
       .exec()
       .then((docInfo) => {
         // res.render("detailPage", { postInfo: docInfo });

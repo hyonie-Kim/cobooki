@@ -5,13 +5,13 @@ const mainController = {
   mainRender(req, res) {
     Product.find()
       .exec()
-      .then((postData) => {
-        console.log(postData);
-        res.render("index", { postData: postData });
+      .then((bookData) => {
+        console.log(bookData);
+        res.render("index", { bookData: bookData });
       })
       .catch((err) => {
         console.log(err);
-        res.render("index", { postData: [] });
+        res.render("index", { bookData: [] });
       });
   },
 

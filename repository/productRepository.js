@@ -16,7 +16,7 @@ const productRepository = {
   async countUpdate() {
     const countUpdate = Counter.findOneAndUpdate(
       { name: "counter" },
-      { $inc: { postNum: 1 } }
+      { $inc: { bookNum: 1 } }
     );
     return true;
   },

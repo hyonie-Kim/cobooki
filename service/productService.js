@@ -8,7 +8,7 @@ const productService = {
 
   async createProduct(temp) {
     const counter = await productRepository.findCount({ name: "counter" });
-    temp.postNum = counter.postNum;
+    temp.bookNum = counter.bookNum;
     const product = await productRepository.create(temp);
     if (product) {
       productRepository.countUpdate();
