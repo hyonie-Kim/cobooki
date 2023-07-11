@@ -34,7 +34,7 @@ const productSchema = new mongoose.Schema(
       default: 10,
       required: true,
     },
-    postNum: { type: Number },
+    bookNum: { type: Number },
   },
   { collection: "product", timestamps: true }
 );
