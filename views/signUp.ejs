@@ -61,7 +61,7 @@
     <script>
 
       const form = document.querySelector("form");
-      form.addEventListener('submit',(e)=>{
+      form.addEventListener('submit',async (e)=>{
         e.preventDefault()
         const data ={
         email:form.email.value,
@@ -71,21 +71,23 @@
         address:form.address.value,
         detailAddress:form.detailAddress.value
         }
-
-        console.log(data)
-        
-        const password = document.querySelector('#password')
-        const passwordCheck = document.querySelector('#password-check')
         
         //비밀번호 확인 여부는 front에서 검사합니다.
-        if(password!==passwordCheck){
-          alert('비밀번호가 일치하지 않습니다.')
-          return
-        }
-        //비밀번호가 일치한 경우 axios.post() 작동하도록 합니다.
-        {
+        const password = document.querySelector('#password')
+        const passwordCheck = document.querySelector('#password-check')
+        if(password.value!==passwordCheck.value){
+          alert('비밀번호 값이 일치하지 않습니다')
+          return;  
+        } 
+        
+        //axios 전 오류 메시지 reset
+        const errorMsgs =document.querySelectorAll('span');
+        await errorMsgs.forEach((errorMsg)=>{ 
+          errorMsg.remove();
+        })
+
         //axios.post()
-        axios({
+        await axios({
         method: "post",
         url: "/user/signUp",
         data : data,
@@ -123,6 +125,7 @@
                 errorMessage(selectElement())
               }
             }
+
             // password, name, phone, address 오류시 아래 붉은 색 error 메시지가 표기됩니다.
             path === 'password'? errorMessage(selectElement()):null
             path === 'name'? errorMessage(selectElement()):null
@@ -138,7 +141,7 @@
           console.log('config',error.config);
         })
       }
-      })
+      )
     </script>>
   </body>
 </html>
