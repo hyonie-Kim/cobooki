@@ -19,9 +19,9 @@ const mainController = {
     Product.findOne({ bookNum: req.params.bookNum })
       .exec()
       .then((docInfo) => {
-        console.log(docInfo);
+        console.log("=============== 상세페이지 ===============", docInfo);
         // res.send({ bookInfo: docInfo });
-        // res.render("detailPage", { bookInfo: docInfo });
+        res.render("detailPage", { bookInfo: docInfo });
       });
   },
 
