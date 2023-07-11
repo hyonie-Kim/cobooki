@@ -46,8 +46,8 @@
           <div class="content-address">
             <h4>주소지 정보</h4>
             <div>
-              <label for="mainAddress">기본 주소</label>
-              <input id="mainAddress" type="text" value="" placeholder=" 주소를 입력하세요."/>
+              <label for="address">기본 주소</label>
+              <input id="address" type="text" value="" placeholder=" 주소를 입력하세요."/>
             </div>
             <div>
               <label for="detailAddress">상세 주소</label>
@@ -60,24 +60,34 @@
     </main>
     <script>
 
-      
-
       const form = document.querySelector("form");
-      form.addEventListener('submit',(e)=>{
+      form.addEventListener('submit',async (e)=>{
         e.preventDefault()
-
         const data ={
         email:form.email.value,
         password:form.password.value,
         name:form.name.value,
         phone:form.phone.value,
-        address:form.mainAddress.value,
+        address:form.address.value,
         detailAddress:form.detailAddress.value
         }
+        
+        //비밀번호 확인 여부는 front에서 검사합니다.
+        const password = document.querySelector('#password')
+        const passwordCheck = document.querySelector('#password-check')
+        if(password.value!==passwordCheck.value){
+          alert('비밀번호 값이 일치하지 않습니다')
+          return;  
+        } 
+        
+        //axios 전 오류 메시지 reset
+        const errorMsgs =document.querySelectorAll('span');
+        await errorMsgs.forEach((errorMsg)=>{ 
+          errorMsg.remove();
+        })
 
-        console.log(data)
-
-        axios({
+        //axios.post()
+        await axios({
         method: "post",
         url: "/user/signUp",
         data : data,
@@ -86,34 +96,43 @@
             console.log("success",response)
         }
         }).catch( (error) => {
-          console.log('에러',error)
+
           if (error.response) {
-            // 사용자가 메인에서 상품을 볼 수 있음.
-            // 관리자 계정에서 상품 등록하면, 관리자 전체 페이지에서 있음. 
+          //error response에서 data 객체 내 errors 배열을 가져옵니다.
           const errorMessagesArray =error.response.data.errors
           errorMessagesArray.forEach(({msg,path}) => {
-
+            //path와 동일한 id 값을 가진 input 요소를 선택 및 반환합니다.
             const selectElement = () =>{
               return document.querySelector(`#${path}`)
             }
 
             const errorMessage = (element) =>{
+              //span 태그를 생성하고 errors 배열 내 msg 속성을 textContent 값으로 할당합니다.
               const errorMessage = document.createElement('span')
               errorMessage.textContent=msg;
+              // input 태그의 부모 태그(div 태그)에 append합니다.
               element.parentElement.appendChild(errorMessage)
-              errorMessage.classList.add('error-msg')
-              console.dir(element.parentElement)
-            }
+              // span 태그에 error-msg 클래쓰를 추가합니다. 이 때 address의 경우 별도 클래쓰를 추가합니다.
+              if(element.id==='address'){
+                errorMessage.classList.add('address-error-msg')}
+              else {
+                errorMessage.classList.add('error-msg')}
+              }
             
-            path === 'email'? errorMessage(selectElement()):null
+            //email 오류시 response 되는 message 중 'Invalid value' 제외하였습니다.
+            if(path==='email'){
+              if(msg!=='Invalid value'){
+                errorMessage(selectElement())
+              }
+            }
+
+            // password, name, phone, address 오류시 아래 붉은 색 error 메시지가 표기됩니다.
             path === 'password'? errorMessage(selectElement()):null
             path === 'name'? errorMessage(selectElement()):null
             path === 'phone'? errorMessage(selectElement()):null
             path === 'address'? errorMessage(selectElement()):null
           })  
 
-            console.log('data',error.response.data.errors);
-            console.log('status',error.response.status);
           } else if (error.request) {
             console.log('request',error.request);
           } else {
@@ -121,11 +140,8 @@
           }
           console.log('config',error.config);
         })
-      })
-
-
-
-
+      }
+      )
     </script>>
   </body>
 </html>
