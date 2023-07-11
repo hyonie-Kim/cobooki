@@ -1,10 +1,12 @@
 var router = require("express").Router();
-const admin = require("../controller/admin");
+const { adminController } = require("../controller");
+const { validationChecker } = require("../middleware/validator");
 
-router.get("/", admin.adminRender);
-router.get("/upload", admin.upload);
-// router.post("/post/upload", admin.post_upload);
+router.get("/", adminController.adminRender);
+router.get("/upload", adminController.uploadRender);
+router.post("/post/upload", adminController.upload);
+router.get("/post/:postNum", adminController.detail);
 
-router.get("/order", admin.order);
+router.get("/order", adminController.order);
 
 module.exports = router;

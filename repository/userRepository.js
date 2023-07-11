@@ -2,7 +2,7 @@ const User = require("../Model/user");
 
 const userRepository = {
   async findOne({ email }) {
-    const user = User.findOne({ email });
+    const user = await User.findOne({ email });
     return user;
   },
 
@@ -21,7 +21,7 @@ const userRepository = {
   },
 
   async deleteUser({ email }) {
-    const user = User.findByIdAndDelete({ email });
+    const user = await User.findByIdAndDelete({ email });
     if (!user) return false;
     else return true;
   },
