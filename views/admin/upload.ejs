@@ -40,11 +40,11 @@
             <form class="box register-product-form-box" id="registerProductForm">
               <p class="title is-5 has-text-primary">상품 등록</p>
               <div class="field">
-                <label class="label" for="titleInput">상품 이름</label>
+                <label class="label" for="productName">상품 이름</label>
                 <div class="control">
                   <input
                     class="input"
-                    id="titleInput"
+                    id="productName"
                     type="text"
                     placeholder="모던 자바스크립트 Deep Dive"
                     autocomplete="on"
@@ -52,26 +52,26 @@
                 </div>
               </div>
               <div class="field">
-                <label class="label" for="categorySelectBox">카테고리</label>
+                <label class="label" for="category">카테고리</label>
                 <div class="control">
                   <div class="select is-fullwidth">
-                    <select id="categorySelectBox">
+                    <select id="category">
                       <option value="">카테고리를 선택해 주세요.</option>
-                      <option value="0" class="front-end">프론트엔드</option>
-                      <option value="1" class="back-end">백엔드</option>
-                      <option value="2" class="cs">CS지식</option>
+                      <option value="0" class="front-end" name="프론트엔드">프론트엔드</option>
+                      <option value="1" class="back-end" name="백엔드">백엔드</option>
+                      <option value="2" class="cs" name="CS지식">CS지식</option>
                     </select>
                   </div>
                 </div>
               </div>
               <div class="field">
-                <label class="label" for="detailDescriptionInput"
+                <label class="label" for="desc"
                   >상품 설명</label
                 >
                 <div class="control">
                   <textarea
                     class="textarea"
-                    id="detailDescriptionInput"
+                    id="desc"
                     rows="8"
                     placeholder="제품에 대한 상세 설명을 적어 주세요."
                     autocomplete="on"
@@ -79,12 +79,12 @@
                 </div>
               </div>
               <div class="field has-is-fullwidth">
-                <label class="label" for="imageInput">상품 사진</label>
+                <label class="label" for="imageURL">상품 사진</label>
                 <div class="file-fullwidth">
                   <label class="file-label">
                     <input
                       class="file-input"
-                      id="imageInput"
+                      id="imageURL"
                       type="file"
                       name="image-file"
                       accept=".png, .jpeg, .jpg"
@@ -102,11 +102,11 @@
                 </div>
               </div>
               <div class="field">
-                <label class="label" for="inventoryInput">재고 수</label>
+                <label class="label" for="inventory">재고 수</label>
                 <div class="control">
                   <input
                     class="input"
-                    id="inventoryInput"
+                    id="inventory"
                     type="number"
                     placeholder="10"
                     autocomplete="on"
@@ -114,12 +114,12 @@
                 </div>
               </div>
               <div class="field">
-                <label class="label" for="priceInput">가격</label>
+                <label class="label" for="price">가격</label>
                 <div class="subfield">
                   <div class="control has-icons-right">
                     <input
                       class="input"
-                      id="priceInput"
+                      id="price"
                       type="number"
                       placeholder="10000"
                       autocomplete="on"
@@ -132,7 +132,7 @@
                 id="keywordContainer"
               ></div>
               <div class="button">
-                <button onclick="location.href='/admin/upload'" class="upload-btn" id="submitButton">
+                <button type="submit" form="registerProductForm"  class="upload-btn" id="submitButton">
                   제품 판매하기
                 </button>
               </div>
@@ -141,4 +141,21 @@
         </div>
       </section>
   </body>
+
+  <script>
+    const form = document.querySelector("form");
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        let data = {
+        productName: form.productName.value,
+        category: form.category.value,
+        desc: form.desc.value,
+        imageURL: form.imageURL.value,
+        inventory: form.inventory.value,
+        price: form.price.value
+        }
+        // window.location.href = '/admin/upload';
+    });
+
+  </script>
 </html>
