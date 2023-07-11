@@ -57,16 +57,6 @@ const adminController = {
       // res.redirect("/")
     } else res.send("상품저장실패");
   },
-
-  detail(req, res) {
-    postMessage
-      .findOne({ bookNum: req.params.bookNum })
-      .exec()
-      .then((docInfo) => {
-        // res.render("detailPage", { postInfo: docInfo });
-        console.log(docInfo);
-      });
-  },
 };
 
 module.exports = adminController;

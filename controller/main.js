@@ -15,6 +15,16 @@ const mainController = {
       });
   },
 
+  detail(req, res) {
+    Product.findOne({ bookNum: req.params.bookNum })
+      .exec()
+      .then((docInfo) => {
+        console.log(docInfo);
+        // res.send({ bookInfo: docInfo });
+        // res.render("detailPage", { bookInfo: docInfo });
+      });
+  },
+
   order(req, res) {
     res.render("order");
   },
