@@ -38,7 +38,7 @@
           <h1 class="subtitle">관리자 상품 등록</h1>
         </div>
         <div class="register-product-form-container">
-          <form class="box register-product-form-box" id="registerProductForm" action="/admin/upload" method="POST">
+          <form class="box register-product-form-box" id="registerProductForm" action="/admin/post/upload" method="POST">
             <p class="title is-5 has-text-primary">상품 등록</p>
             <div class="field">
               <label class="label" for="productName">상품 이름</label>
@@ -103,7 +103,7 @@
             </div>
             <div class="grouped-field" id="keywordContainer"></div>
             <div class="button">
-              <button type="submit" form="registerProductForm" class="upload-btn" id="submitButton" onclick="upload()">제품 판매하기</button>
+              <button type="submit" form="registerProductForm" class="upload-btn" id="submitButton">제품 판매하기</button>
             </div>
           </form>
         </div>
@@ -111,12 +111,12 @@
     </section>
 
     <script>
-      const form = document.querySelector("form");
-      function upload() {
-        form.addEventListener("submit", (e) => {
+      const form = document.querySelector("#registerProductForm");
+
+      form.addEventListener("submit", (e) => {
           e.preventDefault();
 
-          let data = {
+          const data = {
             productName: form.productName.value,
             category: form.category.value,
             desc: form.desc.value,
@@ -125,31 +125,17 @@
             price: form.price.value,
           };
 
-          axios({
-            method: "post",
-            url: "/admin/upload",
-            data: data,
-          })
+          axios.post('/admin/post/upload', data)
             .then((response) => {
-              if (response.status == 200) {
-                console.log("success", response);
-                window.location.href = "/";
-              }
-            })
-            .catch(function (error) {
-              if (error.response) {
-                console.log("data", error.response.data);
-                console.log("status", error.response.status);
-                alert(`${error.response.data}`);
-              } else if (error.request) {
-                console.log("request", error.request);
-              } else {
-                console.log("Error", error.message);
-              }
-              console.log("config", error.config);
-            });
+                console.log(response.data);
+                alert('상품이 성공적으로 등록되었습니다.');
+                window.location.href = '/';
+          })
+            .catch((error) => {
+                console.log(error.response.data);
+            alert('상품 등록에 실패했습니다. 다시 시도해주세요.');
         });
-      }
+      });
     </script>
   </body>
 </html>
