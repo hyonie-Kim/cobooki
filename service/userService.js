@@ -6,14 +6,14 @@ const userService = {
     return user;
   },
 
-  async createUser({ email, password, name, phone, address, detail_address }) {
+  async createUser({ email, password, name, phone, address, detailAddress }) {
     const user = await userRepository.create({
       email,
       password,
       name,
       phone,
       address,
-      detail_address,
+      detailAddress,
     });
     return user;
   },
