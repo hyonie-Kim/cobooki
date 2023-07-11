@@ -80,6 +80,7 @@ main {
   position: relative;
 }
 
+/* 최신 서적 제목 */
 .latest-books > h1 {
   position: absolute;
   left: 70px;
@@ -89,8 +90,7 @@ main {
   border-bottom: 2px solid #adadad;
 }
 
-/* 최신 서적 책 */
-
+/* 최신 서적 2x3 리스트 */
 .books {
   width: 100%;
   height: 88%;
@@ -104,6 +104,8 @@ main {
   justify-items: center;
 }
 
+/* 최신 서적 내 각 책 */
+
 .book {
   width: 240px;
   height: 90%;
@@ -113,6 +115,25 @@ main {
   outline: 2px solid #547f5b;
   border-radius: 10px;
   position: relative;
+}
+
+a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  text-decoration: none;
+  color: #000000;
+}
+
+/* 최신 서적 내 각 책 */
+.book:hover {
+  outline: 3px solid #547f5b;
+  cursor: pointer;
+}
+
+.blurred {
+  opacity: 0.5;
 }
 
 /* 책 카테고리 아이콘 */
@@ -158,93 +179,23 @@ main {
 
 .book-img {
   width: 100%;
-  height: 70%;
-  background-image: url("/imgs/banner01.png");
+  height: 75%;
+  margin: auto 0px;
 }
 
 .book-info {
   width: 90%;
   height: 20%;
-  font-size: 15px;
+  padding-top: 10px;
 }
 
 .book__name {
   font-weight: bold;
   margin-bottom: 10px;
-}
-
-.book__author {
-  font-size: 12px;
-  margin-bottom: 10px;
-  color: #adadad;
+  font-size: 15px;
 }
 
 .book__price {
   font-weight: bold;
+  font-size: 15px;
 }
-
-/* @media (max-width: 1000px) { 
-  main {
-    width: 80vw;
-    height: 1600px;
-    margin: 0px auto;
-  }
-
-  .banner {
-    height: 25%;
-  }
-
-  .swiper-button-prev::after {
-    display: none;
-  }
-
-  .swiper-button-next::after {
-    display: none;
-  }
-
-  .latest-books > h1 {
-    left: 40px;
-    top: 5px;
-  }
-
-  .books {
-    width: 100%;
-    height: 90%;
-    display: grid;
-    grid-template-rows: repeat(3, 30%);
-    grid-template-columns: repeat(2, 45%);
-    gap: 4% 0;
-  }
-
-  .book {
-    width: 150px;
-    height: 90%;
-    font-size: 10px;
-  }
-
-  .category {
-    top: -30px;
-    width: 60px;
-    height: 20px;
-    line-height: 20px;
-  }
-
-  .book-img {
-    width: 100%;
-    height: 70%;
-    background-image: url("/imgs/banner01.png");
-  }
-
-  .book-info {
-    font-size: 12px;
-  }
-
-  .book__name {
-    margin-bottom: 5px;
-  }
-
-  .book__author {
-    font-size: 10px;
-    margin-bottom: 5px;
-  }
-} */

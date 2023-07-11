@@ -169,3 +169,11 @@ form > button {
   font-size: 8px;
   color: red;
 }
+
+.address-error-msg {
+  position: absolute;
+  left: 142px;
+  bottom: 70px;
+  font-size: 8px;
+  color: red;
+}
