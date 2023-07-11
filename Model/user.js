@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema(
     address: { type: String, require: true },
     detailAddress: { type: String },
   },
-  { collection: "users" }
+  { collection: "users", timestamps: true }
 );
 
 module.exports = mongoose.model("User", userSchema);

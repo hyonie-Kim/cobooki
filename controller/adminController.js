@@ -26,6 +26,7 @@ const adminController = {
     res.render("admin/orderManagement");
   },
 
+  // ========== 회원 관리 ==========
   adminRender(req, res) {
     // Product.find()
     //   .exec()
@@ -56,16 +57,6 @@ const adminController = {
       res.send("상품 저장 성공");
       // res.redirect("/")
     } else res.send("상품저장실패");
-  },
-
-  detail(req, res) {
-    postMessage
-      .findOne({ bookNum: req.params.bookNum })
-      .exec()
-      .then((docInfo) => {
-        // res.render("detailPage", { postInfo: docInfo });
-        console.log(docInfo);
-      });
   },
 };
 
