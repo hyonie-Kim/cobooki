@@ -3,6 +3,8 @@ const { mainController } = require("../controller");
 
 router.get("/", mainController.mainRender);
 
+router.get("/book/:bookNum", mainController.detail);
+
 router.get("/order", mainController.order);
 
 router.get("/cart", mainController.cart);
