@@ -1,0 +1,191 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+.myProfileNav {
+  font-family: "NanumSquareNeo-Variable";
+  position: fixed;
+  width: 200px;
+  height: 800px;
+  background-color: #ffffff;
+  border-right: 0.5px solid #d1d1d1;
+  top: 80px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 25px;
+  border-width: 0.5px;
+  border-color: #d1d1d1;
+  list-style: none;
+  justify-content: center;
+  border-left: 0.5px solid #d1d1d1;
+  border-right: 0.5px solid #d1d1d1;
+  border-bottom: 0.5px solid #d1d1d1;
+  border-radius: 2px;
+}
+
+.list li {
+  text-align: center;
+  background-color: white;
+  padding: 15px;
+  font-size: 12px;
+  border-top: 0.5px solid #d1d1d1;
+}
+
+.myProfileNav ul li:hover {
+  background-color: #bdd5c7;
+  color: #ffff;
+}
+
+.myPage {
+  height: 45px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  margin: 30px;
+}
+
+.order,
+.myInfo,
+.cart {
+  display: inline-block;
+  color: black;
+}
+
+/* 개인정보수정 폼 */
+.myProfileForm {
+  position: fixed;
+  width: 800px;
+  height: 580px;
+  background-color: #ffffff;
+  text-align: center;
+  top: 50%;
+  bottom: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  font-family: "NanumSquareNeo-Variable";
+  border-bottom: 1px solid #d1d1d1;
+  padding-top: 40px;
+  width: 140%;
+  height: 140px;
+}
+
+.account-header {
+  display: block;
+}
+
+.account-header h1 {
+  font-size: 18px;
+  text-align: left;
+  margin: 30px;
+}
+
+.menu-container {
+  width: 1000px;
+  height: 800px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.form-container {
+  width: 700px;
+  height: 700px;
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+}
+
+.field {
+  height: 50px;
+  display: flex;
+  margin: 10px 0;
+}
+
+.label {
+  margin: auto;
+  font-size: 11px;
+}
+
+.control {
+  padding: 10px 0px;
+  font-size: 8px;
+}
+
+.input {
+  width: 500px;
+  height: 30px;
+  padding: 10px;
+  font-size: 10px;
+}
+
+#fullNameInput,
+#emailInput {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: black solid 0.5px;
+}
+
+.informationForm {
+  width: 40rem;
+}
+
+.informationForm .control {
+  display: flex;
+}
+
+.delete-btn {
+  font-family: "NanumSquareNeo-Variable";
+  position: relative;
+  left: 40%;
+  transform: translateX(-50%);
+  margin-top: 80px;
+  width: 30%;
+  height: 40px;
+  background: white;
+  background-position: left;
+  background-size: 200%;
+  color: #547f5b;
+  font-weight: bold;
+  border-width: 1px;
+  border-color: #547f5b;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline;
+  font-size: 12px;
+}
+
+.save-btn {
+  font-family: "NanumSquareNeo-Variable";
+  position: relative;
+  left: 45%;
+  transform: translateX(-50%);
+  margin-top: 80px;
+  width: 30%;
+  height: 40px;
+  background: #547f5b;
+  background-position: left;
+  background-size: 200%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline;
+  font-size: 12px;
+}

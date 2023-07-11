@@ -1,0 +1,220 @@
+@import url(reset.css);
+
+@font-face {
+  font-family: 'NanumSquareNeo-Variable';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.cart-wrap {
+  font-family: 'NanumSquareNeo-Variable';
+  position: absolute;
+  top: 150px;
+  height: 935px;
+
+}
+
+.order-progress p {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.bgc-gray {
+  width: 1300px;
+  padding: 50px;
+  background-color: #F1F1F1;
+}
+
+.product-table {
+  margin-left: 280px;
+}
+
+.row-all {
+  line-height: 55px;
+}
+
+.check-box {
+  margin-left: 20px;
+  display: inline-block;
+  width: 30px;
+  height: 50px;
+}
+
+.img {
+  height: 50px;
+  position: absolute;
+  left: 0px;
+}
+
+img {
+  display: block;
+  width: auto;
+  height: 100%;
+}
+
+
+.one {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 280px;
+  height: 50px;
+  font-size: 14px;
+}
+
+.two {
+  display: inline-block;
+  text-align: center;
+  width: 190px;
+  height: 50px;
+  font-size: 14px;
+}
+
+.three {
+  display: inline-block;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  font-size: 14px;
+}
+
+input[type="number"] {
+  width: 70px;
+  height: 25px;
+
+}
+
+input[type="button"] {
+  margin: 2px;
+  padding: 2px;
+  background-color: #547F5B;
+  border: none;
+  border-radius: 7px;
+  width: 40px;
+  height: 25px;
+  font-size: 12px;
+  font-weight: 400;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+input,
+button {
+  cursor: pointer;
+}
+
+.four {
+  display: inline-block;
+  text-align: center;
+  width: 190px;
+  height: 50px;
+  font-size: 14px;
+}
+
+hr {
+  text-align: left;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  height: 100%;
+}
+
+.price-wrap {
+  position: relative;
+  left: 510px;
+  display: inline-block;
+  margin: 70px 10px 10px;
+}
+
+p.right {
+  display: inline-block;
+  margin-right: 20px;
+  text-align: right;
+  color: #547F5B;
+  font-weight: 400;
+}
+
+p.order-price {
+  font-size: 14px;
+  color: black;
+}
+
+.button-wrap {
+  position: relative;
+  left: 850px;
+  top: 20px;
+  margin-top: 30px;
+}
+
+button.right {
+  margin-right: 15px;
+  padding: 10px;
+  width: 150px;
+  border: none;
+  border-radius: 15px;
+  font-weight: 700;
+  background-color: #547F5B;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+button.delete-button {
+  background-color: #E4E4E4;
+  color: black;
+}
+
+
+/* 네비바 */
+.myProfileNav {
+  font-family: "NanumSquareNeo-Variable";
+  position: fixed;
+  width: 200px;
+  height: 800px;
+  background-color: #ffffff;
+  border-right: 0.5px solid #d1d1d1;
+  top: 80px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 25px;
+  border-width: 0.5px;
+  border-color: #d1d1d1;
+  list-style: none;
+  justify-content: center;
+  border-left: 0.5px solid #d1d1d1;
+  border-right: 0.5px solid #d1d1d1;
+  border-bottom: 0.5px solid #d1d1d1;
+  border-radius: 2px;
+}
+
+.list li {
+  text-align: center;
+  background-color: white;
+  padding: 15px;
+  font-size: 12px;
+  border-top: 0.5px solid #d1d1d1;
+}
+
+.myProfileNav ul li:hover {
+  background-color: #bdd5c7;
+  color: #ffff;
+}
+
+.myPage {
+  height: 45px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  margin: 30px;
+}
+
+.order,
+.myInfo,
+.cart {
+  display: inline-block;
+  color: black;
+}

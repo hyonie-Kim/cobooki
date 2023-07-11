@@ -4,27 +4,24 @@
   text-decoration: none;
 }
 
-body {
-  background-image: #547f5b;
-}
-
 .loginForm {
-  position: absolute;
+  font-family: "NanumSquareNeo-Variable";
+  position: fixed;
   width: 500px;
-  height: 550px;
-  padding: 50px, 30px;
+  height: 500px;
   background-color: #ffffff;
   text-align: center;
-  top: 60%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 20px;
-  border: 1px solid #000;
+  border: 1px solid #adadad;
 }
 
 .loginForm h2 {
   text-align: center;
   margin: 30px;
+  font-size: 15px;
 }
 
 .loginForm h6 {
@@ -34,26 +31,27 @@ body {
 
 .loginForm h5 {
   text-align: center;
-  margin: 30px;
+  margin: 20px 0 50px 0;
   font-weight: normal;
+  font-size: 8px;
 }
 
 .login-id {
-  margin: 30px;
-  padding: 10px 10px;
+  margin: 20px;
+  padding: 10px 20px;
   display: flex;
 }
 
 .login-pw {
-  margin: 30px;
-  padding: 10px 10px;
+  margin: 20px;
+  padding: 10px 20px;
   display: flex;
 }
 
 .saved-login {
-  font-size: 12px;
+  font-size: 5px;
   color: #636e72;
-  margin: 30px 35px;
+  margin: 20px 35px;
   display: flex;
 }
 
@@ -63,35 +61,38 @@ body {
 }
 
 .id {
+  font-family: "NanumSquareNeo-Variable";
   width: 100%;
   border: none;
   outline: none;
   color: #636e72;
-  font-size: 12px;
+  font-size: 8px;
   height: 25px;
   background: none;
   border-bottom: 2px solid;
-  margin: 0 10px;
+  margin: 0 15px;
 }
 
 .pw {
+  font-family: "NanumSquareNeo-Variable";
   width: 100%;
   border: none;
   outline: none;
   color: #636e72;
-  font-size: 12px;
+  font-size: 8px;
   height: 25px;
   background: none;
   border-bottom: 2px solid;
-  margin: 0 10px;
+  margin: 0 15px;
 }
 
 .login-btn {
+  font-family: "NanumSquareNeo-Variable";
   position: relative;
-  left: 35%;
+  left: 30%;
   transform: translateX(-50%);
-  margin-bottom: 20px;
-  width: 70%;
+  margin: 20px;
+  width: 60%;
   height: 40px;
   background: #547f5b;
   background-position: left;
@@ -102,25 +103,29 @@ body {
   border-radius: 10px;
   cursor: pointer;
   transition: 0.4s;
+  font-size: 12px;
   display: inline;
 }
 
 .signup-btn {
+  font-family: "NanumSquareNeo-Variable";
   position: relative;
-  left: 35%;
+  left: 30%;
   transform: translateX(-50%);
-  margin-bottom: 20px;
-  width: 70%;
+  margin: 0 20px;
+  width: 60%;
   height: 40px;
-  background: #547f5b;
+  background: white;
   background-position: left;
   background-size: 200%;
-  color: white;
+  color: #547f5b;
   font-weight: bold;
-  border: none;
+  border-width: 1px;
+  border-color: #547f5b;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.4s;
+  font-size: 12px;
   display: inline;
 }
 

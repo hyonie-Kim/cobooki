@@ -1,21 +1,50 @@
-exports.mainRender = (req, res) => {
-  res.render("index");
+const { Product } = require("../Model/product");
+const { Counter } = require("../Model/counter");
+
+const mainController = {
+  mainRender(req, res) {
+    Product.find()
+      .exec()
+      .then((bookData) => {
+        console.log(bookData);
+        res.render("index", { bookData: bookData });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.render("index", { bookData: [] });
+      });
+  },
+
+  detail(req, res) {
+    Product.findOne({ bookNum: req.params.bookNum })
+      .exec()
+      .then((docInfo) => {
+        console.log("=============== 상세페이지 ===============", docInfo);
+        // res.send({ bookInfo: docInfo });
+        res.render("detailPage", { bookInfo: docInfo });
+      });
+  },
+
+  // ========== 상품 수정 ==========
+  // edit(req,res){
+  //   Product.findOne({bookNum: req.params.bookNum})
+  //   .exec()
+  //   .then((docInfo)=>{
+  //     res.render("edit", {bookNum:docInfo})
+  //   })
+  // },
+
+  order(req, res) {
+    res.render("order");
+  },
+
+  cart(req, res) {
+    res.render("cart");
+  },
+
+  deleteUser(req, res) {
+    res.render("deleteUser");
+  },
 };
 
-exports.order = (req, res) => {
-  res.render("order");
-};
-
-exports.cart = (req, res) => {
-  res.render("cart");
-};
-
-exports.header = (req, res) => {
-  //test(지우)
-  console.log("data: " + req.params.str);
-  res.render("header");
-};
-
-exports.myProfile = (req, res) => {
-  res.render("myProfile");
-};
+module.exports = mainController;
