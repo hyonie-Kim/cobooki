@@ -100,7 +100,7 @@ input:focus::placeholder {
   color: transparent;
 }
 
-form .content-user > div > button {
+/* form .content-user > div > button {
   right: -50px;
   top: -5px;
   position: absolute;
@@ -113,7 +113,7 @@ form .content-user > div > button {
   border-radius: 10px;
   cursor: pointer;
   font-size: 10px;
-}
+} */
 
 form .content-address {
   width: 80%;
@@ -146,7 +146,7 @@ form .content-address > div > label {
   width: 120px;
 }
 
-form submit {
+form > button {
   background-color: #547f5b;
   font-weight: bold;
   border: none;
@@ -160,4 +160,12 @@ form submit {
   color: white;
   margin-bottom: 20px;
   font-size: 12px;
+}
+
+.error-msg {
+  position: absolute;
+  left: 120px;
+  bottom: -16px;
+  font-size: 8px;
+  color: red;
 }
