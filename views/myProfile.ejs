@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>마이페이지 개인정보수정</title>
-    <link rel="stylesheet" href="../css/myProfile.css"></link>
-    <link rel="stylesheet" href="../css/header.css"></link>
-    <link rel="stylesheet" href="../css/footer.css"></link>
-  </head>
 
-  <body>
-    <%- include ('./header02.ejs') %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>마이페이지 개인정보수정</title>
+  <link rel="stylesheet" href="../css/myProfile.css">
+  </link>
+  <link rel="stylesheet" href="../css/header.css">
+  </link>
+  <link rel="stylesheet" href="../css/footer.css">
+  </link>
+</head>
+
+<body>
+  <%- include ('./header02.ejs') %>
     <!-- 네비바 -->
     <nav>
-        <div class="myProfileNav">
-          <div class="myPage">마이페이지</div>
-          <h1></h1>
-          <ul class="list">
-            <li>
-              <a href="/mypage/ordercheck" class="order">주문 내역</a>
-            </li>
-            <li>
-              <a href="myProfile" class="myInfo">개인 정보 수정</a>
-            </li>
-            <li>
-              <a href="/cart" class="cart">장바구니</a>
-            </li>
-          </ul>
-        </div>
+      <div class="myProfileNav">
+        <div class="myPage">마이페이지</div>
+        <h1></h1>
+        <ul class="list">
+          <li>
+            <a href="/mypage/ordercheck" class="order">주문 내역</a>
+          </li>
+          <li>
+            <a href="myProfile" class="myInfo">개인 정보 수정</a>
+          </li>
+          <li>
+            <a href="/cart" class="cart">장바구니</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <!--개인정보수정 폼-->
@@ -43,80 +47,47 @@
               <div class="field">
                 <label class="label" for="fullNameInput">이름</label>
                 <div class="control">
-                  <input
-                    class="input"
-                    id="fullNameInput"
-                    type="text"
-                    placeholder=""
-                    readonly
-                  />
+                  <input class="input" id="fullNameInput" type="text" placeholder="" readonly />
                 </div>
               </div>
 
               <div class="field">
                 <label class="label" for="emailInput">이메일</label>
                 <div class="control">
-                  <input
-                    class="input"
-                    id="emailInput"
-                    type="text"
-                    placeholder=""
-                    readonly
-                  />
+                  <input class="input" id="emailInput" type="text" placeholder="" readonly />
                 </div>
               </div>
 
               <div class="field">
                 <label class="label" for="phoneNumberInput">연락처</label>
                 <div class="control">
-                  <input
-                    class="input"
-                    id="phoneNumberInput"
-                    type="number"
-                    placeholder="숫자로만 입력해 주세요."
-                  />
+                  <input class="input" id="phoneNumberInput" type="number" placeholder="숫자로만 입력해 주세요." />
                 </div>
               </div>
 
               <div class="field">
                 <label class="label" for="passwordInput">현재 비밀번호</label>
                 <div class="control">
-                  <input
-                    class="input"
-                    id="passwordInput"
-                    type="password"
-                    placeholder="현재 비밀번호를 입력해 주세요."
-                  />
+                  <input class="input" id="passwordInput" type="password" placeholder="현재 비밀번호를 입력해 주세요." />
                 </div>
               </div>
 
               <div class="field">
                 <label class="label" for="newPasswordInput">새 비밀번호</label>
                 <div class="control">
-                  <input
-                    class="input"
-                    id="newPasswordInput"
-                    type="password"
-                    placeholder="새 비밀번호를 입력해 주세요."
-                  />
+                  <input class="input" id="newPasswordInput" type="password" placeholder="새 비밀번호를 입력해 주세요." />
                 </div>
               </div>
 
               <div class="field">
-                <label class="label" for="newPasswordConfirmInput"
-                  >새 비밀번호 확인</label
-                >
+                <label class="label" for="newPasswordConfirmInput">새 비밀번호 확인</label>
                 <div class="control">
-                  <input
-                    class="input"
-                    id="newPasswordConfirmInput"
-                    type="password"
-                    placeholder="새 비밀번호를 다시 입력해 주세요."
-                  />
+                  <input class="input" id="newPasswordConfirmInput" type="password" placeholder="새 비밀번호를 다시 입력해 주세요." />
                 </div>
               </div>
               <h6></h6>
-              <button type="button" onclick="location.href='/deleteUser'" class="delete-btn" id="deleteButton">탈퇴하기</button>
+              <button type="button" onclick="location.href='/deleteUser'" class="delete-btn"
+                id="deleteButton">탈퇴하기</button>
               <button type="button" onclick="location.reload();" class="save-btn" id="saveButton">수정하기</button>
             </form>
           </div>
@@ -124,5 +95,5 @@
       </div>
     </form>
 </body>
-</html>
 
+</html>

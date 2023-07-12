@@ -105,14 +105,16 @@
 .detail-price-box {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 620px;
     text-align: center;
+    align-items: center;
     /* background-color: rgb(191, 191, 226); */
 }
 
 /* 책이름정보 */
 .detail-info-name {
+    border: none;
     word-wrap: break-word;
     text-align: left;
     /* background-color: rgb(82, 110, 135); */
@@ -123,8 +125,16 @@
 
 /* 책가격 */
 .detail-info-price {
+    border: none;
     /* padding-right: 5px; */
     width: 180px;
+    text-align: right;
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(86, 174, 92);
+}
+
+.detail-info-price .text-color {
     text-align: right;
     font-size: 20px;
     font-weight: bolder;
