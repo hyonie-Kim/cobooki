@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <% if (!userInfo) { %>
+        <script>
+            window.location.href = "/user/login";
+        </script>
+    <% } else { %>
     <%- include ('./header02.ejs') %>
     <!-- 네비바 -->
     <nav>
@@ -49,6 +54,7 @@
                     type="text"
                     placeholder=""
                     readonly
+                    value="<%= userInfo.name %>"
                   />
                 </div>
               </div>
@@ -62,6 +68,7 @@
                     type="text"
                     placeholder=""
                     readonly
+                    value="<%= userInfo.email %>"
                   />
                 </div>
               </div>
@@ -123,6 +130,7 @@
         </div>
       </div>
     </form>
+    <% } %>
 </body>
 </html>
 
