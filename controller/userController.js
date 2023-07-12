@@ -7,7 +7,7 @@ const user = require("../Model/user");
 // 테스트
 const userController = {
   signInRender(req, res) {
-    res.render("signIn");
+    res.render("signIn", { userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
     return;
   },
 
@@ -41,7 +41,7 @@ const userController = {
   },
 
   async signupRender(req, res) {
-    res.status(200).render("signUp");
+    res.status(200).render("signUp", { userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
   },
 
   async signUp(req, res) {
@@ -73,7 +73,10 @@ const userController = {
         .exec()
         .then((userInfo) => {
           console.log({ userInfo });
-          res.render("myProfile", { userInfo: userInfo });
+          res.render("myProfile", {
+            userInfo: userInfo,
+            userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
+          });
         });
     } else {
       res.redirect("/user/login");

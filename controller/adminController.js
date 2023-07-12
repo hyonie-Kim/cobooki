@@ -12,20 +12,26 @@ const adminController = {
           "=============== 어드민 페이지 (회원관리) ===============",
           userData
         );
-        res.render("admin/adminPage", { userData: userData });
+        res.render("admin/adminPage", {
+          userData: userData,
+          userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
+        });
       })
       .catch((err) => {
         console.log(err);
-        res.render("admin/admin", { userData: [] });
+        res.render("admin/admin", {
+          userData: [],
+          userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
+        });
       });
   },
 
   uploadRender(req, res) {
-    res.render("admin/upload");
+    res.render("admin/upload", { userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
   },
 
   order(req, res) {
-    res.render("admin/orderManagement");
+    res.render("admin/orderManagement", { userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
   },
 
   async upload(req, res) {

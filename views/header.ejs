@@ -13,10 +13,15 @@
     </div>
     <div class="join_logIn">
       <ul>
-        <li><a href="/user/login">로그인</a></li>
-        <li>/</li>
-        <li><a href="/user/signup">회원가입</a></li>
-
+        <% if(userEmail==null ) { %>
+          <li><a href="/user/login">로그인</a></li>
+          <li>/</li>
+          <li><a href="/user/signup">회원가입</a></li>
+          <% } else { %>
+            <li><a href="/user/logout">로그아웃</a></li>
+            <li>/</li>
+            <li><a href="/user/myProfile">내정보</a></li>
+            <% } %>
       </ul>
     </div>
   </div>

@@ -10,11 +10,12 @@ const mainController = {
           "====================================== 메인페이지 ===============",
           bookData
         );
-        res.render("index", { bookData: bookData });
+        res.render("index", { bookData: bookData, userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
+
       })
       .catch((err) => {
         console.log(err);
-        res.render("index", { bookData: [] });
+        res.render("index", { bookData: [], userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
       });
   },
 
@@ -27,7 +28,7 @@ const mainController = {
           docInfo
         );
         // res.send({ bookInfo: docInfo });
-        res.render("detailPage", { bookInfo: docInfo });
+        res.render("detailPage", { bookInfo: docInfo, userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
       });
   },
 
@@ -39,11 +40,11 @@ const mainController = {
           "====================================== 카테고리 페이지 ===============",
           bookData
         );
-        res.render("products", { bookData: bookData });
+        res.render("products", { bookData: bookData, userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
       })
       .catch((err) => {
         console.log(err);
-        res.render("products", { bookData: [] });
+        res.render("products", { bookData: [], userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
       });
   },
 
@@ -57,16 +58,18 @@ const mainController = {
   // },
 
   order(req, res) {
-    res.render("order");
+    res.render("order", { userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
   },
 
   cart(req, res) {
-    res.render("cart");
+    res.render("cart", { userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
   },
 
   deleteUser(req, res) {
-    res.render("deleteUser");
+    res.render("deleteUser", { userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
   },
 };
 
 module.exports = mainController;
+
+
