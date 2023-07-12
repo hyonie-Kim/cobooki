@@ -1,43 +1,31 @@
+const User = require("../Model/user"); // User 스키마 연결
 const { Product } = require("../Model/product");
 const { Counter } = require("../Model/counter");
 const { productService } = require("../service");
 
 const adminController = {
   adminRender(req, res) {
-    product
-      .find()
-      .toArray()
-      .then(() => {
-        // res.render("admin/adminPage", { bookData: bookData });
-        res.render("index", { bookData: bookData });
+    User.find({})
+      .exec()
+      .then((userData) => {
+        console.log(
+          "=============== 어드민 페이지 (회원관리) ===============",
+          userData
+        );
+        res.render("admin/adminPage", { userData: userData });
       })
       .catch((err) => {
         console.log(err);
-        // res.render("admin/adminPage", { bookData: [] });
-        res.render("index", { bookData: [] });
+        res.render("admin/admin", { userData: [] });
       });
-    // res.render("admin/adminPage")
   },
+
   uploadRender(req, res) {
     res.render("admin/upload");
   },
 
   order(req, res) {
     res.render("admin/orderManagement");
-  },
-
-  // ========== 회원 관리 ==========
-  adminRender(req, res) {
-    // Product.find()
-    //   .exec()
-    //   .then((bookData) => {
-    //     res.render("admin/adminPage", { bookData: bookData });
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     res.render("admin/adminPage", { bookData: [] });
-    //   });
-    res.render("admin/adminPage");
   },
 
   async upload(req, res) {
