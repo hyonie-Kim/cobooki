@@ -64,7 +64,17 @@
     }
     console.log(error.config);
   });
+
+   const userData = localStorage.getItem("userData");
+    if (userData) {
+      const user = JSON.parse(userData);
+      const email = user.email;
+      const password = user.password;
+
+      document.querySelector("#id").value = email;
+      document.querySelector("#pw").value = password;
       }
+    }
     </script>
   </body>
 </html>
