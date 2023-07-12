@@ -25,6 +25,22 @@ const mainController = {
       });
   },
 
+  booKCategory(req, res) {
+    Product.find()
+      .exec()
+      .then((bookData) => {
+        console.log(
+          "=============== 카테고리 페이지 ===============",
+          bookData
+        );
+        res.render("index", { bookData: bookData });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.render("products", { bookData: [] });
+      });
+  },
+
   // ========== 상품 수정 ==========
   // edit(req,res){
   //   Product.findOne({bookNum: req.params.bookNum})
