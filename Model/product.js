@@ -12,7 +12,7 @@ const productSchema = new mongoose.Schema(
     // },
     category: {
       type: String,
-      // enum: ["프론트엔드", "백엔드", "CS지식"],
+      enum: ["프론트엔드", "백엔드", "CS지식"],
       required: true,
     },
     price: {

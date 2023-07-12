@@ -6,7 +6,7 @@ const mainController = {
     Product.find()
       .exec()
       .then((bookData) => {
-        console.log(bookData);
+        console.log("=============== 메인페이지 ===============", bookData);
         res.render("index", { bookData: bookData });
       })
       .catch((err) => {
