@@ -48,7 +48,8 @@
 
       }).then( (response) => {
    if(response.status == 200){
-       console.log("success",response)
+       console.log("success",response);
+       localStorage.setItem("userData", JSON.stringify(response.data));
        window.location.href = "/";
    }
  }).catch(function (error) {
