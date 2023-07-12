@@ -33,6 +33,11 @@ app.use(
     },
   })
 );
+const checkSession = (req, res, next) => {
+  console.log(req.session);
+  next();
+};
+app.use(checkSession);
 
 // router 설정
 app.use("/", mainRouter);
