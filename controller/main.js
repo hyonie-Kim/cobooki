@@ -6,7 +6,7 @@ const mainController = {
     Product.find()
       .exec()
       .then((bookData) => {
-        console.log(bookData);
+        console.log("=============== 메인페이지 ===============", bookData);
         res.render("index", { bookData: bookData });
       })
       .catch((err) => {
@@ -19,9 +19,25 @@ const mainController = {
     Product.findOne({ bookNum: req.params.bookNum })
       .exec()
       .then((docInfo) => {
-        console.log(docInfo);
+        console.log("=============== 상세페이지 ===============", docInfo);
         // res.send({ bookInfo: docInfo });
-        // res.render("detailPage", { bookInfo: docInfo });
+        res.render("detailPage", { bookInfo: docInfo });
+      });
+  },
+
+  booKCategory(req, res) {
+    Product.find()
+      .exec()
+      .then((bookData) => {
+        console.log(
+          "=============== 카테고리 페이지 ===============",
+          bookData
+        );
+        res.render("products", { bookData: bookData });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.render("products", { bookData: [] });
       });
   },
 
