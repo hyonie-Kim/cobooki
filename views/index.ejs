@@ -37,10 +37,10 @@
             <ul class="books">
               <% bookData.reverse().slice(0,6).forEach((book)=>{%>
                 <li class="book">
-                  <a href="">
+                  <a href="/book/<%=book.bookNum%>">
                   <h4  class="category"><%=book.category%></h4>
                   <div class="book-container">
-                    <div class="book-img" style="background-image:url('/imgs/banner01.png')"></div>   
+                    <div class="book-img" style="background-image:url('<%=book.imageURL%>')"></div>   
                     <div class="book-info">
                       <div class="book__name"><%=book.productName%></div>
                       <div class="book__price">가격 : <%=book.price%>원</div> 
