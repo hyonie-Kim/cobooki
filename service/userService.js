@@ -6,9 +6,24 @@ const userService = {
     return user;
   },
 
-  async createUser({ email, password, name }) {
-    const user = await userRepository.create({ email, password, name });
+  async createUser({ email, password, name, phone, address, detailAddress }) {
+    const user = await userRepository.create({
+      email,
+      password,
+      name,
+      phone,
+      address,
+      detailAddress,
+    });
     return user;
+  },
+
+  async deleteUser({ email }) {
+    const isUser = await userRepository.deleteUser({
+      email,
+    });
+    if (!isUser) return false;
+    else return true;
   },
 };
 

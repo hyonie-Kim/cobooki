@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./css/index.css"></link>
-    <link rel="stylesheet" href="../css/header.css"></link>
-    <link rel="stylesheet" href="../css/footer.css"></link>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  </head>
 
-  <body>
-    <%- include ('./header.ejs') %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
+  </link>
+  <link rel="stylesheet" href="../css/header.css">
+  </link>
+  <link rel="stylesheet" href="../css/footer.css">
+  </link>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+  <%- include ('./header.ejs') %>
     <main>
       <!-- 공지 배너 -->
       <section class="banner">
@@ -30,135 +35,89 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-pagination"></div>
       </section>
-
       <!-- 최신 서적 -->
       <section class="latest-books">
         <h1>최신 서적</h1>
-            <!-- 책 2x3 리스트  -->
-            <div class="books">
-              <% for(let i=0; i< 6; i++) { %>
-                <div class="book">
-                  <h4 class="category">카테고리</h4>
-                  <div class="book-container">
-                    <div class="book-img"></div>
-                    <div class="book-info">
-                      <div class="book__name"></div>
-                      <div class="book__author"></div>
-                      <div class="book__price"></div> 
+        <!-- 책 2x3 리스트  -->
+        <ul class="books">
+          <% bookData.reverse().slice(0,6).forEach((book)=>{%>
+            <li class="book">
+              <a href="">
+                <h4 class="category">
+                  <%=book.category%>
+                </h4>
+                <div class="book-container">
+                  <div class="book-img" style="background-image:url('/imgs/banner01.png')"></div>
+                  <div class="book-info">
+                    <div class="book__name">
+                      <%=book.productName%>
                     </div>
+                    <div class="book__price">가격 : <%=book.price%>원</div>
                   </div>
                 </div>
-              <% } %>
-            </div> 
+              </a>
+            </li>
+            <%})%>
+        </ul>
       </section>
     </main>
     <%-include('footer.ejs') %>
-    <script>
-    // 임시 데이터
-      const bookData=[{
-          id:20,
-          img:"/imgs/banner01.png",
-          title:'파이썬1',
-          author:'인간1',
-          price:10000
-        },{
-          id:80,
-          img:"/imgs/banner02.png",
-          title:'파이썬2',
-          author:'인간2',
-          price:10000
-        },{
-          id:120,
-          img:"/imgs/banner03.png",
-          title:'파이썬3',
-          author:'인간3',
-          price:10000
-        },{
-          id:400,
-          img:"/imgs/banner01.png",
-          title:'파이썬4',
-          author:'인간4',
-          price:10000
-        },{
-          id:500,
-          img:"/imgs/banner02.png",
-          title:'파이썬5',
-          author:'인간5',
-          price:10000
-        },{
-          id:150,
-          img:"/imgs/banner03.png",
-          title:'파이썬6',
-          author:'인간6',
-          price:10000
+      <script>
+
+        const books = document.querySelectorAll('.book')
+
+        books.forEach((element) => {
+          //Focus된 책을 돋보이게 하기 위해 나머지 책을 blur 처리하였습니다.
+          //mouseover
+          element.addEventListener('mouseover', (e) => {
+            for (let book of books) {
+              book.classList.add('blurred')
+            }
+            e.currentTarget.classList.remove('blurred')
+          })
+          //mouseleave 
+          element.addEventListener('mouseleave', (e) => {
+            for (let book of books) {
+              book.classList.remove('blurred')
+            }
+          })
+
+          //카테고리별로 클래쓰를 추가하였습니다.
+          const category = element.querySelector('.category')
+          const categoryName = category.textContent
+
+          categoryName === "프론트엔드" ? category.classList.add('front')
+            : categoryName === "백엔드" ? category.classList.add('back')
+              : categoryName === "CS지식" ? category.classList.add('cs')
+                : null
         }
-      ];
+        )
 
-      const category = document.querySelectorAll('.book h4')
-      const bookImage = document.querySelectorAll('.book-img')
-      const bookName = document.querySelectorAll('.book__name')
-      const bookAuthor = document.querySelectorAll('.book__author')
-      const bookPrice = document.querySelectorAll('.book__price')
-      let i =0;
+        //swiper 옵션들입니다.
+        const swiper = new Swiper('.swiper', {
+          // Optional parameters
+          direction: 'horizontal',
+          loop: true,
+          centeredSlides: true,
 
-      //DB 정보를 화면에 표시되도록 하였습니다.
-      bookData.forEach(({id,img,title,author,price})=>{
-        //책 식별 번호를 활용해 Category 분류 및 표시
-        const selectCategory = (id)=>{
-        if(id<=100){
-          category[i].classList.add('front');
-          category[i].textContent='프론트엔드'
+          // If we need pagination
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          // Navigation arrows
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
         }
-
-        else if(id<=200){
-          category[i].classList.add('back');
-          category[i].textContent='백엔드'
-        }
-
-        else{
-          category[i].classList.add('cs');
-          category[i].textContent='cs지식'
-        }
-        }
-
-        selectCategory(id);
-        //기타 나머지 책 정보 표시
-        bookImage[i].style.backgroundImage=`url(${img})`  
-        bookName[i].textContent=`${title}`;
-        bookAuthor[i].textContent=`${author}`;
-        bookPrice[i].textContent=`${price}`;
-        i+=1;
-      })
-
-      //swiper 옵션들입니다.
-      const swiper = new Swiper('.swiper', {
-      // Optional parameters
-      direction: 'horizontal',
-      loop: true,
-      centeredSlides:true,
-
-      // If we need pagination
-      pagination: {
-        el: '.swiper-pagination',
-        clickable:true,
-      },   
-
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      // And if we need scrollbar
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
-    });
-
-    </script>
-  </body>
+        );
+      </script>
+</body>
 
 </html>

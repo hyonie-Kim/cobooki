@@ -13,8 +13,15 @@ const userSchema = new mongoose.Schema(
       trim: true,
     },
     email: { type: String, required: true, unique: true, lowercase: true },
+    phone: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    address: { type: String, require: true },
+    detailAddress: { type: String },
   },
-  { collection: "users" }
+  { collection: "users", timestamps: true }
 );
 
 module.exports = mongoose.model("User", userSchema);

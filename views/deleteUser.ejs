@@ -17,13 +17,13 @@
           <h1></h1>
           <ul class="list">
             <li>
-              <a href="#" class="order">주문 내역</a>
+              <a href="/mypage/ordercheck" class="order">주문 내역</a>
             </li>
             <li>
-              <a href="#" class="myInfo">개인 정보 수정</a>
+              <a href="/myProfile" class="myInfo">개인 정보 수정</a>
             </li>
             <li>
-              <a href="#" class="cart">장바구니</a>
+              <a href="/cart" class="cart">장바구니</a>
             </li>
           </ul>
         </div>
@@ -51,8 +51,8 @@
                     <h5 class="confirm">회원 탈퇴(이용약관 동의 철회)를 하시겠습니까?</h5>
                 </div>
                 <h6></h6>
-                <button class="cancel-btn" id="cancelButton">취소</button>
-                <button class="delete-btn" id="deleteButton">탈퇴</button>
+                <button type="button" onclick="location.href='/user/myProfile'" class="cancel-btn" id="cancelButton">취소</button>
+                <button type="button" onclick="location.href='/'" class="delete-btn" id="deleteButton">탈퇴</button>
             </div>
           </div>
     </form>

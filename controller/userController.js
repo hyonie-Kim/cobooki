@@ -5,6 +5,10 @@ const { userService } = require("../service");
 // let isLogin = {"isLogin":""}
 // 테스트
 const userController = {
+  myProfile(req, res) {
+    res.render("myProfile");
+  },
+
   signInRender(req, res) {
     res.render("signIn");
     return;
@@ -17,8 +21,8 @@ const userController = {
 
     if (!user) {
       // 아이디 없음
-      res.send({ msg: "아이디를 확인해주세요" });
-      // res.status(400).send({ msg: "아이디를 확인해주세요" });
+      // res.send({ msg: "아이디를 확인해주세요" });
+      res.status(400).send({ msg: "아이디를 확인해주세요" });
     } else {
       // 아이디 존재
       if (user && bcrypt.compareSync(req.body.password, user.password)) {
@@ -53,6 +57,9 @@ const userController = {
         email: req.body.email,
         password: hash,
         name: req.body.name,
+        phone: req.body.phone,
+        address: req.body.address,
+        detailAddress: req.body.detailAddress,
       });
 
       res.status(200).send({ msg: "회원가입 성공", user: createUser });
@@ -66,6 +73,17 @@ const userController = {
       if (err) console.error(err);
       else res.redirect("/");
     });
+  },
+
+  async unregister(req, res) {
+    const deleteUser = await userService.deleteUser({
+      email: req.session.userEmail,
+    });
+    if (!deleteUser) {
+      res.status(400).send({ msg: "회원 ID가 없습니다." });
+    } else {
+      res.status(200).send({ msg: "회원 탈퇴가 완료되었습니다." });
+    }
   },
 };
 

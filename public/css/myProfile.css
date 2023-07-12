@@ -131,6 +131,14 @@
   font-size: 10px;
 }
 
+#fullNameInput,
+#emailInput {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: black solid 0.5px;
+}
+
 .informationForm {
   width: 40rem;
 }
