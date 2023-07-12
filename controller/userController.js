@@ -5,10 +5,6 @@ const { userService } = require("../service");
 // let isLogin = {"isLogin":""}
 // 테스트
 const userController = {
-  myProfile(req, res) {
-    res.render("myProfile");
-  },
-
   signInRender(req, res) {
     res.render("signIn");
     return;
@@ -18,7 +14,6 @@ const userController = {
   async signIn(req, res) {
     const date = new Date();
     const user = await userService.findUser({ email: req.body.email });
-
     if (!user) {
       // 아이디 없음
       // res.send({ msg: "아이디를 확인해주세요" });
@@ -34,7 +29,9 @@ const userController = {
           );
         }
         req.session.userEmail = req.body.email;
-        res.status(200).send({ msg: "로그인 성공" });
+        req.session.userName = user.name;
+        console.log(`${user.name} 로그인 하셨습니다.👋🏻`);
+        res.status(200).send({ msg: "로그인 성공", user: user });
       } else {
         res.status(400).send({ msg: "비밀번호를 확인해주세요" });
       }
@@ -68,11 +65,29 @@ const userController = {
     }
   },
 
+  myProfile(req, res) {
+    if (req.session.userEmail) {
+      User.findOne({ email: req.session.userEmail })
+        .exec()
+        .then((userInfo) => {
+          console.log(userInfo);
+          res.render("myProfile", { userInfo: userInfo });
+        });
+    } else {
+      res.redirect("/user/login");
+    }
+  },
+
   async logOut(req, res) {
     req.session.destroy((err) => {
       if (err) console.error(err);
       else res.redirect("/");
     });
+  },
+
+  // 회원 탈퇴
+  async delete(req, res) {
+    res.render("deleteUser");
   },
 
   async unregister(req, res) {

@@ -20,6 +20,7 @@ const userSchema = new mongoose.Schema(
     },
     address: { type: String, require: true },
     detailAddress: { type: String },
+    userNum: String,
   },
   { collection: "users", timestamps: true }
 );

@@ -48,7 +48,8 @@
 
       }).then( (response) => {
    if(response.status == 200){
-       console.log("success",response)
+       console.log("success",response);
+       localStorage.setItem("userData", JSON.stringify(response.data));
        window.location.href = "/";
    }
  }).catch(function (error) {
@@ -63,7 +64,17 @@
     }
     console.log(error.config);
   });
+
+   const userData = localStorage.getItem("userData");
+    if (userData) {
+      const user = JSON.parse(userData);
+      const email = user.email;
+      const password = user.password;
+
+      document.querySelector("#id").value = email;
+      document.querySelector("#pw").value = password;
       }
+    }
     </script>
   </body>
 </html>
