@@ -67,11 +67,11 @@ const userController = {
 
   myProfile(req, res) {
     if (req.session.userEmail) {
-      User.findOne({ userEmail: req.session.userEmail })
+      User.findOne({ email: req.session.userEmail })
         .exec()
-        .then(() => {
-          // console.log({ user });
-          res.render("myProfile");
+        .then((userInfo) => {
+          console.log(userInfo);
+          res.render("myProfile", { userInfo: userInfo });
         });
     } else {
       res.redirect("/user/login");
@@ -83,6 +83,11 @@ const userController = {
       if (err) console.error(err);
       else res.redirect("/");
     });
+  },
+
+  // 회원 탈퇴
+  async delete(req, res) {
+    res.render("deleteUser");
   },
 
   async unregister(req, res) {
