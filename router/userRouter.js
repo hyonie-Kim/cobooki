@@ -40,6 +40,9 @@ router
   );
 router.get("/logout", userController.logOut);
 router.get("/myProfile", userController.myProfile);
-router.delete("/myProfile", userController.unregister);
+router
+  .route("/delete")
+  .get(userController.delete)
+  .delete(userController.unregister);
 
 module.exports = router;

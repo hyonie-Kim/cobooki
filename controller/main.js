@@ -63,10 +63,6 @@ const mainController = {
   cart(req, res) {
     res.render("cart");
   },
-
-  deleteUser(req, res) {
-    res.render("deleteUser");
-  },
 };
 
 module.exports = mainController;
