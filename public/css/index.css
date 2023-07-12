@@ -115,6 +115,8 @@ main {
   outline: 2px solid #547f5b;
   border-radius: 10px;
   position: relative;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 a {
@@ -126,11 +128,7 @@ a {
   color: #000000;
 }
 
-/* 최신 서적 내 각 책 */
-.book:hover {
-  outline: 3px solid #547f5b;
-  cursor: pointer;
-}
+/* Focues된 책 강조  */
 
 .blurred {
   opacity: 0.5;
