@@ -1,57 +1,42 @@
 @import url(reset.css);
 
 @font-face {
-  font-family: 'NanumSquareNeo-Variable';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+  font-family: "NanumSquareNeo-Variable";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2")
+    format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
-.orderlookup-wrap {
-  font-family: 'NanumSquareNeo-Variable';
-  position: absolute;
-  top: 150px;
-  height: 935px;
-
+/* 회원 관리 테이블 */
+.user-container {
+  font-family: "NanumSquareNeo-Variable";
+  margin: 150px 0 0 200px;
+  box-sizing: border-box;
 }
 
-.order-progress {
-  border-bottom: 1px solid #d1d1d1;
-}
-
-.order-progress p {
-  font-size: 20px;
-  padding-bottom: 20px;
-}
-
-.bgc-gray {
-  width: 1300px;
+.container-background {
+  margin-left: 40px;
+  width: 80%;
   padding: 50px;
-  background-color: #F1F1F1;
+  background-color: #f1f1f1;
 }
 
-.product-table {
-  margin-left: 280px;
-}
-
-.order-status {
+.title {
+  border-bottom: 1px solid #d1d1d1;
   display: flex;
+  padding: 0 10px 15px 0;
+  font-size: 20px;
   justify-content: space-between;
-  margin: 15px 40px;
-  text-align: center;
 }
 
-.order-status .str {
+.title span {
+  display: inline-block;
+  margin-left: 3px;
   font-size: 15px;
 }
 
-.order-status .num {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.X-delete {
-  margin-top: 60px;
+.info-item {
   border-bottom: 1px solid #d1d1d1;
   line-height: 55px;
   display: grid;
@@ -61,7 +46,7 @@
   grid-template-areas: "one two three four five";
 }
 
-.row {
+.user {
   border-bottom: 1px solid #d1d1d1;
   line-height: 55px;
   display: grid;
@@ -71,70 +56,27 @@
   grid-template-areas: "one two three four five";
 }
 
-.product-name {
-  position: relative;
+.info-item .user-info {
+  font-size: 16px;
 }
-
-.img {
-  position: absolute;
-  left: 20px;
-  height: 50px;
-  position: absolute;
-  left: 0px;
-}
-
-img {
-  display: inline-block;
-  width: auto;
-  height: 100%;
-}
-
-p {
-  margin: 0;
-}
-
-.one {
+.user-info {
   display: inline-block;
   text-align: center;
   font-size: 14px;
 }
 
-.two {
-  display: inline-block;
-  text-align: center;
-  font-size: 14px;
-}
-
-.three {
-  display: inline-block;
-  text-align: center;
-  font-size: 14px;
-}
-
-.four {
-  display: inline-block;
-  text-align: center;
-  font-size: 14px;
-}
-
-.five {
-  display: inline-block;
-  text-align: center;
-  font-size: 14px;
-}
-
-.five button {
+button {
   cursor: pointer;
   font-size: 13px;
   width: 120px;
   height: 38px;
-  background-color: #E4E4E4;
+  background-color: #e4e4e4;
   color: black;
   padding: 10px;
   border: none;
   border-radius: 15px;
   font-weight: 700;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 /* 네비바 */
@@ -160,7 +102,6 @@ p {
   border-left: 0.5px solid #d1d1d1;
   border-right: 0.5px solid #d1d1d1;
   border-bottom: 0.5px solid #d1d1d1;
-  ;
   border-radius: 2px;
 }
 
