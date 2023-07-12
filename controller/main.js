@@ -33,7 +33,7 @@ const mainController = {
           "=============== 카테고리 페이지 ===============",
           bookData
         );
-        res.render("index", { bookData: bookData });
+        res.render("products", { bookData: bookData });
       })
       .catch((err) => {
         console.log(err);
