@@ -1,14 +1,11 @@
 const User = require("../Model/user"); // User 스키마 연결
 const bcrypt = require("bcryptjs"); // 비밀번호 암호화 라이브러리
 const { userService } = require("../service");
+const user = require("../Model/user");
 
 // let isLogin = {"isLogin":""}
 // 테스트
 const userController = {
-  myProfile(req, res) {
-    res.render("myProfile");
-  },
-
   signInRender(req, res) {
     res.render("signIn");
     return;
@@ -34,6 +31,8 @@ const userController = {
           );
         }
         req.session.userEmail = req.body.email;
+        req.session.userName = user.name;
+        console.log(`${user.name} 로그인 하셨습니다.👋🏻`);
         res.status(200).send({ msg: "로그인 성공" });
       } else {
         res.status(400).send({ msg: "비밀번호를 확인해주세요" });
@@ -65,6 +64,19 @@ const userController = {
       res.status(200).send({ msg: "회원가입 성공", user: createUser });
     } else {
       res.status(400).send({ msg: "회원 중복 :: ID 수정" });
+    }
+  },
+
+  async myProfile(req, res) {
+    if (req.session.userEmail) {
+      User.findOne({ userEmail: req.session.userEmail })
+        .exec()
+        .then((userInfo) => {
+          console.log({ userInfo });
+          res.render("myProfile", { userInfo: userInfo });
+        });
+    } else {
+      res.redirect("/user/login");
     }
   },
 

@@ -7,138 +7,135 @@
     <link rel="stylesheet" href="../css/upload.css"></link>
     <link rel="stylesheet" href="../css/header.css"></link>
     <link rel="stylesheet" href="../css/footer.css"></link>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
-    <%- include ('../header02.ejs') %>
+    <% include ('../header02.ejs') %>
     <!-- 네비바 -->
     <nav>
-        <div class="adminProfileNav">
-          <div class="adminPage">관리자페이지</div>
-          <h1></h1>
-          <ul class="list">
-            <li>
-              <a href="/admin/order" class="orderManagement">주문 관리</a>
-            </li>
-            <li>
-              <a href="/admin" class="menberManagement">회원 관리</a>
-            </li>
-            <li>
-              <a href="/admin/upload" class="addProduct">상품 등록</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <div class="adminProfileNav">
+        <div class="adminPage">관리자페이지</div>
+        <h1></h1>
+        <ul class="list">
+          <li>
+            <a href="/admin/order" class="orderManagement">주문 관리</a>
+          </li>
+          <li>
+            <a href="/admin" class="menberManagement">회원 관리</a>
+          </li>
+          <li>
+            <a href="/admin/upload" class="addProduct">상품 등록</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <!-- 상품 등록  -->
     <section class="section">
-        <div class="container">
-          <div class="block account-header">
-            <h1 class="subtitle">관리자 상품 등록</h1>
-          </div>
-          <div class="register-product-form-container">
-            <form class="box register-product-form-box" id="registerProductForm">
-              <p class="title is-5 has-text-primary">상품 등록</p>
-              <div class="field">
-                <label class="label" for="titleInput">상품 이름</label>
-                <div class="control">
-                  <input
-                    class="input"
-                    id="titleInput"
-                    type="text"
-                    placeholder="모던 자바스크립트 Deep Dive"
-                    autocomplete="on"
-                  />
-                </div>
-              </div>
-              <div class="field">
-                <label class="label" for="categorySelectBox">카테고리</label>
-                <div class="control">
-                  <div class="select is-fullwidth">
-                    <select id="categorySelectBox">
-                      <option value="">카테고리를 선택해 주세요.</option>
-                      <option value="0" class="front-end">프론트엔드</option>
-                      <option value="1" class="back-end">백엔드</option>
-                      <option value="2" class="cs">CS지식</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="field">
-                <label class="label" for="detailDescriptionInput"
-                  >상품 설명</label
-                >
-                <div class="control">
-                  <textarea
-                    class="textarea"
-                    id="detailDescriptionInput"
-                    rows="8"
-                    placeholder="제품에 대한 상세 설명을 적어 주세요."
-                    autocomplete="on"
-                  ></textarea>
-                </div>
-              </div>
-              <div class="field has-is-fullwidth">
-                <label class="label" for="imageInput">상품 사진</label>
-                <div class="file-fullwidth">
-                  <label class="file-label">
-                    <input
-                      class="file-input"
-                      id="imageInput"
-                      type="file"
-                      name="image-file"
-                      accept=".png, .jpeg, .jpg"
-                    />
-                    <span class="file-cta">
-                      <span class="file-icon">
-                        <i class="fas fa-upload"></i>
-                      </span>
-                      <span class="file-label"> 사진 업로드 </span>
-                    </span>
-                    <span class="file-name" id="fileNameSpan">
-                      사진 파일 (png/jpg/jpeg)
-                    </span>
-                  </label>
-                </div>
-              </div>
-              <div class="field">
-                <label class="label" for="inventoryInput">재고 수</label>
-                <div class="control">
-                  <input
-                    class="input"
-                    id="inventoryInput"
-                    type="number"
-                    placeholder="10"
-                    autocomplete="on"
-                  />
-                </div>
-              </div>
-              <div class="field">
-                <label class="label" for="priceInput">가격</label>
-                <div class="subfield">
-                  <div class="control has-icons-right">
-                    <input
-                      class="input"
-                      id="priceInput"
-                      type="number"
-                      placeholder="10000"
-                      autocomplete="on"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="grouped-field"
-                id="keywordContainer"
-              ></div>
-              <div class="button">
-                <button onclick="location.href='/admin/upload'" class="upload-btn" id="submitButton">
-                  제품 판매하기
-                </button>
-              </div>
-            </form>
-          </div>
+      <div class="container">
+        <div class="block account-header">
+          <h1 class="subtitle">관리자 상품 등록</h1>
         </div>
-      </section>
+        <div class="register-product-form-container">
+          <form class="box register-product-form-box" id="registerProductForm" action="/admin/post/upload" method="POST">
+            <p class="title is-5 has-text-primary">상품 등록</p>
+            <div class="field">
+              <label class="label" for="productName">상품 이름</label>
+              <div class="control">
+                <input
+                  class="input"
+                  id="productName"
+                  type="text"
+                  placeholder="모던 자바스크립트 Deep Dive"
+                  autocomplete="on"
+                  name="productName"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label" for="category">카테고리</label>
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <select id="category" name="category">
+                    <option value="">카테고리를 선택해 주세요.</option>
+                    <option value="프론트엔드" class="front-end">프론트엔드</option>
+                    <option value="백엔드" class="back-end">백엔드</option>
+                    <option value="CS지식" class="cs">CS지식</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label" for="desc">상품 설명</label>
+              <div class="control">
+                <textarea class="textarea" id="desc" rows="8" placeholder="제품에 대한 상세 설명을 적어 주세요." autocomplete="on" name="desc"></textarea>
+              </div>
+            </div>
+            <div class="field has-is-fullwidth">
+              <label class="label" for="imageURL">상품 사진</label>
+              <div class="file-fullwidth">
+                <label class="file-label">
+                  <input class="file-input" id="imageURL" type="file" name="imageURL" accept=".png, .jpeg, .jpg" />
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label"> 사진 업로드 </span>
+                  </span>
+                  <span class="file-name" id="fileNameSpan">사진 파일 (png/jpg/jpeg)</span>
+                </label>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label" for="inventory">재고 수</label>
+              <div class="control">
+                <input class="input" id="inventory" type="number" placeholder="10" autocomplete="on" name="inventory" />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label" for="price">가격</label>
+              <div class="subfield">
+                <div class="control has-icons-right">
+                  <input class="input" id="price" type="number" placeholder="10000" autocomplete="on" name="price" />
+                </div>
+              </div>
+            </div>
+            <div class="grouped-field" id="keywordContainer"></div>
+            <div class="button">
+              <button type="submit" form="registerProductForm" class="upload-btn" id="submitButton">제품 판매하기</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const form = document.querySelector("#registerProductForm");
+
+      form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const data = {
+            productName: form.productName.value,
+            category: form.category.value,
+            desc: form.desc.value,
+            imageURL: form.imageURL.value,
+            inventory: form.inventory.value,
+            price: form.price.value,
+          };
+
+          axios.post('/admin/post/upload', data)
+            .then((response) => {
+                console.log(response.data);
+                alert('상품이 성공적으로 등록되었습니다.');
+                window.location.href = '/';
+          })
+            .catch((error) => {
+                console.log(error.response.data);
+            alert('상품 등록에 실패했습니다. 다시 시도해주세요.');
+        });
+      });
+    </script>
   </body>
 </html>

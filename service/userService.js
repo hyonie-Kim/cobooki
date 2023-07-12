@@ -15,6 +15,10 @@ const userService = {
       address,
       detailAddress,
     });
+    const counter = await userRepository.userFindCount({ name: "counter" });
+    user.userNum = counter.userNum;
+    userRepository.userCountUpdate();
+
     return user;
   },
 

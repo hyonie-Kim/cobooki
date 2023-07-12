@@ -6,7 +6,10 @@ const mainController = {
     Product.find()
       .exec()
       .then((bookData) => {
-        console.log("=============== 메인페이지 ===============", bookData);
+        console.log(
+          "====================================== 메인페이지 ===============",
+          bookData
+        );
         res.render("index", { bookData: bookData });
       })
       .catch((err) => {
@@ -19,18 +22,21 @@ const mainController = {
     Product.findOne({ bookNum: req.params.bookNum })
       .exec()
       .then((docInfo) => {
-        console.log("=============== 상세페이지 ===============", docInfo);
+        console.log(
+          "====================================== 상세페이지 ===============",
+          docInfo
+        );
         // res.send({ bookInfo: docInfo });
         res.render("detailPage", { bookInfo: docInfo });
       });
   },
 
   booKCategory(req, res) {
-    Product.find()
+    Product.find({ category: req.query.category })
       .exec()
       .then((bookData) => {
         console.log(
-          "=============== 카테고리 페이지 ===============",
+          "====================================== 카테고리 페이지 ===============",
           bookData
         );
         res.render("products", { bookData: bookData });
