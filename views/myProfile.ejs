@@ -22,10 +22,10 @@
         <h1></h1>
         <ul class="list">
           <li>
-            <a href="/mypage/ordercheck" class="order">주문 내역</a>
+            <a href="/myProfile/ordercheck" class="order">주문 내역</a>
           </li>
           <li>
-            <a href="myProfile" class="myInfo">개인 정보 수정</a>
+            <a href="myProfile  " class="myInfo">개인 정보 수정</a>
           </li>
           <li>
             <a href="/cart" class="cart">장바구니</a>
@@ -103,14 +103,27 @@
                 </div>
               </div>
               <h6></h6>
-              <button type="button" onclick="location.href='/deleteUser'" class="delete-btn"
+              <button type="button" onclick="location.href='/user/delete'" class="delete-btn"
                 id="deleteButton">탈퇴하기</button>
-              <button type="button" onclick="location.reload();" class="save-btn" id="saveButton">수정하기</button>
+              <button type="button" onclick="editProfile();" class="save-btn" id="saveButton">수정하  기</button>
             </form>
           </div>
         </div>
       </div>
     </form>
-</body>
+  </body>
+  <script>
+      const editProfile = ()=>{
+        const password = document.querySelector('#newPasswordInput')
+        const passwordCheck = document.querySelector('#newPasswordConfirmInput')
+        console.log(password)
+        console.log(passwordCheck)
+        if(password.value!==passwordCheck.value){
+          alert('비밀번호 값이 일치하지 않습니다')
+          return;  
+        } 
+        location.reload()
+      }
+  </script>
 
 </html>
