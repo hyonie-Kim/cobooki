@@ -1,7 +1,8 @@
 var router = require("express").Router();
 const { userController } = require("../controller");
 const { body } = require("express-validator");
-const { validationChecker } = require("../middleware/validator");
+const { validator } = require("../middleware");
+const { auth } = require("../middleware");
 
 router
   .route("/login")
@@ -34,15 +35,15 @@ router
         .isLength({ min: 5 })
         .withMessage("다섯 자 이상 입력해주세요."),
 
-      validationChecker,
+      validator.validationChecker,
     ],
     userController.signUp
   );
-router.get("/logout", userController.logOut);
-router.get("/myProfile", userController.myProfile);
+router.get("/logout", auth.authentication, userController.logOut);
+router.put("/", auth.authentication, userController.userUpdate);
 router
   .route("/delete")
-  .get(userController.delete)
-  .delete(userController.unregister);
+  .get(auth.authentication, userController.delete)
+  .delete(auth.authentication, userController.unregister);
 
 module.exports = router;
