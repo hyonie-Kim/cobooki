@@ -15,8 +15,8 @@
 <body>
     <%- include ('./header.ejs') %>
 
-        <form class="detail-container">
-            <input type="hidden" name="item_key" value="<%=bookInfo._id%>">
+        <div class="detail-container">
+            <input type="hidden" name="item_key" value="<%=bookInfo.id%>">
 
             <div class="detail-bookcover"><img
                     src='https://image.aladin.co.kr/product/29234/63/cover500/e812539457_1.jpg'>
@@ -63,8 +63,9 @@
                     </div>
                 </div>
             </div>
-            </div>
-            <%-include('footer.ejs') %>
+        </div>
+        </div>
+        <%-include('footer.ejs') %>
 </body>
 
 <script>
@@ -98,6 +99,7 @@
             }
         }
     }
+
 </script>
 
 </html>

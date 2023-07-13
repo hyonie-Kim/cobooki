@@ -1,5 +1,7 @@
 const { Product } = require("../Model/product");
 const { Counter } = require("../Model/counter");
+// const user = require("../Model/user");
+const User = require("../Model/user"); // User 스키마 연결
 
 const mainController = {
   mainRender(req, res) {
@@ -30,6 +32,7 @@ const mainController = {
         // res.send({ bookInfo: docInfo });
         res.render("detailPage", { bookInfo: docInfo, userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
       });
+
   },
 
   booKCategory(req, res) {
@@ -61,12 +64,24 @@ const mainController = {
     Product.findOne({ bookNum: req.params.bookNum })
       .exec()
       .then((docInfo) => {
-        console.log(
-          "====================================== 주문페이지 ===============",
-          docInfo
-        );
+        if (req.session.userEmail) {
+          User.findOne({ email: req.session.userEmail })
+            .exec()
+            .then((user) => {
+              res.render("order", {
+                bookInfo: docInfo,
+                userInfo: user,
+                userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
+              });
+            });
+        } else {
+          res.render("order", {
+            bookInfo: docInfo,
+            userInfo: "",
+            userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
+          });
+        }
         // res.send({ bookInfo: docInfo });
-        res.render("order", { bookInfo: docInfo, userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
       });
     //res.render("order", { userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
   },
@@ -80,13 +95,10 @@ const mainController = {
       //res.write("<script>alert('🫡장바구니에 담겼습니다! \n 장바구니 페이지로 이동합니다.')</script>");
     }
   },
-<<<<<<< HEAD
 
   deleteUser(req, res) {
     res.render("deleteUser", { userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
   },
-=======
->>>>>>> 821b2ef346f04001e9746cbf3fcaf87fc29e513d
 };
 
 module.exports = mainController;

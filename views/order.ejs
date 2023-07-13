@@ -44,7 +44,6 @@
 
                         <div class='title-write'>
                             <h4> 배송지 / 수령인 정보</h4>
-                            <a href="/user/myProfile">정보수정</a>
                         </div>
 
                         <div class="userInfoBox">
@@ -55,7 +54,8 @@
                                         배송받을 주소
                                     </td>
                                     <td width="600">
-                                        <input type="text" name="userAddress" value="{서버에 있는 userAdress 정보}" readonly>
+                                        <input type="text" name="userAddress"
+                                            value="<%=(userInfo!=null)?userInfo.address:''%>">
                                     </td>
                                 </tr>
                                 <tr height="70">
@@ -63,7 +63,8 @@
                                         주문자 이름
                                     </td>
                                     <td>
-                                        <input type="text" name="userName" value="{서버에 있는 userName  정보}" readonly>
+                                        <input type="text" name="userName"
+                                            value="<%=(userInfo!=null)?userInfo.name:''%>">
                                     </td>
                                 </tr>
                                 <tr height="70">
@@ -71,7 +72,8 @@
                                         주문자 전화번호
                                     </td>
                                     <td>
-                                        <input type="text" name="userName" value="{서버에 있는 userPhone  정보}" readonly>
+                                        <input type="text" name="userName"
+                                            value="<%=(userInfo!=null)?userInfo.phone:''%>">
                                     </td>
                                 </tr>
                             </table>
@@ -83,7 +85,7 @@
 
                     <!-- 결제방법 & 총 결제 금액 BOX -->
                     <!-- 결제방법 -->
-                    <div class="makePaymentAndTotalPrice">
+                    <div class=" makePaymentAndTotalPrice">
                         <div class="makePaymentBox">
                             <h4>결제방법</h4>
                             <div class="makePayments">
@@ -112,7 +114,8 @@
                                             </td>
                                             <td width=80 class="total-price-input">
                                                 <input type="text" name="bookPrice"
-                                                    value=<%=(bookInfo.price).toLocaleString()%>&nbsp;원 >
+                                                    value=<%=(bookInfo.price).toLocaleString()%>&nbsp;원
+                                                >
                                             </td>
                                         </tr>
                                         <tr height="50" class="total-price-title">
@@ -129,7 +132,8 @@
                                             </td>
                                             <td width=80 class="total-price-input">
                                                 <input type="text" name="totalPrice"
-                                                    value=<%=(bookInfo.price+3000).toLocaleString()%>&nbsp;원 >
+                                                    value=<%=(bookInfo.price+3000).toLocaleString()%>&nbsp;원
+                                                >
                                             </td>
                                         </tr>
                                     </table>
