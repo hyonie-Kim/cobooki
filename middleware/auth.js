@@ -5,7 +5,7 @@ const auth = {
     if (req.session.userEmail) {
       next();
     } else {
-      res.redirect("/user/login");
+      res.redirect("/login");
     }
   },
 

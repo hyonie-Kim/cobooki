@@ -16,7 +16,9 @@ const adminController = {
   },
 
   order(req, res) {
-    res.render("admin/orderManagement");
+    res.render("admin/orderManagement", {
+      userEmail: req.session.userEmail != null ? req.session.userEmail : null,
+    });
   },
 
   // 상품 등록

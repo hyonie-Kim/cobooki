@@ -57,7 +57,19 @@ const mainController = {
   // },
 
   cart(req, res) {
-    res.render("cart");
+    if (req.session.userEmail == null) {
+      res.render(
+        "signIn",
+        //📌지우
+        { userEmail: null }
+      );
+      //res.write("<script>alert('로그인이 필요한 서비스입니다.')</script>");
+    } else {
+      res.render("cart", {
+        userEmail: req.session.userEmail != null ? req.session.userEmail : null,
+      });
+      //res.write("<script>alert('🫡장바구니에 담겼습니다! \n 장바구니 페이지로 이동합니다.')</script>");
+    }
   },
 };
 
