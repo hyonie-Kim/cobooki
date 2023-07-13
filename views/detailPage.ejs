@@ -15,7 +15,8 @@
 <body>
     <%- include ('./header.ejs') %>
 
-        <div class="detail-container">
+        <form class="detail-container">
+            <input type="hidden" name="item_key" value="<%=bookInfo._id%>">
 
             <div class="detail-bookcover"><img
                     src='https://image.aladin.co.kr/product/29234/63/cover500/e812539457_1.jpg'>
@@ -62,11 +63,18 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <%-include('footer.ejs') %>
+            </div>
+            <%-include('footer.ejs') %>
 </body>
 
 <script>
+
+    // 장바구니 담기 누르면 로컬스토리지에 저장
+    function putCart(f) {
+        const cartAddListArr = [f.itemName.value, Number(f.itemPrice.value), Number(f.itemCount.value)];
+        localStorage.setItem(f.item_key.value, JSON.stringify(cartAddListArr));
+    }
+
 
 
     //구매하기 클릭 시 오더페이지로 이동

@@ -8,6 +8,23 @@
   <link rel="stylesheet" href="../css/cart.css">
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../css/footer.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#cbx_chkAll").click(function () {
+        if ($("#cbx_chkAll").is(":checked")) $("input[name=chk]").prop("checked", true);
+        else $("input[name=chk]").prop("checked", false);
+      });
+
+      $("input[name=chk]").click(function () {
+        var total = $("input[name=chk]").length;
+        var checked = $("input[name=chk]:checked").length;
+
+        if (total != checked) $("#cbx_chkAll").prop("checked", false);
+        else $("#cbx_chkAll").prop("checked", true);
+      });
+    });
+  </script>
 </head>
 
 
@@ -26,8 +43,8 @@
           <!-- 누르면 전체 체크 -->
           <div class="X-delete row-all">
             <hr />
-            <div class="check-box all-check">
-              <input type="checkbox" value="selectAll" name="check-box" onclick="selectAll(this)">
+            <div class="check-box ">
+              <input id="cbx_chkAll" type="checkbox" value="selectAll" name="check-box" onclick="selectAll(this)">
             </div>
             <div class="one table">
               <p>상품명</p>
@@ -44,35 +61,10 @@
           </div>
           <!-- 사용자가 담은 목록 -->
           <div class="row row-all">
-            <hr />
-            <div class="check-box">
-              <input type="checkbox" id="book-name" name="check-box">
-            </div>
-            <div class="product-name one">
-              <div class="img">
-                <!-- 이미지도 변수 -->
-                <img src="https://image.aladin.co.kr/product/29281/57/cover200/k382837902_1.jpg" alt="책 임시 이미지">
-              </div>
-              <!-- 책이름 변수 -->
-              <label for="book-name">책이름</label>
-            </div>
-            <div class="price two">
-              <!-- 가격 변수 -->
-              <p>원</p>
-            </div>
-            <form class="purchase-count three" action="/cart" name="purchase-amount" method="post">
-              <input type="number" min="0" name="number" required>
-              <!-- 서버로 전송하는 버튼 -->
-              <input type="button" value="확인">
-            </form>
-            <div class="book-price four">
-              <!-- 책 가격 변수 -->
-              <p>원</p>
-            </div>
           </div>
           <div class="price-wrap">
             <p class="right order-price">총 주문금액 + 총 배송비 3,000원 =</p>
-            <p class="right">총 결제금액 :</p>
+            <p class="right final-price">총 결제금액 :</p>
           </div>
         </div>
         <!-- 선택 상품 삭제하기 누르면 제품 삭제 -->
@@ -103,38 +95,84 @@
     </nav>
     <%- include('./footer.ejs') %>
       <script>
+        //로컬스토리지에 담긴 데이터 꺼내기
+        //append 할 태그 식별하기
+        const row = document.querySelector('.row');
+
+        for (const key in localStorage) {
+          const value = JSON.parse(localStorage.getItem(key));
+          if (value) {
+            //element 생성
+            const el = row.insertAdjacentHTML('beforeend',
+              `
+              <div id="delete-row">
+                <hr />
+            <div class="check-box">
+              <input type="checkbox" id="book-name" name="chk">
+            </div>
+            <div class="product-name one">
+              <div class="img">
+                <!-- 이미지도 변수 -->
+                <img src="https://image.aladin.co.kr/product/29281/57/cover200/k382837902_1.jpg" alt="책 임시 이미지">
+              </div>
+              <!-- 책이름 변수 -->
+              <label for="book-name">${value[0]}</label>
+            </div>
+            <div class="price two">
+              <!-- 가격 변수 -->
+              <p>${value[1]}원</p>
+            </div>
+            <form class="purchase-count three" action="/cart" name="purchase-amount" method="post">
+              <input type="number" min="1" name="number" value="${value[2]}" required>
+              <!-- 서버로 전송하는 버튼 -->
+              <input type="button" value="확인">
+            </form>
+            <div class="book-price four">
+              <!-- 책 가격 변수 -->
+              <p>${value[1] * value[2]}원</p>
+            </div>
+          </div>
+          </div>
+            `);
+            //총 주문 가격 텍스트 수정하기
+            const orderPriceText = document.querySelector('.order-price');
+            const finalPriceText = document.querySelector('.final-price');
+            orderPriceText.textContent = `총 주문금액 ${value[1] * value[2]}+ 총 배송비 3,000원 =`;
+            finalPriceText.textContent = `총 결제금액 : ${value[1] * value[2] + 3000}`
+          }
+        }
+
         //체크박스
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-        function selectAll(selectAll) {
-          checkboxes.forEach((checkbox) => {
-            checkbox.checked = selectAll.checked;
-          });
-        }
-
-        // 선택 상품 삭제
+        // 체크된 UI 삭제
         function deleteCheckedItems() {
-          checkboxes.forEach((checkbox) => {
-            if (checkbox.checked) {
-              const parentDiv = checkbox.parentElement.parentElement;
-              if (!parentDiv.classList.contains('X-delete')) {
-                parentDiv.remove();
-              }
+          let arr = [];
+          arr = document.querySelectorAll("#delete-row");
+          for (let i = 1; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+              arr[i - 1].remove();
+            };
+          };
+          // 체크된 로컬스토리지 데이터 삭제
+          for (let i = 1; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+              const keyName = localStorage.key(i - 1);
+              localStorage.removeItem(keyName);
             }
-          });
-        }
+          };
+        };
 
-        //이벤트 리스너 등록
-        document.addEventListener('DOMContentLoaded', () => {
-          //"선택 상품 삭제하기" 버튼 클릭
-          const deleteButton = document.querySelector('button.right');
-          deleteButton.addEventListener('click', () => {
-            deleteCheckedItems();
-          });
+        //수량 변경
+        const okBtn = document.querySelector('input[type="button"]');
+        const changeCount = document.querySelector('input[name="number"]');
+        okBtn.addEventListener('click', (e) => {
+          localStorage.setItem('change', JSON.stringify(Number(e.changeCount.value)));
+          JSON.parse(localStorage.getItem('change'));
         });
 
 
-        //basket객체 리터럴
+        // //basket객체 리터럴
         let basket = {
           totalCount: 0, //전체 갯수 변수
           totalPrice: 0, //전체 합계액 변수
@@ -152,22 +190,8 @@
             }, this); //forEach 2번째 파라미터로 객체를 넘겨서 this가 객체 리터럴을 가리키도록 함.
           },
 
-          //화면 업데이트
-          updateUI: function () {
-            //"총 주문 금액" 변수
-            let orderPrice = this.totalPrice;
-            document.querySelector('.order-price').textContent = `총 주문금액 ${orderPrice} + 총 배송비 3,000원 =`;
-            orderPrice = orderPrice.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,'); //1000 단위에 콤마
-            document.querySelector('.right').textContent = `총 결제금액 : ${orderPrice}원`;
-          },
-
-          //개별 수량 변경(일단 뺍니다)
-
-          //상품 삭제
-          delItem: function () {
-            event.target.parentElement.parentElement.parentElement.remove();
-          }
         };
+
       </script>
 </body>
 

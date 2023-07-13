@@ -80,10 +80,13 @@ const mainController = {
       //res.write("<script>alert('🫡장바구니에 담겼습니다! \n 장바구니 페이지로 이동합니다.')</script>");
     }
   },
+<<<<<<< HEAD
 
   deleteUser(req, res) {
     res.render("deleteUser", { userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
   },
+=======
+>>>>>>> 821b2ef346f04001e9746cbf3fcaf87fc29e513d
 };
 
 module.exports = mainController;
