@@ -47,21 +47,38 @@
               <div class="field">
                 <label class="label" for="fullNameInput">이름</label>
                 <div class="control">
-                  <input class="input" id="fullNameInput" type="text" placeholder="" readonly />
+                  <input
+                    class="input fixed"
+                    id="fullNameInput"
+                    type="text"
+                    value="<%=userInfo.name%>"
+                    readonly
+                  />
                 </div>
               </div>
 
               <div class="field">
                 <label class="label" for="emailInput">이메일</label>
                 <div class="control">
-                  <input class="input" id="emailInput" type="text" placeholder="" readonly />
+                  <input
+                    class="input fixed"
+                    id="emailInput"
+                    type="text"
+                    readonly
+                    value="<%=userInfo.email%>"
+                  />
                 </div>
               </div>
 
               <div class="field">
                 <label class="label" for="phoneNumberInput">연락처</label>
                 <div class="control">
-                  <input class="input" id="phoneNumberInput" type="number" placeholder="숫자로만 입력해 주세요." />
+                  <input
+                    class="input"
+                    id="phoneNumberInput"
+                    type="tel"
+                    placeholder="숫자로만 입력해 주세요."
+                  />
                 </div>
               </div>
 
