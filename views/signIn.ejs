@@ -31,7 +31,7 @@
         <button type="button" onclick="signIn()" class="login-btn" id="submitButton">
           로그인
         </button>
-        <button type="button" onclick="location.href='/user/signUp'" class="signup-btn" id="signupButton">
+        <button type="button" onclick="location.href='/signUp'" class="signup-btn" id="signupButton">
         회원가입</button>
     </form>
     <script>
@@ -43,7 +43,7 @@
       }
       axios({
         method: "post",
-        url: "/user/login",
+        url: "/login",
         data : data,
 
       }).then( (response) => {
