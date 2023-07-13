@@ -46,6 +46,10 @@ const orderSchema = new mongoose.Schema(
     },
     amount: { type: Number, require: true },
     price: { type: Number, require: true },
+    deliveryState: {
+      type: String,
+      require: true,
+    },
     address: { type: String, require: true },
     detailAddress: { type: String },
   },

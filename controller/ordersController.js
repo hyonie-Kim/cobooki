@@ -1,5 +1,5 @@
 const { Order } = require("../Model/order");
-const User = require("../Model/user");
+const { User } = require("../Model/user");
 const { Product } = require("../Model/product");
 const isValidObjectId = require("mongoose");
 
@@ -10,7 +10,7 @@ const ordersController = {
       .select("name email phone address")
       .exec();
     const product = await Product.findOne({
-      bookNum: req.params.bookNum,
+      bookNum: req.query.bookNum,
     })
       // 결제하기 버튼 함수에서 form태그로 GET /orders에 bookNum을 보내주세욥...ㅎㅎ
       .select("name category price imageURL inventory bookNum")
@@ -32,8 +32,11 @@ const ordersController = {
         products: product,
         orderedBy: user._id,
         paymentOption: req.body.paymentOption,
+        price: req.body.price,
+        amount: req.body.amount,
         address: req.body.address,
         detailAddress: req.body.detailAddress,
+        deliveryState: "주문 완료",
       });
       order.save();
       res.send({
@@ -58,23 +61,6 @@ const ordersController = {
       orders,
     });
   },
-
-  // 주문 수정(진행중)
-  oderEdit(req, res) {
-    try {
-      const { userId } = req.params;
-      if (!isValidObjectId(userId)) res.status(400).send({ err: "에러" });
-
-      const { paymentOption, address, products } = req.body;
-      const order = Order.findOneAndUpdate(
-        { _id: userId },
-        { paymentOption, address, products },
-        { new: true }
-      );
-    } catch (err) {}
-  },
-
-  //
 };
 
 module.exports = ordersController;

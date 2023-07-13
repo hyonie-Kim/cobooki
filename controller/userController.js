@@ -1,4 +1,4 @@
-const User = require("../Model/user"); // User 스키마 연결
+const { User } = require("../Model/user"); // User 스키마 연결
 const bcrypt = require("bcryptjs"); // 비밀번호 암호화 라이브러리
 const { userService } = require("../service");
 
@@ -69,6 +69,25 @@ const userController = {
       if (err) console.error(err);
       else res.redirect("/");
     });
+  },
+
+  // 회원 정보 수정
+  async userUpdate(req, res) {
+    try {
+      // 아무값
+      const salt = bcrypt.genSaltSync();
+      // 비밀번호+salt로 새로운 문자열(새 비밀번호) 생성
+      const hash = bcrypt.hashSync(req.body.newPassword, salt);
+
+      await User.updateOne({ email: req.session.email }, { password: hash });
+      res.status(200).send({
+        result: "success",
+        message: "회원 정보 수정 완료.",
+      });
+    } catch (error) {
+      console.log("error: ", error);
+      res.status(500).send({ message: "Server error" });
+    }
   },
 
   // 회원 탈퇴

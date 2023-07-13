@@ -1,7 +1,8 @@
-const User = require("../Model/user"); // User 스키마 연결
+const { User } = require("../Model/user"); // User 스키마 연결
 const { Product } = require("../Model/product");
 const { Counter } = require("../Model/counter");
 const { productService } = require("../service");
+const { Order } = require("../Model/order");
 
 const adminController = {
   // 회원 관리 리스트
@@ -36,6 +37,36 @@ const adminController = {
       res.send("상품 저장 성공");
       // res.redirect("/")
     } else res.send("상품저장실패");
+  },
+
+  // 주문 수정(진행중)
+  // /orders/:orderId: 본인 ID를 주문자 ID(ordererId)로 삼고 orderId를 사용해서 업데이트할 데이터를 DB에 업데이트
+  async updateOrder(req, res) {
+    try {
+      // 1. axios PUT /orders/:orderId로 주문 상태 수정 요청
+      // 2. params에서 orderId 추출
+      // 3. 얻은 id로 product 상태 update
+      // 4. 응답 처리
+      const { orderId } = req.params;
+      const order = await Order.findOneAndUpdate(
+        { orderedBy: orderId },
+        {
+          deliveryState: req.body.deliveryState,
+        },
+        { new: true }
+      ).select("deliveryState");
+      console.log("update order: ", order);
+      console.log("-======================");
+      res.send({
+        result: "success",
+        data: order,
+      });
+    } catch (err) {
+      console.log("error: ", err);
+      res.status(500).send({
+        message: "server error",
+      });
+    }
   },
 };
 
