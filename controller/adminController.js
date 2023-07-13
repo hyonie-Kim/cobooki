@@ -68,6 +68,23 @@ const adminController = {
       });
     }
   },
+
+  async deleteOrder(req, res) {
+    try {
+      const { orderId } = req.params;
+      await Order.deleteOne({
+        orderedBy: orderId,
+        orderedBy: req.body.ordererId,
+      }).exec();
+      res.send({
+        result: "success",
+        message: "주문 취소 완료",
+      });
+    } catch (error) {
+      console.log("error: ", error);
+      res.status(500).send({ message: "server error" });
+    }
+  },
 };
 
 module.exports = adminController;

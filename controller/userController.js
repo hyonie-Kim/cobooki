@@ -74,12 +74,21 @@ const userController = {
   // 회원 정보 수정
   async userUpdate(req, res) {
     try {
-      // 아무값
-      const salt = bcrypt.genSaltSync();
-      // 비밀번호+salt로 새로운 문자열(새 비밀번호) 생성
-      const hash = bcrypt.hashSync(req.body.newPassword, salt);
+      const match = ["password", "address", "phone"];
+      let updateInfo = {};
+      for (const e of match) {
+        if (e in req.body) {
+          if (e === "password") {
+            const salt = bcrypt.genSaltSync();
+            const hash = bcrypt.hashSync(req.body.password, salt);
+            updateInfo[e] = hash;
+          } else {
+            updateInfo[e] = req.body[e];
+          }
+        }
+      }
 
-      await User.updateOne({ email: req.session.email }, { password: hash });
+      await User.updateOne({ email: req.session.userEmail }, updateInfo);
       res.status(200).send({
         result: "success",
         message: "회원 정보 수정 완료.",
