@@ -73,10 +73,7 @@ const userController = {
         .exec()
         .then((userInfo) => {
           console.log({ userInfo });
-          res.render("myProfile", {
-            userInfo: userInfo,
-            userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
-          });
+          res.render("myProfile", { userInfo: userInfo, userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
         });
     } else {
       res.redirect("/user/login");

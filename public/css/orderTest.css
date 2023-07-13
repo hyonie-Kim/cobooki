@@ -15,7 +15,8 @@
 .orderPageContainer {
     font-family: 'NanumSquareNeo-Variable';
     margin: auto;
-    width: 60%;
+    /* width: 60%; */
+    max-width: 780px;
     min-height: 100%;
     padding-top: 120px;
     /* background-color: #ff8e8e; */
@@ -72,10 +73,10 @@
     border-radius: 60px;
     width: 90px;
     line-height: 35px;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 900;
     text-align: center;
-    background-color: rgb(54, 93, 71);
+    background-color: #bfe6d1;
 
 }
 
@@ -115,6 +116,7 @@
 /* 배송지 & 수령인 정보 */
 
 /* 배송지 & 수령인 정보 타이틀 */
+
 .orderUserInfo>h4 {
     width: auto;
     padding-left: 10px;
@@ -122,6 +124,7 @@
     font-size: 15px;
     font-weight: 900;
 }
+
 
 .orderPageContainer .orderBox .orderUserInfo .userInfoBox {
     /* background-color: rgb(113, 82, 125); */

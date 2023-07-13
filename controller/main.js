@@ -58,11 +58,27 @@ const mainController = {
   // },
 
   order(req, res) {
-    res.render("order", { userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
+    Product.findOne({ bookNum: req.params.bookNum })
+      .exec()
+      .then((docInfo) => {
+        console.log(
+          "====================================== 주문페이지 ===============",
+          docInfo
+        );
+        // res.send({ bookInfo: docInfo });
+        res.render("order", { bookInfo: docInfo, userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
+      });
+    //res.render("order", { userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
   },
 
   cart(req, res) {
-    res.render("cart", { userEmail: (req.session.userEmail != null) ? req.session.userEmail : null });
+    if (req.session.userEmail == null) {
+      res.render("signIn", { userEmail: null })
+      //res.write("<script>alert('로그인이 필요한 서비스입니다.')</script>");
+    } else {
+      res.render("cart", { userEmail: (req.session.userEmail != null) ? req.session.userEmail : null })
+      //res.write("<script>alert('🫡장바구니에 담겼습니다! \n 장바구니 페이지로 이동합니다.')</script>");
+    }
   },
 
   deleteUser(req, res) {

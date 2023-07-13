@@ -7,7 +7,7 @@ router.get("/book/:bookNum", mainController.detail);
 
 router.get("/books", mainController.booKCategory);
 
-router.get("/order", mainController.order);
+router.get("/order/:bookNum", mainController.order);
 
 router.get("/cart", mainController.cart);
 
