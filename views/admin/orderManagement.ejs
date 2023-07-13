@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="../css/orderManagement.css">
-  <link rel="stylesheet" href="../css/header.css">
-  <link rel="stylesheet" href="../css/footer.css">
-</head>
-<%- include('../header02.ejs') %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/orderManagement.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+  </head>
+  <%- include('../header02.ejs') %>
 
   <body>
     <!-- header, footer 빼고 wrap -->
@@ -46,7 +45,6 @@
           </div>
           <!-- 상품내역 상세 표 -->
           <div class="X-delete row-all">
-
             <div class="one">
               <p>주문일자</p>
             </div>
@@ -60,12 +58,14 @@
               <p>상태관리</p>
             </div>
             <div class="five">
+              <p>확인</p>
+            </div>
+            <div class="six">
               <p>취소</p>
             </div>
           </div>
           <!-- 사용자가 주문한 목록 -->
           <div class="row row-all">
-
             <div class="order-date one">
               <!-- 주문 일자 -->
               <p>2023 - 06 - 22</p>
@@ -81,14 +81,17 @@
             <div class="four">
               <!-- 상태관리 -->
               <select name="state" id="">
-                <option value='' selected>-- 선택 --</option>
-                <option value='주문 접수'>주문 접수</option>
-                <option value='상품 준비중'>상품 준비중</option>
-                <option value='상품 배송중'>상품 배송중</option>
-                <option value='배송완료'>배송완료</option>
+                <option value="" selected>-- 선택 --</option>
+                <option value="주문 접수">주문 접수</option>
+                <option value="상품 준비중">상품 준비중</option>
+                <option value="상품 배송중">상품 배송중</option>
+                <option value="배송완료">배송완료</option>
               </select>
             </div>
             <div class="five">
+              <button onclick="orderConfirm()">확인</button>
+            </div>
+            <div class="six">
               <button onclick="orderDelete()">주문 취소</button>
             </div>
           </div>
@@ -114,12 +117,14 @@
       </div>
     </nav>
     <%- include('../footer.ejs') %>
-      <script>
-        function orderDelete() {
-          const rowRemove = document.querySelector(".row");
-          rowRemove.remove();
-        }
-      </script>
+    <script>
+      function orderDelete() {
+        const rowRemove = document.querySelector(".row");
+        rowRemove.remove();
+      }
+      function orderConfirm() {
+        // 확인 기능
+      }
+    </script>
   </body>
-
 </html>
