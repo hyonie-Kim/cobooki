@@ -1,9 +1,7 @@
-const User = require("../Model/user"); // User 스키마 연결
+const { User } = require("../Model/user"); // User 스키마 연결
 const bcrypt = require("bcryptjs"); // 비밀번호 암호화 라이브러리
 const { userService } = require("../service");
 
-// let isLogin = {"isLogin":""}
-// 테스트
 const userController = {
   signInRender(req, res) {
     res.render("signIn");
@@ -57,6 +55,7 @@ const userController = {
         phone: req.body.phone,
         address: req.body.address,
         detailAddress: req.body.detailAddress,
+        role: "USER",
       });
 
       res.status(200).send({ msg: "회원가입 성공", user: createUser });
@@ -65,24 +64,52 @@ const userController = {
     }
   },
 
-  myProfile(req, res) {
-    if (req.session.userEmail) {
-      User.findOne({ email: req.session.userEmail })
-        .exec()
-        .then((userInfo) => {
-          console.log(userInfo);
-          res.render("myProfile", { userInfo: userInfo });
-        });
-    } else {
-      res.redirect("/user/login");
-    }
-  },
-
   async logOut(req, res) {
     req.session.destroy((err) => {
       if (err) console.error(err);
       else res.redirect("/");
     });
+  },
+
+  // 회원 정보 수정
+  async userUpdate(req, res) {
+    await User.updateOne({ email: req.session.userEmail }, req.body);
+    if (req.body.password) {
+      const salt = bcrypt.genSaltSync();
+      const hash = bcrypt.hashSync(req.body.password, salt);
+      req.body.password = hash;
+
+      res.status(200).send({
+        result: "success",
+        message: "회원 정보 수정 완료.",
+      });
+    } else {
+      res.status(500).send({ message: "Server error" });
+    }
+
+    // try {
+    //   const match = ["password", "address", "phone"];
+    //   let updateInfo = {};
+    //   for (const e of match) {
+    //     if (e in req.body) {
+    //       if (e === "password") {
+    //         const salt = bcrypt.genSaltSync();
+    //         const hash = bcrypt.hashSync(req.body.password, salt);
+    //         updateInfo[e] = hash;
+    //       } else {
+    //         updateInfo[e] = req.body[e];
+    //       }
+    //     }
+    //   }
+    //   await User.updateOne({ email: req.session.userEmail }, updateInfo);
+    //   res.status(200).send({
+    //     result: "success",
+    //     message: "회원 정보 수정 완료.",
+    //   });
+    // } catch (error) {
+    //   console.log("error: ", error);
+    //   res.status(500).send({ message: "Server error" });
+    // }
   },
 
   // 회원 탈퇴

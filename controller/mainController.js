@@ -6,10 +6,10 @@ const mainController = {
     Product.find()
       .exec()
       .then((bookData) => {
-        console.log(
-          "====================================== 메인페이지 ===============",
-          bookData
-        );
+        // console.log(
+        //   "====================================== 메인페이지 ===============",
+        //   bookData
+        // );
         res.render("index", { bookData: bookData });
       })
       .catch((err) => {
@@ -21,13 +21,13 @@ const mainController = {
   detail(req, res) {
     Product.findOne({ bookNum: req.params.bookNum })
       .exec()
-      .then((docInfo) => {
+      .then((bookInfo) => {
         console.log(
           "====================================== 상세페이지 ===============",
-          docInfo
+          bookInfo
         );
         // res.send({ bookInfo: docInfo });
-        res.render("detailPage", { bookInfo: docInfo });
+        res.render("detailPage", { bookInfo });
       });
   },
 
@@ -56,12 +56,20 @@ const mainController = {
   //   })
   // },
 
-  order(req, res) {
-    res.render("order");
-  },
-
   cart(req, res) {
-    res.render("cart");
+    if (req.session.userEmail == null) {
+      res.render(
+        "signIn",
+        //📌지우
+        { userEmail: null }
+      );
+      //res.write("<script>alert('로그인이 필요한 서비스입니다.')</script>");
+    } else {
+      res.render("cart", {
+        userEmail: req.session.userEmail != null ? req.session.userEmail : null,
+      });
+      //res.write("<script>alert('🫡장바구니에 담겼습니다! \n 장바구니 페이지로 이동합니다.')</script>");
+    }
   },
 };
 

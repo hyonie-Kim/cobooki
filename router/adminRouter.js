@@ -1,10 +1,24 @@
 var router = require("express").Router();
 const { adminController } = require("../controller");
-const { validationChecker } = require("../middleware/validator");
+const { auth } = require("../middleware");
 
-router.get("/", adminController.adminRender);
-router.get("/upload", adminController.uploadRender);
-router.post("/post/upload", adminController.upload);
-router.get("/order", adminController.order);
+router.post(
+  "/post/upload",
+  auth.authentication,
+  auth.authorization,
+  adminController.upload
+);
 
+router.put(
+  "/order/:orderId",
+  auth.authentication,
+  auth.authorization,
+  adminController.updateOrder
+);
+router.delete(
+  "/order/:orderId",
+  auth.authentication,
+  auth.authorization,
+  adminController.deleteOrder
+);
 module.exports = router;
