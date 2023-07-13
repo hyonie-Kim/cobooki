@@ -39,7 +39,6 @@ router
     userController.signUp
   );
 router.get("/logout", userController.logOut);
-router.get("/myProfile", userController.myProfile);
 router
   .route("/delete")
   .get(userController.delete)

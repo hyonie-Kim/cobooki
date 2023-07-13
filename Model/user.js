@@ -20,6 +20,11 @@ const userSchema = new mongoose.Schema(
     },
     address: { type: String, require: true },
     detailAddress: { type: String },
+    role: {
+      type: String,
+      enum: ["USER", "ADMIN"],
+      require: true,
+    },
     userNum: String,
   },
   { collection: "users", timestamps: true }

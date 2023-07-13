@@ -7,8 +7,9 @@ dotenv.config();
 const {
   mainRouter,
   userRouter,
-  mypageRouter,
   adminRouter,
+  ordersRouter,
+  myprofileRouter,
 } = require("./router");
 
 // ejs 설정
@@ -42,8 +43,9 @@ app.use(checkSession);
 // router 설정
 app.use("/", mainRouter);
 app.use("/user", userRouter);
-app.use("/mypage", mypageRouter);
 app.use("/admin", adminRouter);
+app.use("/orders", ordersRouter);
+app.use("/myprofile", myprofileRouter);
 
 app.all("*", (req, res) => {
   res.status(404).send("찾을 수 없는 페이지 입니다.");

@@ -12,7 +12,7 @@ const userRepository = {
     return userCounter;
   },
 
-  async create({ email, password, name, phone, address, detailAddress }) {
+  async create({ email, password, name, phone, address, detailAddress, role }) {
     const user = new User({
       email,
       password,
@@ -20,6 +20,7 @@ const userRepository = {
       phone,
       address,
       detailAddress,
+      role,
     });
 
     await user.save();
