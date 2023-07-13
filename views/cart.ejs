@@ -82,10 +82,10 @@
         <h1></h1>
         <ul class="list">
           <li>
-            <a href="/mypage/ordercheck" class="order">주문 내역</a>
+            <a href="/myprofile/ordercheck" class="order">주문 내역</a>
           </li>
           <li>
-            <a href="/user/myProfile" class="myInfo">개인 정보 수정</a>
+            <a href="/myProfile" class="myInfo">개인 정보 수정</a>
           </li>
           <li>
             <a href="/cart" class="cart">장바구니</a>
@@ -123,9 +123,8 @@
               <p>${value[1]}원</p>
             </div>
             <form class="purchase-count three" action="/cart" name="purchase-amount" method="post">
-              <input type="number" min="1" name="number" value="${value[2]}" required>
-              <!-- 서버로 전송하는 버튼 -->
-              <input type="button" value="확인">
+              <input type="number" min="1" name="number" value="${value[2]}" onchange="changeValue" required>
+              
             </form>
             <div class="book-price four">
               <!-- 책 가격 변수 -->
@@ -141,6 +140,29 @@
             finalPriceText.textContent = `총 결제금액 : ${value[1] * value[2] + 3000}`
           }
         }
+
+
+        // //코치님 참고 코드
+        // // productId, element.value
+        // const carts = localStorage.getItem('cart');
+        // const updateCarts = carts.map(cart => {
+        //   if (cart.id === 'zzz') {
+        //     return {
+        //       ...cart,
+        //       quantity: 10,
+        //     }
+        //   } else {
+        //     return cart
+        //   }
+        // });
+        // localStorage.setItem('cart', updateCarts);
+
+        // // ['1', '2'] -> checkedProductId
+        // const carts = localStorage.getItem('cart');
+        // const updateCarts = carts.filter(cart => !checkedProductId.includes(cart.id));
+        // localStorage.setItem('cart', updateCarts);
+        // // render~
+
 
         //체크박스
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -162,15 +184,6 @@
             }
           };
         };
-
-        //수량 변경
-        const okBtn = document.querySelector('input[type="button"]');
-        const changeCount = document.querySelector('input[name="number"]');
-        okBtn.addEventListener('click', (e) => {
-          localStorage.setItem('change', JSON.stringify(Number(e.changeCount.value)));
-          JSON.parse(localStorage.getItem('change'));
-        });
-
 
         // //basket객체 리터럴
         let basket = {
