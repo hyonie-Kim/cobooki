@@ -11,6 +11,8 @@
   </link>
   <link rel="stylesheet" href="../css/footer.css">
   </link>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -83,9 +85,14 @@
               </div>
 
               <div class="field">
-                <label class="label" for="passwordInput">현재 비밀번호</label>
+                <label class="label" for="addressInput">주소지</label>
                 <div class="control">
-                  <input class="input" id="passwordInput" type="password" placeholder="현재 비밀번호를 입력해 주세요." />
+                  <input
+                    class="input"
+                    id="addressInput"
+                    type="text"
+                    placeholder="새 주소지를 입력해 주세요."
+                  />
                 </div>
               </div>
 
@@ -114,15 +121,36 @@
   </body>
   <script>
       const editProfile = ()=>{
+        const address = document.querySelector('#addressInput')
+        const phone = document.querySelector('#phoneNumberInput')
         const password = document.querySelector('#newPasswordInput')
         const passwordCheck = document.querySelector('#newPasswordConfirmInput')
-        console.log(password)
-        console.log(passwordCheck)
         if(password.value!==passwordCheck.value){
           alert('비밀번호 값이 일치하지 않습니다')
           return;  
         } 
-        location.reload()
+
+        console.log(password.value)
+        console.log(phone.value)
+        console.log(address.value)
+
+        axios.put({
+          method:'put',
+          url:'/api/user',
+          data:{
+            password:password.value,
+            phone:phone.value,
+            address:address.value
+          }
+        }).then( (response) => {
+        if(response.status == 200){
+          alert('회원 정보 수정이 완료되었습니다.')  
+          console.log("success",response)
+        }
+        }).catch( (error) => {
+          console.log('error',error)
+          })  
+
       }
   </script>
 
