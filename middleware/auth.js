@@ -1,11 +1,11 @@
-const User = require("../Model/user");
+const { User } = require("../Model/user");
 
 const auth = {
   authentication(req, res, next) {
     if (req.session.userEmail) {
       next();
     } else {
-      res.status(401).redirect("/user/login");
+      res.redirect("/user/login");
     }
   },
 

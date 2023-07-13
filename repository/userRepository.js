@@ -1,5 +1,5 @@
 const { Counter } = require("../Model/counter");
-const User = require("../Model/user");
+const { User } = require("../Model/user");
 
 const userRepository = {
   async findOne({ email }) {

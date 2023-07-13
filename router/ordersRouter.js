@@ -1,8 +1,8 @@
 var router = require("express").Router();
 const { ordersController } = require("../controller");
+const { auth } = require("../middleware");
 
-router.get("/:bookNum", ordersController.getOrder);
-// router.get("/:userId", ordersController.findOrder);
-router.post("/", ordersController.insertOrder);
+router.get("/", auth.authentication, ordersController.getOrder);
+router.post("/", auth.authentication, ordersController.insertOrder);
 
 module.exports = router;

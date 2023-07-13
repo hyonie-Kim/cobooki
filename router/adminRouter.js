@@ -1,7 +1,6 @@
 var router = require("express").Router();
 const { adminController } = require("../controller");
-const { validationChecker } = require("../middleware/validator");
-const auth = require("../middleware/auth");
+const { auth } = require("../middleware");
 
 router.get(
   "/",
@@ -27,5 +26,10 @@ router.get(
   auth.authorization,
   adminController.order
 );
-
+router.put(
+  "/order/:orderId",
+  auth.authentication,
+  auth.authorization,
+  adminController.updateOrder
+);
 module.exports = router;
