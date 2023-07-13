@@ -4,20 +4,10 @@ const { Counter } = require("../Model/counter");
 const { productService } = require("../service");
 
 const adminController = {
-  adminRender(req, res) {
-    User.find({})
-      .exec()
-      .then((userData) => {
-        console.log(
-          "=============== 어드민 페이지 (회원관리) ===============",
-          userData
-        );
-        res.render("admin/adminPage", { userData: userData });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.render("admin/admin", { userData: [] });
-      });
+  // 회원 관리 리스트
+  async adminRender(req, res) {
+    const users = await User.find({});
+    res.render("admin/adminPage", { users });
   },
 
   uploadRender(req, res) {
@@ -28,10 +18,11 @@ const adminController = {
     res.render("admin/orderManagement");
   },
 
+  // 상품 등록
   async upload(req, res) {
     let temp = {
       // _id: counterInfo.bookNum,
-      productName: req.body.productName,
+      name: req.body.name,
       category: req.body.category,
       desc: req.body.desc,
       imageURL: req.body.imageURL,

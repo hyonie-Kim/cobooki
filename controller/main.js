@@ -6,10 +6,10 @@ const mainController = {
     Product.find()
       .exec()
       .then((bookData) => {
-        console.log(
-          "====================================== 메인페이지 ===============",
-          bookData
-        );
+        // console.log(
+        //   "====================================== 메인페이지 ===============",
+        //   bookData
+        // );
         res.render("index", { bookData: bookData });
       })
       .catch((err) => {
@@ -21,13 +21,13 @@ const mainController = {
   detail(req, res) {
     Product.findOne({ bookNum: req.params.bookNum })
       .exec()
-      .then((docInfo) => {
+      .then((bookInfo) => {
         console.log(
           "====================================== 상세페이지 ===============",
-          docInfo
+          bookInfo
         );
         // res.send({ bookInfo: docInfo });
-        res.render("detailPage", { bookInfo: docInfo });
+        res.render("detailPage", { bookInfo });
       });
   },
 
@@ -55,10 +55,6 @@ const mainController = {
   //     res.render("edit", {bookNum:docInfo})
   //   })
   // },
-
-  order(req, res) {
-    res.render("order");
-  },
 
   cart(req, res) {
     res.render("cart");

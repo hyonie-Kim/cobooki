@@ -6,7 +6,15 @@ const userService = {
     return user;
   },
 
-  async createUser({ email, password, name, phone, address, detailAddress }) {
+  async createUser({
+    email,
+    password,
+    name,
+    phone,
+    address,
+    detailAddress,
+    role,
+  }) {
     const user = await userRepository.create({
       email,
       password,
@@ -14,6 +22,7 @@ const userService = {
       phone,
       address,
       detailAddress,
+      role,
     });
     const counter = await userRepository.userFindCount({ name: "counter" });
     user.userNum = counter.userNum;
