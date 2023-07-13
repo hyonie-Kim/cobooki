@@ -73,30 +73,43 @@ const userController = {
 
   // 회원 정보 수정
   async userUpdate(req, res) {
-    try {
-      const match = ["password", "address", "phone"];
-      let updateInfo = {};
-      for (const e of match) {
-        if (e in req.body) {
-          if (e === "password") {
-            const salt = bcrypt.genSaltSync();
-            const hash = bcrypt.hashSync(req.body.password, salt);
-            updateInfo[e] = hash;
-          } else {
-            updateInfo[e] = req.body[e];
-          }
-        }
-      }
+    await User.updateOne({ email: req.session.userEmail }, req.body);
+    if (req.body.password) {
+      const salt = bcrypt.genSaltSync();
+      const hash = bcrypt.hashSync(req.body.password, salt);
+      req.body.password = hash;
 
-      await User.updateOne({ email: req.session.userEmail }, updateInfo);
       res.status(200).send({
         result: "success",
         message: "회원 정보 수정 완료.",
       });
-    } catch (error) {
-      console.log("error: ", error);
+    } else {
       res.status(500).send({ message: "Server error" });
     }
+
+    // try {
+    //   const match = ["password", "address", "phone"];
+    //   let updateInfo = {};
+    //   for (const e of match) {
+    //     if (e in req.body) {
+    //       if (e === "password") {
+    //         const salt = bcrypt.genSaltSync();
+    //         const hash = bcrypt.hashSync(req.body.password, salt);
+    //         updateInfo[e] = hash;
+    //       } else {
+    //         updateInfo[e] = req.body[e];
+    //       }
+    //     }
+    //   }
+    //   await User.updateOne({ email: req.session.userEmail }, updateInfo);
+    //   res.status(200).send({
+    //     result: "success",
+    //     message: "회원 정보 수정 완료.",
+    //   });
+    // } catch (error) {
+    //   console.log("error: ", error);
+    //   res.status(500).send({ message: "Server error" });
+    // }
   },
 
   // 회원 탈퇴
