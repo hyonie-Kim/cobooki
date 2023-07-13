@@ -27,8 +27,7 @@
                         <%=bookInfo.category%>
                     </div>
                     <div class="detail-price-box">
-                        <input type="text" class="detail-info-name" name="itemName" value="<%=bookInfo.productName%>"
-                            disabled>
+                        <input type="text" class="detail-info-name" name="itemName" value="<%=bookInfo.name%>" disabled>
 
                         </input>
                         <input type="text" class="detail-info-price" name="itemPrice" value="<%=bookInfo.price%>"
@@ -83,11 +82,13 @@
 <script>
     // 장바구니 담기 누르면 로컬스토리지에 저장
     function putCart(f) {
-        const cartAddListArr = [f.itemName.value, Number(f.itemPrice.value), Number(f.itemCount.value)];
+        const cartAddListArr = [f.itemName.value, Number(f.itemPrice.value), Number(f.itemCount.value), f.item_key.value];
         localStorage.setItem(f.item_key.value, JSON.stringify(cartAddListArr));
     }
 
-
+    //코치님 참고코드
+    // localStorage.setItem('cart', JSON.stringify(cartAddListArr));
+    // [{id: 'zzz', price: 3000, 수량: 10}, {id: 'zzz', price: 3000, 수량: 10}];
 
     //구매하기 클릭 시 오더페이지로 이동
     function booksPrice() {
