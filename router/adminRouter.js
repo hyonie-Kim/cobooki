@@ -32,4 +32,10 @@ router.put(
   auth.authorization,
   adminController.updateOrder
 );
+router.delete(
+  "/order/:orderId",
+  auth.authentication,
+  auth.authorization,
+  adminController.deleteOrder
+);
 module.exports = router;
