@@ -44,10 +44,10 @@
                 <label class="label" for="fullNameInput">이름</label>
                 <div class="control">
                   <input
-                    class="input"
+                    class="input fixed"
                     id="fullNameInput"
                     type="text"
-                    placeholder=""
+                    value="<%=userInfo.name%>"
                     readonly
                   />
                 </div>
@@ -57,11 +57,11 @@
                 <label class="label" for="emailInput">이메일</label>
                 <div class="control">
                   <input
-                    class="input"
+                    class="input fixed"
                     id="emailInput"
                     type="text"
-                    placeholder=""
                     readonly
+                    value="<%=userInfo.email%>"
                   />
                 </div>
               </div>
@@ -72,7 +72,7 @@
                   <input
                     class="input"
                     id="phoneNumberInput"
-                    type="number"
+                    type="tel"
                     placeholder="숫자로만 입력해 주세요."
                   />
                 </div>
