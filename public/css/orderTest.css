@@ -348,13 +348,19 @@ input {
 }
 
 /* 최종결제 버튼 */
-.makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox03 {
+
+.lastBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.totalPriceBox03 {
     font-size: 16px;
     font-weight: bolder;
     line-height: 75px;
     color: #EFEFEF;
     text-align: center;
-    align-content: end;
+    align-content: center;
     width: 350px;
 
     border-radius: 80px;
