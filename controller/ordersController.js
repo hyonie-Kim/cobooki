@@ -4,25 +4,7 @@ const { Product } = require("../Model/product");
 const isValidObjectId = require("mongoose");
 
 const ordersController = {
-  // 상품 결제 창 렌더 - /orders
-  async getOrder(req, res) {
-    const user = await User.findOne({ email: req.session.userEmail })
-      .select("name email phone address")
-      .exec();
-    const product = await Product.findOne({
-      bookNum: req.query.bookNum,
-    })
-      // 결제하기 버튼 함수에서 form태그로 GET /orders에 bookNum을 보내주세욥...ㅎㅎ
-      .select("name category price imageURL inventory bookNum")
-      .exec();
-    res.render("order", {
-      user,
-      product,
-      userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
-    });
-  },
-
-  // 결제하기 버튼(order DB에 데이터 저장) - /orders
+  // 주문 정보 등록
   async insertOrder(req, res) {
     try {
       const user = await User.findOne({ email: req.session.userEmail }).exec();
@@ -52,16 +34,51 @@ const ordersController = {
     }
   },
 
-  // 주문 리스트 확인 - /myprofile/ordercheck
-  async getOrderList(req, res) {
-    console.log("주문 리스트 확인 시작");
-    const user = await User.findOne({ email: req.session.userEmail }).exec();
-    const orders = await Order.find({ orderedBy: user._id }).exec();
-    console.log("orders----------", orders);
-    res.render("orderCheck", {
-      orders,
-      userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
-    });
+  // 주문 정보 수정
+  async updateOrder(req, res) {
+    try {
+      // 1. axios PUT /orders/:orderId로 주문 상태 수정 요청
+      // params: 주문번호(objectID), body: 주문자(userObjectId)
+      // 2. params에서 orderId 추출
+      // 3. 얻은 id로 product 상태 update
+      // 4. 응답 처리
+      const { orderId } = req.params;
+      const order = await Order.findOneAndUpdate(
+        { _id: orderId, orderedBy: req.body.ordererId },
+        {
+          deliveryState: req.body.deliveryState,
+        },
+        { new: true }
+      ).select("deliveryState");
+      console.log("update order: ", order);
+      console.log("-======================");
+      res.send({
+        result: "success",
+        data: order,
+      });
+    } catch (err) {
+      console.log("error: ", err);
+      res.status(500).send({
+        message: "server error",
+      });
+    }
+  },
+
+  async deleteOrder(req, res) {
+    try {
+      const { orderId } = req.params;
+      await Order.deleteOne({
+        _id: orderId,
+        orderedBy: req.body.ordererId,
+      }).exec();
+      res.send({
+        result: "success",
+        message: "주문 취소 완료",
+      });
+    } catch (error) {
+      console.log("error: ", error);
+      res.status(500).send({ message: "server error" });
+    }
   },
 };
 

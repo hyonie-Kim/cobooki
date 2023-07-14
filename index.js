@@ -4,7 +4,12 @@ const port = 3000;
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
-const { userRouter, adminRouter, commonRouter } = require("./router");
+const {
+  userRouter,
+  commonRouter,
+  productRouter,
+  orderRouter,
+} = require("./router");
 
 // ejs 설정
 app.set("view engine", "ejs");
@@ -37,7 +42,8 @@ app.use(checkSession);
 // router 설정
 app.use("/", commonRouter);
 app.use("/api/user", userRouter);
-app.use("/api/admin", adminRouter);
+app.use("api/order", productRouter);
+app.use("api/product", orderRouter);
 
 app.all("*", (req, res) => {
   res.status(404).send("찾을 수 없는 페이지 입니다.");

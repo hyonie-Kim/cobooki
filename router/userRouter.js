@@ -2,8 +2,8 @@ var router = require("express").Router();
 const { userController } = require("../controller");
 const { auth } = require("../middleware");
 
-router.get("/logout", auth.authentication, userController.logOut);
-router.put("/", auth.authentication, userController.userUpdate);
-router.delete("/delete", auth.authentication, userController.unregister);
+router.post("/", auth.authentication, userController.createUser);
+router.delete("/", auth.authentication, userController.deleteUser);
+router.put("/", auth.authentication, userController.updateUser);
 
 module.exports = router;

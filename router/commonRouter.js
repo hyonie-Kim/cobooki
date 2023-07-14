@@ -1,27 +1,43 @@
 var router = require("express").Router();
 const { auth } = require("../middleware");
 const { body } = require("express-validator");
-const {
-  mainController,
-  userController,
-  ordersController,
-  myprofileController,
-  adminController,
-} = require("../controller");
+const { commonController } = require("../controller");
 
 const { validator } = require("../middleware");
 
-router.get("/", mainController.mainRender);
-router.get("/book/:bookNum", mainController.detail);
-router.get("/books", mainController.booKCategory);
-router.get("/cart", mainController.cart);
+// render
+router.get("/", commonController.mainRender);
+router.get("/signup", commonController.signupRender);
+router.get("/login", commonController.signInRender);
+router.get("/delete", auth.authentication, commonController.deleteRender);
+router.get("/myprofile", auth.authentication, commonController.profileRender);
+router.get(
+  "/admin/users",
+  auth.authentication,
+  auth.authorization,
+  commonController.adminUserListRender
+);
+router.get(
+  "/admin/products",
+  auth.authentication,
+  auth.authorization,
+  commonController.adminProductListRender
+);
+router.get("/books", commonController.booksRender);
+router.get("/books/:bookNum", commonController.detailBooksRender);
+router.get("/carts", commonController.cartsRender);
+router.get("/orders", auth.authentication, commonController.ordersRender);
+router.get(
+  "/myprofile/orders",
+  auth.authentication,
+  commonController.myOrderListRender
+);
+router.get("/logout", auth.authentication, commonController.logout);
 
-router.get("/login", userController.signInRender);
-router.post("/login", userController.signIn);
-
-router.get("/signup", userController.signupRender);
+// 로그인/로그아웃
+router.post("/api/login", commonController.signIn);
 router.post(
-  "/signup",
+  "/api/signup",
   [
     body("email")
       .trim()
@@ -46,35 +62,7 @@ router.post(
 
     validator.validationChecker,
   ],
-  userController.signUp
-);
-router.get("/delete", auth.authentication, userController.delete);
-
-router.get("/orders", auth.authentication, ordersController.getOrder);
-router.post("/orders", auth.authentication, ordersController.insertOrder);
-
-router.get("/ordercheck", auth.authentication, ordersController.getOrderList);
-
-router.get("/myprofile", auth.authentication, myprofileController.getProfile);
-
-router.get(
-  "/admin",
-  auth.authentication,
-  auth.authorization,
-  adminController.adminRender
-);
-router.get(
-  "/admin/upload",
-  auth.authentication,
-  auth.authorization,
-  adminController.uploadRender
-);
-
-router.get(
-  "admin/order",
-  auth.authentication,
-  auth.authorization,
-  adminController.order
+  commonController.signUp
 );
 
 module.exports = router;
