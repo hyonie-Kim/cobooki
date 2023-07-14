@@ -18,19 +18,18 @@
     /* height: 5000px; */
     padding-top: 150px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row;
-    width: 73%;
+    max-width: 780px;
     margin: auto;
     height: 700px;
-    /* background-color: rgb(181, 204, 196); */
 }
 
 
 /* 책커버 */
 .detail-bookcover>img {
 
-    /* margin-left: 30px; */
+    margin-right: 70px;
     /* border-radius: 10px; */
     /* border: 0.5px solid #eeeeee58; */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -69,13 +68,15 @@
 .detail-info-name {
     margin: 8px 0px;
     font-size: 17px;
-    /* background-color: rgb(53, 49, 179); */
 }
 
 .detail-info-price {
     margin: 10px 0px 5px 0px;
     font-size: 19px;
-    /* background-color: rgb(196, 194, 255); */
+}
+
+.detail-price-box {
+    background-color: rgb(255, 255, 255);
 }
 
 /* 상품설명 */
@@ -117,7 +118,6 @@
     border: none;
     word-wrap: break-word;
     text-align: left;
-    /* background-color: rgb(82, 110, 135); */
     width: 400px;
     font-size: 18px;
 }
@@ -211,25 +211,7 @@
     cursor: pointer;
 }
 
-/* 권수 div */
-.add-book-count {
-    text-align: right;
-    font-weight: bold;
-    font-size: 14px;
-    height: 30px;
-    width: 300px;
-}
 
-/* 권수 input 숫자 */
-.detail-cart-payment input {
-    background-color: rgb(231, 231, 231);
-    border: 0 solid rgb(235, 235, 235);
-    height: 30px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    width: 50px;
-}
 
 /* 권수 input 화살표 */
 /* .detail-cart-payment input::-webkit-outer-spin-button,

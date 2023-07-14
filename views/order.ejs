@@ -27,11 +27,17 @@
                                 <div class="orderBookInfoTitle">
                                     <%=bookInfo.productName%>
                                 </div>
-                                <div class="orderBookInfoProductPrice">권당&nbsp;<%=bookInfo.price.toLocaleString()%>
+                                <div class="orderBookInfoProductPrice">
+                                    권당&nbsp;
+                                    <%=bookInfo.price.toLocaleString() %>
                                         &nbsp;원
                                 </div>
 
-                                <div class="orderBookInfoCount">총&nbsp;&nbsp;1&nbsp;권</div>
+                                <div class="add-book-count">
+                                    <input type="number" step="1" min="1" value="1" id="books" name="itemCount"
+                                        onchange="addCount()">&ensp;권
+                                </div>
+
                                 <div class="orderBookInfoDelivery">배송비 3,000원 </div>
                             </div>
                         </div>
@@ -113,7 +119,7 @@
                                                 상품 금액
                                             </td>
                                             <td width=80 class="total-price-input">
-                                                <input type="text" name="bookPrice"
+                                                <input type="text" name="bookPrice" id='countBooks'
                                                     value=<%=(bookInfo.price).toLocaleString()%>&nbsp;원
                                                 >
                                             </td>
@@ -131,7 +137,7 @@
                                                 총 결제금액
                                             </td>
                                             <td width=80 class="total-price-input">
-                                                <input type="text" name="totalPrice"
+                                                <input type="text" name="totalPrice" id='countBooks2'
                                                     value=<%=(bookInfo.price+3000).toLocaleString()%>&nbsp;원
                                                 >
                                             </td>
@@ -185,6 +191,15 @@
         } else {
             frm.checkButton.disabled = true
         }
+    }
+
+    function addCount() {
+
+        let count = document.getElementById('books').value;
+        var total = count * parseInt("<%=bookInfo.price %>");
+        document.getElementById('countBooks').value = total.toLocaleString() + " 원";
+        document.getElementById('countBooks2').value = (total + 3000).toLocaleString() + " 원";
+        console.log(total);
     }
 </script>
 

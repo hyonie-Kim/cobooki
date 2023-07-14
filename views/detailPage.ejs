@@ -48,12 +48,11 @@
 
                     <div class="detail-cart-payment">
 
-                        <button class="detail-add-cart" onclick="putCart(this.form); moveCart();">
+                        <button class="detail-add-cart" onclick=" moveCart();putCart(this.form);">
                             <span class=" material-symbols-outlined">add_shopping_cart </span>
                             <span class="add-cart-text">장바구니 담기</span>
                         </button>
-                        <div class="add-book-count"><input type="number" step="1" min="1" value="1" id="books"
-                                name="itemCount">&ensp;권</div>
+
 
 
                         <button class="detail-payment-btn" onclick="booksPrice()">구매하기</button>
@@ -103,10 +102,12 @@
             let type;
             type = confirm(str);
             if (type) {
-                window.location.href = "/cart";
+                window.open("/cart");
             }
         }
     }
+
+
 </script>
 
 </html>
