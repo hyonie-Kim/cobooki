@@ -26,7 +26,7 @@
     });
   </script>
 </head>
-<%- include("header02.ejs") %>
+<%- include("header.ejs") %>
 
   <body>
 
@@ -71,7 +71,7 @@
         <div class="button-wrap">
           <button class="right delete-button" onclick="deleteCheckedItems()">선택 상품 삭제하기</button>
           <!-- 선택 상품 주문하기 누르면 주문 페이지로 이동 -->
-          <button onclick="location.href='/order'" class="right" onclick="">선택 상품 주문하기</button>
+          <button onclick="location.href='/orders'" class="right" onclick="">선택 상품 주문하기</button>
         </div>
       </div>
     </div>
@@ -82,7 +82,7 @@
         <h1></h1>
         <ul class="list">
           <li>
-            <a href="/myprofile/ordercheck" class="order">주문 내역</a>
+            <a href="/ordercheck" class="order">주문 내역</a>
           </li>
           <li>
             <a href="/myProfile" class="myInfo">개인 정보 수정</a>
