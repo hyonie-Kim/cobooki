@@ -28,8 +28,8 @@
                         <div class="detail-price-box">
                             <input type="text" class="detail-info-name" name="itemName" value="<%=bookInfo.name%>"
                                 disabled />
-                            <input type="text" class="detail-info-price" name="itemPrice"
-                                value="<%=bookInfo.price.toLocaleString()%>" disabled />
+                            <input type="text" class="detail-info-price" name="itemPrice" value="<%=bookInfo.price%>"
+                                disabled />
                             <span class="text-color">원</span>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
 
                     <div class="detail-cart-payment">
 
-                        <button class="detail-add-cart" onclick=" moveCart();putCart(this.form);">
+                        <button class="detail-add-cart" onclick="moveCart(); putCart(this.form);">
                             <span class=" material-symbols-outlined">add_shopping_cart </span>
                             <span class="add-cart-text">장바구니 담기</span>
                         </button>
@@ -62,23 +62,6 @@
 </body>
 
 <script>
-    // 장바구니 담기 누르면 로컬스토리지에 저장
-    function putCart(f) {
-        const cartAddListArr = [
-            f.itemName.value,
-            Number(f.itemPrice.value),
-            Number(f.itemCount.value),
-            f.item_key.value,
-        ];
-        localStorage.setItem(f.item_key.value, JSON.stringify(cartAddListArr));
-    }
-
-    //코치님 참고코드
-    // localStorage.setItem('cart', JSON.stringify(cartAddListArr));
-    // [{id: 'zzz', price: 3000, 수량: 10}, {id: 'zzz', price: 3000, 수량: 10}];
-
-    //로그아웃 상태 시 오더 페이지 말고 ALERT > 로그인 페이지로 이동
-    //로그인 상태 시 > 구매하기 클릭 시 오더페이지로 이동
     function booksPrice() {
         if ("<%=userEmail%>" == "") {
             alert("로그인이 필요한 서비스입니다.");
@@ -103,6 +86,25 @@
             }
         }
     }
+
+    // 장바구니 담기 누르면 로컬스토리지에 저장
+    function putCart(f) {
+        const cartAddListArr = [
+            f.itemName.value,
+            Number(f.itemPrice.value),
+            f.item_key.value,
+        ];
+        localStorage.setItem(f.item_key.value, JSON.stringify(cartAddListArr));
+    }
+
+    //코치님 참고코드
+    // localStorage.setItem('cart', JSON.stringify(cartAddListArr));
+    // [{id: 'zzz', price: 3000, 수량: 10}, {id: 'zzz', price: 3000, 수량: 10}];
+
+    //로그아웃 상태 시 오더 페이지 말고 ALERT > 로그인 페이지로 이동
+    //로그인 상태 시 > 구매하기 클릭 시 오더페이지로 이동
+
+
 </script>
 
 </html>
