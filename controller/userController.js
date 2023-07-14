@@ -3,6 +3,33 @@ const bcrypt = require("bcryptjs"); // 비밀번호 암호화 라이브러리
 const { userService } = require("../service");
 
 const userController = {
+  async findUser(req, res) {
+    const date = new Date();
+    const user = await userService.findUser({ email: req.body.email });
+    if (!user) {
+      // 아이디 없음
+      // res.send({ msg: "아이디를 확인해주세요" });
+      res.status(400).send({ msg: "아이디를 확인해주세요" });
+    } else {
+      // 아이디 존재
+      if (user && bcrypt.compareSync(req.body.password, user.password)) {
+        // 로그인 성공
+        if (req.body.rememberMe == 1) {
+          // 자동로그인 체크
+          req.session.cookie.maxAge = date.setMinutes(
+            date.getMinutes() + 60 * 24 * 30
+          );
+        }
+        req.session.userEmail = req.body.email;
+        req.session.userName = user.name;
+        console.log(`${user.name} 로그인 하셨습니다.👋🏻`);
+        res.status(200).send({ msg: "로그인 성공", user: user });
+      } else {
+        res.status(400).send({ msg: "비밀번호를 확인해주세요" });
+      }
+    }
+  },
+
   async createUser(req, res) {
     const user = await userService.findUser({ email: req.body.email });
     if (!user) {

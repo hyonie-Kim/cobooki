@@ -24,20 +24,20 @@
         <h1></h1>
         <ul class="list">
           <li>
-            <a href="ordercheck" class="order">주문 내역</a>
+            <a href="myprofile/orders" class="order">주문 내역</a>
           </li>
           <li>
-            <a href="myProfile" class="myInfo">개인 정보 수정</a>
+            <a href="myprofile" class="myInfo">개인 정보 수정</a>
           </li>
           <li>
-            <a href="/cart" class="cart">장바구니</a>
+            <a href="/carts" class="cart">장바구니</a>
           </li>
         </ul>
       </div>
     </nav>
 
     <!--개인정보수정 폼-->
-    <form class="myProfileForm" action="/myProfile" method="put">
+    <form class="myProfileForm" action="/api/user" method="put">
       <div class="container">
         <div class="block account-header">
           <h1 class="subtitle is-4" id="securityTitle">개인정보 수정</h1>
