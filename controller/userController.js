@@ -4,7 +4,9 @@ const { userService } = require("../service");
 
 const userController = {
   signInRender(req, res) {
-    res.render("signIn");
+    res.render("signIn", {
+      userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
+    });
     return;
   },
 
@@ -37,7 +39,9 @@ const userController = {
   },
 
   async signupRender(req, res) {
-    res.status(200).render("signUp");
+    res.status(200).render("signUp", {
+      userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
+    });
   },
 
   async signUp(req, res) {
@@ -114,7 +118,9 @@ const userController = {
 
   // 회원 탈퇴
   async delete(req, res) {
-    res.render("deleteUser");
+    res.render("deleteUser", {
+      userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
+    });
   },
 
   async unregister(req, res) {

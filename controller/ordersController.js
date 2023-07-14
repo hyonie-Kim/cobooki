@@ -18,6 +18,7 @@ const ordersController = {
     res.render("order", {
       user,
       product,
+      userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
     });
   },
 
@@ -59,6 +60,7 @@ const ordersController = {
     console.log("orders----------", orders);
     res.render("orderCheck", {
       orders,
+      userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
     });
   },
 };
