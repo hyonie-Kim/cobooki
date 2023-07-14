@@ -67,6 +67,9 @@ const ordersController = {
   async deleteOrder(req, res) {
     try {
       const { orderId } = req.params;
+      console.log("orderId========", orderId);
+      console.log("req.body======", req.body.ordererId);
+
       await Order.deleteOne({
         _id: orderId,
         orderedBy: req.body.ordererId,
