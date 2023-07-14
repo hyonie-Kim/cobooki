@@ -144,7 +144,7 @@ const commonController = {
       .exec();
     console.log(user, product);
     res.render("order", {
-      user,
+      userInfo: user,
       product,
       userEmail: req.session.userEmail != null ? req.session.userEmail : null,
     });

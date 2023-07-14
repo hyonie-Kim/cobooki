@@ -1,97 +1,76 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>상세페이지</title>
     <link rel="stylesheet" href="../css/detailPage.css" />
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0"
-    />
-  </head>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0" />
+</head>
 
-  <body>
+<body>
     <%- include ('./header.ejs') %>
 
-    <form class="detail-container">
-      <input type="hidden" name="item_key" value="<%=bookInfo._id%>" />
+        <form class="detail-container">
+            <input type="hidden" name="item_key" value="<%=bookInfo._id%>" />
 
-      <div class="detail-bookcover"><img src="../imgs/noImage.png" /></div>
-      <div class="detail-info">
-        <div class="detail-info-box">
-          <div class="detail-title-box">
-            <div class="detail-info-category"><%=bookInfo.category%></div>
-            <div class="detail-price-box">
-              <input
-                type="text"
-                class="detail-info-name"
-                name="itemName"
-                value="<%=bookInfo.name%>"
-                disabled
-              />
-              <input
-                type="text"
-                class="detail-info-price"
-                name="itemPrice"
-                value="<%=bookInfo.price.toLocaleString()%>"
-                disabled
-              />
-              <span class="text-color">원</span>
-            </div>
-          </div>
-          <div class="detail-explain-box">
-            <div class="detail-explain-title">상품설명</div>
-          </div>
+            <div class="detail-bookcover"><img src="../imgs/noImage.png" /></div>
+            <div class="detail-info">
+                <div class="detail-info-box">
+                    <div class="detail-title-box">
+                        <div class="detail-info-category">
+                            <%=bookInfo.category%>
+                        </div>
+                        <div class="detail-price-box">
+                            <input type="text" class="detail-info-name" name="itemName" value="<%=bookInfo.name%>"
+                                disabled />
+                            <input type="text" class="detail-info-price" name="itemPrice"
+                                value="<%=bookInfo.price.toLocaleString()%>" disabled />
+                            <span class="text-color">원</span>
+                        </div>
+                    </div>
+                    <div class="detail-explain-box">
+                        <div class="detail-explain-title">상품설명</div>
+                    </div>
 
-          <div class="detail-text">
-            <pre>
+                    <div class="detail-text">
+                        <pre>
 <%=bookInfo.desc%>
-                    </pre
-            >
-          </div>
+                    </pre>
+                    </div>
 
-          <div class="detail-cart-payment">
-            <button
-              class="detail-add-cart"
-              onclick="putCart(this.form); moveCart();"
-            >
-              <span class="material-symbols-outlined">add_shopping_cart </span>
-              <span class="add-cart-text">장바구니 담기</span>
-            </button>
-            <div class="add-book-count">
-              <input
-                type="number"
-                step="1"
-                min="1"
-                value="1"
-                id="books"
-                name="itemCount"
-              />&ensp;권
+                    <div class="detail-cart-payment">
+
+                        <button class="detail-add-cart" onclick=" moveCart();putCart(this.form);">
+                            <span class=" material-symbols-outlined">add_shopping_cart </span>
+                            <span class="add-cart-text">장바구니 담기</span>
+                        </button>
+
+
+                        <button class="detail-payment-btn" onclick="booksPrice()">
+                            구매하기
+                        </button>
+                    </div>
+                </div>
             </div>
+        </form>
+        <%-include('footer.ejs') %>
+</body>
 
-            <button class="detail-payment-btn" onclick="booksPrice()">
-              구매하기
-            </button>
-          </div>
-        </div>
-      </div>
-    </form>
-    <%-include('footer.ejs') %>
-  </body>
-
-  <script>
+<script>
     // 장바구니 담기 누르면 로컬스토리지에 저장
     function putCart(f) {
-      const cartAddListArr = [
-        f.itemName.value,
-        Number(f.itemPrice.value),
-        Number(f.itemCount.value),
-        f.item_key.value,
-      ];
-      localStorage.setItem(f.item_key.value, JSON.stringify(cartAddListArr));
+        const cartAddListArr = [
+            f.itemName.value,
+            Number(f.itemPrice.value),
+            Number(f.itemCount.value),
+            f.item_key.value,
+        ];
+        localStorage.setItem(f.item_key.value, JSON.stringify(cartAddListArr));
     }
 
     //코치님 참고코드
@@ -101,28 +80,29 @@
     //로그아웃 상태 시 오더 페이지 말고 ALERT > 로그인 페이지로 이동
     //로그인 상태 시 > 구매하기 클릭 시 오더페이지로 이동
     function booksPrice() {
-      if ("<%=userEmail%>" == "") {
-        alert("로그인이 필요한 서비스입니다.");
-        window.open("/login");
-      } else {
-        window.open("/orders/" + "<%=bookInfo.bookNum%>");
-      }
+        if ("<%=userEmail%>" == "") {
+            alert("로그인이 필요한 서비스입니다.");
+            window.open("/login");
+        } else {
+            window.open("/orders/" + "<%=bookInfo.bookNum%>");
+        }
     }
 
     //로그아웃 상태 시 장바구니 페이지 말고 ALERT > 로그인 페이지로 이동
     //로그인 상태 시 장바구니 페이지로 CONFIRM >  이동
     function moveCart() {
-      if ("<%=userEmail%>" == "") {
-        alert("로그인이 필요한 서비스입니다.");
-        window.open("/login");
-      } else {
-        let str = "🫡장바구니에 담겼습니다! \n 장바구니 페이지로 이동할까요?";
-        let type;
-        type = confirm(str);
-        if (type) {
-          window.location.href = "/carts";
+        if ("<%=userEmail%>" == "") {
+            alert("로그인이 필요한 서비스입니다.");
+            window.open("/login");
+        } else {
+            let str = "🫡장바구니에 담겼습니다! \n 장바구니 페이지로 이동할까요?";
+            let type;
+            type = confirm(str);
+            if (type) {
+                window.open("/carts");
+            }
         }
-      }
     }
-  </script>
+</script>
+
 </html>

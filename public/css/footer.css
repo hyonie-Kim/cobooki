@@ -17,18 +17,23 @@ body {
 /*----------------------*/
 .footer {
     z-index: 1;
-    background-color: #ececec;
     height: 72px;
-    width: 100%;
+    background-color: #ececec;
     border-top: 1px solid #cacaca;
+    width: 100%;
+}
 
+.footer-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-}
 
-.footer>div {
-    padding-left: 130px;
+
+    /* padding-left: 130px; */
+    max-width: 1000px;
+
+
+    margin: auto;
 }
 
 

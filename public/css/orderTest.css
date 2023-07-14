@@ -15,7 +15,8 @@
 .orderPageContainer {
     font-family: 'NanumSquareNeo-Variable';
     margin: auto;
-    width: 60%;
+    /* width: 60%; */
+    max-width: 780px;
     min-height: 100%;
     padding-top: 120px;
     /* background-color: #ff8e8e; */
@@ -103,10 +104,40 @@
     font-weight: 900;
 }
 
+/* 권수 div */
+.add-book-count {
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+    height: 25px;
+    width: 250px;
+    /* background-color: #452323; */
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+/* 권수 input 숫자 */
+.add-book-count input {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(191, 191, 191);
+    height: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    width: 40px;
+    height: 30px;
+}
+
+
+
+
 /* 주문상품정보 - 배송비 */
 .productInfo .orderBookInfoDelivery {
     font-size: 13px;
-    margin: 5px 0px 10px 0px;
+    margin: 15px 0px 10px 0px;
 }
 
 
@@ -148,7 +179,7 @@ td {
     font-size: 13px;
     width: 600px;
     height: 50px;
-    padding-left: 30px;
+    padding-left: 100px;
     background-color: transparent;
     border-color: transparent;
     font-family: 'NanumSquareNeo-Variable';
@@ -317,13 +348,19 @@ input {
 }
 
 /* 최종결제 버튼 */
-.makePaymentAndTotalPrice .totalPriceBox .totalPaymentInfo .totalPriceBox03 {
+
+.lastBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.totalPriceBox03 {
     font-size: 16px;
     font-weight: bolder;
     line-height: 75px;
     color: #EFEFEF;
     text-align: center;
-    align-content: end;
+    align-content: center;
     width: 350px;
 
     border-radius: 80px;

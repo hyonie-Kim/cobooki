@@ -1,190 +1,202 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <!-- type="text/css"  -->
     <link rel="stylesheet" href="/css/orderTest.css" />
     <!-- <link rel="stylesheet" href="/css/order.css"> -->
     <link rel="stylesheet" href="/css/header.css" />
     <link rel="stylesheet" href="/css/footer.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <%-include('header.ejs') %>
-    <form>
-      <div class="orderPageContainer">
-        <h3>주 문 서</h3>
-        <div class="orderBox">
-          <!-- 주문상품정보  -->
-          <div class="productInfo">
-            <h4>주문 상품 정보</h4>
-            <div class="orderBookInfoBox">
-              <img
-                class="orderBookCover"
-                src="../imgs/noImage.png"
-                alt="상품사진"
-              />
-              <div class="orderBookInfo">
-                <div class="orderBookInfo_Category"><%=product.category%></div>
-                <div class="orderBookInfoTitle"><%=product.productName%></div>
-                <div class="orderBookInfoProductPrice">
-                  권당&nbsp;<%=product.price.toLocaleString()%> &nbsp;원
+        <div>
+            <div class="orderPageContainer">
+                <h3>주 문 서</h3>
+                <div class="orderBox">
+                    <!-- 주문상품정보  -->
+                    <div class="productInfo">
+                        <h4> 주문 상품 정보</h4>
+                        <div class="orderBookInfoBox">
+                            <img class="orderBookCover" src="../imgs/noImage.png" alt="상품사진">
+                            <div class="orderBookInfo">
+                                <div class="orderBookInfo_Category">
+                                    <%=product.category%>
+                                </div>
+                                <div class="orderBookInfoTitle">
+                                    <%=product.productName%>
+                                </div>
+                                <div class="orderBookInfoProductPrice">
+                                    권당&nbsp;
+                                    <%=product.price.toLocaleString() %>
+                                        &nbsp;원
+                                </div>
+
+                                <div class="add-book-count">
+                                    <input type="number" step="1" min="1" value="1" id="books" name="itemCount"
+                                        onchange="addCount()">&ensp;권
+                                </div>
+
+                                <div class="orderBookInfoDelivery">배송비 3,000원 </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- 배송지/수령인 정보 -->
+                    <div class="orderUserInfo">
+
+                        <div class='title-write'>
+                            <h4> 배송지 / 수령인 정보</h4>
+                        </div>
+
+                        <div class="userInfoBox">
+
+                            <table width="1500" height="300">
+                                <tr height="90">
+                                    <td width="300">
+                                        배송받을 주소
+                                    </td>
+                                    <td width="600">
+                                        <input type="text" name="userAddress"
+                                            value="<%=(userInfo!=null)?userInfo.address:''%>">
+                                    </td>
+                                </tr>
+                                <tr height="70">
+                                    <td>
+                                        주문자 이름
+                                    </td>
+                                    <td>
+                                        <input type="text" name="userName"
+                                            value="<%=(userInfo!=null)?userInfo.name:''%>">
+                                    </td>
+                                </tr>
+                                <tr height="70">
+                                    <td>
+                                        주문자 전화번호
+                                    </td>
+                                    <td>
+                                        <input type="text" name="userName"
+                                            value="<%=(userInfo!=null)?userInfo.phone:''%>">
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+
+
+
+                    <!-- 결제방법 & 총 결제 금액 BOX -->
+                    <!-- 결제방법 -->
+                    <div class=" makePaymentAndTotalPrice">
+                        <div class="makePaymentBox">
+                            <h4>결제방법</h4>
+                            <div class="makePayments">
+
+                                <a href="#">
+                                    <div class="makePaymentBtn01">휴대폰결제</div>
+                                </a>
+                                <a href="#">
+                                    <div class="makePaymentBtn02">카카오 페이</div>
+                                </a>
+                                <a href="#">
+                                    <div class="makePaymentBtn03">무통장 입금</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="totalPriceBox">
+                            <h4>총 결제금액</h4>
+
+                            <div class="totalPaymentInfo">
+
+                                <div class="totalPriceBox01">
+                                    <table width="400" height="250" class='total-price-table'>
+                                        <tr height="50">
+                                            <td width="80" class="total-price-title">
+                                                상품 금액
+                                            </td>
+                                            <td width=80 class="total-price-input">
+                                                <input type="text" name="bookPrice" id='countBooks'
+                                                    value=<%=(product.price).toLocaleString()%>&nbsp;원
+                                                >
+                                            </td>
+                                        </tr>
+                                        <tr height="50" class="total-price-title">
+                                            <td>
+                                                배송비
+                                            </td>
+                                            <td width="80" class="total-price-input">
+                                                <input type="text" name="deliveryPee" value="3,000&nbsp;원">
+                                            </td>
+                                        </tr>
+                                        <tr height="50" class="total-price-title">
+                                            <td>
+                                                총 결제금액
+                                            </td>
+                                            <td width=80 class="total-price-input">
+                                                <input type="text" name="totalPrice" id='countBooks2'
+                                                    value=<%=(product.price+3000).toLocaleString()%>&nbsp;원
+                                                >
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <form action="/user/orderCheck" method="get">
+                                    <div class="totalPriceBox02">
+                                        <input type="checkbox" style='zoom:1.2;' onClick="agreeCheck(this.form)"
+                                            class="change-color" />
+                                        주문 상품의 상품명 / 가격 / 배송비용 정보를 확인하였으며, 구매에 동의합니다.
+                                    </div>
+                                    <div class="lastBtn">
+                                        <input type="submit" onclick="moveOrderCheck()" name="checkButton" value="결제하기"
+                                            class="totalPriceBox03" disabled />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="orderBookInfoCount">총&nbsp;&nbsp;1&nbsp;권</div>
-                <div class="orderBookInfoDelivery">배송비 3,000원</div>
-              </div>
             </div>
-          </div>
+            </form>
 
-          <!-- 배송지/수령인 정보 -->
-          <div class="orderUserInfo">
-            <div class="title-write">
-              <h4>배송지 / 수령인 정보</h4>
-            </div>
-
-            <div class="userInfoBox">
-              <table width="1500" height="300">
-                <tr height="90">
-                  <td width="300">배송받을 주소</td>
-                  <td width="600">
-                    <input
-                      type="text"
-                      name="userAddress"
-                      value="<%=(user!=null)?user.address:''%>"
-                    />
-                  </td>
-                </tr>
-                <tr height="70">
-                  <td>주문자 이름</td>
-                  <td>
-                    <input
-                      type="text"
-                      name="userName"
-                      value="<%=(user!=null)?user.name:''%>"
-                    />
-                  </td>
-                </tr>
-                <tr height="70">
-                  <td>주문자 전화번호</td>
-                  <td>
-                    <input
-                      type="text"
-                      name="userName"
-                      value="<%=(user!=null)?user.phone:''%>"
-                    />
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-
-          <!-- 결제방법 & 총 결제 금액 BOX -->
-          <!-- 결제방법 -->
-          <div class="makePaymentAndTotalPrice">
-            <div class="makePaymentBox">
-              <h4>결제방법</h4>
-              <div class="makePayments">
-                <a href="#">
-                  <div class="makePaymentBtn01">휴대폰결제</div>
-                </a>
-                <a href="#">
-                  <div class="makePaymentBtn02">카카오 페이</div>
-                </a>
-                <a href="#">
-                  <div class="makePaymentBtn03">무통장 입금</div>
-                </a>
-              </div>
-            </div>
-            <div class="totalPriceBox">
-              <h4>총 결제금액</h4>
-
-              <div class="totalPaymentInfo">
-                <div class="totalPriceBox01">
-                  <table width="400" height="250" class="total-price-table">
-                    <tr height="50">
-                      <td width="80" class="total-price-title">상품 금액</td>
-                      <td width="80" class="total-price-input">
-                        <input
-                          type="text"
-                          name="bookPrice"
-                          value="<%=(product.price).toLocaleString()%>"
-                        />&nbsp;원
-                      </td>
-                    </tr>
-                    <tr height="50" class="total-price-title">
-                      <td>배송비</td>
-                      <td width="80" class="total-price-input">
-                        <input
-                          type="text"
-                          name="deliveryPee"
-                          value="3,000&nbsp;원"
-                        />
-                      </td>
-                    </tr>
-                    <tr height="50" class="total-price-title">
-                      <td>총 결제금액</td>
-                      <td width="80" class="total-price-input">
-                        <input
-                          type="text"
-                          name="totalPrice"
-                          value="<%=(product.price+3000).toLocaleString()%>"
-                        />&nbsp;원
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-
-                <form action="/myprofile/orders" method="get">
-                  <div class="totalPriceBox02">
-                    <input
-                      type="checkbox"
-                      style="zoom: 1.2"
-                      onClick="agreeCheck(this.form)"
-                      class="change-color"
-                    />
-                    주문 상품의 상품명 / 가격 / 배송비용 정보를 확인하였으며,
-                    구매에 동의합니다.
-                  </div>
-
-                  <input
-                    type="submit"
-                    onclick="moveOrderCheck()"
-                    name="checkButton"
-                    value="결제하기"
-                    class="totalPriceBox03"
-                    disabled
-                  />
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
-    <%-include('footer.ejs') %>
-  </body>
-  <script type="text/javascript">
+            <%-include('footer.ejs') %>
+</body>
+<script type="text/javascript">
     //구매하기 버튼 클릭 시, alert창 띄우고 주문조회 페이지 이동
     function moveOrderCheck() {
-      let str =
-        "😎주문이 완료되었습니다! 주문조회 페이지로 이동하시겠습니까? \n 취소 시, 메인페이지로 이동됩니다.";
-      let type;
-      type = confirm(str);
+        let str =
+            "😎주문이 완료되었습니다! 주문조회 페이지로 이동하시겠습니까? \n 취소 시, 메인페이지로 이동됩니다.";
+        let type;
+        type = confirm(str);
 
-      if (type == true) {
-        window.open("/myprofile/orders");
-      } else {
-        window.location.assign("/");
-      }
+        if (type == true) {
+            window.open("/myprofile/orders");
+        } else {
+            window.location.assign("/");
+        }
     }
 
     //약관동의 체크하지 않으면, 구매하기 버튼을 비활설화
     function agreeCheck(frm) {
-      if (frm.checkButton.disabled == true) {
-        frm.checkButton.disabled = false;
-      } else {
-        frm.checkButton.disabled = true;
-      }
+        if (frm.checkButton.disabled == true) {
+            frm.checkButton.disabled = false;
+        } else {
+            frm.checkButton.disabled = true;
+        }
     }
-  </script>
+
+    function addCount() {
+
+        let count = document.getElementById('books').value;
+        var total = count * parseInt("<%=product.price %>");
+        document.getElementById('countBooks').value = total.toLocaleString() + " 원";
+        document.getElementById('countBooks2').value = (total + 3000).toLocaleString() + " 원";
+        console.log(total);
+    }
+</script>
+
 </html>
