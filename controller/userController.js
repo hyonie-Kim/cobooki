@@ -3,15 +3,7 @@ const bcrypt = require("bcryptjs"); // 비밀번호 암호화 라이브러리
 const { userService } = require("../service");
 
 const userController = {
-  signInRender(req, res) {
-    res.render("signIn", {
-      userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
-    });
-    return;
-  },
-
-  // 함수명은 동사, 변수명은 명사로!
-  async signIn(req, res) {
+  async findUser(req, res) {
     const date = new Date();
     const user = await userService.findUser({ email: req.body.email });
     if (!user) {
@@ -38,13 +30,7 @@ const userController = {
     }
   },
 
-  async signupRender(req, res) {
-    res.status(200).render("signUp", {
-      userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
-    });
-  },
-
-  async signUp(req, res) {
+  async createUser(req, res) {
     const user = await userService.findUser({ email: req.body.email });
     if (!user) {
       // 몽구스 사용해서 회원 DB에 저장
@@ -68,62 +54,7 @@ const userController = {
     }
   },
 
-  async logOut(req, res) {
-    req.session.destroy((err) => {
-      if (err) console.error(err);
-      else res.redirect("/");
-    });
-  },
-
-  // 회원 정보 수정
-  async userUpdate(req, res) {
-    await User.updateOne({ email: req.session.userEmail }, req.body);
-    if (req.body.password) {
-      const salt = bcrypt.genSaltSync();
-      const hash = bcrypt.hashSync(req.body.password, salt);
-      req.body.password = hash;
-
-      res.status(200).send({
-        result: "success",
-        message: "회원 정보 수정 완료.",
-      });
-    } else {
-      res.status(500).send({ message: "Server error" });
-    }
-
-    // try {
-    //   const match = ["password", "address", "phone"];
-    //   let updateInfo = {};
-    //   for (const e of match) {
-    //     if (e in req.body) {
-    //       if (e === "password") {
-    //         const salt = bcrypt.genSaltSync();
-    //         const hash = bcrypt.hashSync(req.body.password, salt);
-    //         updateInfo[e] = hash;
-    //       } else {
-    //         updateInfo[e] = req.body[e];
-    //       }
-    //     }
-    //   }
-    //   await User.updateOne({ email: req.session.userEmail }, updateInfo);
-    //   res.status(200).send({
-    //     result: "success",
-    //     message: "회원 정보 수정 완료.",
-    //   });
-    // } catch (error) {
-    //   console.log("error: ", error);
-    //   res.status(500).send({ message: "Server error" });
-    // }
-  },
-
-  // 회원 탈퇴
-  async delete(req, res) {
-    res.render("deleteUser", {
-      userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
-    });
-  },
-
-  async unregister(req, res) {
+  async deleteUser(req, res) {
     const deleteUser = await userService.deleteUser({
       email: req.session.userEmail,
     });
@@ -131,6 +62,29 @@ const userController = {
       res.status(400).send({ msg: "회원 ID가 없습니다." });
     } else {
       res.status(200).send({ msg: "회원 탈퇴가 완료되었습니다." });
+    }
+  },
+
+  async updateUser(req, res) {
+    try {
+      // 클라이언트가 보낸 데이터에 password가 있는 경우
+      if (req.body.password) {
+        // salt: 무작위 값
+        // hash: 변경할 새 password(req.body.password)와 salt(무작위 데이터) 값을 섞어 생성한 암호화 데이터
+        const salt = bcrypt.genSaltSync();
+        const hash = bcrypt.hashSync(req.body.password, salt);
+        // hash(암호화 데이터)를 req.body.password에 재할당
+        req.body.password = hash;
+      }
+
+      // DB에 변경된 사용자 정보 수정
+      await User.updateOne({ email: req.session.userEmail }, req.body);
+      res.status(200).send({
+        result: "success",
+        message: "회원 정보 수정 완료.",
+      });
+    } catch (error) {
+      res.status(500).send({ message: "server error" });
     }
   },
 };

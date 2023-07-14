@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.5.1.js"
+    ></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#cbx_chkAll").click(function () {
+          if ($("#cbx_chkAll").is(":checked"))
+            $("input[name=chk]").prop("checked", true);
+          else $("input[name=chk]").prop("checked", false);
+        });
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="../css/cart.css">
-  <link rel="stylesheet" href="../css/header.css">
-  <link rel="stylesheet" href="../css/footer.css">
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $("#cbx_chkAll").click(function () {
-        if ($("#cbx_chkAll").is(":checked")) $("input[name=chk]").prop("checked", true);
-        else $("input[name=chk]").prop("checked", false);
+        $("input[name=chk]").click(function () {
+          var total = $("input[name=chk]").length;
+          var checked = $("input[name=chk]:checked").length;
+
+          if (total != checked) $("#cbx_chkAll").prop("checked", false);
+          else $("#cbx_chkAll").prop("checked", true);
+        });
       });
-
-      $("input[name=chk]").click(function () {
-        var total = $("input[name=chk]").length;
-        var checked = $("input[name=chk]:checked").length;
-
-        if (total != checked) $("#cbx_chkAll").prop("checked", false);
-        else $("#cbx_chkAll").prop("checked", true);
-      });
-    });
-  </script>
-</head>
-<%- include("header02.ejs") %>
+    </script>
+  </head>
+  <%- include("header.ejs") %>
 
   <body>
-
     <!-- header, footer 빼고 wrap -->
     <div class="cart-wrap">
       <!-- 주문 진행 순서 -->
@@ -43,8 +45,14 @@
           <!-- 누르면 전체 체크 -->
           <div class="X-delete row-all">
             <hr />
-            <div class="check-box ">
-              <input id="cbx_chkAll" type="checkbox" value="selectAll" name="check-box" onclick="selectAll(this)">
+            <div class="check-box">
+              <input
+                id="cbx_chkAll"
+                type="checkbox"
+                value="selectAll"
+                name="check-box"
+                onclick="selectAll(this)"
+              />
             </div>
             <div class="one table">
               <p>상품명</p>
@@ -60,8 +68,7 @@
             </div>
           </div>
           <!-- 사용자가 담은 목록 -->
-          <div class="row row-all">
-          </div>
+          <div class="row row-all"></div>
           <div class="price-wrap">
             <p class="right order-price">총 주문금액 + 총 배송비 3,000원 =</p>
             <p class="right final-price">총 결제금액 :</p>
@@ -69,9 +76,13 @@
         </div>
         <!-- 선택 상품 삭제하기 누르면 제품 삭제 -->
         <div class="button-wrap">
-          <button class="right delete-button" onclick="deleteCheckedItems()">선택 상품 삭제하기</button>
+          <button class="right delete-button" onclick="deleteCheckedItems()">
+            선택 상품 삭제하기
+          </button>
           <!-- 선택 상품 주문하기 누르면 주문 페이지로 이동 -->
-          <button onclick="location.href='/order'" class="right" onclick="">선택 상품 주문하기</button>
+          <button onclick="location.href='/orders'" class="right" onclick="">
+            선택 상품 주문하기
+          </button>
         </div>
       </div>
     </div>
@@ -82,29 +93,30 @@
         <h1></h1>
         <ul class="list">
           <li>
-            <a href="/myprofile/ordercheck" class="order">주문 내역</a>
+            <a href="/myprofile/orders" class="order">주문 내역</a>
           </li>
           <li>
-            <a href="/myProfile" class="myInfo">개인 정보 수정</a>
+            <a href="/myprofile" class="myInfo">개인 정보 수정</a>
           </li>
           <li>
-            <a href="/cart" class="cart">장바구니</a>
+            <a href="/carts" class="cart">장바구니</a>
           </li>
         </ul>
       </div>
     </nav>
     <%- include('./footer.ejs') %>
-      <script>
-        //로컬스토리지에 담긴 데이터 꺼내기
-        //append 할 태그 식별하기
-        const row = document.querySelector('.row');
+    <script>
+      //로컬스토리지에 담긴 데이터 꺼내기
+      //append 할 태그 식별하기
+      const row = document.querySelector(".row");
 
-        for (const key in localStorage) {
-          const value = JSON.parse(localStorage.getItem(key));
-          if (value) {
-            //element 생성
-            const el = row.insertAdjacentHTML('beforeend',
-              `
+      for (const key in localStorage) {
+        const value = JSON.parse(localStorage.getItem(key));
+        if (value) {
+          //element 생성
+          const el = row.insertAdjacentHTML(
+            "beforeend",
+            `
               <div id="delete-row">
                 <hr />
             <div class="check-box">
@@ -123,7 +135,9 @@
               <p>${value[1]}원</p>
             </div>
             <form class="purchase-count three" action="/cart" name="purchase-amount" method="post">
-              <input type="number" min="1" name="number" value="${value[2]}" onchange="changeValue" required>
+              <input type="number" min="1" name="number" value="${
+                value[2]
+              }" onchange="changeValue" required>
               
             </form>
             <div class="book-price four">
@@ -132,80 +146,84 @@
             </div>
           </div>
           </div>
-            `);
-            //총 주문 가격 텍스트 수정하기
-            const orderPriceText = document.querySelector('.order-price');
-            const finalPriceText = document.querySelector('.final-price');
-            orderPriceText.textContent = `총 주문금액 ${value[1] * value[2]}+ 총 배송비 3,000원 =`;
-            finalPriceText.textContent = `총 결제금액 : ${value[1] * value[2] + 3000}`
+            `
+          );
+          //총 주문 가격 텍스트 수정하기
+          const orderPriceText = document.querySelector(".order-price");
+          const finalPriceText = document.querySelector(".final-price");
+          orderPriceText.textContent = `총 주문금액 ${
+            value[1] * value[2]
+          }+ 총 배송비 3,000원 =`;
+          finalPriceText.textContent = `총 결제금액 : ${
+            value[1] * value[2] + 3000
+          }`;
+        }
+      }
+
+      // //코치님 참고 코드
+      // // productId, element.value
+      // const carts = localStorage.getItem('cart');
+      // const updateCarts = carts.map(cart => {
+      //   if (cart.id === 'zzz') {
+      //     return {
+      //       ...cart,
+      //       quantity: 10,
+      //     }
+      //   } else {
+      //     return cart
+      //   }
+      // });
+      // localStorage.setItem('cart', updateCarts);
+
+      // // ['1', '2'] -> checkedProductId
+      // const carts = localStorage.getItem('cart');
+      // const updateCarts = carts.filter(cart => !checkedProductId.includes(cart.id));
+      // localStorage.setItem('cart', updateCarts);
+      // // render~
+
+      //체크박스
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+      // 체크된 UI 삭제
+      function deleteCheckedItems() {
+        let arr = [];
+        arr = document.querySelectorAll("#delete-row");
+        for (let i = 1; i < checkboxes.length; i++) {
+          if (checkboxes[i].checked) {
+            arr[i - 1].remove();
           }
         }
+        // 체크된 로컬스토리지 데이터 삭제
+        for (let i = 1; i < checkboxes.length; i++) {
+          if (checkboxes[i].checked) {
+            const keyName = localStorage.key(i - 1);
+            localStorage.removeItem(keyName);
+          }
+        }
+      }
 
+      // //basket객체 리터럴
+      let basket = {
+        totalCount: 0, //전체 갯수 변수
+        totalPrice: 0, //전체 합계액 변수
+        //재계산
+        reCalc: function () {
+          this.totalCount = 0;
+          this.totalPrice = 0;
 
-        // //코치님 참고 코드
-        // // productId, element.value
-        // const carts = localStorage.getItem('cart');
-        // const updateCarts = carts.map(cart => {
-        //   if (cart.id === 'zzz') {
-        //     return {
-        //       ...cart,
-        //       quantity: 10,
-        //     }
-        //   } else {
-        //     return cart
-        //   }
-        // });
-        // localStorage.setItem('cart', updateCarts);
+          document.querySelectorAll('input[type="number"]').forEach((item) => {
+            let count = parseInt(item.value);
+            this.totalCount += count;
 
-        // // ['1', '2'] -> checkedProductId
-        // const carts = localStorage.getItem('cart');
-        // const updateCarts = carts.filter(cart => !checkedProductId.includes(cart.id));
-        // localStorage.setItem('cart', updateCarts);
-        // // render~
-
-
-        //체크박스
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
-        // 체크된 UI 삭제
-        function deleteCheckedItems() {
-          let arr = [];
-          arr = document.querySelectorAll("#delete-row");
-          for (let i = 1; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-              arr[i - 1].remove();
-            };
-          };
-          // 체크된 로컬스토리지 데이터 삭제
-          for (let i = 1; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-              const keyName = localStorage.key(i - 1);
-              localStorage.removeItem(keyName);
-            }
-          };
-        };
-
-        // //basket객체 리터럴
-        let basket = {
-          totalCount: 0, //전체 갯수 변수
-          totalPrice: 0, //전체 합계액 변수
-          //재계산
-          reCalc: function () {
-            this.totalCount = 0;
-            this.totalPrice = 0;
-
-            document.querySelectorAll('input[type="number"]').forEach((item) => {
-              let count = parseInt(item.value);
-              this.totalCount += count;
-
-              let price = parseInt(item.parentElement.nextElementSibling.firstElementChild.getAttribute('value'));
-              this.totalPrice += count * price;
-            }, this); //forEach 2번째 파라미터로 객체를 넘겨서 this가 객체 리터럴을 가리키도록 함.
-          },
-
-        };
-
-      </script>
+            let price = parseInt(
+              item.parentElement.nextElementSibling.firstElementChild.getAttribute(
+                "value"
+              )
+            );
+            this.totalPrice += count * price;
+          }, this); //forEach 2번째 파라미터로 객체를 넘겨서 this가 객체 리터럴을 가리키도록 함.
+        },
+      };
+    </script>
   </body>
-
 </html>

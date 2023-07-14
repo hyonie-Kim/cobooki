@@ -43,12 +43,12 @@
         <ul class="books">
           <% bookData.reverse().slice(0,6).forEach((book)=>{%>
             <li class="book">
-              <a href="/book/<%=book.bookNum%>">
+              <a href="/books/<%=book.bookNum%>">
                 <h4 class="category">
                   <%=book.category%>
                 </h4>
                 <div class="book-container">
-                  <div class="book-img" style="background-image:url('')"></div>
+                  <div class="book-img" style="background-image:url('/imgs/preparingSign.png')"></div>
                   <div class="book-info">
                     <div class="book__name">
                       <%=book.name%>

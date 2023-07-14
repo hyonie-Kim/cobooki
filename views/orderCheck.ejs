@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="../css/orderCheck.css">
-  <link rel="stylesheet" href="../css/header.css">
-  <link rel="stylesheet" href="../css/footer.css">
-</head>
-<%- include("header02.ejs") %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/orderCheck.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+  </head>
+  <%- include("header.ejs") %>
 
   <body>
     <!-- header, footer 빼고 wrap -->
@@ -53,7 +52,10 @@
             <div class="product-name two">
               <div class="img">
                 <!-- 이미지도 변수 -->
-                <img src="https://image.aladin.co.kr/product/29281/57/cover200/k382837902_1.jpg" alt="책 임시 이미지">
+                <img
+                  src="https://image.aladin.co.kr/product/29281/57/cover200/k382837902_1.jpg"
+                  alt="책 임시 이미지"
+                />
               </div>
               <!-- 책이름 변수 -->
               <label for="book-name">책이름</label>
@@ -87,20 +89,17 @@
         <h1></h1>
         <ul class="list">
           <li>
-            <a href="ordercheck" class="order">주문 내역</a>
+            <a href="/myprofile/orders" class="order">주문 내역</a>
           </li>
           <li>
-            <a href="/myProfile" class="myInfo">개인 정보 수정</a>
+            <a href="/myprofile" class="myInfo">개인 정보 수정</a>
           </li>
           <li>
-            <a href="/cart" class="cart">장바구니</a>
+            <a href="/carts" class="cart">장바구니</a>
           </li>
         </ul>
       </div>
     </nav>
     <%- include('./footer.ejs') %>
-
-
   </body>
-
 </html>
