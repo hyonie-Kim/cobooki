@@ -158,7 +158,8 @@
 .delete-btn {
   font-family: "NanumSquareNeo-Variable";
   position: relative;
-  left: 40%;
+  left: 20%;
+  top: -5%;
   transform: translateX(-50%);
   margin-top: 80px;
   width: 30%;
@@ -180,7 +181,8 @@
 .save-btn {
   font-family: "NanumSquareNeo-Variable";
   position: relative;
-  left: 45%;
+  left: 25%;
+  top: -5%;
   transform: translateX(-50%);
   margin-top: 80px;
   width: 30%;
