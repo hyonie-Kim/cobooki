@@ -13,37 +13,39 @@
 </head>
 
 <body>
-    <!-- <%- include ('./header02.ejs') %> -->
+    <%- include ('./header.ejs') %>
 
-    <form class="detail-container">
-        <input type="hidden" name="item_key" value="<%=bookInfo._id%>">
+        <form class="detail-container">
+            <input type="hidden" name="item_key" value="<%=bookInfo._id%>">
 
-        <div class="detail-bookcover"><img src='https://image.aladin.co.kr/product/29234/63/cover500/e812539457_1.jpg'>
-        </div>
-        <div class="detail-info">
-            <div class="detail-info-box">
-                <div class="detail-title-box">
-                    <div class="detail-info-category">
-                        <%=bookInfo.category%>
+            <div class="detail-bookcover"><img
+                    src='https://image.aladin.co.kr/product/29234/63/cover500/e812539457_1.jpg'>
+            </div>
+            <div class="detail-info">
+                <div class="detail-info-box">
+                    <div class="detail-title-box">
+                        <div class="detail-info-category">
+                            <%=bookInfo.category%>
+                        </div>
+                        <div class="detail-price-box">
+                            <input type="text" class="detail-info-name" name="itemName" value="<%=bookInfo.name%>"
+                                disabled>
+
+                            </input>
+                            <input type="text" class="detail-info-price" name="itemPrice" value="<%=bookInfo.price%>"
+                                disabled>
+                            <span class="text-color">원</span>
+                            </input>
+                        </div>
                     </div>
-                    <div class="detail-price-box">
-                        <input type="text" class="detail-info-name" name="itemName" value="<%=bookInfo.name%>" disabled>
-
-                        </input>
-                        <input type="text" class="detail-info-price" name="itemPrice" value="<%=bookInfo.price%>"
-                            disabled>
-                        <span class="text-color">원</span>
-                        </input>
+                    <div class="detail-explain-box">
+                        <div class="detail-explain-title">상품설명</div>
                     </div>
-                </div>
-                <div class="detail-explain-box">
-                    <div class="detail-explain-title">상품설명</div>
-                </div>
 
 
 
-                <div class="detail-text">
-                    <pre>필자는 IT 기업 면접을 준비할 때 “탄탄한 CS 전공지식이 필요하다.”라는 말을 듣고 수많은 전공 서적과 전공 강의들을 보며 CS 전공지식을 쌓으려고 노력했습니다. 그때는 무엇이 필요하고 필요 없는 지식인지 알 수 없어 다 외우려고 했지만 정말 많은 양이었기 때문에 너무 힘들었습니다.
+                    <div class="detail-text">
+                        <pre>필자는 IT 기업 면접을 준비할 때 “탄탄한 CS 전공지식이 필요하다.”라는 말을 듣고 수많은 전공 서적과 전공 강의들을 보며 CS 전공지식을 쌓으려고 노력했습니다. 그때는 무엇이 필요하고 필요 없는 지식인지 알 수 없어 다 외우려고 했지만 정말 많은 양이었기 때문에 너무 힘들었습니다.
 또한, 인터넷에 있는 CS 전공지식들은 몇 개씩은 틀리기 마련이라 공부하다가 헷갈려서 다시 찾아보는 등의 어려움도 겪었습니다.
 이 책은 그러한 문제점들을 해결하는 책입니다.
  
@@ -58,25 +60,25 @@
 각 장은 다음과 같은 내용을 담고 있습니다.
 전공지식을 갖춘 훌륭한 개발자가 되기 위한 첫걸음이 되길 바랍니다.
                     </pre>
-                </div>
+                    </div>
 
 
-                <div class="detail-cart-payment">
+                    <div class="detail-cart-payment">
 
-                    <button class="detail-add-cart" onclick="putCart(this.form); moveCart();">
-                        <span class=" material-symbols-outlined">add_shopping_cart </span>
-                        <span class="add-cart-text">장바구니 담기</span>
-                    </button>
-                    <div class="add-book-count"><input type="number" step="1" min="1" value="1" id="books"
-                            name="itemCount">&ensp;권</div>
+                        <button class="detail-add-cart" onclick="putCart(this.form); moveCart();">
+                            <span class=" material-symbols-outlined">add_shopping_cart </span>
+                            <span class="add-cart-text">장바구니 담기</span>
+                        </button>
+                        <div class="add-book-count"><input type="number" step="1" min="1" value="1" id="books"
+                                name="itemCount">&ensp;권</div>
 
-                    <button class="detail-payment-btn" onclick="booksPrice()">구매하기</button>
+                        <button class="detail-payment-btn" onclick="booksPrice()">구매하기</button>
 
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
-    <%-include('footer.ejs') %>
+        </form>
+        <%-include('footer.ejs') %>
 </body>
 
 <script>
@@ -92,7 +94,7 @@
 
     //구매하기 클릭 시 오더페이지로 이동
     function booksPrice() {
-        window.location.assign('/order')
+        window.location.assign('/orders')
     }
 
 
