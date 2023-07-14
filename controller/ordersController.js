@@ -9,15 +9,16 @@ const ordersController = {
     const user = await User.findOne({ email: req.session.userEmail })
       .select("name email phone address")
       .exec();
-    const product = await Product.findOne({
-      bookNum: req.query.bookNum,
-    })
-      // 결제하기 버튼 함수에서 form태그로 GET /orders에 bookNum을 보내주세욥...ㅎㅎ
+    // 결제하기 버튼 함수에서 form태그로 GET /orders에 bookNum을 보내주세욥...ㅎㅎ
+    const product = await Product.findOne({ bookNum: req.params.bookNum, })
       .select("name category price imageURL inventory bookNum")
       .exec();
+    console.log(
+      "====================주문페이지=========================\n" +
+      product);
     res.render("order", {
-      user,
-      product,
+      userInfo: user,
+      bookInfo: product,
       userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
     });
   },
