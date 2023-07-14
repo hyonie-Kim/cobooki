@@ -63,6 +63,14 @@ const commonController = {
 
   async adminProductListRender(req, res) {
     // 만들어야 함!
+    const products = await Product.find({});
+    res.render("admin/upload", { products });
+  },
+
+  async adminOrderListRender(req, res) {
+    // 만들어야 함!
+    const orders = await Order.find({});
+    res.render("admin/orderManagement", { orders });
   },
 
   async booksRender(req, res) {

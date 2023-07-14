@@ -9,7 +9,7 @@ router.get("/login", commonController.signInRender);
 router.get("/delete", auth.authentication, commonController.deleteRender);
 router.get("/myprofile", auth.authentication, commonController.profileRender);
 router.get(
-  "/admin/users",
+  "/admin",
   auth.authentication,
   auth.authorization,
   commonController.adminUserListRender
@@ -19,6 +19,12 @@ router.get(
   auth.authentication,
   auth.authorization,
   commonController.adminProductListRender
+);
+router.get(
+  "/admin/orders",
+  auth.authentication,
+  auth.authorization,
+  commonController.adminOrderListRender
 );
 router.get("/books", commonController.booksRender);
 router.get("/books/:bookNum", commonController.detailBooksRender);
