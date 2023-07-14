@@ -1,11 +1,9 @@
-const mainRouter = require("./mainRouter");
 const userRouter = require("./userRouter");
-const mypageRouter = require("./mypageRouter");
 const adminRouter = require("./adminRouter");
+const commonRouter = require("./commonRouter.js");
 
 module.exports = {
-  mainRouter,
   userRouter,
-  mypageRouter,
   adminRouter,
+  commonRouter,
 };

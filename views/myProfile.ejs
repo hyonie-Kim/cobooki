@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>마이페이지 개인정보수정</title>
-    <link rel="stylesheet" href="../css/myProfile.css"></link>
-    <link rel="stylesheet" href="../css/header.css"></link>
-    <link rel="stylesheet" href="../css/footer.css"></link>
-  </head>
 
-  <body>
-    <%- include ('./header02.ejs') %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>마이페이지 개인정보수정</title>
+  <link rel="stylesheet" href="../css/myProfile.css">
+  </link>
+  <link rel="stylesheet" href="../css/header.css">
+  </link>
+  <link rel="stylesheet" href="../css/footer.css">
+  </link>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+  <%- include ('./header02.ejs') %>
     <!-- 네비바 -->
     <nav>
-        <div class="myProfileNav">
-          <div class="myPage">마이페이지</div>
-          <h1></h1>
-          <ul class="list">
-            <li>
-              <a href="/mypage/ordercheck" class="order">주문 내역</a>
-            </li>
-            <li>
-              <a href="myProfile" class="myInfo">개인 정보 수정</a>
-            </li>
-            <li>
-              <a href="/cart" class="cart">장바구니</a>
-            </li>
-          </ul>
-        </div>
+      <div class="myProfileNav">
+        <div class="myPage">마이페이지</div>
+        <h1></h1>
+        <ul class="list">
+          <li>
+            <a href="/myProfile/ordercheck" class="order">주문 내역</a>
+          </li>
+          <li>
+            <a href="myProfile  " class="myInfo">개인 정보 수정</a>
+          </li>
+          <li>
+            <a href="/cart" class="cart">장바구니</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <!--개인정보수정 폼-->
@@ -44,10 +50,10 @@
                 <label class="label" for="fullNameInput">이름</label>
                 <div class="control">
                   <input
-                    class="input"
+                    class="input fixed"
                     id="fullNameInput"
                     type="text"
-                    placeholder=""
+                    value="<%=userInfo.name%>"
                     readonly
                   />
                 </div>
@@ -57,11 +63,11 @@
                 <label class="label" for="emailInput">이메일</label>
                 <div class="control">
                   <input
-                    class="input"
+                    class="input fixed"
                     id="emailInput"
                     type="text"
-                    placeholder=""
                     readonly
+                    value="<%=userInfo.email%>"
                   />
                 </div>
               </div>
@@ -72,20 +78,20 @@
                   <input
                     class="input"
                     id="phoneNumberInput"
-                    type="number"
+                    type="tel"
                     placeholder="숫자로만 입력해 주세요."
                   />
                 </div>
               </div>
 
               <div class="field">
-                <label class="label" for="passwordInput">현재 비밀번호</label>
+                <label class="label" for="addressInput">주소지</label>
                 <div class="control">
                   <input
                     class="input"
-                    id="passwordInput"
-                    type="password"
-                    placeholder="현재 비밀번호를 입력해 주세요."
+                    id="addressInput"
+                    type="text"
+                    placeholder="새 주소지를 입력해 주세요."
                   />
                 </div>
               </div>
@@ -93,36 +99,54 @@
               <div class="field">
                 <label class="label" for="newPasswordInput">새 비밀번호</label>
                 <div class="control">
-                  <input
-                    class="input"
-                    id="newPasswordInput"
-                    type="password"
-                    placeholder="새 비밀번호를 입력해 주세요."
-                  />
+                  <input class="input" id="newPasswordInput" type="password" placeholder="새 비밀번호를 입력해 주세요." />
                 </div>
               </div>
 
               <div class="field">
-                <label class="label" for="newPasswordConfirmInput"
-                  >새 비밀번호 확인</label
-                >
+                <label class="label" for="newPasswordConfirmInput">새 비밀번호 확인</label>
                 <div class="control">
-                  <input
-                    class="input"
-                    id="newPasswordConfirmInput"
-                    type="password"
-                    placeholder="새 비밀번호를 다시 입력해 주세요."
-                  />
+                  <input class="input" id="newPasswordConfirmInput" type="password" placeholder="새 비밀번호를 다시 입력해 주세요." />
                 </div>
               </div>
               <h6></h6>
-              <button type="button" onclick="location.href='/deleteUser'" class="delete-btn" id="deleteButton">탈퇴하기</button>
-              <button type="button" onclick="location.reload();" class="save-btn" id="saveButton">수정하기</button>
+              <button type="button" onclick="location.href='/user/delete'" class="delete-btn"
+                id="deleteButton">탈퇴하기</button>
+              <button type="button" onclick="editProfile();" class="save-btn" id="saveButton">수정하  기</button>
             </form>
           </div>
         </div>
       </div>
     </form>
-</body>
-</html>
+  </body>
+  <script>
+      const editProfile = ()=>{
+        const address = document.querySelector('#addressInput')
+        const phone = document.querySelector('#phoneNumberInput')
+        const password = document.querySelector('#newPasswordInput')
+        const passwordCheck = document.querySelector('#newPasswordConfirmInput')
+        if(password.value!==passwordCheck.value){
+          alert('비밀번호 값이 일치하지 않습니다')
+          return;  
+        } 
 
+        axios({
+          method:'put',
+          url:'/api/user',
+          data:{
+            password:password.value,
+            phone:phone.value,
+            address:address.value
+          }
+        }).then( (response) => {
+        if(response.status == 200){
+          alert('회원 정보 수정이 완료되었습니다.')  
+          location.replace('/')
+        }
+        }).catch( (error) => {
+          alert('정보 수정에 오류가 발생했습니다')  
+          })  
+      }
+  </script>
+
+</html>

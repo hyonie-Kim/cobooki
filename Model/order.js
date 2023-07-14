@@ -1,30 +1,61 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const productSchema = new mongoose.Schema({
+  _id: { type: Schema.Types.ObjectId, required: true },
+  name: {
+    type: String,
+    required: true,
+  },
+  category: {
+    type: String,
+    enum: ["프론트엔드", "프론트앤드", "백엔드", "CS지식"],
+    required: true,
+  },
+  price: {
+    type: Number,
+    trim: true,
+    min: 0,
+    required: true,
+  },
+  imageURL: {
+    type: String,
+    // 아무 값도 없으면 default 링크로 초기화 해서 mongoDB에 삽입/수정
+    default: "",
+  },
+  desc: {
+    type: String,
+  },
+  bookNum: { type: Number },
+});
 
 const orderSchema = new mongoose.Schema(
   {
-    product: {
+    products: {
       type: [productSchema],
-      validate: (v) => Array.isArray(v) && v.length > 0,
       require: true,
     },
     orderedBy: {
-      type: [userSchema],
-      // 추가 검증을 위한 함수. 삽입/수정 전 해당 값이 최소 하나 이상의 값을 가지고 있는 배열인지 체크
-      validate: (v) => Array.isArray(v) && v.length > 0,
+      type: Schema.Types.ObjectId,
+      ref: "User",
       require: true,
-    },
-    password: {
-      type: String,
-      require: true,
-      trim: true,
     },
     paymentOption: {
       type: String,
       require: true,
       enum: ["카드", "계좌이체"],
     },
+    amount: { type: Number, require: true },
+    price: { type: Number, require: true },
+    deliveryState: {
+      type: String,
+      require: true,
+    },
+    address: { type: String, require: true },
+    detailAddress: { type: String },
   },
-  { collection: "order" }
+  { collection: "order", timestamps: true }
 );
 
-module.exports = mongoose.model("Order", orderSchema);
+const Order = mongoose.model("Order", orderSchema);
+
+module.exports = { Order };

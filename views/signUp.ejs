@@ -89,12 +89,13 @@
         //axios.post()
         await axios({
         method: "post",
-        url: "/user/signUp",
+        url: "/signup",
         data : data,
         }).then( (response) => {
         if(response.status == 200){
           alert('회원가입이 완료되었습니다.')  
           console.log("success",response)
+          window.location.href = "/";
         }
         }).catch( (error) => {
 

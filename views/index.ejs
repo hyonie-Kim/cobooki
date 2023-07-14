@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>cobooki</title>
+  <link href="imgLogo.png" rel="shortcut icon" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="./css/index.css">
   </link>
   <link rel="stylesheet" href="../css/header.css">
@@ -42,15 +43,15 @@
         <ul class="books">
           <% bookData.reverse().slice(0,6).forEach((book)=>{%>
             <li class="book">
-              <a href="">
+              <a href="/book/<%=book.bookNum%>">
                 <h4 class="category">
                   <%=book.category%>
                 </h4>
                 <div class="book-container">
-                  <div class="book-img" style="background-image:url('/imgs/banner01.png')"></div>
+                  <div class="book-img" style="background-image:url('')"></div>
                   <div class="book-info">
                     <div class="book__name">
-                      <%=book.productName%>
+                      <%=book.name%>
                     </div>
                     <div class="book__price">가격 : <%=book.price%>원</div>
                   </div>
@@ -84,8 +85,7 @@
 
           //카테고리별로 클래쓰를 추가하였습니다.
           const category = element.querySelector('.category')
-          const categoryName = category.textContent
-
+          const categoryName = category.textContent.trim()
           categoryName === "프론트엔드" ? category.classList.add('front')
             : categoryName === "백엔드" ? category.classList.add('back')
               : categoryName === "CS지식" ? category.classList.add('cs')
