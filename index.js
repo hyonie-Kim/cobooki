@@ -42,8 +42,8 @@ app.use(checkSession);
 // router 설정
 app.use("/", commonRouter);
 app.use("/api/user", userRouter);
-app.use("api/order", productRouter);
-app.use("api/product", orderRouter);
+app.use("/api/order", orderRouter);
+app.use("/api/product", productRouter);
 
 app.all("*", (req, res) => {
   res.status(404).send("찾을 수 없는 페이지 입니다.");
