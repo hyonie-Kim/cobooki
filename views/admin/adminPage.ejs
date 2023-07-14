@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/adminPage.css" />
-    <link rel="stylesheet" href="../css/header.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-  </head>
-  <body>
-    <%- include('../header02.ejs') %>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/adminPage.css" />
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+</head>
+
+<body>
+  <%- include('../header02.ejs') %>
     <div class="user-container">
       <div class="container-background">
         <div class="user-list">
           <div class="title">
             <div>
-              회원관리 <span>(총 회원 수 : <%=userData.length%> 명)</span>
+              회원관리 <span>(총 회원 수 : <%=users.length%> 명)</span>
             </div>
           </div>
           <!-- 회원 정보 항목 -->
@@ -27,24 +29,28 @@
             <div class="user-info">관리</div>
           </div>
           <!-- 회원 목록 -->
-          <% userData.forEach((user)=>{%>
-          <div class="user row">
-            <div class="user-info">
-              <%=user.createdAt.toLocaleString('ko-KR')%>
+          <% users.forEach((users)=>{%>
+            <div class="user row">
+              <div class="user-info">
+                <%=users.createdAt.toLocaleString('ko-KR')%>
+              </div>
+              <div class="user-info">
+                <%=users.email%>
+              </div>
+              <div class="user-info">
+                <%=users.name%>
+              </div>
+              <div class="user-info">
+                <select>
+                  <option value="일반사용자" selected>일반사용자</option>
+                  <option value="관리자">관리자</option>
+                </select>
+              </div>
+              <div class="user-info">
+                <button onclick="membershipDelete()">회원정보 삭제</button>
+              </div>
             </div>
-            <div class="user-info"><%=user.email%></div>
-            <div class="user-info"><%=user.name%></div>
-            <div class="user-info">
-              <select>
-                <option value="일반사용자" selected>일반사용자</option>
-                <option value="관리자">관리자</option>
-              </select>
-            </div>
-            <div class="user-info">
-              <button onclick="membershipDelete()">회원정보 삭제</button>
-            </div>
-          </div>
-          <%})%>
+            <%})%>
         </div>
       </div>
     </div>
@@ -73,5 +79,6 @@
         rowRemove.remove();
       }
     </script>
-  </body>
+</body>
+
 </html>
