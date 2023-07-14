@@ -50,7 +50,7 @@ router.post(
 );
 router.get("/delete", auth.authentication, userController.delete);
 
-router.get("/orders", auth.authentication, ordersController.getOrder);
+router.get("/orders/:bookNum", auth.authentication, ordersController.getOrder);
 router.post("/orders", auth.authentication, ordersController.insertOrder);
 
 router.get("/ordercheck", auth.authentication, ordersController.getOrderList);

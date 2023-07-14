@@ -18,8 +18,7 @@
         <form class="detail-container">
             <input type="hidden" name="item_key" value="<%=bookInfo._id%>">
 
-            <div class="detail-bookcover"><img
-                    src='https://image.aladin.co.kr/product/29234/63/cover500/e812539457_1.jpg'>
+            <div class="detail-bookcover"><img src='../imgs/noImage.png'>
             </div>
             <div class="detail-info">
                 <div class="detail-info-box">
@@ -30,12 +29,9 @@
                         <div class="detail-price-box">
                             <input type="text" class="detail-info-name" name="itemName" value="<%=bookInfo.name%>"
                                 disabled>
-
-                            </input>
-                            <input type="text" class="detail-info-price" name="itemPrice" value="<%=bookInfo.price%>"
-                                disabled>
+                            <input type="text" class="detail-info-price" name="itemPrice"
+                                value="<%=bookInfo.price.toLocaleString()%>" disabled>
                             <span class="text-color">원</span>
-                            </input>
                         </div>
                     </div>
                     <div class="detail-explain-box">
@@ -45,20 +41,7 @@
 
 
                     <div class="detail-text">
-                        <pre>필자는 IT 기업 면접을 준비할 때 “탄탄한 CS 전공지식이 필요하다.”라는 말을 듣고 수많은 전공 서적과 전공 강의들을 보며 CS 전공지식을 쌓으려고 노력했습니다. 그때는 무엇이 필요하고 필요 없는 지식인지 알 수 없어 다 외우려고 했지만 정말 많은 양이었기 때문에 너무 힘들었습니다.
-또한, 인터넷에 있는 CS 전공지식들은 몇 개씩은 틀리기 마련이라 공부하다가 헷갈려서 다시 찾아보는 등의 어려움도 겪었습니다.
-이 책은 그러한 문제점들을 해결하는 책입니다.
- 
-한 권만으로 CS 전공지식의 전반적인 내용을 학습할 수 있으며, 더 나아가 실제로 개발할 때 필요한 CS 전공지식을 담았습니다.
-                        
-이 책의 장점은 다음과 같습니다.
-ㆍ 면접에 나올 법한 CS 전공지식을 포함한 CS 전공지식의 전반을 다룹니다.
-ㆍ 필자의 실제 개발 경험이 녹아 있어 이론에만 치우친 CS 전공지식이 아닌 이론과 실무가 아우러진 전공지식을 선사합니다.
-ㆍ 필자의 수많은 면접 경험을 바탕으로 한 면접 노하우가 책 곳곳에 녹아 있습니다.
-ㆍ 구글, 네이버, 카카오 등 탑티어급의 회사에 합격한 필자의 포트폴리오가 소개되며 포트폴리오 작성 노하우를 알려줍니다.
-                        
-각 장은 다음과 같은 내용을 담고 있습니다.
-전공지식을 갖춘 훌륭한 개발자가 되기 위한 첫걸음이 되길 바랍니다.
+                        <pre><%=bookInfo.desc%>
                     </pre>
                     </div>
 
@@ -71,6 +54,7 @@
                         </button>
                         <div class="add-book-count"><input type="number" step="1" min="1" value="1" id="books"
                                 name="itemCount">&ensp;권</div>
+
 
                         <button class="detail-payment-btn" onclick="booksPrice()">구매하기</button>
 
@@ -92,20 +76,35 @@
     // localStorage.setItem('cart', JSON.stringify(cartAddListArr));
     // [{id: 'zzz', price: 3000, 수량: 10}, {id: 'zzz', price: 3000, 수량: 10}];
 
-    //구매하기 클릭 시 오더페이지로 이동
+
+
+    //로그아웃 상태 시 오더 페이지 말고 ALERT > 로그인 페이지로 이동
+    //로그인 상태 시 > 구매하기 클릭 시 오더페이지로 이동
     function booksPrice() {
-        window.location.assign('/orders')
+        if ("<%=userEmail%>" == "") {
+            alert("로그인이 필요한 서비스입니다.");
+            window.open("/login");
+        } else {
+            window.open("/orders/" + "<%=bookInfo.bookNum%>");
+
+
+        }
     }
 
 
-    //장바구니 담으면 confirm 띄워서 이동할지, 말지 선택하기
+    //로그아웃 상태 시 장바구니 페이지 말고 ALERT > 로그인 페이지로 이동
+    //로그인 상태 시 장바구니 페이지로 CONFIRM >  이동
     function moveCart() {
-        let str = "🫡장바구니에 담겼습니다! \n 장바구니 페이지로 이동할까요?";
-        let type;
-        type = confirm(str);
-
-        if (type == true) {
-            window.open("/cart")
+        if ("<%=userEmail%>" == "") {
+            alert("로그인이 필요한 서비스입니다.");
+            window.open("/login");
+        } else {
+            let str = "🫡장바구니에 담겼습니다! \n 장바구니 페이지로 이동할까요?";
+            let type;
+            type = confirm(str);
+            if (type) {
+                window.location.href = "/cart";
+            }
         }
     }
 </script>
