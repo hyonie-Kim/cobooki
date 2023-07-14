@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/adminPage.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="../css/adminPage.css" />
-  <link rel="stylesheet" href="../css/header.css" />
-  <link rel="stylesheet" href="../css/footer.css" />
-</head>
-
-<body>
-  <%- include('../header02.ejs') %>
+  <body>
+    <%- include('../header02.ejs') %>
     <div class="user-container">
       <div class="container-background">
         <div class="user-list">
           <div class="title">
-            <div>
-              회원관리 <span>(총 회원 수 : <%=users.length%> 명)</span>
-            </div>
+            <div>회원관리 <span>(총 회원 수 : <%=users.length%> 명)</span></div>
           </div>
           <!-- 회원 정보 항목 -->
           <div class="info-item">
@@ -31,28 +28,24 @@
           <!-- 회원 목록 -->
           <form>
             <% users.forEach((users)=>{%>
-              <div class="user row">
-                <div class="user-info">
-                  <%=users.createdAt.toLocaleString('ko-KR')%>
-                </div>
-                <div id="email" class="user-info">
-                  <%=users.email%>
-                </div>
-                <div class="user-info">
-                  <%=users.name%>
-                </div>
-                <div class="user-info">
-                  <select name="select">
-                    <option value="일반사용자" selected>일반사용자</option>
-                    <option value="관리자">관리자</option>
-                    <input class="ok" type="submit" value="확인">
-                  </select>
-                </div>
-                <div class="user-info">
-                  <button onclick="membershipDelete()">회원정보 삭제</button>
-                </div>
+            <div class="user row">
+              <div class="user-info">
+                <%=users.createdAt.toLocaleString('ko-KR')%>
               </div>
-              <%})%>
+              <div id="email" class="user-info"><%=users.email%></div>
+              <div class="user-info"><%=users.name%></div>
+              <div class="user-info">
+                <select name="select">
+                  <option value="일반사용자" selected>일반사용자</option>
+                  <option value="관리자">관리자</option>
+                  <input class="ok" type="submit" value="확인" />
+                </select>
+              </div>
+              <div class="user-info">
+                <button onclick="membershipDelete()">회원정보 삭제</button>
+              </div>
+            </div>
+            <%})%>
           </form>
         </div>
       </div>
@@ -65,13 +58,13 @@
         <h1></h1>
         <ul class="list">
           <li>
-            <a href="admin/order" class="orderManagement">주문 관리</a>
+            <a href="admin/orders" class="orderManagement">주문 관리</a>
           </li>
           <li>
             <a href="/admin" class="menberManagement">회원 관리</a>
           </li>
           <li>
-            <a href="admin/upload" class="addProduct">상품 등록 </a>
+            <a href="admin/products" class="addProduct">상품 등록 </a>
           </li>
         </ul>
       </div>
@@ -85,12 +78,12 @@
 
       //form 데이터 보내기
       const form = document.querySelector("form");
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault()
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
         const data = {
           email: form.email.value,
-          role: form.select.value
-        }
+          role: form.select.value,
+        };
         //axios.post()
         await axios({
           method: "put",
@@ -98,13 +91,12 @@
           data: data,
         }).then((response) => {
           if (response.status == 200) {
-            alert('변경되었습니다.')
-            console.log("success", response)
+            alert("변경되었습니다.");
+            console.log("success", response);
             window.location.href = "/";
           }
-        })
+        });
       });
     </script>
-</body>
-
+  </body>
 </html>
