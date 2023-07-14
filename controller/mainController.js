@@ -10,11 +10,17 @@ const mainController = {
         //   "====================================== 메인페이지 ===============",
         //   bookData
         // );
-        res.render("index", { bookData: bookData });
+        res.render("index", {
+          bookData: bookData,
+          userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
+        });
       })
       .catch((err) => {
         console.log(err);
-        res.render("index", { bookData: [] });
+        res.render("index", {
+          bookData: [],
+          userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
+        });
       });
   },
 
@@ -27,7 +33,10 @@ const mainController = {
           bookInfo
         );
         // res.send({ bookInfo: docInfo });
-        res.render("detailPage", { bookInfo });
+        res.render("detailPage", {
+          bookInfo,
+          userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
+        });
       });
   },
 
@@ -39,11 +48,17 @@ const mainController = {
           "====================================== 카테고리 페이지 ===============",
           bookData
         );
-        res.render("products", { bookData: bookData });
+        res.render("products", {
+          bookData: bookData,
+          userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
+        });
       })
       .catch((err) => {
         console.log(err);
-        res.render("products", { bookData: [] });
+        res.render("products", {
+          bookData: [],
+          userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
+        });
       });
   },
 
