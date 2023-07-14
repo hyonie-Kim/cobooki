@@ -19,13 +19,19 @@
                     <div class="productInfo">
                         <h4> 주문 상품 정보</h4>
                         <div class="orderBookInfoBox">
-                            <img class="orderBookCover" src="https://image.yes24.com/goods/92742567/XL" alt="상품사진">
+                            <img class="orderBookCover" src="../imgs/noImage.png" alt="상품사진">
                             <div class="orderBookInfo">
-                                <div class="orderBookInfo_Category">{category}</div>
-                                <div class="orderBookInfoTitle">{모던 자바스크립트 Deep Dive}</div>
-                                <div class="orderBookInfoProductPrice">권당 {개당 가격} 원</div>
+                                <div class="orderBookInfo_Category">
+                                    <%=bookInfo.category%>
+                                </div>
+                                <div class="orderBookInfoTitle">
+                                    <%=bookInfo.productName%>
+                                </div>
+                                <div class="orderBookInfoProductPrice">권당&nbsp;<%=bookInfo.price.toLocaleString()%>
+                                        &nbsp;원
+                                </div>
 
-                                <div class="orderBookInfoCount">총 {n} 권</div>
+                                <div class="orderBookInfoCount">총&nbsp;&nbsp;1&nbsp;권</div>
                                 <div class="orderBookInfoDelivery">배송비 3,000원 </div>
                             </div>
                         </div>
@@ -35,7 +41,11 @@
 
                     <!-- 배송지/수령인 정보 -->
                     <div class="orderUserInfo">
-                        <h4> 배송지 / 수령인 정보</h4>
+
+                        <div class='title-write'>
+                            <h4> 배송지 / 수령인 정보</h4>
+                        </div>
+
                         <div class="userInfoBox">
 
                             <table width="1500" height="300">
@@ -44,7 +54,8 @@
                                         배송받을 주소
                                     </td>
                                     <td width="600">
-                                        <input type="text" name="userAddress" value="{서버에 있는 userAdress 정보}">
+                                        <input type="text" name="userAddress"
+                                            value="<%=(userInfo!=null)?userInfo.address:''%>">
                                     </td>
                                 </tr>
                                 <tr height="70">
@@ -52,7 +63,8 @@
                                         주문자 이름
                                     </td>
                                     <td>
-                                        <input type="text" name="userName" value="{서버에 있는 userName  정보}">
+                                        <input type="text" name="userName"
+                                            value="<%=(userInfo!=null)?userInfo.name:''%>">
                                     </td>
                                 </tr>
                                 <tr height="70">
@@ -60,7 +72,8 @@
                                         주문자 전화번호
                                     </td>
                                     <td>
-                                        <input type="text" name="userName" value="{서버에 있는 userPhone  정보}">
+                                        <input type="text" name="userName"
+                                            value="<%=(userInfo!=null)?userInfo.phone:''%>">
                                     </td>
                                 </tr>
                             </table>
@@ -72,7 +85,7 @@
 
                     <!-- 결제방법 & 총 결제 금액 BOX -->
                     <!-- 결제방법 -->
-                    <div class="makePaymentAndTotalPrice">
+                    <div class=" makePaymentAndTotalPrice">
                         <div class="makePaymentBox">
                             <h4>결제방법</h4>
                             <div class="makePayments">
@@ -100,7 +113,9 @@
                                                 상품 금액
                                             </td>
                                             <td width=80 class="total-price-input">
-                                                <input type="text" name="bookPrice" value="{서버에 있는 bookPrice 정보}">
+                                                <input type="text" name="bookPrice"
+                                                    value=<%=(bookInfo.price).toLocaleString()%>&nbsp;원
+                                                >
                                             </td>
                                         </tr>
                                         <tr height="50" class="total-price-title">
@@ -108,7 +123,7 @@
                                                 배송비
                                             </td>
                                             <td width="80" class="total-price-input">
-                                                <input type="text" name="deliveryPee" value="{서버에 있는 deliveryPee 정보}">
+                                                <input type="text" name="deliveryPee" value="3,000&nbsp;원">
                                             </td>
                                         </tr>
                                         <tr height="50" class="total-price-title">
@@ -116,7 +131,9 @@
                                                 총 결제금액
                                             </td>
                                             <td width=80 class="total-price-input">
-                                                <input type="text" name="totalPrice" value="{서버에 있는 totalPrice 정보}">
+                                                <input type="text" name="totalPrice"
+                                                    value=<%=(bookInfo.price+3000).toLocaleString()%>&nbsp;원
+                                                >
                                             </td>
                                         </tr>
                                     </table>
@@ -131,7 +148,6 @@
 
                                     <input type="submit" onclick="moveOrderCheck()" name="checkButton" value="결제하기"
                                         class="totalPriceBox03" disabled />
-                                    <!-- <div class="totalPriceBox03">총 {n}원 결제하기</div> -->
 
 
                                 </form>
@@ -154,7 +170,7 @@
         type = confirm(str);
 
         if (type == true) {
-            window.open("/mypage/ordercheck")
+            window.open("/ordercheck")
         } else {
             window.location.assign('/')
         }

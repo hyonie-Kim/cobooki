@@ -36,33 +36,29 @@ router.get("/logout", auth.authentication, commonController.logout);
 
 // 로그인/로그아웃
 router.post("/api/login", commonController.signIn);
-router.post(
-  "/api/signup",
-  [
-    body("email")
-      .trim()
-      .isLength({ min: 5 })
-      .isEmail()
-      .withMessage("다섯 자 이상 입력해 주세요."),
-    body("password")
-      .trim()
-      .isLength({ min: 8 })
-      .withMessage("8~10자리 비밀번호를 입력해주세요."),
-    body("name")
-      .trim()
-      .isLength({ min: 2 })
-      .withMessage("두 자 이상 입력해 주세요."),
-    body("phone")
-      .trim()
-      .isLength({ min: 10 })
-      .withMessage("핸드폰 번호를 다시 입력해 주세요."),
-    body("address")
-      .isLength({ min: 5 })
-      .withMessage("다섯 자 이상 입력해주세요."),
+router.post("/api/signup", [
+  body("email")
+    .trim()
+    .isLength({ min: 5 })
+    .isEmail()
+    .withMessage("다섯 자 이상 입력해 주세요."),
+  body("password")
+    .trim()
+    .isLength({ min: 8 })
+    .withMessage("8~10자리 비밀번호를 입력해주세요."),
+  body("name")
+    .trim()
+    .isLength({ min: 2 })
+    .withMessage("두 자 이상 입력해 주세요."),
+  body("phone")
+    .trim()
+    .isLength({ min: 10 })
+    .withMessage("핸드폰 번호를 다시 입력해 주세요."),
+  body("address")
+    .isLength({ min: 5 })
+    .withMessage("다섯 자 이상 입력해주세요."),
 
-    validator.validationChecker,
-  ],
-  commonController.signUp
-);
+  validator.validationChecker,
+]);
 
 module.exports = router;
