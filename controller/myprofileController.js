@@ -7,7 +7,10 @@ const myprofileController = {
       .exec()
       .then((userInfo) => {
         console.log(userInfo);
-        res.render("myProfile", { userInfo: userInfo });
+        res.render("myProfile", {
+          userInfo: userInfo,
+          userEmail: (req.session.userEmail != null) ? req.session.userEmail : null
+        });
       });
   },
 };
