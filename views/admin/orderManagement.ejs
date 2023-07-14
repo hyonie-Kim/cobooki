@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/orderManagement.css" />
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <%- include('../header02.ejs') %>
 
@@ -32,11 +33,7 @@
             </div>
             <div>
               <p class="str">상품배송중</p>
-              <p class="num">3</p>
-            </div>
-            <div>
-              <p class="str">상품배송중</p>
-              <p class="num">2</p>
+              <p class="num">1</p>
             </div>
             <div>
               <p class="str">배송완료</p>
@@ -64,7 +61,16 @@
               <p>취소</p>
             </div>
           </div>
+          <% for(var i=0 ; i< orders.length; i++) { %>
           <!-- 사용자가 주문한 목록 -->
+          <form id="orderIdByform">
+            <input type="hidden" name="orderId" value="<%=orders[i]._id%>" />
+            <input
+              type="hidden"
+              name="ordererId"
+              value="<%=orders[i].orderedBy%>"
+            />
+          </form>
           <div class="row row-all">
             <div class="order-date one">
               <!-- 주문 일자 -->
@@ -76,7 +82,7 @@
             </div>
             <!-- 주문총액 -->
             <div class="three">
-              <p>22,000</p>
+              <p><%=orders[i].price%></p>
             </div>
             <div class="four">
               <!-- 상태관리 -->
@@ -95,6 +101,7 @@
               <button onclick="orderDelete()">주문 취소</button>
             </div>
           </div>
+          <% } %>
         </div>
       </div>
     </div>
@@ -121,11 +128,41 @@
       function orderDelete() {
         const rowRemove = document.querySelector(".row");
         rowRemove.remove();
+
+        const orderId = document.getElementById("orderIdByform").orderId.value;
+        const ordererId =
+          document.getElementById("orderIdByform").ordererId.value;
+        axios
+          .delete(`/api/order/${orderId}`, {
+            data: {
+              ordererId,
+            },
+          })
+          .then((res) => {
+            if (res.status == 200) {
+              alert("주문 취소가 완료되었습니다!");
+            } else {
+              alert("서버 오류가 발생하였습니다. 잠시후 다시 시도해주세요!");
+            }
+          });
       }
       function orderConfirm() {
-        const orderId = localStorage.getItem("userData");
-        console.log(orderId);
-        // axios.put("/api/order/:orderId")
+        const orderId = document.getElementById("orderIdByform").orderId.value;
+        const ordererId =
+          document.getElementById("orderIdByform").ordererId.value;
+        const deliveryStatus = "배송 준비중";
+        axios
+          .put(`/api/order/${orderId}`, {
+            ordererId,
+            deliveryStatus,
+          })
+          .then((res) => {
+            if (res.status == 200) {
+              alert("주문 상태 수정이 완료되었습니다!");
+            } else {
+              alert("서버 오류가 발생하였습니다. 잠시후 다시 시도해주세요!");
+            }
+          });
       }
     </script>
   </body>
