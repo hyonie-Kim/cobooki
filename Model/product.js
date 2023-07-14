@@ -2,17 +2,13 @@ const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema(
   {
-    productName: {
+    name: {
       type: String,
       required: true,
     },
-    // author: {
-    //   type: String,
-    //   required: true,
-    // },
     category: {
       type: String,
-      // enum: ["프론트엔드", "백엔드", "CS지식"],
+      enum: ["프론트앤드", "프론트엔드", "백엔드", "CS지식"],
       required: true,
     },
     price: {

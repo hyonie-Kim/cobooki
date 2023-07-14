@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="../css/orderCheck.css">
-  <link rel="stylesheet" href="../css/header.css">
-  <link rel="stylesheet" href="../css/footer.css">
-</head>
-<%- include("header02.ejs") %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/orderCheck.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+  </head>
+  <%- include("header.ejs") %>
 
   <body>
     <!-- header, footer 빼고 wrap -->
@@ -33,6 +32,12 @@
             <div class="three table">
               <p>수량</p>
             </div>
+            <div class="three1 table">
+              <p>결제금액</p>
+            </div>
+            <div class="three2 table">
+              <p>배송상태</p>
+            </div>
             <div class="four table">
               <p>수령주소</p>
             </div>
@@ -47,7 +52,10 @@
             <div class="product-name two">
               <div class="img">
                 <!-- 이미지도 변수 -->
-                <img src="https://image.aladin.co.kr/product/29281/57/cover200/k382837902_1.jpg" alt="책 임시 이미지">
+                <img
+                  src="https://image.aladin.co.kr/product/29281/57/cover200/k382837902_1.jpg"
+                  alt="책 임시 이미지"
+                />
               </div>
               <!-- 책이름 변수 -->
               <label for="book-name">책이름</label>
@@ -55,6 +63,12 @@
             <!-- 수량 -->
             <div class="three">
               <p>00권</p>
+            </div>
+            <div class="three1 table">
+              <p>13000원</p>
+            </div>
+            <div class="three2 table">
+              <p>배송중</p>
             </div>
             <div class="four">
               <!-- 주소 변수 -->
@@ -75,37 +89,17 @@
         <h1></h1>
         <ul class="list">
           <li>
-            <a href="ordercheck" class="order">주문 내역</a>
+            <a href="/myprofile/orders" class="order">주문 내역</a>
           </li>
           <li>
-            <a href="/user/myProfile" class="myInfo">개인 정보 수정</a>
+            <a href="/myprofile" class="myInfo">개인 정보 수정</a>
           </li>
           <li>
-            <a href="/cart" class="cart">장바구니</a>
+            <a href="/carts" class="cart">장바구니</a>
           </li>
         </ul>
       </div>
     </nav>
     <%- include('./footer.ejs') %>
-
-      <script>
-        //화면 업데이트 - 총 주문 금액
-        // updateUI: function () {
-        //   //"총 주문 금액" 변수
-        //   let orderPrice = this.totalPrice;
-        //   document.querySelector('.order-price').textContent = `총 주문금액 ${orderPrice} + 총 배송비 3,000원 =`;
-        //   orderPrice = orderPrice.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,'); //1000 단위에 콤마
-        //   document.querySelector('.right').textContent = `총 결제금액 : ${orderPrice}원`;
-        // }
-
-
-        function updateUI() {
-          let orderPrice = 0;
-          let testOrder = document.querySelector('.order-price')
-          testOrder.textContent = `총 주문금액 ${orderPrice} + 총 배송비 3,000원 =`;
-        }
-
-      </script>
   </body>
-
 </html>

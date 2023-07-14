@@ -3,15 +3,15 @@
 
 <head>
     <!-- type="text/css"  -->
-    <link rel="stylesheet" href="/css/orderTest.css">
+    <link rel="stylesheet" href="/css/orderTest.css" />
     <!-- <link rel="stylesheet" href="/css/order.css"> -->
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
 </head>
 
 <body>
-    <%-include('header02.ejs') %>
-        <form>
+    <%-include('header.ejs') %>
+        <div>
             <div class="orderPageContainer">
                 <h3>주 문 서</h3>
                 <div class="orderBox">
@@ -19,13 +19,25 @@
                     <div class="productInfo">
                         <h4> 주문 상품 정보</h4>
                         <div class="orderBookInfoBox">
-                            <img class="orderBookCover" src="https://image.yes24.com/goods/92742567/XL" alt="상품사진">
+                            <img class="orderBookCover" src="../imgs/noImage.png" alt="상품사진">
                             <div class="orderBookInfo">
-                                <div class="orderBookInfo_Category">{category}</div>
-                                <div class="orderBookInfoTitle">{모던 자바스크립트 Deep Dive}</div>
-                                <div class="orderBookInfoProductPrice">권당 {개당 가격} 원</div>
+                                <div class="orderBookInfo_Category">
+                                    <%=product.category%>
+                                </div>
+                                <div class="orderBookInfoTitle">
+                                    <%=product.productName%>
+                                </div>
+                                <div class="orderBookInfoProductPrice">
+                                    권당&nbsp;
+                                    <%=product.price.toLocaleString() %>
+                                        &nbsp;원
+                                </div>
 
-                                <div class="orderBookInfoCount">총 {n} 권</div>
+                                <div class="add-book-count">
+                                    <input type="number" step="1" min="1" value="1" id="books" name="itemCount"
+                                        onchange="addCount()">&ensp;권
+                                </div>
+
                                 <div class="orderBookInfoDelivery">배송비 3,000원 </div>
                             </div>
                         </div>
@@ -35,7 +47,11 @@
 
                     <!-- 배송지/수령인 정보 -->
                     <div class="orderUserInfo">
-                        <h4> 배송지 / 수령인 정보</h4>
+
+                        <div class='title-write'>
+                            <h4> 배송지 / 수령인 정보</h4>
+                        </div>
+
                         <div class="userInfoBox">
 
                             <table width="1500" height="300">
@@ -44,7 +60,8 @@
                                         배송받을 주소
                                     </td>
                                     <td width="600">
-                                        <input type="text" name="userAddress" value="{서버에 있는 userAdress 정보}">
+                                        <input type="text" name="userAddress"
+                                            value="<%=(userInfo!=null)?userInfo.address:''%>">
                                     </td>
                                 </tr>
                                 <tr height="70">
@@ -52,7 +69,8 @@
                                         주문자 이름
                                     </td>
                                     <td>
-                                        <input type="text" name="userName" value="{서버에 있는 userName  정보}">
+                                        <input type="text" name="userName"
+                                            value="<%=(userInfo!=null)?userInfo.name:''%>">
                                     </td>
                                 </tr>
                                 <tr height="70">
@@ -60,7 +78,8 @@
                                         주문자 전화번호
                                     </td>
                                     <td>
-                                        <input type="text" name="userName" value="{서버에 있는 userPhone  정보}">
+                                        <input type="text" name="userName"
+                                            value="<%=(userInfo!=null)?userInfo.phone:''%>">
                                     </td>
                                 </tr>
                             </table>
@@ -72,7 +91,7 @@
 
                     <!-- 결제방법 & 총 결제 금액 BOX -->
                     <!-- 결제방법 -->
-                    <div class="makePaymentAndTotalPrice">
+                    <div class=" makePaymentAndTotalPrice">
                         <div class="makePaymentBox">
                             <h4>결제방법</h4>
                             <div class="makePayments">
@@ -100,7 +119,9 @@
                                                 상품 금액
                                             </td>
                                             <td width=80 class="total-price-input">
-                                                <input type="text" name="bookPrice" value="{서버에 있는 bookPrice 정보}">
+                                                <input type="text" name="bookPrice" id='countBooks'
+                                                    value=<%=(product.price).toLocaleString()%>&nbsp;원
+                                                >
                                             </td>
                                         </tr>
                                         <tr height="50" class="total-price-title">
@@ -108,7 +129,7 @@
                                                 배송비
                                             </td>
                                             <td width="80" class="total-price-input">
-                                                <input type="text" name="deliveryPee" value="{서버에 있는 deliveryPee 정보}">
+                                                <input type="text" name="deliveryPee" value="3,000&nbsp;원">
                                             </td>
                                         </tr>
                                         <tr height="50" class="total-price-title">
@@ -116,40 +137,66 @@
                                                 총 결제금액
                                             </td>
                                             <td width=80 class="total-price-input">
-                                                <input type="text" name="totalPrice" value="{서버에 있는 totalPrice 정보}">
+                                                <input type="text" name="totalPrice" id='countBooks2'
+                                                    value=<%=(product.price+3000).toLocaleString()%>&nbsp;원
+                                                >
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
 
-                                <!-- <div>
-                                        <span class="totalPrice-info">상품 금액</span>
-                                        <span>{단가*권수}원</span>
+                                <form action="/user/orderCheck" method="get">
+                                    <div class="totalPriceBox02">
+                                        <input type="checkbox" style='zoom:1.2;' onClick="agreeCheck(this.form)"
+                                            class="change-color" />
+                                        주문 상품의 상품명 / 가격 / 배송비용 정보를 확인하였으며, 구매에 동의합니다.
                                     </div>
-                                    <div>
-                                        <span class="totalPrice-info">총 배송비용</span>
-                                        <span>3,000 원</span>
+                                    <div class="lastBtn">
+                                        <input type="submit" onclick="moveOrderCheck()" name="checkButton" value="결제하기"
+                                            class="totalPriceBox03" disabled />
                                     </div>
-                                    <div class="total-price-text">
-                                        <span class="totalPrice-info">총 결제 금액</span>
-                                        <span>{총 상품금액 + 배송비용}원</span>
-                                    </div>
-                                </div>-->
-
-                                <div class="totalPriceBox02"><input type="checkbox" style='zoom:1.2;' />
-                                    주문 상품의 상품명 / 가격 / 배송비용 정보를 확인하였으며, 구매에 동의합니다.</div>
-
-                                <a href="#">
-                                    <div class="totalPriceBox03">총 {n}원 결제하기</div>
-                                </a>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </form>
-        <%-include('footer.ejs') %>
+            </form>
+
+            <%-include('footer.ejs') %>
 </body>
+<script type="text/javascript">
+    //구매하기 버튼 클릭 시, alert창 띄우고 주문조회 페이지 이동
+    function moveOrderCheck() {
+        let str =
+            "😎주문이 완료되었습니다! 주문조회 페이지로 이동하시겠습니까? \n 취소 시, 메인페이지로 이동됩니다.";
+        let type;
+        type = confirm(str);
+
+        if (type == true) {
+            window.open("/myprofile/orders");
+        } else {
+            window.location.assign("/");
+        }
+    }
+
+    //약관동의 체크하지 않으면, 구매하기 버튼을 비활설화
+    function agreeCheck(frm) {
+        if (frm.checkButton.disabled == true) {
+            frm.checkButton.disabled = false;
+        } else {
+            frm.checkButton.disabled = true;
+        }
+    }
+
+    function addCount() {
+
+        let count = document.getElementById('books').value;
+        var total = count * parseInt("<%=product.price %>");
+        document.getElementById('countBooks').value = total.toLocaleString() + " 원";
+        document.getElementById('countBooks2').value = (total + 3000).toLocaleString() + " 원";
+        console.log(total);
+    }
+</script>
 
 </html>

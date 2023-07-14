@@ -6,6 +6,7 @@
     <title>마이페이지 탈퇴</title>
     <link rel="stylesheet" href="../css/deleteUser.css"></link>
     <link rel="stylesheet" href="../css/header.css"></link>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
@@ -17,20 +18,20 @@
           <h1></h1>
           <ul class="list">
             <li>
-              <a href="/mypage/ordercheck" class="order">주문 내역</a>
+              <a href="/myprofile/orders" class="order">주문 내역</a>
             </li>
             <li>
               <a href="/myProfile" class="myInfo">개인 정보 수정</a>
             </li>
             <li>
-              <a href="/cart" class="cart">장바구니</a>
+              <a href="/carts" class="cart">장바구니</a>
             </li>
           </ul>
         </div>
     </nav>
 
     <!--개인정보탈퇴 폼-->
-    <form class="deleteUserForm" action="/deleteUser" method="delete">
+    <form class="deleteUserForm">
         <div class="container">
           <div class="block account-header">
             <h1 class="subtitle is-4" id="securityTitle">회원 탈퇴</h1>
@@ -51,10 +52,34 @@
                     <h5 class="confirm">회원 탈퇴(이용약관 동의 철회)를 하시겠습니까?</h5>
                 </div>
                 <h6></h6>
-                <button type="button" onclick="location.href='/user/myProfile'" class="cancel-btn" id="cancelButton">취소</button>
-                <button type="button" onclick="location.href='/'" class="delete-btn" id="deleteButton">탈퇴</button>
+                <button type="button" onclick="location.href='/myProfile'" class="cancel-btn" id="cancelButton">취소</button>
+                <button type="submit" class="delete-btn" id="deleteButton">탈퇴</button>
             </div>
           </div>
     </form>
+
+    <script>
+        const form = document.querySelector(".deleteUserForm");
+        form.addEventListener("submit", handleDelete);
+        function handleDelete(e) {
+          e.preventDefault();
+          if (confirm("회원 탈퇴(이용약관 동의 철회)를 하시겠습니까?")) {
+            axios
+              .delete("/api/user")
+              .then((response) => {
+                console.log(response);
+                // alert(response.data.msg);
+                // if (response.status === 200) {
+                //   window.location.href = "/";
+                // }
+              })
+            //   .catch((error) => {
+            //     console.error(error);
+            //     alert("회원 탈퇴에 실패했습니다. 다시 시도해주세요.");
+            //   });
+          }
+        console.log("hehe");
+    }
+      </script>
   </body>
 </html>

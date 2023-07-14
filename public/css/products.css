@@ -61,7 +61,7 @@ main > h1 {
   background-size: cover;
 }
 
-/* 슬라이드 내 책 */
+/* 3 x 3 책 리스트 */
 
 .books {
   position: relative;
@@ -78,6 +78,8 @@ main > h1 {
   justify-items: center;
 }
 
+/* 각각의 책 */
+
 .book {
   width: 240px;
   height: 90%;
@@ -88,13 +90,19 @@ main > h1 {
   border-radius: 10px;
   position: relative;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  text-decoration: none;
+  color: #000000;
 }
 
 /* Focues된 책 강조  */
-
-.book:hover {
-  outline: 3px solid #547f5b;
-}
 
 .blurred {
   opacity: 0.5;
@@ -135,7 +143,7 @@ main > h1 {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  width: 80%;
+  width: 100%;
   height: 100%;
   padding: 10px;
   box-sizing: border-box;
@@ -143,27 +151,26 @@ main > h1 {
 
 .book-img {
   width: 100%;
-  height: 70%;
-  background-image: url("/imgs/banner01.png");
+  height: 75%;
+  margin: auto 0px;
+  background-size: contain;
+  background-position: -5px 40px;
+  background-repeat: no-repeat;
 }
 
 .book-info {
   width: 90%;
   height: 20%;
-  font-size: 15px;
+  font-size: 10px;
 }
 
 .book__name {
   font-weight: bold;
   margin-bottom: 10px;
-}
-
-.book__author {
-  font-size: 12px;
-  margin-bottom: 10px;
-  color: #adadad;
+  font-size: 15px;
 }
 
 .book__price {
   font-weight: bold;
+  font-size: 15px;
 }

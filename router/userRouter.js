@@ -1,11 +1,10 @@
 var router = require("express").Router();
 const { userController } = require("../controller");
+const { auth } = require("../middleware");
+const { validator } = require("../middleware");
 const { body } = require("express-validator");
-const { validationChecker } = require("../middleware/validator");
 
-router.get("/login", userController.signInRender);
-router.post("/login", userController.signIn);
-router.get("/signup", userController.signupRender);
+router.post("/login", userController.findUser);
 router.post(
   "/signup",
   [
@@ -13,7 +12,7 @@ router.post(
       .trim()
       .isLength({ min: 5 })
       .isEmail()
-      .withMessage("이메일을 다시 입력해 주세요."),
+      .withMessage("다섯 자 이상 입력해 주세요."),
     body("password")
       .trim()
       .isLength({ min: 8 })
@@ -21,19 +20,20 @@ router.post(
     body("name")
       .trim()
       .isLength({ min: 2 })
-      .withMessage("이름 다시 입력해 주세요."),
+      .withMessage("두 자 이상 입력해 주세요."),
     body("phone")
       .trim()
       .isLength({ min: 10 })
       .withMessage("핸드폰 번호를 다시 입력해 주세요."),
-    body("address").isLength({ min: 5 }).withMessage("주소를 입력해주세요."),
+    body("address")
+      .isLength({ min: 5 })
+      .withMessage("다섯 자 이상 입력해주세요."),
 
-    validationChecker,
+    validator.validationChecker,
   ],
-  userController.signUp
+  userController.createUser
 );
-router.get("/logout", userController.logOut);
-router.get("/myProfile", userController.myProfile);
-router.delete("/myProfile", userController.unregister);
+router.delete("/", auth.authentication, userController.deleteUser);
+router.put("/", auth.authentication, userController.updateUser);
 
 module.exports = router;

@@ -55,13 +55,13 @@
 
                 <div class="detail-cart-payment">
 
-                    <div class="detail-add-cart">
+                    <button class="detail-add-cart" onclick="moveCart()">
                         <span class="material-symbols-outlined">add_shopping_cart </span>
                         <span class="add-cart-text">장바구니 담기</span>
-                    </div>
-                    <div class="add-book-count"><input type="number" step="1" min="1" value="1">&ensp;권</div>
+                    </button>
+                    <div class="add-book-count"><input type="number" step="1" min="1" value="1" id="books">&ensp;권</div>
 
-                    <div class="detail-payment-btn">구매하기</div>
+                    <button class="detail-payment-btn" onclick="booksPrice()">구매하기</button>
 
                 </div>
             </div>
@@ -70,23 +70,25 @@
         <!-- <%-include('footer.ejs') %> -->
 </body>
 
-<!-- 
 <script>
 
-    //상품설명 펼쳐보기 이벤트
-    document.querySelector(".detail-explain-btn01").addEventListener("click", longExplain);
-
-    function longExplain() {
-        document.querySelector(".detail-exam2 ").className = 'detail-exam1';
-    }
-
-    //상품설명 접어보기 이벤트
-    document.querySelector(".detail-explain-btn02").addEventListener("click", shortExplain);
-    function shortExplain() {
-        document.querySelector(".detail-exam1").className = 'detail-exam2';
+    //구매하기 클릭 시 오더페이지로 이동
+    function booksPrice() {
+        window.location.assign('/orders')
     }
 
 
-</script> -->
+    //장바구니 담으면 confirm 띄워서 이동할지, 말지 선택하기
+    function moveCart() {
+        let str = "🫡장바구니에 담겼습니다! \n 장바구니 페이지로 이동할까요?";
+        let type;
+        type = confirm(str);
+
+        if (type == true) {
+            window.open("/cart")
+        }
+    }
+
+</script>
 
 </html>
