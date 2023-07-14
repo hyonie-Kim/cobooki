@@ -1,13 +1,11 @@
 const userController = require("./userController");
-const adminController = require("./adminController");
-const mainController = require("./mainController");
 const ordersController = require("./ordersController");
-const myprofileController = require("./myprofileController");
+const productController = require("./productController");
+const commonController = require("./commonController");
 
 module.exports = {
   userController,
-  adminController,
-  mainController,
   ordersController,
-  myprofileController,
+  productController,
+  commonController,
 };
