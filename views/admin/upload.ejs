@@ -38,7 +38,7 @@
           <h1 class="subtitle">관리자 상품 등록</h1>
         </div>
         <div class="register-product-form-container">
-          <form class="box register-product-form-box" id="registerProductForm" action="/admin/post/upload" method="POST">
+          <form class="box register-product-form-box" id="registerProductForm" action="/admin/upload" method="POST">
             <p class="title is-5 has-text-primary">상품 등록</p>
             <div class="field">
               <label class="label" for="productName">상품 이름</label>
@@ -125,7 +125,7 @@
             price: form.price.value,
           };
 
-          axios.post('/admin/post/upload', data)
+          axios.post('/api/admin/upload', data)
             .then((response) => {
                 console.log(response.data);
                 alert('상품이 성공적으로 등록되었습니다.');
