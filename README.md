@@ -16,6 +16,9 @@
 - 백엔드: Node.js, Express.js, MongoDB
 - 배포: PM2
 
+## 🔗API 명세
+
+![api](https://github.com/hyonie-Kim/cobooki/assets/107483199/08fcb37d-0824-4459-9258-48eda41fa2a4)
 ## 📍개발 기간
 
 2023.07.03 ~ 2023.07.14(2주간)
